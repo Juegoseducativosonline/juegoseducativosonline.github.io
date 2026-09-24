@@ -1,0 +1,365 @@
+/*
+ * Sistema de diseño compartido de Juegos Educativos Online.
+ *
+ * Todas las páginas cargan este archivo. Cada juego añade después su propio
+ * <style> solo con lo que le es exclusivo (la rejilla posicional de la resta,
+ * el confeti de la división, etc.).
+ */
+
+:root {
+  /* Color */
+  --color-fondo: #667eea;
+  --color-fondo-alt: #764ba2;
+  --color-superficie: #ffffff;
+  --color-superficie-alt: #f4f6fa;
+  --color-texto: #22283b;
+  --color-texto-suave: #5b6478;
+  --color-borde: #dfe3ec;
+
+  --color-primario: #3b62d9;
+  --color-primario-oscuro: #2a49a8;
+  --color-acento: #e0602c;
+  --color-acento-oscuro: #b8471a;
+
+  --color-exito: #1c6b3f;
+  --color-exito-fondo: #e2f5ea;
+  --color-exito-borde: #a9dcc0;
+  --color-error: #a3232f;
+  --color-error-fondo: #fdeaec;
+  --color-error-borde: #f3bcc2;
+
+  /* Tipografía */
+  --fuente: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+
+  /* Espaciado y formas */
+  --radio: 14px;
+  --radio-pildora: 999px;
+  --sombra: 0 10px 30px rgba(22, 28, 45, 0.15);
+  --sombra-suave: 0 2px 8px rgba(22, 28, 45, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 40px;
+  font-family: var(--fuente);
+  color: var(--color-texto);
+  background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-fondo-alt) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* --- Accesibilidad ------------------------------------------------------ */
+
+:focus-visible {
+  outline: 3px solid #ffcc33;
+  outline-offset: 2px;
+}
+
+.salto-contenido {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  padding: 12px 20px;
+  border-radius: 0 0 var(--radio) 0;
+  z-index: 1100;
+}
+
+.salto-contenido:focus {
+  left: 0;
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Navegación --------------------------------------------------------- */
+
+.nav-sitio {
+  background: var(--color-superficie);
+  border-bottom: 1px solid var(--color-borde);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: center;
+}
+
+.nav-sitio a {
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 4px;
+  border-radius: 6px;
+}
+
+.nav-sitio a:hover {
+  text-decoration: underline;
+}
+
+.nav-sitio a[aria-current='page'] {
+  color: var(--color-texto);
+  text-decoration: none;
+  cursor: default;
+}
+
+/* --- Estructura --------------------------------------------------------- */
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: var(--color-superficie);
+  border-radius: 20px;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(45deg, var(--color-primario), var(--color-fondo-alt));
+  color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+}
+
+.header p {
+  margin: 0;
+  opacity: 0.92;
+}
+
+.content {
+  padding: 30px 24px;
+}
+
+.card {
+  background: var(--color-superficie-alt);
+  border-radius: var(--radio);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+/* --- Botones ------------------------------------------------------------ */
+
+.btn,
+.level-btn,
+.check-btn,
+.control-btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radio-pildora);
+  padding: 12px 22px;
+  cursor: pointer;
+  color: #ffffff;
+  background: var(--color-primario);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.level-btn:hover,
+.check-btn:hover,
+.control-btn:hover {
+  background: var(--color-primario-oscuro);
+  transform: translateY(-2px);
+}
+
+.btn:disabled,
+.check-btn:disabled,
+.control-btn:disabled {
+  background: var(--color-texto-suave);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-acento,
+.new-btn,
+.new-problem-btn {
+  background: var(--color-acento);
+}
+
+.btn-acento:hover,
+.new-btn:hover,
+.new-problem-btn:hover {
+  background: var(--color-acento-oscuro);
+}
+
+/* Botón de nivel: el estado activo se marca con aria-pressed, no solo color. */
+.level-btn {
+  background: var(--color-texto-suave);
+}
+
+.level-btn:hover {
+  background: var(--color-texto);
+}
+
+.level-btn.active,
+.level-btn[aria-pressed='true'] {
+  background: var(--color-exito);
+}
+
+.level-selector,
+.level-buttons,
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+/* --- Entrada de respuesta ----------------------------------------------- */
+
+.answer-input {
+  font-family: inherit;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 12px 20px;
+  width: min(220px, 100%);
+  border: 3px solid var(--color-borde);
+  border-radius: var(--radio-pildora);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+}
+
+.answer-input:focus {
+  border-color: var(--color-primario);
+  outline-offset: 1px;
+}
+
+.answer-input.correcto {
+  border-color: var(--color-exito);
+  background: var(--color-exito-fondo);
+}
+
+.answer-input.incorrecto {
+  border-color: var(--color-error);
+  background: var(--color-error-fondo);
+}
+
+/* --- Retroalimentación --------------------------------------------------- */
+
+.feedback {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 20px 0;
+  padding: 16px;
+  border-radius: var(--radio);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.feedback.correct {
+  background: var(--color-exito-fondo);
+  color: var(--color-exito);
+  border-color: var(--color-exito-borde);
+}
+
+.feedback.incorrect {
+  background: var(--color-error-fondo);
+  color: var(--color-error);
+  border-color: var(--color-error-borde);
+}
+
+.hidden {
+  display: none;
+}
+
+/* --- Estadísticas -------------------------------------------------------- */
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 16px;
+  background: var(--color-superficie-alt);
+  padding: 20px;
+  border-radius: var(--radio);
+  margin-top: 24px;
+}
+
+.stat-item {
+  text-align: center;
+  min-width: 80px;
+}
+
+.stat-number,
+.stat-value {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--color-texto);
+}
+
+.stat-label {
+  color: var(--color-texto-suave);
+  font-size: 0.85rem;
+}
+
+/* --- Pie ----------------------------------------------------------------- */
+
+.pie-sitio {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.pie-sitio a {
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 16px 10px;
+    border-radius: var(--radio);
+  }
+
+  .content {
+    padding: 20px 16px;
+  }
+
+  .level-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}

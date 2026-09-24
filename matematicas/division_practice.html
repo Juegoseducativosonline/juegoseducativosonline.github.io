@@ -1,503 +1,349 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica de División - 1 a 5 Cifras</title>
-    <style>
-            nav {
-  background: #ffffff;
-  border-bottom: 2px solid #ddd;
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-nav a {
-  text-decoration: none;
-  color: #42a5f5;
-  font-weight: bold;
-  font-size: 1.1em;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Práctica de División — Juegos Educativos Online</title>
+  <meta name="description" content="Practica divisiones exactas de 1 a 5 cifras con rachas, subida automática de nivel y estadísticas de precisión." />
+  <link rel="canonical" href="https://juegoseducativosonline.github.io/matematicas/division_practice.html" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Juegos Educativos Online" />
+  <meta property="og:title" content="Práctica de División" />
+  <meta property="og:description" content="Divisiones exactas de 1 a 5 cifras con rachas y niveles." />
+  <meta property="og:url" content="https://juegoseducativosonline.github.io/matematicas/division_practice.html" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .problem-area {
+      text-align: center;
+      margin: 24px 0;
+      padding: 32px 20px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border-radius: var(--radio);
+      color: #ffffff;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .division-problem {
+      font-size: clamp(2rem, 8vw, 3rem);
+      font-weight: bold;
+      margin: 0 0 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
 
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+    .acciones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
 
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            padding: 30px;
-            max-width: 800px;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: var(--color-borde);
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
 
-        h1 {
-            text-align: center;
-            color: #4a5568;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(45deg, #4ecdc4, #44a08d);
+      transition: width 0.3s ease;
+    }
 
-        .level-selector {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
+    .celebration {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
 
-        .level-btn {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-        }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      animation: confetti-fall 3s linear forwards;
+    }
 
-        .level-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
-        }
-
-        .level-btn.active {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
-        }
-
-        .problem-area {
-            text-align: center;
-            margin: 30px 0;
-            padding: 30px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 15px;
-            color: white;
-        }
-
-        .division-problem {
-            font-size: 3em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .answer-input {
-            font-size: 2em;
-            padding: 15px;
-            border: 3px solid #fff;
-            border-radius: 10px;
-            text-align: center;
-            width: 200px;
-            margin: 0 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .answer-input:focus {
-            outline: none;
-            border-color: #4ecdc4;
-            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
-        }
-
-        .check-btn {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 20px 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
-        }
-
-        .check-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.6);
-        }
-
-        .next-btn {
-            background: linear-gradient(45deg, #feca57, #ff9ff3);
-        }
-
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .correct {
-            background: linear-gradient(45deg, #00b894, #00cec9);
-            color: white;
-            animation: bounce 0.5s ease;
-        }
-
-        .incorrect {
-            background: linear-gradient(45deg, #ff7675, #fd79a8);
-            color: white;
-            animation: shake 0.5s ease;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 20px;
-        }
-
-        .stat-item {
-            text-align: center;
-            color: #2d3436;
-        }
-
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            display: block;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-
-        .celebration {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        .confetti {
-            width: 10px;
-            height: 10px;
-            background: #ff6b6b;
-            position: absolute;
-            animation: confetti-fall 3s linear forwards;
-        }
-
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .level-up {
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #333;
-            animation: levelUpPulse 1s ease infinite;
-        }
-
-        @keyframes levelUpPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-    </style>
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-  <a href="/juegoseducativosonline/index.html">🏠 Inicio</a>
-</nav>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
 
-    <div class="container">
-        <h1>🧮 Práctica de División 🧮</h1>
-        
-        <div class="level-selector">
-            <button class="level-btn active" onclick="setLevel(1)">1 Cifra</button>
-            <button class="level-btn" onclick="setLevel(2)">2 Cifras</button>
-            <button class="level-btn" onclick="setLevel(3)">3 Cifras</button>
-            <button class="level-btn" onclick="setLevel(4)">4 Cifras</button>
-            <button class="level-btn" onclick="setLevel(5)">5 Cifras</button>
+  <nav class="nav-sitio" aria-label="Navegación principal">
+    <a href="/">🏠 Inicio</a>
+    <a href="/#matematicas">🧮 Matemáticas</a>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>🧮 Práctica de División</h1>
+      <p>Divisiones exactas: sube de nivel encadenando aciertos.</p>
+    </header>
+
+    <main class="content" id="contenido">
+      <div class="level-selector" role="group" aria-label="Nivel de dificultad">
+        <button type="button" class="level-btn" data-nivel="1" aria-pressed="true">1 Cifra</button>
+        <button type="button" class="level-btn" data-nivel="2" aria-pressed="false">2 Cifras</button>
+        <button type="button" class="level-btn" data-nivel="3" aria-pressed="false">3 Cifras</button>
+        <button type="button" class="level-btn" data-nivel="4" aria-pressed="false">4 Cifras</button>
+        <button type="button" class="level-btn" data-nivel="5" aria-pressed="false">5 Cifras</button>
+      </div>
+
+      <div class="progress-bar" role="progressbar" id="progressBar" aria-label="Precisión acumulada"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="problem-area">
+        <p class="division-problem" id="problem">8 ÷ 2 = ?</p>
+        <label class="solo-lectores" for="answerInput">Tu respuesta</label>
+        <input type="number" class="answer-input" id="answerInput" placeholder="?" inputmode="numeric" autocomplete="off" />
+        <div class="acciones">
+          <button type="button" class="check-btn" id="verificar">✓ Verificar</button>
+          <button type="button" class="check-btn next-btn" id="siguiente">➜ Siguiente</button>
         </div>
+      </div>
 
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
+      <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" id="correctCount">0</span>
+          <span class="stat-label">Correctas</span>
         </div>
-
-        <div class="problem-area">
-            <div class="division-problem" id="problem">8 ÷ 2 = ?</div>
-            <input type="number" class="answer-input" id="answerInput" placeholder="?">
-            <br>
-            <button class="check-btn" onclick="checkAnswer()">✓ Verificar</button>
-            <button class="check-btn next-btn" onclick="nextProblem()">➜ Siguiente</button>
+        <div class="stat-item">
+          <span class="stat-number" id="totalCount">0</span>
+          <span class="stat-label">Total</span>
         </div>
-
-        <div class="feedback" id="feedback"></div>
-
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-number" id="correctCount">0</span>
-                <span>Correctas</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="totalCount">0</span>
-                <span>Total</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="percentage">0%</span>
-                <span>Precisión</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="streak">0</span>
-                <span>Racha</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="toNextLevel">20</span>
-                <span>Para siguiente nivel</span>
-            </div>
+        <div class="stat-item">
+          <span class="stat-number" id="percentage">0%</span>
+          <span class="stat-label">Precisión</span>
         </div>
-    </div>
+        <div class="stat-item">
+          <span class="stat-number" id="streak">0</span>
+          <span class="stat-label">Racha</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="toNextLevel">20</span>
+          <span class="stat-label">Para siguiente nivel</span>
+        </div>
+      </div>
+    </main>
+  </div>
 
-    <div class="celebration" id="celebration"></div>
+  <div class="celebration" id="celebration" aria-hidden="true"></div>
 
-    <script>
-        let currentLevel = 1;
-        let currentDividend = 0;
-        let currentDivisor = 0;
-        let correctAnswer = 0;
-        let correctCount = 0;
-        let totalCount = 0;
-        let currentStreak = 0;
-        let maxStreak = 0;
+  <script src="/assets/site.js"></script>
+  <script>
+    (function () {
+      'use strict';
 
-        function setLevel(level) {
-            currentLevel = level;
-            
-            // Update button styles
-            document.querySelectorAll('.level-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            generateProblem();
+      var NIVEL_MAXIMO = 5;
+      var ACIERTOS_PARA_SUBIR = 20;
+      var ESPERA_SIGUIENTE_MS = 1500;
+      var ESPERA_SUBIR_NIVEL_MS = 2500;
+      var TROZOS_CONFETI = 50;
+      var RETARDO_CONFETI_MAX_S = 2;
+      /* Debe coincidir con la duración de @keyframes confetti-fall. */
+      var DURACION_CONFETI_S = 3;
+
+      /* Dividendo y divisor máximos de cada nivel, por índice de nivel - 1. */
+      var LIMITES = [
+        { dividendo: 9, divisor: 9 },
+        { dividendo: 99, divisor: 9 },
+        { dividendo: 999, divisor: 99 },
+        { dividendo: 9999, divisor: 99 },
+        { dividendo: 99999, divisor: 999 }
+      ];
+
+      var nivel = 1;
+      var dividendo = 0;
+      var divisor = 0;
+      var respuestaCorrecta = 0;
+      var aciertos = 0;
+      var intentos = 0;
+      var racha = 0;
+
+      /* Un único temporizador pendiente: evita que dos avances automáticos
+         se pisen si la persona responde o pulsa "Siguiente" mientras espera. */
+      var temporizador = null;
+      var limpiezaConfeti = null;
+
+      var elProblema = document.getElementById('problem');
+      var elRespuesta = document.getElementById('answerInput');
+      var elFeedback = document.getElementById('feedback');
+      var elCelebracion = document.getElementById('celebration');
+      var botonesNivel = document.querySelectorAll('.level-btn');
+
+      function programar(accion, retardoMs) {
+        cancelarPendiente();
+        temporizador = setTimeout(function () {
+          temporizador = null;
+          accion();
+        }, retardoMs);
+      }
+
+      function cancelarPendiente() {
+        if (temporizador !== null) {
+          clearTimeout(temporizador);
+          temporizador = null;
         }
+      }
 
-        function generateProblem() {
-            let maxDividend;
-            let maxDivisor;
+      function nuevoProblema() {
+        cancelarPendiente();
 
-            switch(currentLevel) {
-                case 1:
-                    maxDividend = 9;
-                    maxDivisor = 9;
-                    break;
-                case 2:
-                    maxDividend = 99;
-                    maxDivisor = 9;
-                    break;
-                case 3:
-                    maxDividend = 999;
-                    maxDivisor = 99;
-                    break;
-                case 4:
-                    maxDividend = 9999;
-                    maxDivisor = 99;
-                    break;
-                case 5:
-                    maxDividend = 99999;
-                    maxDivisor = 999;
-                    break;
-            }
+        var limite = LIMITES[nivel - 1];
 
-            do {
-                currentDivisor = Math.floor(Math.random() * maxDivisor) + 1;
-                let multiplier = Math.floor(Math.random() * Math.floor(maxDividend / currentDivisor)) + 1;
-                currentDividend = currentDivisor * multiplier;
-            } while (currentDividend > maxDividend || currentDividend < currentDivisor);
+        /* Se construye la división a partir del resultado para que siempre
+           sea exacta: dividendo = divisor × cociente. */
+        divisor = JEO.enteroAleatorio(1, limite.divisor);
+        var cociente = JEO.enteroAleatorio(1, Math.floor(limite.dividendo / divisor));
+        dividendo = divisor * cociente;
+        respuestaCorrecta = cociente;
 
-            correctAnswer = currentDividend / currentDivisor;
-            
-            document.getElementById('problem').textContent = `${currentDividend} ÷ ${currentDivisor} = ?`;
-            document.getElementById('answerInput').value = '';
-            document.getElementById('feedback').textContent = '';
-            document.getElementById('feedback').className = 'feedback';
-        }
+        elProblema.textContent = dividendo + ' ÷ ' + divisor + ' = ?';
+        elRespuesta.value = '';
+        elFeedback.textContent = '';
+        elFeedback.className = 'feedback';
+        elRespuesta.focus();
+      }
 
-        function checkAnswer() {
-            const userAnswer = parseInt(document.getElementById('answerInput').value);
-            const feedback = document.getElementById('feedback');
-
-            if (isNaN(userAnswer)) {
-                feedback.textContent = '¡Por favor ingresa un número!';
-                feedback.className = 'feedback incorrect';
-                return;
-            }
-
-            totalCount++;
-            
-            if (userAnswer === correctAnswer) {
-                correctCount++;
-                currentStreak++;
-                if (currentStreak > maxStreak) {
-                    maxStreak = currentStreak;
-                }
-                
-                feedback.textContent = `¡Excelente! ${currentDividend} ÷ ${currentDivisor} = ${correctAnswer} ✨`;
-                feedback.className = 'feedback correct';
-                
-                if (currentStreak % 5 === 0) {
-                    createConfetti();
-                }
-
-                // Pasar automáticamente al siguiente ejercicio después de 1.5 segundos
-                setTimeout(() => {
-                    generateProblem();
-                }, 1500);
-
-                // Pasar automáticamente al siguiente nivel después de 20 correctas consecutivas
-                if (currentStreak % 20 === 0 && currentLevel < 5) {
-                    setTimeout(() => {
-                        levelUp();
-                    }, 2000);
-                }
-            } else {
-                currentStreak = 0;
-                feedback.textContent = `Incorrecto. ${currentDividend} ÷ ${currentDivisor} = ${correctAnswer}. ¡Sigue intentando! 💪`;
-                feedback.className = 'feedback incorrect';
-            }
-
-            updateStats();
-        }
-
-        function levelUp() {
-            currentLevel++;
-            
-            // Update button styles
-            document.querySelectorAll('.level-btn').forEach((btn, index) => {
-                btn.classList.remove('active');
-                if (index + 1 === currentLevel) {
-                    btn.classList.add('active');
-                }
-            });
-
-            // Show level up message
-            const feedback = document.getElementById('feedback');
-            feedback.textContent = `🎉 ¡Nivel completado! Pasando a ${currentLevel} cifras... 🎉`;
-            feedback.className = 'feedback correct';
-            
-            // Create extra confetti for level up
-            createConfetti();
-            
-            setTimeout(() => {
-                generateProblem();
-            }, 3000);
-        }
-
-        function nextProblem() {
-            generateProblem();
-        }
-
-        function updateStats() {
-            document.getElementById('correctCount').textContent = correctCount;
-            document.getElementById('totalCount').textContent = totalCount;
-            
-            const percentage = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
-            document.getElementById('percentage').textContent = percentage + '%';
-            document.getElementById('streak').textContent = currentStreak;
-
-            // Calculate remaining for next level
-            const remaining = currentLevel < 5 ? 20 - (currentStreak % 20) : 0;
-            const toNextLevelElement = document.getElementById('toNextLevel');
-            if (currentLevel < 5) {
-                toNextLevelElement.textContent = remaining === 20 ? 20 : remaining;
-            } else {
-                toNextLevelElement.textContent = '¡Máximo!';
-            }
-
-            // Update progress bar
-            const progressFill = document.getElementById('progressFill');
-            progressFill.style.width = percentage + '%';
-        }
-
-        function createConfetti() {
-            const celebration = document.getElementById('celebration');
-            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
-            
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + 'vw';
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDelay = Math.random() * 3 + 's';
-                    celebration.appendChild(confetti);
-
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 3000);
-                }, i * 50);
-            }
-        }
-
-        // Allow Enter key to check answer
-        document.getElementById('answerInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkAnswer();
-            }
+      function marcarNivelActivo() {
+        botonesNivel.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', String(Number(btn.dataset.nivel) === nivel));
         });
+      }
 
-        // Initialize with first problem
-        generateProblem();
-    </script>
+      function seleccionarNivel(nuevoNivel) {
+        nivel = nuevoNivel;
+        racha = 0;
+        marcarNivelActivo();
+        actualizarEstadisticas();
+        nuevoProblema();
+      }
+
+      function subirNivel() {
+        nivel++;
+        racha = 0;
+        marcarNivelActivo();
+        actualizarEstadisticas();
+
+        elFeedback.textContent = '🎉 ¡Nivel completado! Pasando a ' + nivel + ' cifras... 🎉';
+        elFeedback.className = 'feedback correct';
+        lanzarConfeti();
+
+        programar(nuevoProblema, ESPERA_SUBIR_NIVEL_MS);
+      }
+
+      function verificar() {
+        var respuesta = parseInt(elRespuesta.value, 10);
+
+        if (isNaN(respuesta)) {
+          elFeedback.textContent = '¡Por favor ingresa un número!';
+          elFeedback.className = 'feedback incorrect';
+          return;
+        }
+
+        intentos++;
+
+        if (respuesta === respuestaCorrecta) {
+          aciertos++;
+          racha++;
+          elFeedback.textContent = '¡Excelente! ' + dividendo + ' ÷ ' + divisor + ' = ' + respuestaCorrecta + ' ✨';
+          elFeedback.className = 'feedback correct';
+
+          if (racha % 5 === 0) {
+            lanzarConfeti();
+          }
+
+          var subeDeNivel = racha >= ACIERTOS_PARA_SUBIR && nivel < NIVEL_MAXIMO;
+          programar(subeDeNivel ? subirNivel : nuevoProblema, ESPERA_SIGUIENTE_MS);
+        } else {
+          racha = 0;
+          elFeedback.textContent = 'Incorrecto. ' + dividendo + ' ÷ ' + divisor + ' = ' + respuestaCorrecta + '. ¡Sigue intentando! 💪';
+          elFeedback.className = 'feedback incorrect';
+        }
+
+        actualizarEstadisticas();
+      }
+
+      function actualizarEstadisticas() {
+        var precision = JEO.porcentaje(aciertos, intentos);
+
+        document.getElementById('correctCount').textContent = aciertos;
+        document.getElementById('totalCount').textContent = intentos;
+        document.getElementById('percentage').textContent = precision + '%';
+        document.getElementById('streak').textContent = racha;
+        document.getElementById('toNextLevel').textContent =
+          nivel < NIVEL_MAXIMO ? ACIERTOS_PARA_SUBIR - racha : '¡Máximo!';
+
+        document.getElementById('progressFill').style.width = precision + '%';
+        document.getElementById('progressBar').setAttribute('aria-valuenow', precision);
+      }
+
+      function lanzarConfeti() {
+        var colores = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
+
+        /* Cada lanzamiento sustituye al anterior: así el número de trozos vivos
+           está acotado aunque se encadenen varias celebraciones seguidas. */
+        clearTimeout(limpiezaConfeti);
+        elCelebracion.replaceChildren();
+
+        for (var i = 0; i < TROZOS_CONFETI; i++) {
+          var trozo = document.createElement('div');
+          trozo.className = 'confetti';
+          trozo.style.left = Math.random() * 100 + 'vw';
+          trozo.style.backgroundColor = JEO.alAzar(colores);
+          trozo.style.animationDelay = (Math.random() * RETARDO_CONFETI_MAX_S).toFixed(2) + 's';
+          /* Lo normal es que cada trozo se retire al acabar su propia animación,
+             para que los que tienen retardo no desaparezcan antes de caer. */
+          trozo.addEventListener('animationend', function () {
+            this.remove();
+          });
+          elCelebracion.appendChild(trozo);
+        }
+
+        /* Respaldo: con la pestaña en segundo plano el navegador congela las
+           animaciones y 'animationend' no llega nunca. Sin esto, el confeti se
+           acumularía en el DOM indefinidamente. */
+        limpiezaConfeti = setTimeout(function () {
+          elCelebracion.replaceChildren();
+        }, (RETARDO_CONFETI_MAX_S + DURACION_CONFETI_S) * 1000 + 500);
+      }
+
+      botonesNivel.forEach(function (boton) {
+        boton.addEventListener('click', function () {
+          seleccionarNivel(Number(boton.dataset.nivel));
+        });
+      });
+
+      document.getElementById('verificar').addEventListener('click', verificar);
+      document.getElementById('siguiente').addEventListener('click', nuevoProblema);
+
+      elRespuesta.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          verificar();
+        }
+      });
+
+      actualizarEstadisticas();
+      nuevoProblema();
+    })();
+  </script>
 </body>
 </html>

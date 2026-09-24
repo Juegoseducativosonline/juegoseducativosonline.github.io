@@ -1,628 +1,397 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica de Restas - Valor Posicional</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #dbeafe, #fdf4ff, #fce7f3);
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            color: #7c3aed;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #6b7280;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 24px;
-            margin-bottom: 24px;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            text-align: center;
-        }
-        
-        .stat-item {
-            padding: 16px;
-            border-radius: 8px;
-        }
-        
-        .stat-points { background: #dcfce7; color: #166534; }
-        .stat-attempts { background: #dbeafe; color: #1e40af; }
-        .stat-accuracy { background: #f3e8ff; color: #7c2d92; }
-        
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .level-selection {
-            text-align: center;
-        }
-        
-        .level-buttons {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-top: 16px;
-        }
-        
-        .level-btn {
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            background: #f3f4f6;
-            color: #374151;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .level-btn.active {
-            background: #7c3aed;
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .level-btn:hover {
-            background: #e5e7eb;
-        }
-        
-        .level-btn.active:hover {
-            background: #6d28d9;
-        }
-        
-        .problem-container {
-            text-align: center;
-        }
-        
-        .level-info {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin-bottom: 24px;
-        }
-        
-        .positional-headers {
-            font-size: 0.75rem;
-            color: #6b7280;
-            margin-bottom: 8px;
-        }
-        
-        .header-row {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 16px;
-        }
-        
-        .header-cell {
-            width: 48px;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .problem-display {
-            font-family: 'Courier New', monospace;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 24px;
-        }
-        
-        .number-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-            margin-bottom: 8px;
-        }
-        
-        .digit-cell {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid;
-            border-radius: 4px;
-        }
-        
-        .minuend { background: #dbeafe; border-color: #3b82f6; }
-        .subtrahend { background: #fee2e2; border-color: #ef4444; }
-        
-        .minus-sign {
-            width: 16px;
-            text-align: center;
-            color: #ef4444;
-            font-weight: bold;
-        }
-        
-        .line-row {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 16px;
-        }
-        
-        .line-cell {
-            width: 48px;
-            border-top: 2px solid #6b7280;
-        }
-        
-        .answer-input {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            border: 2px solid #d1d5db;
-            border-radius: 8px;
-            padding: 12px 16px;
-            width: 320px;
-            font-family: 'Courier New', monospace;
-            margin-bottom: 16px;
-        }
-        
-        .answer-input:focus {
-            outline: none;
-            border-color: #7c3aed;
-        }
-        
-        .check-btn {
-            background: linear-gradient(135deg, #7c3aed, #ec4899);
-            color: white;
-            border: none;
-            padding: 12px 32px;
-            border-radius: 8px;
-            font-size: 1.125rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .check-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
-        }
-        
-        .check-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .feedback {
-            margin-top: 24px;
-            padding: 16px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.125rem;
-            font-weight: bold;
-        }
-        
-        .feedback.correct {
-            background: #dcfce7;
-            color: #166534;
-            border: 2px solid #22c55e;
-        }
-        
-        .feedback.incorrect {
-            background: #fee2e2;
-            color: #dc2626;
-            border: 2px solid #ef4444;
-        }
-        
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-        }
-        
-        .control-btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .new-problem-btn {
-            background: #3b82f6;
-            color: white;
-        }
-        
-        .reset-btn {
-            background: #6b7280;
-            color: white;
-        }
-        
-        .control-btn:hover {
-            transform: translateY(-1px);
-        }
-        
-        .instructions {
-            background: #fefce8;
-            border: 2px solid #facc15;
-            border-radius: 12px;
-            padding: 16px;
-            margin-top: 24px;
-        }
-        
-        .instructions h3 {
-            color: #a16207;
-            margin-bottom: 8px;
-        }
-        
-        .instructions ul {
-            color: #a16207;
-            font-size: 0.875rem;
-            padding-left: 20px;
-        }
-        
-        .instructions li {
-            margin-bottom: 4px;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        @media (max-width: 640px) {
-            .level-buttons {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .answer-input {
-                width: 100%;
-                max-width: 280px;
-            }
-            
-            .controls {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Práctica de Resta con Valor Posicional — Juegos Educativos Online</title>
+  <meta name="description" content="Practica restas de 1 a 5 cifras viendo cada número alineado por su valor posicional: unidades, decenas, centenas, unidades y decenas de mil." />
+  <link rel="canonical" href="https://juegoseducativosonline.github.io/matematicas/resta_practice_html.html" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Juegos Educativos Online" />
+  <meta property="og:title" content="Práctica de Resta con Valor Posicional" />
+  <meta property="og:description" content="Restas de 1 a 5 cifras alineadas por valor posicional." />
+  <meta property="og:url" content="https://juegoseducativosonline.github.io/matematicas/resta_practice_html.html" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .level-info {
+      font-size: 0.875rem;
+      color: var(--color-texto-suave);
+      margin-bottom: 20px;
+    }
+
+    .positional-headers {
+      font-size: 0.75rem;
+      color: var(--color-texto-suave);
+      margin-bottom: 8px;
+    }
+
+    .header-row,
+    .number-row,
+    .line-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .header-row {
+      margin-bottom: 16px;
+    }
+
+    .line-row {
+      margin-bottom: 16px;
+    }
+
+    /* Hueco del mismo ancho que el signo "−", para que la fila de cabeceras y
+       la del minuendo queden alineadas con la del sustraendo. */
+    .espacio-signo,
+    .minus-sign {
+      width: 16px;
+      flex: none;
+      text-align: center;
+    }
+
+    .minus-sign {
+      color: #b91c1c;
+      font-weight: bold;
+    }
+
+    .header-cell {
+      width: 48px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .problem-display {
+      font-family: 'Courier New', monospace;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    .digit-cell {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid;
+      border-radius: 4px;
+    }
+
+    .minuend {
+      background: #dbeafe;
+      border-color: #3b82f6;
+    }
+
+    .subtrahend {
+      background: #fee2e2;
+      border-color: #ef4444;
+    }
+
+    .line-cell {
+      width: 48px;
+      border-top: 2px solid var(--color-texto-suave);
+    }
+
+    .problem-container {
+      text-align: center;
+    }
+
+    .instructions {
+      background: #fefce8;
+      border: 2px solid #facc15;
+      border-radius: var(--radio);
+      padding: 16px 20px;
+      margin-top: 24px;
+      color: #854d0e;
+    }
+
+    .instructions h2 {
+      font-size: 1.1rem;
+      margin: 0 0 8px;
+    }
+
+    .instructions ul {
+      font-size: 0.875rem;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 600px) {
+      .problem-display {
+        font-size: 1.4rem;
+      }
+
+      .digit-cell,
+      .line-cell,
+      .header-cell {
+        width: 34px;
+      }
+
+      .digit-cell {
+        height: 34px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>🧮 Práctica de Restas</h1>
-            <p>¡Mejora tus habilidades matemáticas!</p>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+  <nav class="nav-sitio" aria-label="Navegación principal">
+    <a href="/">🏠 Inicio</a>
+    <a href="/#matematicas">🧮 Matemáticas</a>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>🧮 Práctica de Resta</h1>
+      <p>¡Mejora tus habilidades matemáticas!</p>
+    </header>
+
+    <main class="content" id="contenido">
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" id="score">0</span>
+          <span class="stat-label">⭐ Puntos</span>
         </div>
-
-        <!-- Stats -->
-        <div class="card">
-            <div class="stats">
-                <div class="stat-item stat-points">
-                    <div>⭐ Puntos</div>
-                    <div class="stat-value" id="score">0</div>
-                </div>
-                <div class="stat-item stat-attempts">
-                    <div>🏆 Intentos</div>
-                    <div class="stat-value" id="attempts">0</div>
-                </div>
-                <div class="stat-item stat-accuracy">
-                    <div>✅ Precisión</div>
-                    <div class="stat-value" id="accuracy">0%</div>
-                </div>
-            </div>
+        <div class="stat-item">
+          <span class="stat-number" id="attempts">0</span>
+          <span class="stat-label">🎯 Intentos</span>
         </div>
-
-        <!-- Level Selection -->
-        <div class="card">
-            <div class="level-selection">
-                <h2>Selecciona el nivel de dificultad</h2>
-                <div class="level-buttons">
-                    <button class="level-btn active" data-level="1">1 cifra</button>
-                    <button class="level-btn" data-level="2">2 cifras</button>
-                    <button class="level-btn" data-level="3">3 cifras</button>
-                    <button class="level-btn" data-level="4">4 cifras</button>
-                    <button class="level-btn" data-level="5">5 cifras</button>
-                </div>
-            </div>
+        <div class="stat-item">
+          <span class="stat-number" id="accuracy">0%</span>
+          <span class="stat-label">✅ Precisión</span>
         </div>
+      </div>
 
-        <!-- Problem -->
-        <div class="card">
-            <div class="problem-container">
-                <div class="level-info" id="levelInfo">Nivel 1 - 1 cifra</div>
-                
-                <div class="positional-headers">Valor Posicional:</div>
-                <div class="header-row" id="headerRow">
-                    <div class="header-cell">U</div>
-                </div>
-
-                <div class="problem-display">
-                    <div class="number-row" id="minuendRow">
-                        <div class="digit-cell minuend">5</div>
-                    </div>
-                    <div class="number-row" id="subtrahendRow">
-                        <div class="minus-sign">-</div>
-                        <div class="digit-cell subtrahend">3</div>
-                    </div>
-                    <div class="line-row" id="lineRow">
-                        <div class="line-cell"></div>
-                    </div>
-                </div>
-                
-                <input type="number" id="userAnswer" class="answer-input" placeholder="Tu respuesta">
-                
-                <div>
-                    <button id="checkBtn" class="check-btn">Verificar Respuesta</button>
-                </div>
-
-                <div id="feedback" class="feedback hidden"></div>
-            </div>
+      <div class="card">
+        <h2>Selecciona el nivel de dificultad</h2>
+        <div class="level-buttons" role="group" aria-label="Nivel de dificultad">
+          <button type="button" class="level-btn" data-level="1" aria-pressed="true">1 cifra</button>
+          <button type="button" class="level-btn" data-level="2" aria-pressed="false">2 cifras</button>
+          <button type="button" class="level-btn" data-level="3" aria-pressed="false">3 cifras</button>
+          <button type="button" class="level-btn" data-level="4" aria-pressed="false">4 cifras</button>
+          <button type="button" class="level-btn" data-level="5" aria-pressed="false">5 cifras</button>
         </div>
+      </div>
 
-        <!-- Controls -->
-        <div class="controls">
-            <button id="newProblemBtn" class="control-btn new-problem-btn">
-                🔄 Nuevo Problema
-            </button>
-            <button id="resetBtn" class="control-btn reset-btn">
-                Reiniciar Juego
-            </button>
+      <div class="card">
+        <div class="problem-container">
+          <p class="level-info" id="levelInfo">Nivel 1 - 1 cifra</p>
+
+          <p class="positional-headers" id="etiquetaPosicional">Valor Posicional:</p>
+          <div class="header-row" id="headerRow" aria-hidden="true"></div>
+
+          <div class="problem-display" id="problemDisplay" role="img" aria-label="">
+            <div class="number-row" id="minuendRow"></div>
+            <div class="number-row" id="subtrahendRow"></div>
+            <div class="line-row" id="lineRow"></div>
+          </div>
+
+          <label class="solo-lectores" for="userAnswer">Tu respuesta</label>
+          <input type="number" id="userAnswer" class="answer-input" placeholder="Tu respuesta" inputmode="numeric" autocomplete="off" />
+
+          <div class="controls">
+            <button type="button" id="checkBtn" class="check-btn">Verificar Respuesta</button>
+            <button type="button" id="newProblemBtn" class="control-btn new-problem-btn">🔄 Nuevo Problema</button>
+            <button type="button" id="resetBtn" class="control-btn">Reiniciar Juego</button>
+          </div>
+
+          <p id="feedback" class="feedback hidden" role="status" aria-live="polite"></p>
         </div>
+      </div>
 
-        <!-- Instructions -->
-        <div class="instructions">
-            <h3>📝 Instrucciones:</h3>
-            <ul>
-                <li>• Selecciona el nivel de dificultad (1 a 5 cifras)</li>
-                <li>• Observa cómo cada cifra está alineada en su valor posicional</li>
-                <li>• Resta columna por columna, de derecha a izquierda</li>
-                <li>• U = Unidades, D = Decenas, C = Centenas, UM = Unidad de Mil, DM = Decena de Mil, CM = Centena de Mil</li>
-                <li>• Escribe tu respuesta y presiona "Verificar" o Enter</li>
-            </ul>
-        </div>
-    </div>
+      <section class="instructions">
+        <h2>📝 Instrucciones</h2>
+        <ul>
+          <li>Selecciona el nivel de dificultad (1 a 5 cifras).</li>
+          <li>Observa cómo cada cifra está alineada en su valor posicional.</li>
+          <li>Resta columna por columna, de derecha a izquierda.</li>
+          <li>U = Unidades, D = Decenas, C = Centenas, UM = Unidad de Mil, DM = Decena de Mil.</li>
+          <li>Escribe tu respuesta y pulsa «Verificar» o Enter.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
 
-    <script>
-        class RestaPractice {
-            constructor() {
-                this.level = 1;
-                this.problem = { minuend: 0, subtrahend: 0 };
-                this.score = 0;
-                this.attempts = 0;
-                
-                this.levels = {
-                    1: { name: '1 cifra', min: 1, max: 9 },
-                    2: { name: '2 cifras', min: 10, max: 99 },
-                    3: { name: '3 cifras', min: 100, max: 999 },
-                    4: { name: '4 cifras', min: 1000, max: 9999 },
-                    5: { name: '5 cifras', min: 10000, max: 99999 }
-                };
-                
-                this.initEventListeners();
-                this.generateProblem();
-            }
-            
-            initEventListeners() {
-                // Level buttons
-                document.querySelectorAll('.level-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        this.setLevel(parseInt(e.target.dataset.level));
-                    });
-                });
-                
-                // Check button
-                document.getElementById('checkBtn').addEventListener('click', () => {
-                    this.checkAnswer();
-                });
-                
-                // Enter key
-                document.getElementById('userAnswer').addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        this.checkAnswer();
-                    }
-                });
-                
-                // Control buttons
-                document.getElementById('newProblemBtn').addEventListener('click', () => {
-                    this.generateProblem();
-                });
-                
-                document.getElementById('resetBtn').addEventListener('click', () => {
-                    this.resetGame();
-                });
-            }
-            
-            setLevel(level) {
-                this.level = level;
-                
-                // Update level buttons
-                document.querySelectorAll('.level-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                document.querySelector(`[data-level="${level}"]`).classList.add('active');
-                
-                this.generateProblem();
-            }
-            
-            formatNumberByPosition(number, maxLevel) {
-                const str = number.toString();
-                const maxDigits = this.levels[maxLevel].max.toString().length;
-                const positions = [];
-                
-                // Start from the rightmost digit (units) and work backwards
-                for (let i = 0; i < maxDigits; i++) {
-                    const digitIndex = str.length - 1 - i;
-                    if (digitIndex >= 0) {
-                        // Add actual digit from the number
-                        positions.unshift(str[digitIndex]);
-                    } else {
-                        // Add empty space for leading positions
-                        positions.unshift('');
-                    }
-                }
-                
-                return positions;
-            }
-            
-            generateProblem() {
-                const { min, max } = this.levels[this.level];
-                let minuend, subtrahend;
-                
-                // Ensure minuend is greater than subtrahend
-                do {
-                    minuend = Math.floor(Math.random() * (max - min + 1)) + min;
-                    subtrahend = Math.floor(Math.random() * (minuend - min + 1)) + min;
-                } while (subtrahend > minuend);
-                
-                this.problem = { minuend, subtrahend };
-                this.updateDisplay();
-                this.clearFeedback();
-                document.getElementById('userAnswer').value = '';
-            }
-            
-            updateDisplay() {
-                // Update level info
-                document.getElementById('levelInfo').textContent = 
-                    `Nivel ${this.level} - ${this.levels[this.level].name}`;
-                
-                // Update headers
-                this.updateHeaders();
-                
-                // Update problem display
-                this.updateProblemDisplay();
-            }
-            
-            updateHeaders() {
-                const headerRow = document.getElementById('headerRow');
-                const headers = [];
-                
-                if (this.level >= 5) {
-                    headers.push('<div class="header-cell" style="color: #7c3aed;">CM</div>');
-                    headers.push('<div class="header-cell" style="color: #3b82f6;">DM</div>');
-                }
-                if (this.level >= 4) {
-                    headers.push('<div class="header-cell" style="color: #22c55e;">UM</div>');
-                }
-                if (this.level >= 3) {
-                    headers.push('<div class="header-cell" style="color: #f59e0b;">C</div>');
-                }
-                if (this.level >= 2) {
-                    headers.push('<div class="header-cell" style="color: #ef4444;">D</div>');
-                }
-                headers.push('<div class="header-cell" style="color: #374151;">U</div>');
-                
-                headerRow.innerHTML = headers.join('');
-            }
-            
-            updateProblemDisplay() {
-                const minuendDigits = this.formatNumberByPosition(this.problem.minuend, this.level);
-                const subtrahendDigits = this.formatNumberByPosition(this.problem.subtrahend, this.level);
-                
-                // Update minuend row
-                const minuendRow = document.getElementById('minuendRow');
-                minuendRow.innerHTML = '<div style="width: 16px;"></div>' + 
-                    minuendDigits.map(digit => 
-                        `<div class="digit-cell minuend">${digit}</div>`
-                    ).join('');
-                
-                // Update subtrahend row
-                const subtrahendRow = document.getElementById('subtrahendRow');
-                subtrahendRow.innerHTML = '<div class="minus-sign">-</div>' + 
-                    subtrahendDigits.map(digit => 
-                        `<div class="digit-cell subtrahend">${digit}</div>`
-                    ).join('');
-                
-                // Update line row
-                const lineRow = document.getElementById('lineRow');
-                lineRow.innerHTML = '<div style="width: 16px;"></div>' + 
-                    minuendDigits.map(() => '<div class="line-cell"></div>').join('');
-            }
-            
-            checkAnswer() {
-                const userAnswer = document.getElementById('userAnswer').value;
-                const correctAnswer = this.problem.minuend - this.problem.subtrahend;
-                const userNum = parseInt(userAnswer);
-                
-                if (isNaN(userNum)) {
-                    this.showFeedback('Por favor ingresa un número válido', false);
-                    return;
-                }
-                
-                this.attempts++;
-                
-                if (userNum === correctAnswer) {
-                    this.score++;
-                    this.showFeedback('¡Correcto! 🎉', true);
-                    setTimeout(() => {
-                        this.generateProblem();
-                    }, 2000);
-                } else {
-                    this.showFeedback(`Incorrecto. La respuesta correcta es: ${correctAnswer.toLocaleString()}`, false);
-                }
-                
-                this.updateStats();
-            }
-            
-            showFeedback(message, isCorrect) {
-                const feedback = document.getElementById('feedback');
-                feedback.textContent = message;
-                feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-                feedback.classList.remove('hidden');
-            }
-            
-            clearFeedback() {
-                document.getElementById('feedback').classList.add('hidden');
-            }
-            
-            updateStats() {
-                document.getElementById('score').textContent = this.score;
-                document.getElementById('attempts').textContent = this.attempts;
-                const accuracy = this.attempts > 0 ? Math.round((this.score / this.attempts) * 100) : 0;
-                document.getElementById('accuracy').textContent = accuracy + '%';
-            }
-            
-            resetGame() {
-                this.score = 0;
-                this.attempts = 0;
-                this.updateStats();
-                this.generateProblem();
-            }
+  <script src="/assets/site.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var ESPERA_SIGUIENTE_MS = 2000;
+
+      /* Nombre y color de cada posición, de las unidades hacia la izquierda.
+         El nivel N usa las N primeras entradas. */
+      var POSICIONES = [
+        { sigla: 'U', color: '#374151' },
+        { sigla: 'D', color: '#b91c1c' },
+        { sigla: 'C', color: '#b45309' },
+        { sigla: 'UM', color: '#15803d' },
+        { sigla: 'DM', color: '#1d4ed8' }
+      ];
+
+      var NIVELES = {
+        1: { nombre: '1 cifra', min: 1, max: 9 },
+        2: { nombre: '2 cifras', min: 10, max: 99 },
+        3: { nombre: '3 cifras', min: 100, max: 999 },
+        4: { nombre: '4 cifras', min: 1000, max: 9999 },
+        5: { nombre: '5 cifras', min: 10000, max: 99999 }
+      };
+
+      var nivel = 1;
+      var minuendo = 0;
+      var sustraendo = 0;
+      var puntos = 0;
+      var intentos = 0;
+      var temporizador = null;
+
+      var elFeedback = document.getElementById('feedback');
+      var elRespuesta = document.getElementById('userAnswer');
+      var botonesNivel = document.querySelectorAll('.level-btn');
+
+      function cancelarPendiente() {
+        if (temporizador !== null) {
+          clearTimeout(temporizador);
+          temporizador = null;
         }
-        
-        // Initialize the app
-        new RestaPractice();
-    </script>
+      }
+
+      /** Cifras de `numero` rellenadas a la izquierda hasta `ancho` posiciones. */
+      function cifrasAlineadas(numero, ancho) {
+        return String(numero).padStart(ancho, ' ').split('').map(function (c) {
+          return c === ' ' ? '' : c;
+        });
+      }
+
+      function nuevoProblema() {
+        cancelarPendiente();
+
+        var rango = NIVELES[nivel];
+        minuendo = JEO.enteroAleatorio(rango.min, rango.max);
+        /* El sustraendo nunca supera al minuendo: la resta siempre es positiva. */
+        sustraendo = JEO.enteroAleatorio(rango.min, minuendo);
+
+        dibujar();
+        elFeedback.classList.add('hidden');
+        elRespuesta.value = '';
+        elRespuesta.focus();
+      }
+
+      function dibujar() {
+        document.getElementById('levelInfo').textContent =
+          'Nivel ' + nivel + ' - ' + NIVELES[nivel].nombre;
+
+        var cabeceras = POSICIONES.slice(0, nivel).reverse();
+        document.getElementById('headerRow').innerHTML =
+          '<div class="espacio-signo"></div>' +
+          cabeceras.map(function (p) {
+            return '<div class="header-cell" style="color: ' + p.color + '">' + p.sigla + '</div>';
+          }).join('');
+
+        var cifrasMinuendo = cifrasAlineadas(minuendo, nivel);
+        var cifrasSustraendo = cifrasAlineadas(sustraendo, nivel);
+
+        document.getElementById('minuendRow').innerHTML =
+          '<div class="espacio-signo"></div>' +
+          cifrasMinuendo.map(function (d) {
+            return '<div class="digit-cell minuend">' + d + '</div>';
+          }).join('');
+
+        document.getElementById('subtrahendRow').innerHTML =
+          '<div class="minus-sign">−</div>' +
+          cifrasSustraendo.map(function (d) {
+            return '<div class="digit-cell subtrahend">' + d + '</div>';
+          }).join('');
+
+        document.getElementById('lineRow').innerHTML =
+          '<div class="espacio-signo"></div>' +
+          cifrasMinuendo.map(function () {
+            return '<div class="line-cell"></div>';
+          }).join('');
+
+        /* La operación se dibuja con divs; sin esto un lector de pantalla
+           leería las cifras sueltas y sin orden claro. */
+        document.getElementById('problemDisplay')
+          .setAttribute('aria-label', minuendo + ' menos ' + sustraendo);
+      }
+
+      function seleccionarNivel(nuevoNivel) {
+        nivel = nuevoNivel;
+        botonesNivel.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', String(Number(btn.dataset.level) === nivel));
+        });
+        nuevoProblema();
+      }
+
+      function mostrarFeedback(mensaje, esCorrecto) {
+        elFeedback.textContent = mensaje;
+        elFeedback.className = 'feedback ' + (esCorrecto ? 'correct' : 'incorrect');
+      }
+
+      function verificar() {
+        var respuesta = parseInt(elRespuesta.value, 10);
+
+        if (isNaN(respuesta)) {
+          mostrarFeedback('Por favor ingresa un número válido', false);
+          return;
+        }
+
+        var correcta = minuendo - sustraendo;
+        intentos++;
+
+        if (respuesta === correcta) {
+          puntos++;
+          mostrarFeedback('¡Correcto! 🎉', true);
+          cancelarPendiente();
+          temporizador = setTimeout(function () {
+            temporizador = null;
+            nuevoProblema();
+          }, ESPERA_SIGUIENTE_MS);
+        } else {
+          mostrarFeedback('Incorrecto. La respuesta correcta es: ' + correcta.toLocaleString('es'), false);
+        }
+
+        actualizarEstadisticas();
+      }
+
+      function actualizarEstadisticas() {
+        document.getElementById('score').textContent = puntos;
+        document.getElementById('attempts').textContent = intentos;
+        document.getElementById('accuracy').textContent = JEO.porcentaje(puntos, intentos) + '%';
+      }
+
+      botonesNivel.forEach(function (boton) {
+        boton.addEventListener('click', function () {
+          seleccionarNivel(Number(boton.dataset.level));
+        });
+      });
+
+      document.getElementById('checkBtn').addEventListener('click', verificar);
+      document.getElementById('newProblemBtn').addEventListener('click', nuevoProblema);
+      document.getElementById('resetBtn').addEventListener('click', function () {
+        puntos = 0;
+        intentos = 0;
+        actualizarEstadisticas();
+        nuevoProblema();
+      });
+
+      elRespuesta.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          verificar();
+        }
+      });
+
+      actualizarEstadisticas();
+      nuevoProblema();
+    })();
+  </script>
 </body>
 </html>

@@ -1,374 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica de Multiplicación</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .content {
-            padding: 30px;
-        }
-        
-        .level-selector {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .level-btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 25px;
-            background: #e74c3c;
-            color: white;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-        
-        .level-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-        }
-        
-        .level-btn.active {
-            background: #27ae60;
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-        }
-        
-        .problem-container {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .problem {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-        
-        .answer-input {
-            padding: 15px 25px;
-            font-size: 1.5rem;
-            border: 3px solid #3498db;
-            border-radius: 25px;
-            text-align: center;
-            width: 200px;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .answer-input:focus {
-            outline: none;
-            border-color: #2980b9;
-            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
-            transform: scale(1.05);
-        }
-        
-        .check-btn {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            margin: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-        }
-        
-        .check-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-        
-        .new-btn {
-            background: #e67e22;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
-        }
-        
-        .new-btn:hover {
-            background: #d35400;
-        }
-        
-        .feedback {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 10px;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .correct {
-            background: #d4edda;
-            color: #155724;
-            border: 2px solid #c3e6cb;
-        }
-        
-        .incorrect {
-            background: #f8d7da;
-            color: #721c24;
-            border: 2px solid #f5c6cb;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            background: #ecf0f1;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .stat-label {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-        
-        .emoji {
-            font-size: 2rem;
-            margin: 0 10px;
-        }
-        
-        @media (max-width: 600px) {
-            .problem {
-                font-size: 2rem;
-            }
-            
-            .answer-input {
-                width: 150px;
-                font-size: 1.2rem;
-            }
-            
-            .level-btn {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Práctica de Multiplicación — Juegos Educativos Online</title>
+  <meta name="description" content="Practica multiplicaciones de 1 a 5 cifras con ejercicios aleatorios, corrección inmediata y estadísticas de aciertos." />
+  <link rel="canonical" href="https://juegoseducativosonline.github.io/matematicas/multiplication_practice.html" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Juegos Educativos Online" />
+  <meta property="og:title" content="Práctica de Multiplicación" />
+  <meta property="og:description" content="Multiplicaciones de 1 a 5 cifras con corrección inmediata." />
+  <meta property="og:url" content="https://juegoseducativosonline.github.io/matematicas/multiplication_practice.html" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .problem-container {
+      background: var(--color-superficie-alt);
+      border-radius: var(--radio);
+      padding: 32px 20px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .problem {
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    .acciones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎯 Práctica de Multiplicación 🎯</h1>
-            <p>¡Conviértete en un maestro de las multiplicaciones!</p>
-        </div>
-        
-        <div class="content">
-            <div class="level-selector">
-                <button class="level-btn active" onclick="setLevel(1)">Nivel 1 (1 cifra)</button>
-                <button class="level-btn" onclick="setLevel(2)">Nivel 2 (2 cifras)</button>
-                <button class="level-btn" onclick="setLevel(3)">Nivel 3 (3 cifras)</button>
-                <button class="level-btn" onclick="setLevel(4)">Nivel 4 (4 cifras)</button>
-                <button class="level-btn" onclick="setLevel(5)">Nivel 5 (5 cifras)</button>
-            </div>
-            
-            <div class="problem-container">
-                <div class="problem" id="problem">2 × 3 = ?</div>
-                <div>
-                    <input type="number" class="answer-input" id="answer" placeholder="Tu respuesta">
-                    <br><br>
-                    <button class="check-btn" onclick="checkAnswer()">✓ Verificar</button>
-                    <button class="check-btn new-btn" onclick="generateProblem()">🎲 Nuevo Problema</button>
-                </div>
-            </div>
-            
-            <div class="feedback" id="feedback">
-                ¡Selecciona un nivel y resuelve el problema! 🚀
-            </div>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number" id="correct">0</div>
-                    <div class="stat-label">Correctas</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="total">0</div>
-                    <div class="stat-label">Total</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="percentage">0%</div>
-                    <div class="stat-label">Precisión</div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
 
-    <script>
-        let currentLevel = 1;
-        let correctAnswers = 0;
-        let totalAnswers = 0;
-        let currentProblem = {};
-        
-        const emojis = ['🎉', '🌟', '⭐', '🎊', '👏', '🥳', '🚀', '💪'];
-        const encouragements = [
-            '¡Excelente trabajo!',
-            '¡Muy bien!',
-            '¡Fantástico!',
-            '¡Eres increíble!',
-            '¡Sigue así!',
-            '¡Perfecto!',
-            '¡Genial!',
-            '¡Magnífico!'
-        ];
-        
-        function setLevel(level) {
-            currentLevel = level;
-            
-            // Actualizar botones
-            document.querySelectorAll('.level-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            generateProblem();
-        }
-        
-        function generateProblem() {
-            let num1, num2;
-            
-            switch(currentLevel) {
-                case 1:
-                    num1 = Math.floor(Math.random() * 9) + 1;
-                    num2 = Math.floor(Math.random() * 9) + 1;
-                    break;
-                case 2:
-                    num1 = Math.floor(Math.random() * 90) + 10;
-                    num2 = Math.floor(Math.random() * 9) + 1;
-                    break;
-                case 3:
-                    num1 = Math.floor(Math.random() * 900) + 100;
-                    num2 = Math.floor(Math.random() * 9) + 1;
-                    break;
-                case 4:
-                    num1 = Math.floor(Math.random() * 9000) + 1000;
-                    num2 = Math.floor(Math.random() * 9) + 1;
-                    break;
-                case 5:
-                    num1 = Math.floor(Math.random() * 90000) + 10000;
-                    num2 = Math.floor(Math.random() * 9) + 1;
-                    break;
-            }
-            
-            currentProblem = {
-                num1: num1,
-                num2: num2,
-                answer: num1 * num2
-            };
-            
-            document.getElementById('problem').textContent = `${num1} × ${num2} = ?`;
-            document.getElementById('answer').value = '';
-            document.getElementById('feedback').textContent = '¡Resuelve el problema! 🤔';
-            document.getElementById('feedback').className = 'feedback';
-            
-            // Enfocar el input
-            document.getElementById('answer').focus();
-        }
-        
-        function checkAnswer() {
-            const userAnswer = parseInt(document.getElementById('answer').value);
-            const feedbackEl = document.getElementById('feedback');
-            
-            if (isNaN(userAnswer)) {
-                feedbackEl.textContent = 'Por favor, ingresa un número válido 🔢';
-                feedbackEl.className = 'feedback';
-                return;
-            }
-            
-            totalAnswers++;
-            
-            if (userAnswer === currentProblem.answer) {
-                correctAnswers++;
-                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-                const randomEncouragement = encouragements[Math.floor(Math.random() * encouragements.length)];
-                feedbackEl.textContent = `${randomEncouragement} ${randomEmoji}`;
-                feedbackEl.className = 'feedback correct';
-            } else {
-                feedbackEl.textContent = `Incorrecto. La respuesta correcta es ${currentProblem.answer} 🤓`;
-                feedbackEl.className = 'feedback incorrect';
-            }
-            
-            updateStats();
-        }
-        
-        function updateStats() {
-            document.getElementById('correct').textContent = correctAnswers;
-            document.getElementById('total').textContent = totalAnswers;
-            
-            const percentage = totalAnswers > 0 ? Math.round((correctAnswers / totalAnswers) * 100) : 0;
-            document.getElementById('percentage').textContent = percentage + '%';
-        }
-        
-        // Permitir verificar con Enter
-        document.getElementById('answer').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkAnswer();
-            }
+  <nav class="nav-sitio" aria-label="Navegación principal">
+    <a href="/">🏠 Inicio</a>
+    <a href="/#matematicas">🧮 Matemáticas</a>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>🎯 Práctica de Multiplicación</h1>
+      <p>¡Conviértete en un maestro de las multiplicaciones!</p>
+    </header>
+
+    <main class="content" id="contenido">
+      <div class="level-selector" role="group" aria-label="Nivel de dificultad">
+        <button type="button" class="level-btn" data-nivel="1" aria-pressed="true">Nivel 1 (1 cifra)</button>
+        <button type="button" class="level-btn" data-nivel="2" aria-pressed="false">Nivel 2 (2 cifras)</button>
+        <button type="button" class="level-btn" data-nivel="3" aria-pressed="false">Nivel 3 (3 cifras)</button>
+        <button type="button" class="level-btn" data-nivel="4" aria-pressed="false">Nivel 4 (4 cifras)</button>
+        <button type="button" class="level-btn" data-nivel="5" aria-pressed="false">Nivel 5 (5 cifras)</button>
+      </div>
+
+      <div class="problem-container">
+        <p class="problem" id="problem">2 × 3 = ?</p>
+        <label class="solo-lectores" for="answer">Tu respuesta</label>
+        <input type="number" class="answer-input" id="answer" placeholder="Tu respuesta" inputmode="numeric" autocomplete="off" />
+        <div class="acciones">
+          <button type="button" class="check-btn" id="verificar">✓ Verificar</button>
+          <button type="button" class="check-btn new-btn" id="nuevo">🎲 Nuevo Problema</button>
+        </div>
+      </div>
+
+      <p class="feedback" id="feedback" role="status" aria-live="polite">
+        ¡Selecciona un nivel y resuelve el problema! 🚀
+      </p>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" id="correct">0</span>
+          <span class="stat-label">Correctas</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="total">0</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="percentage">0%</span>
+          <span class="stat-label">Precisión</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/assets/site.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var nivel = 1;
+      var aciertos = 0;
+      var intentos = 0;
+      var respuestaCorrecta = 0;
+
+      var elProblema = document.getElementById('problem');
+      var elRespuesta = document.getElementById('answer');
+      var elFeedback = document.getElementById('feedback');
+      var botonesNivel = document.querySelectorAll('.level-btn');
+
+      /* El nivel N multiplica un número de N cifras por uno de una sola cifra. */
+      function nuevoProblema() {
+        var num1 = JEO.enteroAleatorio(Math.pow(10, nivel - 1), Math.pow(10, nivel) - 1);
+        var num2 = JEO.enteroAleatorio(1, 9);
+
+        respuestaCorrecta = num1 * num2;
+        elProblema.textContent = num1 + ' × ' + num2 + ' = ?';
+        elRespuesta.value = '';
+        elFeedback.textContent = '¡Resuelve el problema! 🤔';
+        elFeedback.className = 'feedback';
+        elRespuesta.focus();
+      }
+
+      function seleccionarNivel(nuevoNivel, boton) {
+        nivel = nuevoNivel;
+        botonesNivel.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', String(btn === boton));
         });
-        
-        // Generar el primer problema
-        generateProblem();
-    </script>
+        nuevoProblema();
+      }
+
+      function verificar() {
+        var respuesta = parseInt(elRespuesta.value, 10);
+
+        if (isNaN(respuesta)) {
+          elFeedback.textContent = 'Por favor, ingresa un número válido 🔢';
+          elFeedback.className = 'feedback';
+          return;
+        }
+
+        intentos++;
+
+        if (respuesta === respuestaCorrecta) {
+          aciertos++;
+          elFeedback.textContent = JEO.felicitacion();
+          elFeedback.className = 'feedback correct';
+        } else {
+          elFeedback.textContent = 'Incorrecto. La respuesta correcta es ' + respuestaCorrecta + ' 🤓';
+          elFeedback.className = 'feedback incorrect';
+        }
+
+        document.getElementById('correct').textContent = aciertos;
+        document.getElementById('total').textContent = intentos;
+        document.getElementById('percentage').textContent = JEO.porcentaje(aciertos, intentos) + '%';
+      }
+
+      botonesNivel.forEach(function (boton) {
+        boton.addEventListener('click', function () {
+          seleccionarNivel(Number(boton.dataset.nivel), boton);
+        });
+      });
+
+      document.getElementById('verificar').addEventListener('click', verificar);
+      document.getElementById('nuevo').addEventListener('click', nuevoProblema);
+
+      elRespuesta.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          verificar();
+        }
+      });
+
+      nuevoProblema();
+    })();
+  </script>
 </body>
 </html>

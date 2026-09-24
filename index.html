@@ -2,133 +2,139 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portal de Juegos Educativos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juegos Educativos Online — Practica matemáticas gratis</title>
+  <meta name="description" content="Juegos educativos gratuitos para practicar sumas, restas, multiplicaciones y divisiones. Sin registro, sin descargas y desde cualquier dispositivo." />
+  <link rel="canonical" href="https://juegoseducativosonline.github.io/" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Juegos Educativos Online" />
+  <meta property="og:title" content="Juegos Educativos Online — Practica matemáticas gratis" />
+  <meta property="og:description" content="Juegos educativos gratuitos para practicar sumas, restas, multiplicaciones y divisiones." />
+  <meta property="og:url" content="https://juegoseducativosonline.github.io/" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="stylesheet" href="/assets/site.css" />
   <style>
-    /* Menú fijo */
-    nav {
-      background: #ffffff;
-      border-bottom: 2px solid #ddd;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      text-decoration: none;
-      color: #42a5f5;
-      font-weight: bold;
-      font-size: 1.1em;
+    .categoria {
+      margin-bottom: 36px;
     }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f8;
+    .categoria h2 {
+      font-size: 1.5rem;
+      border-left: 8px solid var(--color-primario);
+      padding-left: 12px;
+      margin: 0 0 6px;
+    }
+
+    .categoria > p {
+      color: var(--color-texto-suave);
+      margin: 0 0 16px;
+    }
+
+    .rejilla-juegos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    header {
-      background: linear-gradient(45deg, #42a5f5, #478ed1);
-      color: white;
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .category {
-      margin-bottom: 40px;
-    }
-
-    .category h2 {
-      font-size: 1.8em;
-      color: #333;
-      border-left: 8px solid #42a5f5;
-      padding-left: 10px;
-    }
-
-    .games {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 15px;
-    }
-
-    .game-card {
-      background: white;
-      border-radius: 12px;
+    .tarjeta-juego a {
+      display: block;
+      height: 100%;
+      background: var(--color-superficie);
+      border: 1px solid var(--color-borde);
+      border-radius: var(--radio);
       padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      flex: 1 1 220px;
       text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .game-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .game-card a {
       text-decoration: none;
-      color: #42a5f5;
-      font-weight: bold;
-      font-size: 1.1em;
+      color: var(--color-primario);
+      font-weight: 700;
+      box-shadow: var(--sombra-suave);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tarjeta-juego a:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sombra);
+    }
+
+    .tarjeta-juego .descripcion {
+      display: block;
+      margin-top: 6px;
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: var(--color-texto-suave);
+    }
+
+    .proximamente {
+      background: var(--color-superficie-alt);
+      border: 1px dashed var(--color-borde);
+      border-radius: var(--radio);
+      padding: 20px;
+      color: var(--color-texto-suave);
     }
   </style>
 </head>
 <body>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
 
-  <nav>
-    <a href="/juegoseducativosonline/index.html">🏠 Inicio</a>
+  <nav class="nav-sitio" aria-label="Navegación principal">
+    <a href="/" aria-current="page">🏠 Inicio</a>
+    <a href="/#matematicas">🧮 Matemáticas</a>
   </nav>
 
-  <header>
-    <h1>🎮 Juegos Educativos Interactivos</h1>
-    <p>Aprende divirtiéndote en diferentes áreas del conocimiento</p>
-  </header>
+  <div class="container">
+    <header class="header">
+      <h1>🎮 Juegos Educativos Interactivos</h1>
+      <p>Aprende divirtiéndote en diferentes áreas del conocimiento</p>
+    </header>
 
-  <main>
-    <section class="category">
-      <h2>🧮 Matemáticas</h2>
-      <div class="games">
-        <div class="game-card"><a href="matematicas/division_practice.html">Práctica de División</a></div>
-        <div class="game-card"><a href="matematicas/multiplication_practice.html">Práctica de Multiplicación</a></div>
-        <div class="game-card"><a href="matematicas/resta_practice_html.html">Práctica de Resta</a></div>
-        <div class="game-card"><a href="matematicas/suma_practice.html">Práctica de Suma</a></div>
-      </div>
-    </section>
+    <main class="content" id="contenido">
+      <section class="categoria" id="matematicas">
+        <h2>🧮 Matemáticas</h2>
+        <p>Practica las cuatro operaciones básicas con ejercicios que se generan solos.</p>
+        <ul class="rejilla-juegos">
+          <li class="tarjeta-juego">
+            <a href="/matematicas/suma_practice.html">
+              Práctica de Suma
+              <span class="descripcion">Hojas de ejercicios de 1 a 5 cifras</span>
+            </a>
+          </li>
+          <li class="tarjeta-juego">
+            <a href="/matematicas/resta_practice_html.html">
+              Práctica de Resta
+              <span class="descripcion">Con ayuda de valor posicional</span>
+            </a>
+          </li>
+          <li class="tarjeta-juego">
+            <a href="/matematicas/multiplication_practice.html">
+              Práctica de Multiplicación
+              <span class="descripcion">Cinco niveles de dificultad</span>
+            </a>
+          </li>
+          <li class="tarjeta-juego">
+            <a href="/matematicas/division_practice.html">
+              Práctica de División
+              <span class="descripcion">Con rachas y subida de nivel</span>
+            </a>
+          </li>
+        </ul>
+      </section>
 
-    <section class="category">
-      <h2>📖 Español</h2>
-      <div class="games">
-        <div class="game-card"><a href="espanol/juego-lectura.html">Comprensión de lectura</a></div>
-      </div>
-    </section>
+      <section class="categoria">
+        <h2>🚧 Próximamente</h2>
+        <p class="proximamente">
+          Estamos preparando juegos de Español, Ciencias Sociales y Ciencias
+          Naturales. Mientras tanto, disfruta de los de matemáticas.
+        </p>
+      </section>
+    </main>
+  </div>
 
-    <section class="category">
-      <h2>🌎 Sociales</h2>
-      <div class="games">
-        <div class="game-card"><a href="sociales/quiz-historia.html">Quiz de historia</a></div>
-      </div>
-    </section>
-
-    <section class="category">
-      <h2>🌿 Naturales</h2>
-      <div class="games">
-        <div class="game-card"><a href="naturales/juego-plantas.html">Conociendo las plantas</a></div>
-      </div>
-    </section>
-  </main>
-
+  <footer class="pie-sitio">
+    <p>Juegos Educativos Online · Contenido gratuito para practicar en casa o en clase.</p>
+  </footer>
 </body>
 </html>
