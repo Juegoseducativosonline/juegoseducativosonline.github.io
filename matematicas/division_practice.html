@@ -38,22 +38,6 @@
       margin-top: 16px;
     }
 
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      background: var(--color-borde);
-      border-radius: 5px;
-      overflow: hidden;
-      margin: 20px 0;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(45deg, #4ecdc4, #44a08d);
-      transition: width 0.3s ease;
-    }
-
     .celebration {
       position: fixed;
       inset: 0;
@@ -86,6 +70,9 @@
   <nav class="nav-sitio" aria-label="Navegación principal">
     <a href="/">🏠 Inicio</a>
     <a href="/#matematicas">🧮 Matemáticas</a>
+    <a href="/#espanol">📖 Español</a>
+    <a href="/#sociales">🌎 Sociales</a>
+    <a href="/#naturales">🌿 Naturales</a>
   </nav>
 
   <div class="container">
@@ -161,14 +148,9 @@
       /* Debe coincidir con la duración de @keyframes confetti-fall. */
       var DURACION_CONFETI_S = 3;
 
-      /* Dividendo y divisor máximos de cada nivel, por índice de nivel - 1. */
-      var LIMITES = [
-        { dividendo: 9, divisor: 9 },
-        { dividendo: 99, divisor: 9 },
-        { dividendo: 999, divisor: 99 },
-        { dividendo: 9999, divisor: 99 },
-        { dividendo: 99999, divisor: 999 }
-      ];
+      /* Divisor máximo de cada nivel, por índice de nivel - 1. El dividendo
+         del nivel N tiene siempre exactamente N cifras. */
+      var DIVISOR_MAXIMO = [9, 9, 99, 99, 999];
 
       var nivel = 1;
       var dividendo = 0;
@@ -207,12 +189,19 @@
       function nuevoProblema() {
         cancelarPendiente();
 
-        var limite = LIMITES[nivel - 1];
+        var dividendoMinimo = Math.pow(10, nivel - 1);
+        var dividendoMaximo = Math.pow(10, nivel) - 1;
 
         /* Se construye la división a partir del resultado para que siempre
-           sea exacta: dividendo = divisor × cociente. */
-        divisor = JEO.enteroAleatorio(1, limite.divisor);
-        var cociente = JEO.enteroAleatorio(1, Math.floor(limite.dividendo / divisor));
+           sea exacta: dividendo = divisor × cociente. El cociente se acota
+           para que el dividendo caiga en el rango de cifras del nivel. Ese
+           rango tiene 9 × dividendoMinimo valores, que en todos los niveles es
+           al menos el divisor máximo: siempre contiene algún múltiplo. */
+        divisor = JEO.enteroAleatorio(1, DIVISOR_MAXIMO[nivel - 1]);
+        var cociente = JEO.enteroAleatorio(
+          Math.ceil(dividendoMinimo / divisor),
+          Math.floor(dividendoMaximo / divisor)
+        );
         dividendo = divisor * cociente;
         respuestaCorrecta = cociente;
 

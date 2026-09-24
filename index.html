@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juegos Educativos Online — Practica matemáticas gratis</title>
-  <meta name="description" content="Juegos educativos gratuitos para practicar sumas, restas, multiplicaciones y divisiones. Sin registro, sin descargas y desde cualquier dispositivo." />
+  <title>Juegos Educativos Online — Matemáticas, lectura, sociales y ciencias</title>
+  <meta name="description" content="Juegos educativos gratuitos de matemáticas, comprensión lectora, historia, geografía y ciencias naturales. Sin registro, sin descargas y desde cualquier dispositivo." />
   <link rel="canonical" href="https://juegoseducativosonline.github.io/" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Juegos Educativos Online" />
-  <meta property="og:title" content="Juegos Educativos Online — Practica matemáticas gratis" />
-  <meta property="og:description" content="Juegos educativos gratuitos para practicar sumas, restas, multiplicaciones y divisiones." />
+  <meta property="og:title" content="Juegos Educativos Online — Matemáticas, lectura, sociales y ciencias" />
+  <meta property="og:description" content="Juegos educativos gratuitos de matemáticas, lectura, sociales y ciencias naturales." />
   <meta property="og:url" content="https://juegoseducativosonline.github.io/" />
   <meta name="twitter:card" content="summary" />
   <link rel="stylesheet" href="/assets/site.css" />
@@ -67,14 +67,6 @@
       font-size: 0.9rem;
       color: var(--color-texto-suave);
     }
-
-    .proximamente {
-      background: var(--color-superficie-alt);
-      border: 1px dashed var(--color-borde);
-      border-radius: var(--radio);
-      padding: 20px;
-      color: var(--color-texto-suave);
-    }
   </style>
 </head>
 <body>
@@ -83,6 +75,9 @@
   <nav class="nav-sitio" aria-label="Navegación principal">
     <a href="/" aria-current="page">🏠 Inicio</a>
     <a href="/#matematicas">🧮 Matemáticas</a>
+    <a href="/#espanol">📖 Español</a>
+    <a href="/#sociales">🌎 Sociales</a>
+    <a href="/#naturales">🌿 Naturales</a>
   </nav>
 
   <div class="container">
@@ -123,12 +118,43 @@
         </ul>
       </section>
 
-      <section class="categoria">
-        <h2>🚧 Próximamente</h2>
-        <p class="proximamente">
-          Estamos preparando juegos de Español, Ciencias Sociales y Ciencias
-          Naturales. Mientras tanto, disfruta de los de matemáticas.
-        </p>
+      <section class="categoria" id="espanol">
+        <h2>📖 Español</h2>
+        <p>Lee textos cortos y demuestra que los has entendido.</p>
+        <ul class="rejilla-juegos">
+          <li class="tarjeta-juego">
+            <a href="/espanol/juego-lectura.html">
+              Comprensión de Lectura
+              <span class="descripcion">Un cuento y un texto informativo</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="categoria" id="sociales">
+        <h2>🌎 Sociales</h2>
+        <p>Historia y geografía de nuestro continente.</p>
+        <ul class="rejilla-juegos">
+          <li class="tarjeta-juego">
+            <a href="/sociales/quiz-historia.html">
+              Quiz de Historia y Geografía
+              <span class="descripcion">Incas, mayas, ríos, mapas y más</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="categoria" id="naturales">
+        <h2>🌿 Naturales</h2>
+        <p>Descubre cómo funciona el mundo vivo.</p>
+        <ul class="rejilla-juegos">
+          <li class="tarjeta-juego">
+            <a href="/naturales/juego-plantas.html">
+              Conociendo las Plantas
+              <span class="descripcion">Partes, fotosíntesis y polinización</span>
+            </a>
+          </li>
+        </ul>
       </section>
     </main>
   </div>

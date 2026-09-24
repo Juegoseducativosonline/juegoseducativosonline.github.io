@@ -1,0 +1,115 @@
+/* Estilos del motor de preguntas (assets/quiz.js). Requiere site.css. */
+
+.quiz-progreso {
+  margin: 0 0 8px;
+  color: var(--color-texto-suave);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.quiz-juego .progress-bar {
+  margin: 0 0 24px;
+}
+
+.quiz-pasaje {
+  background: #fffdf5;
+  border: 1px solid #f0e2b6;
+  border-left: 6px solid #e0b84c;
+  border-radius: var(--radio);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.quiz-pasaje-titulo {
+  font-size: 1.15rem;
+  margin: 0 0 10px;
+}
+
+.quiz-pasaje p {
+  margin: 0 0 12px;
+}
+
+.quiz-pasaje p:last-child {
+  margin-bottom: 0;
+}
+
+.quiz-enunciado {
+  font-size: clamp(1.15rem, 3.5vw, 1.4rem);
+  margin: 0 0 16px;
+}
+
+.quiz-enunciado:focus {
+  outline: none;
+}
+
+.quiz-opciones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.quiz-opcion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1.05rem;
+  color: var(--color-texto);
+  background: var(--color-superficie);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.quiz-opcion:hover:not(:disabled) {
+  border-color: var(--color-primario);
+  background: var(--color-superficie-alt);
+}
+
+.quiz-opcion:disabled {
+  cursor: default;
+}
+
+/* Hueco fijo para el ✓/✗, así el texto no salta al marcar la respuesta. */
+.quiz-marca {
+  flex: none;
+  width: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.quiz-opcion.correcta {
+  border-color: var(--color-exito);
+  background: var(--color-exito-fondo);
+  color: var(--color-exito);
+  font-weight: 700;
+}
+
+.quiz-opcion.incorrecta {
+  border-color: var(--color-error);
+  background: var(--color-error-fondo);
+  color: var(--color-error);
+}
+
+.quiz-resultado {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.quiz-resultado h2:focus {
+  outline: none;
+}
+
+.quiz-resultado-cifra {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 8px 0;
+}

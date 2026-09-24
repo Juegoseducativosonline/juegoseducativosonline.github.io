@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz de Historia y Geografía — Juegos Educativos Online</title>
+  <meta name="description" content="Pon a prueba lo que sabes de historia y geografía de América: incas, mayas, mexicas, independencia, ríos, cordilleras y mapas." />
+  <link rel="canonical" href="https://juegoseducativosonline.github.io/sociales/quiz-historia.html" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Juegos Educativos Online" />
+  <meta property="og:title" content="Quiz de Historia y Geografía" />
+  <meta property="og:description" content="Preguntas de historia y geografía de América con explicaciones." />
+  <meta property="og:url" content="https://juegoseducativosonline.github.io/sociales/quiz-historia.html" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="stylesheet" href="/assets/quiz.css" />
+</head>
+<body>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+  <nav class="nav-sitio" aria-label="Navegación principal">
+    <a href="/">🏠 Inicio</a>
+    <a href="/#matematicas">🧮 Matemáticas</a>
+    <a href="/#espanol">📖 Español</a>
+    <a href="/#sociales">🌎 Sociales</a>
+    <a href="/#naturales">🌿 Naturales</a>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>🌎 Quiz de Historia y Geografía</h1>
+      <p>¿Cuánto sabes de nuestro continente y su pasado?</p>
+    </header>
+
+    <main class="content" id="contenido">
+      <div id="quiz">
+        <noscript><p>Este juego necesita JavaScript activado en el navegador.</p></noscript>
+      </div>
+    </main>
+  </div>
+
+  <script src="/assets/site.js"></script>
+  <script src="/assets/quiz.js"></script>
+  <script>
+    JEO.iniciarQuiz({
+      contenedor: document.getElementById('quiz'),
+      mezclarPreguntas: true,
+      preguntas: [
+        {
+          enunciado: '¿En qué año llegó Cristóbal Colón a América?',
+          opciones: ['1492', '1810', '1776', '1500'],
+          correcta: 0,
+          explicacion: 'Llegó el 12 de octubre de 1492 a una isla del Caribe.'
+        },
+        {
+          enunciado: '¿Qué civilización construyó Machu Picchu?',
+          opciones: ['Los incas', 'Los mayas', 'Los mexicas', 'Los romanos'],
+          correcta: 0,
+          explicacion: 'Está en los Andes de Perú y se construyó en el siglo XV.'
+        },
+        {
+          enunciado: '¿Qué ciudad fue la capital de los mexicas, también llamados aztecas?',
+          opciones: ['Tenochtitlan', 'Cusco', 'Chichén Itzá', 'Bogotá'],
+          correcta: 0,
+          explicacion: 'Se levantaba sobre un lago, en el lugar donde hoy está Ciudad de México.'
+        },
+        {
+          enunciado: '¿Qué pueblo antiguo creó un calendario muy preciso y usaba el cero en su numeración?',
+          opciones: ['Los mayas', 'Los romanos', 'Los vikingos'],
+          correcta: 0,
+          explicacion: 'Los números romanos, por ejemplo, no tienen ningún símbolo para el cero.'
+        },
+        {
+          enunciado: '¿Qué cordillera recorre América del Sur de norte a sur?',
+          opciones: ['Los Andes', 'Los Alpes', 'El Himalaya', 'Los Pirineos'],
+          correcta: 0,
+          explicacion: 'Es la cordillera continental más larga del mundo.'
+        },
+        {
+          enunciado: '¿Cuál es el río más caudaloso del mundo, es decir, el que lleva más agua?',
+          opciones: ['El Amazonas', 'El Nilo', 'El Misisipi', 'El Danubio'],
+          correcta: 0,
+          explicacion: 'Atraviesa varios países de América del Sur antes de llegar al océano Atlántico.'
+        },
+        {
+          enunciado: '¿Con qué nombre es conocido Simón Bolívar?',
+          opciones: ['El Libertador', 'El Conquistador', 'El Navegante', 'El Descubridor'],
+          correcta: 0,
+          explicacion: 'Encabezó la independencia de varios países de América del Sur.'
+        },
+        {
+          enunciado: '¿Qué línea imaginaria divide la Tierra en hemisferio norte y hemisferio sur?',
+          opciones: ['El ecuador', 'El meridiano de Greenwich', 'El trópico de Cáncer', 'El círculo polar ártico'],
+          correcta: 0,
+          explicacion: 'El meridiano de Greenwich, en cambio, la divide en este y oeste.'
+        },
+        {
+          enunciado: '¿Cuál es el país más grande de América del Sur?',
+          opciones: ['Brasil', 'Argentina', 'Perú', 'Colombia'],
+          correcta: 0,
+          explicacion: 'Ocupa casi la mitad del territorio de América del Sur.'
+        },
+        {
+          enunciado: '¿Qué océano baña la costa oeste de América del Sur?',
+          opciones: ['El océano Pacífico', 'El océano Atlántico', 'El océano Índico', 'El océano Ártico'],
+          correcta: 0
+        },
+        {
+          enunciado: 'En un mapa, ¿qué indica la rosa de los vientos?',
+          opciones: [
+            'Los puntos cardinales',
+            'La temperatura',
+            'La cantidad de habitantes',
+            'La altura de las montañas'
+          ],
+          correcta: 0,
+          explicacion: 'Sirve para orientarse: muestra dónde está el norte, el sur, el este y el oeste.'
+        },
+        {
+          enunciado: '¿Cuáles son los cuatro puntos cardinales?',
+          opciones: [
+            'Norte, sur, este y oeste',
+            'Arriba, abajo, izquierda y derecha',
+            'Norte, sur, centro y lado',
+            'Mañana, tarde, noche y día'
+          ],
+          correcta: 0
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

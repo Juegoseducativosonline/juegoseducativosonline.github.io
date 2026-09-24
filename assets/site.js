@@ -30,6 +30,18 @@ window.JEO = (function () {
     return lista[Math.floor(Math.random() * lista.length)];
   }
 
+  /** Copia de `lista` en orden aleatorio (Fisher-Yates); no modifica el original. */
+  function mezclar(lista) {
+    var copia = lista.slice();
+    for (var i = copia.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = copia[i];
+      copia[i] = copia[j];
+      copia[j] = tmp;
+    }
+    return copia;
+  }
+
   /** Porcentaje entero de aciertos; 0 cuando todavía no hay intentos. */
   function porcentaje(aciertos, total) {
     return total > 0 ? Math.round((aciertos / total) * 100) : 0;
@@ -45,6 +57,7 @@ window.JEO = (function () {
     ELOGIOS: ELOGIOS,
     enteroAleatorio: enteroAleatorio,
     alAzar: alAzar,
+    mezclar: mezclar,
     porcentaje: porcentaje,
     felicitacion: felicitacion
   };

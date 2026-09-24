@@ -1,0 +1,278 @@
+/*
+ * Motor de preguntas de opción múltiple, compartido por los juegos de
+ * Español, Sociales y Naturales. Requiere assets/site.js y assets/quiz.css.
+ *
+ * Uso:
+ *   JEO.iniciarQuiz({
+ *     contenedor: document.getElementById('quiz'),
+ *     mezclarPreguntas: true,
+ *     preguntas: [
+ *       {
+ *         pasaje: { titulo: '...', parrafos: ['...'] },   // opcional
+ *         enunciado: '¿...?',
+ *         opciones: ['A', 'B', 'C'],
+ *         correcta: 0,          // índice en `opciones`, tal como se escriben
+ *         explicacion: '...'    // opcional, se muestra tras responder
+ *       }
+ *     ]
+ *   });
+ *
+ * Todo el texto se inserta con textContent, nunca como HTML.
+ */
+(function (JEO) {
+  'use strict';
+
+  if (!JEO) {
+    throw new Error('quiz.js necesita que assets/site.js se cargue antes.');
+  }
+
+  var MINIMO_OPCIONES = 2;
+
+  /* Un error en los datos de un juego es un fallo de quien lo escribió:
+     mejor detenerse al cargar que mostrar una pregunta sin respuesta válida. */
+  function validar(preguntas) {
+    if (!Array.isArray(preguntas) || preguntas.length === 0) {
+      throw new Error('iniciarQuiz: se necesita al menos una pregunta.');
+    }
+    preguntas.forEach(function (p, i) {
+      var etiqueta = 'iniciarQuiz: pregunta ' + (i + 1);
+      if (!p.enunciado) {
+        throw new Error(etiqueta + ' no tiene enunciado.');
+      }
+      if (!Array.isArray(p.opciones) || p.opciones.length < MINIMO_OPCIONES) {
+        throw new Error(etiqueta + ' necesita al menos ' + MINIMO_OPCIONES + ' opciones.');
+      }
+      if (!(p.correcta >= 0 && p.correcta < p.opciones.length)) {
+        throw new Error(etiqueta + ' tiene un índice de respuesta correcta fuera de rango.');
+      }
+    });
+  }
+
+  function crear(etiqueta, clase, texto) {
+    var el = document.createElement(etiqueta);
+    if (clase) {
+      el.className = clase;
+    }
+    if (texto !== undefined) {
+      el.textContent = texto;
+    }
+    return el;
+  }
+
+  function mensajeFinal(porcentaje) {
+    if (porcentaje === 100) {
+      return '🏆 ¡Perfecto! Has acertado todas las preguntas.';
+    }
+    if (porcentaje >= 70) {
+      return '🌟 ¡Muy bien! Dominas casi todo el tema.';
+    }
+    if (porcentaje >= 40) {
+      return '💪 ¡Buen intento! Repasa las explicaciones y vuelve a jugar.';
+    }
+    return '📚 Sigue practicando: cada partida te ayuda a aprender más.';
+  }
+
+  JEO.iniciarQuiz = function (config) {
+    validar(config.preguntas);
+
+    var contenedor = config.contenedor;
+    var ronda = [];
+    var indice = 0;
+    var aciertos = 0;
+    var pasajeActual = null;
+
+    /* --- Estructura fija; cada pregunta solo cambia su contenido --- */
+
+    var elProgresoTexto = crear('p', 'quiz-progreso');
+    var elBarra = crear('div', 'progress-bar');
+    var elRelleno = crear('div', 'progress-fill');
+    elBarra.setAttribute('role', 'progressbar');
+    elBarra.setAttribute('aria-label', 'Progreso del juego');
+    elBarra.setAttribute('aria-valuemin', '0');
+    elBarra.appendChild(elRelleno);
+
+    var elPasaje = crear('article', 'quiz-pasaje hidden');
+    var elEnunciado = crear('h2', 'quiz-enunciado');
+    /* Permite mover el foco aquí al cambiar de pregunta, para que un lector
+       de pantalla la anuncie. */
+    elEnunciado.tabIndex = -1;
+
+    var elOpciones = crear('ul', 'quiz-opciones');
+    var elFeedback = crear('p', 'feedback hidden');
+    elFeedback.setAttribute('role', 'status');
+    elFeedback.setAttribute('aria-live', 'polite');
+
+    var elAcciones = crear('div', 'controls');
+    var btnSiguiente = crear('button', 'btn hidden', 'Siguiente ➜');
+    btnSiguiente.type = 'button';
+    elAcciones.appendChild(btnSiguiente);
+
+    var elJuego = crear('div', 'quiz-juego');
+    [elProgresoTexto, elBarra, elPasaje, elEnunciado, elOpciones, elFeedback, elAcciones]
+      .forEach(function (el) { elJuego.appendChild(el); });
+
+    var elResultado = crear('section', 'quiz-resultado hidden');
+    var elResultadoTitulo = crear('h2', null, 'Resultado');
+    elResultadoTitulo.tabIndex = -1;
+    var elResultadoCifra = crear('p', 'quiz-resultado-cifra');
+    var elResultadoMensaje = crear('p');
+    var btnReiniciar = crear('button', 'btn btn-acento', '🔄 Jugar de nuevo');
+    btnReiniciar.type = 'button';
+    [elResultadoTitulo, elResultadoCifra, elResultadoMensaje, btnReiniciar]
+      .forEach(function (el) { elResultado.appendChild(el); });
+
+    contenedor.replaceChildren(elJuego, elResultado);
+
+    /* --- Flujo --- */
+
+    function empezar() {
+      /* Las opciones se barajan en cada partida; se guarda qué opción es la
+         correcta por objeto, no por posición, para que el barajado no la pierda. */
+      var base = config.mezclarPreguntas ? JEO.mezclar(config.preguntas) : config.preguntas;
+      ronda = base.map(function (p) {
+        return {
+          pasaje: p.pasaje || null,
+          enunciado: p.enunciado,
+          explicacion: p.explicacion || '',
+          opciones: JEO.mezclar(p.opciones.map(function (texto, i) {
+            return { texto: texto, esCorrecta: i === p.correcta };
+          }))
+        };
+      });
+      indice = 0;
+      aciertos = 0;
+      pasajeActual = null;
+
+      elResultado.classList.add('hidden');
+      elJuego.classList.remove('hidden');
+      mostrarPregunta();
+    }
+
+    function mostrarPasaje(pasaje) {
+      if (pasaje === pasajeActual) {
+        return;
+      }
+      pasajeActual = pasaje;
+
+      if (!pasaje) {
+        elPasaje.classList.add('hidden');
+        elPasaje.replaceChildren();
+        return;
+      }
+
+      var hijos = [crear('h2', 'quiz-pasaje-titulo', '📖 ' + pasaje.titulo)];
+      pasaje.parrafos.forEach(function (texto) {
+        hijos.push(crear('p', null, texto));
+      });
+      elPasaje.replaceChildren.apply(elPasaje, hijos);
+      elPasaje.classList.remove('hidden');
+    }
+
+    function actualizarProgreso() {
+      var total = ronda.length;
+      elProgresoTexto.textContent =
+        'Pregunta ' + (indice + 1) + ' de ' + total + ' · Aciertos: ' + aciertos;
+      elRelleno.style.width = (indice / total) * 100 + '%';
+      elBarra.setAttribute('aria-valuemax', String(total));
+      elBarra.setAttribute('aria-valuenow', String(indice));
+    }
+
+    function mostrarPregunta() {
+      var pregunta = ronda[indice];
+
+      mostrarPasaje(pregunta.pasaje);
+      actualizarProgreso();
+      elEnunciado.textContent = pregunta.enunciado;
+
+      elOpciones.replaceChildren.apply(elOpciones, pregunta.opciones.map(function (opcion) {
+        var li = crear('li');
+        var boton = crear('button', 'quiz-opcion');
+        boton.type = 'button';
+        var marca = crear('span', 'quiz-marca');
+        marca.setAttribute('aria-hidden', 'true');
+        boton.appendChild(marca);
+        boton.appendChild(crear('span', 'solo-lectores quiz-estado'));
+        boton.appendChild(crear('span', null, opcion.texto));
+        boton.addEventListener('click', function () {
+          responder(opcion, boton);
+        });
+        li.appendChild(boton);
+        return li;
+      }));
+
+      elFeedback.className = 'feedback hidden';
+      elFeedback.textContent = '';
+      btnSiguiente.classList.add('hidden');
+    }
+
+    function marcar(boton, clase, simbolo, textoLector) {
+      boton.classList.add(clase);
+      boton.querySelector('.quiz-marca').textContent = simbolo;
+      boton.querySelector('.quiz-estado').textContent = textoLector;
+    }
+
+    function responder(opcionElegida, botonElegido) {
+      var pregunta = ronda[indice];
+      var botones = elOpciones.querySelectorAll('.quiz-opcion');
+
+      botones.forEach(function (boton, i) {
+        boton.disabled = true;
+        /* El color nunca va solo: el símbolo ✓/✗ lo distingue también
+           para quien no percibe bien el rojo y el verde. */
+        if (pregunta.opciones[i].esCorrecta) {
+          marcar(boton, 'correcta', '✓', 'Respuesta correcta: ');
+        }
+      });
+
+      var acierto = opcionElegida.esCorrecta;
+      if (acierto) {
+        aciertos++;
+      } else {
+        marcar(botonElegido, 'incorrecta', '✗', 'Tu respuesta: ');
+      }
+
+      var textoCorrecta = pregunta.opciones.filter(function (o) { return o.esCorrecta; })[0].texto;
+      var mensaje = acierto
+        ? JEO.felicitacion()
+        : 'No es correcto. La respuesta es: ' + textoCorrecta + '.';
+      if (pregunta.explicacion) {
+        mensaje += ' ' + pregunta.explicacion;
+      }
+
+      elFeedback.textContent = mensaje;
+      elFeedback.className = 'feedback ' + (acierto ? 'correct' : 'incorrect');
+
+      actualizarProgreso();
+      btnSiguiente.textContent = indice + 1 < ronda.length ? 'Siguiente ➜' : 'Ver resultado 🏁';
+      btnSiguiente.classList.remove('hidden');
+      btnSiguiente.focus();
+    }
+
+    function siguiente() {
+      indice++;
+      if (indice < ronda.length) {
+        mostrarPregunta();
+        elEnunciado.focus();
+        return;
+      }
+      terminar();
+    }
+
+    function terminar() {
+      var total = ronda.length;
+      var porcentaje = JEO.porcentaje(aciertos, total);
+
+      elResultadoCifra.textContent = aciertos + ' de ' + total + ' (' + porcentaje + '%)';
+      elResultadoMensaje.textContent = mensajeFinal(porcentaje);
+
+      elJuego.classList.add('hidden');
+      elResultado.classList.remove('hidden');
+      elResultadoTitulo.focus();
+    }
+
+    btnSiguiente.addEventListener('click', siguiente);
+    btnReiniciar.addEventListener('click', empezar);
+
+    empezar();
+  };
+})(window.JEO);

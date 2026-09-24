@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conociendo las Plantas — Juegos Educativos Online</title>
+  <meta name="description" content="Aprende las partes de la planta, la fotosíntesis, la germinación y la polinización respondiendo preguntas con explicaciones." />
+  <link rel="canonical" href="https://juegoseducativosonline.github.io/naturales/juego-plantas.html" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Juegos Educativos Online" />
+  <meta property="og:title" content="Conociendo las Plantas" />
+  <meta property="og:description" content="Partes de la planta, fotosíntesis y polinización en preguntas." />
+  <meta property="og:url" content="https://juegoseducativosonline.github.io/naturales/juego-plantas.html" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="stylesheet" href="/assets/quiz.css" />
+</head>
+<body>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+  <nav class="nav-sitio" aria-label="Navegación principal">
+    <a href="/">🏠 Inicio</a>
+    <a href="/#matematicas">🧮 Matemáticas</a>
+    <a href="/#espanol">📖 Español</a>
+    <a href="/#sociales">🌎 Sociales</a>
+    <a href="/#naturales">🌿 Naturales</a>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>🌿 Conociendo las Plantas</h1>
+      <p>Descubre cómo viven, se alimentan y se reproducen las plantas.</p>
+    </header>
+
+    <main class="content" id="contenido">
+      <div id="quiz">
+        <noscript><p>Este juego necesita JavaScript activado en el navegador.</p></noscript>
+      </div>
+    </main>
+  </div>
+
+  <script src="/assets/site.js"></script>
+  <script src="/assets/quiz.js"></script>
+  <script>
+    JEO.iniciarQuiz({
+      contenedor: document.getElementById('quiz'),
+      mezclarPreguntas: true,
+      preguntas: [
+        {
+          enunciado: '¿Qué parte de la planta absorbe el agua y los minerales del suelo?',
+          opciones: ['La raíz', 'La flor', 'La hoja', 'El fruto'],
+          correcta: 0,
+          explicacion: 'Además, la raíz sujeta la planta a la tierra.'
+        },
+        {
+          enunciado: '¿Qué parte de la planta sostiene las hojas y lleva el agua hasta ellas?',
+          opciones: ['El tallo', 'La raíz', 'La semilla', 'La flor'],
+          correcta: 0
+        },
+        {
+          enunciado: '¿En qué parte de la planta ocurre principalmente la fotosíntesis?',
+          opciones: ['En las hojas', 'En las raíces', 'En las semillas', 'En las flores'],
+          correcta: 0,
+          explicacion: 'Las hojas captan la luz del sol gracias a la clorofila.'
+        },
+        {
+          enunciado: '¿Qué es la fotosíntesis?',
+          opciones: [
+            'El proceso con el que la planta fabrica su alimento usando la luz del sol',
+            'La forma en que la planta duerme por la noche',
+            'El momento en que la planta pierde sus hojas',
+            'La manera en que la planta se mueve'
+          ],
+          correcta: 0
+        },
+        {
+          enunciado: '¿Qué gas toman las plantas del aire para hacer la fotosíntesis?',
+          opciones: ['Dióxido de carbono', 'Oxígeno', 'Helio'],
+          correcta: 0,
+          explicacion: 'A la vez, liberan oxígeno al aire.'
+        },
+        {
+          enunciado: '¿Qué gas liberan las plantas en la fotosíntesis y necesitamos para respirar?',
+          opciones: ['Oxígeno', 'Dióxido de carbono', 'Humo', 'Helio'],
+          correcta: 0
+        },
+        {
+          enunciado: '¿Cómo se llama la sustancia que da el color verde a las hojas?',
+          opciones: ['Clorofila', 'Savia', 'Néctar', 'Polen'],
+          correcta: 0,
+          explicacion: 'La clorofila es la que capta la luz del sol para la fotosíntesis.'
+        },
+        {
+          enunciado: '¿De qué parte de la planta se forman los frutos?',
+          opciones: ['De la flor', 'De la raíz', 'Del tallo', 'De las hojas'],
+          correcta: 0,
+          explicacion: 'Después de la polinización, la flor se transforma en fruto, que guarda las semillas.'
+        },
+        {
+          enunciado: '¿Qué necesita una semilla para germinar?',
+          opciones: [
+            'Agua, aire y una temperatura adecuada',
+            'Solo mucha luz',
+            'Solo tierra seca',
+            'Nada: germina sola en cualquier sitio'
+          ],
+          correcta: 0,
+          explicacion: 'Muchas semillas germinan incluso a oscuras, bajo la tierra.'
+        },
+        {
+          enunciado: '¿Cómo ayudan las abejas a las plantas?',
+          opciones: [
+            'Llevan el polen de una flor a otra',
+            'Les dan agua',
+            'Les quitan las hojas secas',
+            'Les dan sombra'
+          ],
+          correcta: 0,
+          explicacion: 'A esto se le llama polinización, y permite que se formen frutos y semillas.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>
