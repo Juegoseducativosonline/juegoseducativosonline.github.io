@@ -1,0 +1,60 @@
+{
+  "titulo": "Parejas: Personajes que Cambiaron el Mundo",
+  "icono": "🌟",
+  "nivel": "Secundaria",
+  "descripcion": "Relaciona a cada personaje histórico con lo que hizo.",
+  "etiquetaA": "Personaje",
+  "etiquetaB": "Lo que hizo",
+  "pares": [
+    {
+      "a": "Cristóbal Colón",
+      "b": "Llegó a América en 1492"
+    },
+    {
+      "a": "Simón Bolívar",
+      "b": "Lideró la independencia de varios países sudamericanos"
+    },
+    {
+      "a": "Neil Armstrong",
+      "b": "Fue el primer ser humano en pisar la Luna"
+    },
+    {
+      "a": "Johannes Gutenberg",
+      "b": "Creó la imprenta de tipos móviles en Europa"
+    },
+    {
+      "a": "Marie Curie",
+      "b": "Investigó la radiactividad y ganó dos premios Nobel"
+    },
+    {
+      "a": "Isaac Newton",
+      "b": "Formuló las leyes del movimiento y de la gravitación"
+    },
+    {
+      "a": "Galileo Galilei",
+      "b": "Observó los astros con un telescopio"
+    },
+    {
+      "a": "Leonardo da Vinci",
+      "b": "Pintó la Mona Lisa"
+    },
+    {
+      "a": "Charles Darwin",
+      "b": "Propuso la teoría de la evolución por selección natural"
+    },
+    {
+      "a": "Albert Einstein",
+      "b": "Formuló la teoría de la relatividad"
+    },
+    {
+      "a": "Nelson Mandela",
+      "b": "Luchó contra el apartheid en Sudáfrica"
+    },
+    {
+      "a": "Martin Luther King",
+      "b": "Luchó por los derechos civiles en Estados Unidos"
+    }
+  ],
+  "tituloSeo": "Juego de personajes históricos para jóvenes",
+  "descripcionSeo": "Juego interactivo online: relaciona personajes históricos y científicos con lo que hicieron."
+}

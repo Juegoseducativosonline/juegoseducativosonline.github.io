@@ -1,0 +1,34 @@
+{
+  "titulo": "Ordena: Del Más Pequeño al Más Grande",
+  "icono": "🔭",
+  "nivel": "Secundaria",
+  "descripcion": "Ordena tamaños y velocidades del universo, de menor a mayor.",
+  "rondas": [
+    {
+      "instruccion": "Ordena por tamaño, de menor a mayor",
+      "elementos": [
+        "Átomo",
+        "Célula",
+        "Hormiga",
+        "Ser humano",
+        "Montaña",
+        "Tierra",
+        "Sol"
+      ]
+    },
+    {
+      "instruccion": "Ordena por velocidad, de más lento a más rápido",
+      "elementos": [
+        "Caracol",
+        "Persona caminando",
+        "Guepardo corriendo",
+        "Avión comercial",
+        "Sonido en el aire",
+        "Luz"
+      ],
+      "explicacion": "El sonido recorre unos 340 metros por segundo en el aire; la luz, unos 300 000 kilómetros por segundo."
+    }
+  ],
+  "tituloSeo": "Juego de escalas del universo: tamaños y velocidades",
+  "descripcionSeo": "Juego interactivo de física: ordena tamaños y velocidades del universo, del átomo al Sol y del caracol a la luz."
+}

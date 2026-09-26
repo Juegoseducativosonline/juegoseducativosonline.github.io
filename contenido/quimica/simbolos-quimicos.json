@@ -1,0 +1,60 @@
+{
+  "titulo": "Parejas: Símbolos Químicos",
+  "icono": "🔬",
+  "nivel": "Secundaria",
+  "descripcion": "Relaciona cada elemento químico con su símbolo lo más rápido que puedas.",
+  "etiquetaA": "Elemento",
+  "etiquetaB": "Símbolo",
+  "pares": [
+    {
+      "a": "Oxígeno",
+      "b": "O"
+    },
+    {
+      "a": "Hidrógeno",
+      "b": "H"
+    },
+    {
+      "a": "Carbono",
+      "b": "C"
+    },
+    {
+      "a": "Nitrógeno",
+      "b": "N"
+    },
+    {
+      "a": "Sodio",
+      "b": "Na"
+    },
+    {
+      "a": "Potasio",
+      "b": "K"
+    },
+    {
+      "a": "Hierro",
+      "b": "Fe"
+    },
+    {
+      "a": "Oro",
+      "b": "Au"
+    },
+    {
+      "a": "Plata",
+      "b": "Ag"
+    },
+    {
+      "a": "Calcio",
+      "b": "Ca"
+    },
+    {
+      "a": "Cobre",
+      "b": "Cu"
+    },
+    {
+      "a": "Helio",
+      "b": "He"
+    }
+  ],
+  "tituloSeo": "Juego interactivo de símbolos químicos para secundaria",
+  "descripcionSeo": "Juego online de parejas: relaciona los elementos de la tabla periódica con su símbolo químico contra el reloj."
+}

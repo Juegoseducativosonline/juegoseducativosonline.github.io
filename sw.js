@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var CACHE = 'jeo-5c5fe2c398cc';
+var CACHE = 'jeo-85ac244308a9';
 var RECURSOS = [
   "/",
   "/404.html",
@@ -19,10 +19,12 @@ var RECURSOS = [
   "/assets/icono-180.png",
   "/assets/icono-192.png",
   "/assets/icono-512.png",
+  "/assets/interactivos.css?v=12bedd8ea5",
+  "/assets/interactivos.js?v=737fc6c42d",
   "/assets/materias.css?v=9f1248c012",
   "/assets/quiz.css?v=ca763d9b25",
   "/assets/quiz.js?v=3ac616eefd",
-  "/assets/site.css?v=86e2b85d18",
+  "/assets/site.css?v=4e4f5f9a55",
   "/assets/site.js?v=87e83ed258",
   "/descargar/",
   "/emociones/",
@@ -46,15 +48,21 @@ var RECURSOS = [
   "/fisica/",
   "/fisica/energia-ficha.html",
   "/fisica/energia.html",
+  "/fisica/escalas-ficha.html",
+  "/fisica/escalas.html",
   "/fisica/fuerzas-ficha.html",
   "/fisica/fuerzas.html",
   "/fisica/luz-sonido-ficha.html",
   "/fisica/luz-sonido.html",
+  "/fisica/unidades-ficha.html",
+  "/fisica/unidades.html",
   "/ingles/",
   "/ingles/colores-numeros-ficha.html",
   "/ingles/colores-numeros.html",
   "/ingles/saludos-ficha.html",
   "/ingles/saludos.html",
+  "/ingles/verbos-irregulares-ficha.html",
+  "/ingles/verbos-irregulares.html",
   "/manifest.webmanifest",
   "/matematicas/",
   "/matematicas/division_practice.html",
@@ -63,6 +71,10 @@ var RECURSOS = [
   "/matematicas/geometria-ficha.html",
   "/matematicas/geometria.html",
   "/matematicas/multiplication_practice.html",
+  "/matematicas/ordenar-numeros-ficha.html",
+  "/matematicas/ordenar-numeros.html",
+  "/matematicas/potencias-ficha.html",
+  "/matematicas/potencias.html",
   "/matematicas/primero-primaria-ficha.html",
   "/matematicas/primero-primaria.html",
   "/matematicas/resta_practice_html.html",
@@ -74,6 +86,8 @@ var RECURSOS = [
   "/naturales/cuerpo-humano.html",
   "/naturales/juego-plantas-ficha.html",
   "/naturales/juego-plantas.html",
+  "/naturales/procesos-ficha.html",
+  "/naturales/procesos.html",
   "/quimica/",
   "/quimica/elementos-ficha.html",
   "/quimica/elementos.html",
@@ -81,9 +95,16 @@ var RECURSOS = [
   "/quimica/estados-materia.html",
   "/quimica/mezclas-ficha.html",
   "/quimica/mezclas.html",
+  "/quimica/simbolos-quimicos-ficha.html",
+  "/quimica/simbolos-quimicos.html",
+  "/secundaria/",
   "/sociales/",
   "/sociales/geografia-ficha.html",
   "/sociales/geografia.html",
+  "/sociales/linea-tiempo-ficha.html",
+  "/sociales/linea-tiempo.html",
+  "/sociales/personajes-ficha.html",
+  "/sociales/personajes.html",
   "/sociales/quiz-historia-ficha.html",
   "/sociales/quiz-historia.html",
   "/tecnologia/",
@@ -92,7 +113,9 @@ var RECURSOS = [
   "/tecnologia/internet-seguro-ficha.html",
   "/tecnologia/internet-seguro.html",
   "/tecnologia/maquinas-simples-ficha.html",
-  "/tecnologia/maquinas-simples.html"
+  "/tecnologia/maquinas-simples.html",
+  "/tecnologia/programacion-ficha.html",
+  "/tecnologia/programacion.html"
 ];
 var FUENTES = /^https:\/\/fonts\.(googleapis|gstatic)\.com\//;
 

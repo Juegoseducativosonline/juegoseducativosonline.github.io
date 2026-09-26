@@ -37,7 +37,18 @@ MAX_RELACIONADOS = 3
 COLOR_MARCA = '#3b5bdb'
 RUTA_DESCARGAS = 'descargar/index.html'
 # Carpetas del sitio que no pueden usarse como id de materia.
-IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar'}
+IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar', 'secundaria'}
+RUTA_SECUNDARIA = 'secundaria/index.html'
+
+# Juegos cuyos datos viven en contenido/*.json: hoja de estilos, script y función
+# de arranque de cada motor.
+MOTORES = {
+    'quiz': (('quiz.css',), 'quiz.js', 'cargarQuiz'),
+    'parejas': (('quiz.css', 'interactivos.css'), 'interactivos.js', 'cargarJuego'),
+    'ordenar': (('quiz.css', 'interactivos.css'), 'interactivos.js', 'cargarJuego'),
+}
+MIN_PAREJAS = 3
+MIN_ELEMENTOS_ORDENAR = 3
 
 # Contraste mínimo WCAG AA para texto normal.
 CONTRASTE_MINIMO = 4.5
@@ -284,6 +295,76 @@ def cargar_quiz(ruta_json, donde_catalogo):
     )
 
 
+def meta_de_juego(datos, donde):
+    """Campos comunes a todos los juegos con datos."""
+    if not isinstance(datos, dict):
+        raise ErrorContenido('%s: debe ser un objeto JSON.' % donde)
+    return dict(
+        titulo=texto_obligatorio(datos, 'titulo', donde),
+        descripcion=texto_obligatorio(datos, 'descripcion', donde),
+        icono=texto_obligatorio(datos, 'icono', donde),
+        nivel=nivel_valido(datos, donde),
+        titulo_seo=texto_opcional(datos, 'tituloSeo', donde),
+        descripcion_seo=texto_opcional(datos, 'descripcionSeo', donde),
+    )
+
+
+def lista_de_textos(valores, donde, que, minimo):
+    if not isinstance(valores, list) or len(valores) < minimo:
+        raise ErrorContenido('%s: "%s" debe tener al menos %d elementos.' % (donde, que, minimo))
+    if not all(isinstance(x, str) and x.strip() for x in valores):
+        raise ErrorContenido('%s: todos los elementos de "%s" deben ser texto no vacío.' % (donde, que))
+    if len(set(valores)) != len(valores):
+        raise ErrorContenido('%s: hay elementos repetidos en "%s".' % (donde, que))
+    return valores
+
+
+def cargar_parejas(ruta_json):
+    datos = leer_json(ruta_json)
+    donde = rel(ruta_json)
+    meta = meta_de_juego(datos, donde)
+    pares = lista_obligatoria(datos, 'pares', donde)
+    for n, par in enumerate(pares, 1):
+        d = '%s, pareja %d' % (donde, n)
+        texto_obligatorio(par, 'a', d)
+        texto_obligatorio(par, 'b', d)
+    # Cada lado debe ser único: si dos elementos tuvieran la misma pareja, el
+    # juego no podría saber cuál es la correcta.
+    lista_de_textos([x['a'] for x in pares], donde, 'pares (columna a)', MIN_PAREJAS)
+    lista_de_textos([x['b'] for x in pares], donde, 'pares (columna b)', MIN_PAREJAS)
+    por_ronda = datos.get('paresPorRonda', 6)
+    if isinstance(por_ronda, bool) or not isinstance(por_ronda, int) or por_ronda < MIN_PAREJAS:
+        raise ErrorContenido('%s: "paresPorRonda" debe ser un número entero de %d o más.' % (donde, MIN_PAREJAS))
+    return Juego(
+        tipo='parejas', ruta=ruta_json.relative_to(CONTENIDO).with_suffix('.html').as_posix(),
+        detalle=plural(len(pares), 'pareja', 'parejas'),
+        datos={'tipo': 'parejas', 'pares': [{'a': x['a'], 'b': x['b']} for x in pares],
+               'paresPorRonda': por_ronda,
+               'etiquetaA': texto_opcional(datos, 'etiquetaA', donde) or 'Relaciona',
+               'etiquetaB': texto_opcional(datos, 'etiquetaB', donde) or 'con su pareja'},
+        **meta)
+
+
+def cargar_ordenar(ruta_json):
+    datos = leer_json(ruta_json)
+    donde = rel(ruta_json)
+    meta = meta_de_juego(datos, donde)
+    rondas = []
+    for n, r in enumerate(lista_obligatoria(datos, 'rondas', donde), 1):
+        d = '%s, ronda %d' % (donde, n)
+        ronda = {'instruccion': texto_obligatorio(r, 'instruccion', d),
+                 'elementos': lista_de_textos(r.get('elementos'), d, 'elementos', MIN_ELEMENTOS_ORDENAR)}
+        explicacion = texto_opcional(r, 'explicacion', d)
+        if explicacion:
+            ronda['explicacion'] = explicacion
+        rondas.append(ronda)
+    return Juego(
+        tipo='ordenar', ruta=ruta_json.relative_to(CONTENIDO).with_suffix('.html').as_posix(),
+        detalle=plural(len(rondas), 'ronda', 'rondas'),
+        datos={'tipo': 'ordenar', 'rondas': rondas},
+        **meta)
+
+
 def cargar_interactivo(crudo, donde):
     ruta = texto_obligatorio(crudo, 'pagina', donde)
     archivo = RAIZ / ruta
@@ -347,16 +428,18 @@ def cargar_catalogo():
             for k, juego_crudo in enumerate(lista_obligatoria(tema_crudo, 'juegos', donde_tema), 1):
                 donde_juego = '%s, juego %d' % (donde_tema, k)
                 tipo = juego_crudo.get('tipo') if isinstance(juego_crudo, dict) else None
-                if tipo == 'quiz':
+                if tipo in MOTORES:
                     archivo = texto_obligatorio(juego_crudo, 'datos', donde_juego)
                     if not archivo.endswith('.json'):
                         raise ErrorContenido('%s: "datos" debe apuntar a un archivo .json.' % donde_juego)
-                    juego = cargar_quiz(CONTENIDO / archivo, donde_juego)
+                    cargador = {'quiz': lambda r: cargar_quiz(r, donde_juego),
+                                'parejas': cargar_parejas, 'ordenar': cargar_ordenar}[tipo]
+                    juego = cargador(CONTENIDO / archivo)
                 elif tipo == 'interactivo':
                     juego = cargar_interactivo(juego_crudo, donde_juego)
                 else:
-                    raise ErrorContenido('%s: tipo de juego desconocido %r; usa "quiz" o "interactivo".'
-                                         % (donde_juego, tipo))
+                    raise ErrorContenido('%s: tipo de juego desconocido %r; usa %s o "interactivo".'
+                                         % (donde_juego, tipo, ', '.join('"%s"' % t for t in MOTORES)))
 
                 # Cada juego vive en la carpeta de su materia; así la URL dice a qué materia pertenece.
                 if not juego.ruta.startswith(mid + '/') or juego.ruta == mid + '/index.html':
@@ -483,6 +566,7 @@ def bloque_pie(materias, v, juego=None):
     <div class="pie-marca">
       <a class="marca" href="/"><span class="marca-logo" aria-hidden="true">🎮</span>Juegos Educativos</a>
       <p>Juegos gratuitos para aprender en casa o en clase, desde cualquier dispositivo y sin registrarse.</p>
+      <p><a class="enlace-flecha" href="/secundaria/">🎓 Juegos para secundaria</a></p>
       <p><a class="enlace-flecha" href="/descargar/">📥 Usar sin internet y fichas para imprimir</a></p>
     </div>
     <nav aria-labelledby="pie-materias-titulo">
@@ -582,6 +666,17 @@ def pagina_inicio(materias, v):
     </ul>
   </section>
 
+  <section class="seccion" aria-labelledby="secundaria-titulo">
+    <div class="aviso-offline">
+      <span class="paso-icono" aria-hidden="true">🎓</span>
+      <div>
+        <h2 id="secundaria-titulo">¿Estás en secundaria?</h2>
+        <p>Juegos interactivos para jóvenes: relaciona parejas contra el reloj y ordena líneas del tiempo de química, física, historia, inglés y más.</p>
+      </div>
+      <a class="btn" href="/secundaria/">Ver juegos</a>
+    </div>
+  </section>
+
   <section class="seccion" aria-labelledby="sin-internet-titulo">
     <div class="aviso-offline">
       <span class="paso-icono" aria-hidden="true">📥</span>
@@ -678,7 +773,8 @@ def json_para_script(datos):
     return texto.replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
 
 
-def pagina_quiz(juego, materias, v):
+def pagina_juego(juego, materias, v):
+    estilos, script, arranque = MOTORES[juego.tipo]
     cuerpo = '''%s
 <div class="container">
   <header class="header">
@@ -697,13 +793,13 @@ def pagina_quiz(juego, materias, v):
 <script src="%s"></script>
 <script type="application/json" id="datos-quiz">%s</script>
 <script>
-  JEO.cargarQuiz(document.getElementById('quiz'), document.getElementById('datos-quiz'));
+  JEO.%s(document.getElementById('quiz'), document.getElementById('datos-quiz'));
 </script>''' % (bloque_navegacion(materias, migas=migas_de(juego)), esc(juego.icono), esc(juego.titulo),
                 esc(juego.descripcion), esc(juego.nivel), esc(juego.detalle), url_de(ruta_ficha(juego)),
-                bloque_pie(materias, v, juego), v.url('quiz.js'), json_para_script(juego.datos))
+                bloque_pie(materias, v, juego), v.url(script), json_para_script(juego.datos), arranque)
 
     head = cabeza(v, '%s — %s' % (juego.titulo_seo or juego.titulo, NOMBRE_SITIO),
-                  juego.descripcion_seo or juego.descripcion, juego.ruta, tipo_og='article', estilos=('quiz.css',))
+                  juego.descripcion_seo or juego.descripcion, juego.ruta, tipo_og='article', estilos=estilos)
     return documento(head, 'materia-%s' % juego.materia.id, cuerpo)
 
 
@@ -750,18 +846,26 @@ def ruta_ficha(juego):
     return juego.ruta[:-len('.html')] + '-ficha.html'
 
 
-def opciones_de_ficha(juego, pregunta):
-    """Orden de las opciones en papel. Es aleatorio pero fijo (depende solo del
-    enunciado): así la respuesta no cae siempre en la a) y la ficha no cambia
-    cada vez que se genera el sitio."""
-    semilla = int(hashlib.sha256((juego.ruta + pregunta['enunciado']).encode('utf-8')).hexdigest(), 16)
-    orden = list(range(len(pregunta['opciones'])))
+def orden_fijo(juego, clave, n):
+    """Permutación aleatoria pero fija de range(n): depende solo del juego y de
+    `clave`, así la ficha no cambia cada vez que se genera el sitio."""
+    semilla = int(hashlib.sha256((juego.ruta + clave).encode('utf-8')).hexdigest(), 16)
+    orden = list(range(n))
     random.Random(semilla).shuffle(orden)
+    return orden
+
+
+def opciones_de_ficha(juego, pregunta):
+    """Opciones en papel: barajadas de forma fija para que la respuesta no caiga
+    siempre en la a)."""
+    orden = orden_fijo(juego, pregunta['enunciado'], len(pregunta['opciones']))
     return [pregunta['opciones'][i] for i in orden], orden.index(pregunta['correcta'])
 
 
-def pagina_ficha(juego, materias, v):
-    letras = 'abcdefghij'
+LETRAS = 'abcdefghijklmnopqrstuvwxyz'
+
+
+def ficha_quiz(juego):
     bloques, respuestas = [], []
     pasaje_actual = None
     for n, p in enumerate(juego.datos['preguntas'], 1):
@@ -776,8 +880,49 @@ def pagina_ficha(juego, materias, v):
         bloques.append('<div class="ficha-pregunta">\n  <p class="ficha-enunciado"><span class="ficha-numero">%d.</span> %s</p>\n'
                        '  <ol class="ficha-opciones" type="a">\n%s\n  </ol>\n</div>' % (n, esc(p['enunciado']), items))
         explicacion = (' <span class="ficha-explicacion">%s</span>' % esc(p['explicacion'])) if p.get('explicacion') else ''
-        respuestas.append('        <li><strong>%s)</strong> %s%s</li>' % (letras[correcta], esc(opciones[correcta]), explicacion))
+        respuestas.append('<li><strong>%s)</strong> %s%s</li>' % (LETRAS[correcta], esc(opciones[correcta]), explicacion))
+    return 'Rodea con un círculo la letra de la respuesta correcta.', bloques, respuestas
 
+
+def ficha_parejas(juego):
+    pares = juego.datos['pares']
+    izquierda = orden_fijo(juego, 'izquierda', len(pares))
+    derecha = orden_fijo(juego, 'derecha', len(pares))
+    filas = []
+    for fila, (i, j) in enumerate(zip(izquierda, derecha)):
+        filas.append('    <tr><td><span class="ficha-numero">%d.</span> %s</td><td class="ficha-hueco">____</td>'
+                     '<td><span class="ficha-numero">%s)</span> %s</td></tr>'
+                     % (fila + 1, esc(pares[i]['a']), LETRAS[fila], esc(pares[j]['b'])))
+    tabla = ('<table class="ficha-tabla">\n  <thead><tr><th>%s</th><th>Letra</th><th>%s</th></tr></thead>\n  <tbody>\n%s\n  </tbody>\n</table>'
+             % (esc(juego.datos['etiquetaA']), esc(juego.datos['etiquetaB']), '\n'.join(filas)))
+    respuestas = []
+    for fila, i in enumerate(izquierda):
+        letra = LETRAS[derecha.index(i)]
+        respuestas.append('<li><strong>%d → %s)</strong> %s: %s</li>'
+                          % (fila + 1, letra, esc(pares[i]['a']), esc(pares[i]['b'])))
+    return ('Escribe junto a cada número la letra de su pareja.', [tabla], respuestas)
+
+
+def ficha_ordenar(juego):
+    bloques, respuestas = [], []
+    for n, ronda in enumerate(juego.datos['rondas'], 1):
+        elementos = ronda['elementos']
+        orden = orden_fijo(juego, ronda['instruccion'], len(elementos))
+        if orden == sorted(orden):
+            orden = orden[1:] + orden[:1]  # nunca imprimir la ronda ya resuelta
+        items = '\n'.join('    <li><span class="ficha-hueco">___</span> %s</li>' % esc(elementos[i]) for i in orden)
+        bloques.append('<div class="ficha-pregunta">\n  <p class="ficha-enunciado"><span class="ficha-numero">%d.</span> %s</p>\n'
+                       '  <ul class="ficha-ordenar">\n%s\n  </ul>\n</div>' % (n, esc(ronda['instruccion']), items))
+        explicacion = (' <span class="ficha-explicacion">%s</span>' % esc(ronda['explicacion'])) if ronda.get('explicacion') else ''
+        respuestas.append('<li>%s.%s</li>' % (esc(' → '.join(elementos)), explicacion))
+    return 'Numera cada elemento según el orden correcto, empezando por el 1.', bloques, respuestas
+
+
+FICHAS = {'quiz': ficha_quiz, 'parejas': ficha_parejas, 'ordenar': ficha_ordenar}
+
+
+def pagina_ficha(juego, materias, v):
+    instrucciones, bloques, respuestas = FICHAS[juego.tipo](juego)
     migas = migas_de(juego)[:-1] + [(juego.titulo, url_de(juego.ruta)), ('Ficha', None)]
     cuerpo = """%s
 <div class="container ficha">
@@ -793,7 +938,7 @@ def pagina_ficha(juego, materias, v):
       <a class="btn btn-secundario" href="%s">🎮 Jugar en pantalla</a>
     </div>
     <p class="ficha-datos"><span>Nombre:</span><span>Fecha:</span></p>
-    <p class="ficha-instrucciones">Rodea con un círculo la letra de la respuesta correcta.</p>
+    <p class="ficha-instrucciones">%s</p>
 %s
     <section class="ficha-respuestas" aria-labelledby="respuestas-titulo">
       <h2 id="respuestas-titulo">Respuestas: %s</h2>
@@ -804,19 +949,61 @@ def pagina_ficha(juego, materias, v):
   </main>
 </div>
 %s""" % (bloque_navegacion(materias, migas=migas), esc(juego.icono), esc(juego.titulo), esc(juego.descripcion),
-         esc(juego.nivel), esc(juego.materia.nombre), esc(juego.detalle), url_de(juego.ruta),
-         indentar('\n'.join(bloques), '    '), esc(juego.titulo), '\n'.join(respuestas), bloque_pie(materias, v))
+         esc(juego.nivel), esc(juego.materia.nombre), esc(juego.detalle), url_de(juego.ruta), instrucciones,
+         indentar('\n'.join(bloques), '    '), esc(juego.titulo), indentar('\n'.join(respuestas), '        '),
+         bloque_pie(materias, v))
 
     head = cabeza(v, 'Ficha: %s — %s' % (juego.titulo, NOMBRE_SITIO),
-                  'Ficha para imprimir con las preguntas de %s y sus respuestas.' % juego.titulo,
+                  'Ficha para imprimir de %s, con sus respuestas.' % juego.titulo,
                   ruta_ficha(juego), robots='noindex')
     return documento(head, 'materia-%s pagina-ficha' % juego.materia.id, cuerpo)
+
+
+def pagina_secundaria(materias, v):
+    grupos = []
+    total = 0
+    for m in materias:
+        juegos = [j for j in m.juegos if j.nivel == 'Secundaria']
+        if not juegos:
+            continue
+        total += len(juegos)
+        grupos.append("""<section class="tema materia-%s" aria-labelledby="sec-%s">
+  <div class="tema-cabeza">
+    <h2 id="sec-%s">%s %s</h2>
+  </div>
+%s
+</section>""" % (m.id, m.id, m.id, esc(m.icono), esc(m.nombre), indentar(lista_tarjetas(juegos), '  ')))
+
+    cuerpo = """%s
+<div class="cabecera-materia">
+  <div class="cabecera-materia-interior">
+%s
+    <div class="cabecera-materia-titulo">
+      <span class="cabecera-materia-icono" aria-hidden="true">🎓</span>
+      <div>
+        <h1>Juegos para secundaria</h1>
+        <p>Juegos interactivos para jóvenes: relaciona parejas contra el reloj, ordena líneas del tiempo y pon a prueba lo que sabes de química, física, historia, inglés o programación.</p>
+      </div>
+    </div>
+    <p class="cabecera-materia-meta">%s</p>
+  </div>
+</div>
+<main id="contenido" class="pagina">
+%s
+</main>
+%s""" % (bloque_navegacion(materias), indentar(migas_html([('Inicio', '/'), ('Secundaria', None)]), '    '),
+         plural(total, 'juego', 'juegos'), indentar('\n'.join(grupos), '  '), bloque_pie(materias, v))
+
+    head = cabeza(v, 'Juegos interactivos para jóvenes de secundaria online — %s' % NOMBRE_SITIO,
+                  'Juegos interactivos online gratis para jóvenes de secundaria: parejas, líneas del tiempo y retos '
+                  'de química, física, historia, inglés, matemáticas y programación.', RUTA_SECUNDARIA)
+    return documento(head, 'pagina-secundaria', cuerpo)
 
 
 def pagina_descargas(materias, v, version, total_recursos):
     grupos = []
     for m in materias:
-        fichas = [j for j in m.juegos if j.tipo == 'quiz']
+        fichas = [j for j in m.juegos if j.tipo in MOTORES]
         if not fichas:
             continue
         enlaces = '\n'.join('    <li><a href="%s">%s %s</a> <span class="detalle">%s</span></li>'
@@ -847,7 +1034,7 @@ def pagina_descargas(materias, v, version, total_recursos):
 
     <section class="opcion-offline" aria-labelledby="fichas-titulo">
       <h2 id="fichas-titulo">2. Fichas para imprimir o guardar como PDF</h2>
-      <p>Cada juego de preguntas tiene una ficha con espacio para el nombre y la hoja de respuestas en una página aparte, pensada para docentes y familias. Ábrela y pulsa <em>Imprimir o guardar como PDF</em>.</p>
+      <p>Cada juego tiene una ficha con espacio para el nombre y la hoja de respuestas en una página aparte, pensada para docentes y familias. Ábrela y pulsa <em>Imprimir o guardar como PDF</em>.</p>
       <div class="rejilla-fichas">
 %s
       </div>
@@ -970,7 +1157,7 @@ def service_worker(version, recursos):
 
 
 def sitemap(materias):
-    rutas = (['index.html', RUTA_DESCARGAS] + ['%s/index.html' % m.id for m in materias]
+    rutas = (['index.html', RUTA_SECUNDARIA, RUTA_DESCARGAS] + ['%s/index.html' % m.id for m in materias]
              + [j.ruta for m in materias for j in m.juegos])
     urls = '\n'.join('  <url><loc>%s%s</loc></url>' % (URL_SITIO, esc(url_de(r))) for r in rutas)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<!-- %s. No lo edites a mano. -->\n'
@@ -1024,26 +1211,26 @@ class Escritor:
 def generar(comprobar):
     materias = cargar_catalogo()
     juegos = [j for m in materias for j in m.juegos]
-    quizzes = [j for j in juegos if j.tipo == 'quiz']
+    con_datos = [j for j in juegos if j.tipo in MOTORES]
 
     rutas_juegos = {j.ruta for j in juegos}
-    for j in quizzes:
+    for j in con_datos:
         if ruta_ficha(j) in rutas_juegos:
             raise ErrorContenido('La ficha de %s (%s) coincide con la ruta de otro juego.' % (j.ruta, ruta_ficha(j)))
 
     css_materias = materias_css(materias)
     recursos = {nombre: (RAIZ / 'assets' / nombre).read_text(encoding='utf-8')
-                for nombre in ('site.css', 'quiz.css', 'site.js', 'quiz.js')}
+                for nombre in {'site.css', 'site.js'} | {n for css, js, _ in MOTORES.values() for n in css + (js,)}}
     recursos['materias.css'] = css_materias
     v = Versiones(recursos)
 
     salida = {'assets/materias.css': css_materias, 'manifest.webmanifest': manifiesto(),
               'index.html': pagina_inicio(materias, v), '404.html': pagina_404(materias, v),
-              'sitemap.xml': sitemap(materias)}
+              'sitemap.xml': sitemap(materias), RUTA_SECUNDARIA: pagina_secundaria(materias, v)}
     for m in materias:
         salida['%s/index.html' % m.id] = pagina_materia(m, materias, v)
-    for j in quizzes:
-        salida[j.ruta] = pagina_quiz(j, materias, v)
+    for j in con_datos:
+        salida[j.ruta] = pagina_juego(j, materias, v)
         salida[ruta_ficha(j)] = pagina_ficha(j, materias, v)
     interactivos = {j.ruta: parchear_interactivo(j, materias, v) for j in juegos if j.tipo == 'interactivo'}
 

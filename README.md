@@ -5,7 +5,10 @@ Sitio estático publicado en https://juegoseducativosonline.github.io con GitHub
 ## Cómo está organizado
 
 - `contenido/catalogo.json`: las materias, sus temas y qué juegos tiene cada tema.
-- `contenido/<materia>/<juego>.json`: las preguntas de cada juego de tipo quiz.
+- `contenido/<materia>/<juego>.json`: los datos de cada juego. Hay tres tipos:
+  `quiz` (preguntas de opción múltiple), `parejas` (lista `pares` con `a` y `b`) y
+  `ordenar` (lista `rondas`, cada una con `instruccion` y sus `elementos` en el orden
+  correcto). Copia un archivo existente del mismo tipo como plantilla.
 - `tools/generar.py`: genera las páginas HTML a partir de `contenido/`.
 - `assets/`: estilos y scripts compartidos (`materias.css` también se genera).
 - `sw.js` y `manifest.webmanifest` (generados): permiten instalar el sitio como aplicación
@@ -24,7 +27,7 @@ contenido y vuelve a generar.
    `correcta` es la posición (empezando en 0) de la respuesta buena en `opciones`.
    El juego baraja las opciones al jugar.
 2. Si es un juego nuevo, añádelo a un tema en `contenido/catalogo.json`:
-   `{"tipo": "quiz", "datos": "<materia>/<juego>.json"}`.
+   `{"tipo": "quiz", "datos": "<materia>/<juego>.json"}` (o `"parejas"` / `"ordenar"`).
 3. Genera y publica:
 
 ```bash

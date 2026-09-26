@@ -1,0 +1,54 @@
+{
+  "titulo": "Ordena: Procesos de la Naturaleza",
+  "icono": "🔄",
+  "nivel": "Secundaria",
+  "descripcion": "Pon en orden los pasos del método científico, el ciclo del agua, la digestión y los planetas.",
+  "rondas": [
+    {
+      "instruccion": "Ordena los pasos del método científico",
+      "elementos": [
+        "Observación",
+        "Pregunta",
+        "Hipótesis",
+        "Experimentación",
+        "Análisis de resultados",
+        "Conclusión"
+      ]
+    },
+    {
+      "instruccion": "Ordena las etapas del ciclo del agua, empezando en el mar",
+      "elementos": [
+        "Evaporación",
+        "Condensación en las nubes",
+        "Precipitación",
+        "Escorrentía hacia ríos y mares"
+      ],
+      "explicacion": "Y el ciclo vuelve a empezar."
+    },
+    {
+      "instruccion": "Ordena el recorrido de los alimentos en el aparato digestivo",
+      "elementos": [
+        "Boca",
+        "Esófago",
+        "Estómago",
+        "Intestino delgado",
+        "Intestino grueso"
+      ]
+    },
+    {
+      "instruccion": "Ordena los planetas del más cercano al más lejano del Sol",
+      "elementos": [
+        "Mercurio",
+        "Venus",
+        "Tierra",
+        "Marte",
+        "Júpiter",
+        "Saturno",
+        "Urano",
+        "Neptuno"
+      ]
+    }
+  ],
+  "tituloSeo": "Juego interactivo de ciencias: método científico, ciclo del agua y planetas",
+  "descripcionSeo": "Ordena los pasos del método científico, el ciclo del agua, la digestión y los planetas en este juego online."
+}

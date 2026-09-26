@@ -1,0 +1,60 @@
+{
+  "titulo": "Parejas: Verbos Irregulares",
+  "icono": "🔁",
+  "nivel": "Secundaria",
+  "descripcion": "Relaciona cada verbo irregular en inglés con su forma en pasado simple.",
+  "etiquetaA": "Verbo",
+  "etiquetaB": "Pasado simple",
+  "pares": [
+    {
+      "a": "go",
+      "b": "went"
+    },
+    {
+      "a": "eat",
+      "b": "ate"
+    },
+    {
+      "a": "see",
+      "b": "saw"
+    },
+    {
+      "a": "take",
+      "b": "took"
+    },
+    {
+      "a": "write",
+      "b": "wrote"
+    },
+    {
+      "a": "drink",
+      "b": "drank"
+    },
+    {
+      "a": "begin",
+      "b": "began"
+    },
+    {
+      "a": "buy",
+      "b": "bought"
+    },
+    {
+      "a": "think",
+      "b": "thought"
+    },
+    {
+      "a": "speak",
+      "b": "spoke"
+    },
+    {
+      "a": "run",
+      "b": "ran"
+    },
+    {
+      "a": "swim",
+      "b": "swam"
+    }
+  ],
+  "tituloSeo": "Juego de verbos irregulares en inglés online",
+  "descripcionSeo": "Practica los verbos irregulares en inglés y su pasado simple con este juego interactivo de parejas para secundaria."
+}

@@ -1,0 +1,53 @@
+{
+  "titulo": "Ordena: Números y Operaciones",
+  "icono": "🔢",
+  "nivel": "Secundaria",
+  "descripcion": "Ordena enteros, fracciones y potencias, y el orden de las operaciones.",
+  "rondas": [
+    {
+      "instruccion": "Ordena de menor a mayor",
+      "elementos": [
+        "−5",
+        "−2",
+        "0",
+        "1/2",
+        "0,75",
+        "3"
+      ]
+    },
+    {
+      "instruccion": "Ordena estas fracciones de menor a mayor",
+      "elementos": [
+        "1/4",
+        "1/3",
+        "1/2",
+        "2/3",
+        "3/4"
+      ],
+      "explicacion": "0,25 < 0,33 < 0,5 < 0,67 < 0,75."
+    },
+    {
+      "instruccion": "Ordena de menor a mayor",
+      "elementos": [
+        "10⁻²",
+        "0,1",
+        "1",
+        "10²",
+        "10³"
+      ],
+      "explicacion": "10⁻² es 0,01."
+    },
+    {
+      "instruccion": "Para resolver 2 + 3 × (4 − 1)², ¿en qué orden se hacen las operaciones?",
+      "elementos": [
+        "Paréntesis",
+        "Potencia",
+        "Multiplicación",
+        "Suma"
+      ],
+      "explicacion": "(4 − 1) = 3; 3² = 9; 3 × 9 = 27; 2 + 27 = 29."
+    }
+  ],
+  "tituloSeo": "Juego para ordenar números, fracciones y potencias",
+  "descripcionSeo": "Juego interactivo de matemáticas para secundaria: ordena enteros, fracciones y potencias, y aplica la jerarquía de operaciones."
+}

@@ -1,0 +1,60 @@
+{
+  "titulo": "Parejas: Conceptos de Programación",
+  "icono": "👩‍💻",
+  "nivel": "Secundaria",
+  "descripcion": "Relaciona cada concepto de programación con su definición.",
+  "etiquetaA": "Concepto",
+  "etiquetaB": "Qué es",
+  "pares": [
+    {
+      "a": "Algoritmo",
+      "b": "Serie ordenada de pasos para resolver un problema"
+    },
+    {
+      "a": "Variable",
+      "b": "Espacio con nombre que guarda un dato"
+    },
+    {
+      "a": "Bucle",
+      "b": "Instrucción que repite otras varias veces"
+    },
+    {
+      "a": "Condicional",
+      "b": "Hace algo solo si se cumple una condición"
+    },
+    {
+      "a": "Función",
+      "b": "Bloque de código con nombre que se puede reutilizar"
+    },
+    {
+      "a": "Bug",
+      "b": "Error en un programa"
+    },
+    {
+      "a": "Depurar",
+      "b": "Buscar y corregir los errores de un programa"
+    },
+    {
+      "a": "Entrada",
+      "b": "Datos que recibe un programa"
+    },
+    {
+      "a": "Salida",
+      "b": "Resultado que muestra un programa"
+    },
+    {
+      "a": "Pseudocódigo",
+      "b": "Algoritmo escrito con palabras sencillas, sin un lenguaje concreto"
+    },
+    {
+      "a": "Lenguaje de programación",
+      "b": "Forma de escribir instrucciones que la computadora puede ejecutar"
+    },
+    {
+      "a": "Diagrama de flujo",
+      "b": "Dibujo de un algoritmo con símbolos y flechas"
+    }
+  ],
+  "tituloSeo": "Juego de programación para jóvenes: conceptos básicos",
+  "descripcionSeo": "Aprende algoritmos, variables, bucles y condicionales con este juego interactivo de parejas para secundaria."
+}

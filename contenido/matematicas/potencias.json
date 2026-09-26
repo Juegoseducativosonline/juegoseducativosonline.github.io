@@ -1,0 +1,60 @@
+{
+  "titulo": "Parejas: Potencias y Raíces",
+  "icono": "⚡",
+  "nivel": "Secundaria",
+  "descripcion": "Relaciona cada potencia o raíz con su resultado.",
+  "etiquetaA": "Operación",
+  "etiquetaB": "Resultado",
+  "pares": [
+    {
+      "a": "2³",
+      "b": "8"
+    },
+    {
+      "a": "5²",
+      "b": "25"
+    },
+    {
+      "a": "10³",
+      "b": "1000"
+    },
+    {
+      "a": "√81",
+      "b": "9"
+    },
+    {
+      "a": "√49",
+      "b": "7"
+    },
+    {
+      "a": "3⁴",
+      "b": "81"
+    },
+    {
+      "a": "2⁵",
+      "b": "32"
+    },
+    {
+      "a": "7²",
+      "b": "49"
+    },
+    {
+      "a": "4³",
+      "b": "64"
+    },
+    {
+      "a": "√144",
+      "b": "12"
+    },
+    {
+      "a": "6²",
+      "b": "36"
+    },
+    {
+      "a": "10⁰",
+      "b": "1"
+    }
+  ],
+  "tituloSeo": "Juego de potencias y raíces cuadradas online",
+  "descripcionSeo": "Juego interactivo de matemáticas para secundaria: relaciona potencias y raíces cuadradas con su resultado."
+}

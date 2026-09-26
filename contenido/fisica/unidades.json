@@ -1,0 +1,60 @@
+{
+  "titulo": "Parejas: Magnitudes y Unidades",
+  "icono": "📏",
+  "nivel": "Secundaria",
+  "descripcion": "Relaciona cada magnitud física con su unidad en el Sistema Internacional.",
+  "etiquetaA": "Magnitud",
+  "etiquetaB": "Unidad",
+  "pares": [
+    {
+      "a": "Fuerza",
+      "b": "Newton (N)"
+    },
+    {
+      "a": "Energía",
+      "b": "Julio (J)"
+    },
+    {
+      "a": "Potencia",
+      "b": "Vatio (W)"
+    },
+    {
+      "a": "Masa",
+      "b": "Kilogramo (kg)"
+    },
+    {
+      "a": "Tiempo",
+      "b": "Segundo (s)"
+    },
+    {
+      "a": "Longitud",
+      "b": "Metro (m)"
+    },
+    {
+      "a": "Temperatura",
+      "b": "Kelvin (K)"
+    },
+    {
+      "a": "Carga eléctrica",
+      "b": "Culombio (C)"
+    },
+    {
+      "a": "Presión",
+      "b": "Pascal (Pa)"
+    },
+    {
+      "a": "Intensidad de corriente",
+      "b": "Amperio (A)"
+    },
+    {
+      "a": "Frecuencia",
+      "b": "Hercio (Hz)"
+    },
+    {
+      "a": "Diferencia de potencial",
+      "b": "Voltio (V)"
+    }
+  ],
+  "tituloSeo": "Juego interactivo de magnitudes y unidades de física",
+  "descripcionSeo": "Relaciona cada magnitud física con su unidad del Sistema Internacional en este juego online para secundaria."
+}

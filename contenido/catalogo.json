@@ -78,6 +78,21 @@
               "datos": "matematicas/geometria.json"
             }
           ]
+        },
+        {
+          "id": "numeros-potencias",
+          "nombre": "Números y potencias",
+          "descripcion": "Enteros, fracciones, potencias y orden de las operaciones.",
+          "juegos": [
+            {
+              "tipo": "parejas",
+              "datos": "matematicas/potencias.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "matematicas/ordenar-numeros.json"
+            }
+          ]
         }
       ],
       "tituloSeo": "Juegos de matemáticas online: sumas, restas, fracciones y geometría"
@@ -159,6 +174,14 @@
             {
               "tipo": "quiz",
               "datos": "sociales/quiz-historia.json"
+            },
+            {
+              "tipo": "parejas",
+              "datos": "sociales/personajes.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "sociales/linea-tiempo.json"
             }
           ]
         },
@@ -212,6 +235,17 @@
             {
               "tipo": "quiz",
               "datos": "naturales/cuerpo-humano.json"
+            }
+          ]
+        },
+        {
+          "id": "procesos",
+          "nombre": "Procesos de la naturaleza",
+          "descripcion": "Método científico, ciclos y sistemas en su orden correcto.",
+          "juegos": [
+            {
+              "tipo": "ordenar",
+              "datos": "naturales/procesos.json"
             }
           ]
         }
@@ -287,6 +321,10 @@
             {
               "tipo": "quiz",
               "datos": "quimica/elementos.json"
+            },
+            {
+              "tipo": "parejas",
+              "datos": "quimica/simbolos-quimicos.json"
             }
           ]
         }
@@ -331,6 +369,21 @@
               "datos": "fisica/luz-sonido.json"
             }
           ]
+        },
+        {
+          "id": "medir",
+          "nombre": "Medir el universo",
+          "descripcion": "Unidades, tamaños y velocidades: de lo más pequeño a lo más grande.",
+          "juegos": [
+            {
+              "tipo": "parejas",
+              "datos": "fisica/unidades.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "fisica/escalas.json"
+            }
+          ]
         }
       ]
     },
@@ -373,6 +426,17 @@
               "datos": "tecnologia/maquinas-simples.json"
             }
           ]
+        },
+        {
+          "id": "programacion",
+          "nombre": "Programación",
+          "descripcion": "Los conceptos básicos para empezar a programar.",
+          "juegos": [
+            {
+              "tipo": "parejas",
+              "datos": "tecnologia/programacion.json"
+            }
+          ]
         }
       ]
     },
@@ -402,6 +466,17 @@
             {
               "tipo": "quiz",
               "datos": "ingles/saludos.json"
+            }
+          ]
+        },
+        {
+          "id": "gramatica",
+          "nombre": "Gramática",
+          "descripcion": "Verbos y estructuras para dar el siguiente paso en inglés.",
+          "juegos": [
+            {
+              "tipo": "parejas",
+              "datos": "ingles/verbos-irregulares.json"
             }
           ]
         }

@@ -1,0 +1,45 @@
+{
+  "titulo": "Ordena: Línea del Tiempo",
+  "icono": "⏳",
+  "nivel": "Secundaria",
+  "descripcion": "Ordena hechos históricos e inventos del más antiguo al más reciente.",
+  "rondas": [
+    {
+      "instruccion": "Ordena de más antiguo a más reciente",
+      "elementos": [
+        "Construcción de las pirámides de Guiza",
+        "Primeros Juegos Olímpicos en Grecia",
+        "Imprenta de Gutenberg",
+        "Llegada de Colón a América",
+        "Llegada del ser humano a la Luna"
+      ],
+      "explicacion": "Hacia 2560 a. C., 776 a. C., hacia 1450, 1492 y 1969."
+    },
+    {
+      "instruccion": "Ordena de más antiguo a más reciente",
+      "elementos": [
+        "Independencia de Estados Unidos",
+        "Revolución francesa",
+        "Batalla de Boyacá",
+        "Primera Guerra Mundial",
+        "Segunda Guerra Mundial",
+        "Caída del Muro de Berlín"
+      ],
+      "explicacion": "1776, 1789, 1819, 1914, 1939 y 1989."
+    },
+    {
+      "instruccion": "Ordena estos inventos del más antiguo al más reciente",
+      "elementos": [
+        "La rueda",
+        "La imprenta",
+        "La máquina de vapor",
+        "El teléfono",
+        "El avión",
+        "Internet"
+      ],
+      "explicacion": "Hacia 3500 a. C., hacia 1450, siglo XVIII, 1876, 1903 y finales del siglo XX."
+    }
+  ],
+  "tituloSeo": "Juego interactivo de línea del tiempo de historia",
+  "descripcionSeo": "Ordena hechos históricos e inventos en una línea del tiempo: juego interactivo online para jóvenes de secundaria."
+}
