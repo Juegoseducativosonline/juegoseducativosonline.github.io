@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var CACHE = 'jeo-51bc1ccaafdb';
+var CACHE = 'jeo-5c5fe2c398cc';
 var RECURSOS = [
   "/",
   "/404.html",
@@ -19,12 +19,17 @@ var RECURSOS = [
   "/assets/icono-180.png",
   "/assets/icono-192.png",
   "/assets/icono-512.png",
-  "/assets/materias.css?v=0f470f93ff",
-  "/assets/quiz.css?v=235351becb",
-  "/assets/quiz.js?v=d8321ea565",
+  "/assets/materias.css?v=9f1248c012",
+  "/assets/quiz.css?v=ca763d9b25",
+  "/assets/quiz.js?v=3ac616eefd",
   "/assets/site.css?v=86e2b85d18",
   "/assets/site.js?v=87e83ed258",
   "/descargar/",
+  "/emociones/",
+  "/emociones/manejar-ficha.html",
+  "/emociones/manejar.html",
+  "/emociones/reconocer-ficha.html",
+  "/emociones/reconocer.html",
   "/espanol/",
   "/espanol/gramatica-ficha.html",
   "/espanol/gramatica.html",
@@ -32,6 +37,12 @@ var RECURSOS = [
   "/espanol/juego-lectura.html",
   "/espanol/ortografia-ficha.html",
   "/espanol/ortografia.html",
+  "/espanol/primeras-palabras-ficha.html",
+  "/espanol/primeras-palabras.html",
+  "/espanol/silabas-ficha.html",
+  "/espanol/silabas.html",
+  "/espanol/vocales-ficha.html",
+  "/espanol/vocales.html",
   "/fisica/",
   "/fisica/energia-ficha.html",
   "/fisica/energia.html",
@@ -52,6 +63,8 @@ var RECURSOS = [
   "/matematicas/geometria-ficha.html",
   "/matematicas/geometria.html",
   "/matematicas/multiplication_practice.html",
+  "/matematicas/primero-primaria-ficha.html",
+  "/matematicas/primero-primaria.html",
   "/matematicas/resta_practice_html.html",
   "/matematicas/suma_practice.html",
   "/naturales/",

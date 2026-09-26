@@ -140,3 +140,14 @@
   font-weight: 900;
   color: var(--materia-oscuro);
 }
+
+.quiz-escuchar {
+  margin: -6px 0 18px;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+}
+
+/* Enunciados con emojis seguidos: que puedan partirse en pantallas estrechas. */
+.quiz-enunciado {
+  overflow-wrap: anywhere;
+}

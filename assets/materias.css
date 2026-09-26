@@ -36,6 +36,15 @@
   --color-primario-oscuro: #10602e;
 }
 
+.materia-emociones {
+  --materia: #0369a1;
+  --materia-oscuro: #024f79;
+  --materia-suave: #e6f0f6;
+  --materia-borde: #a7cade;
+  --color-primario: #0369a1;
+  --color-primario-oscuro: #024f79;
+}
+
 .materia-quimica {
   --materia: #6d28d9;
   --materia-oscuro: #521ea3;

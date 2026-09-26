@@ -66,6 +66,8 @@ class Juego:
     nivel: str
     detalle: str         # '8 preguntas' o 'Interactivo'
     datos: Optional[dict] = None   # solo en los quiz: lo que se incrusta en la página
+    titulo_seo: Optional[str] = None
+    descripcion_seo: Optional[str] = None
     materia: 'Materia' = field(default=None, repr=False)
     tema: 'Tema' = field(default=None, repr=False)
 
@@ -86,6 +88,8 @@ class Materia:
     color: str
     descripcion: str
     temas: List[Tema]
+    titulo_seo: Optional[str] = None
+    descripcion_seo: Optional[str] = None
 
     @property
     def juegos(self):
@@ -127,6 +131,12 @@ def leer_json(ruta):
     except json.JSONDecodeError as e:
         raise ErrorContenido('%s: JSON inválido en la línea %d, columna %d: %s.'
                              % (rel(ruta), e.lineno, e.colno, e.msg))
+
+
+def texto_opcional(obj, clave, donde):
+    if clave not in obj:
+        return None
+    return texto_obligatorio(obj, clave, donde)
 
 
 def texto_obligatorio(obj, clave, donde):
@@ -204,6 +214,10 @@ def cargar_quiz(ruta_json, donde_catalogo):
     if not isinstance(mezclar_preguntas, bool):
         raise ErrorContenido('%s: "mezclarPreguntas" debe ser true o false.' % donde)
 
+    leer_en_voz_alta = datos.get('leerEnVozAlta', False)
+    if not isinstance(leer_en_voz_alta, bool):
+        raise ErrorContenido('%s: "leerEnVozAlta" debe ser true o false.' % donde)
+
     pasajes = datos.get('pasajes', {})
     if not isinstance(pasajes, dict):
         raise ErrorContenido('%s: "pasajes" debe ser un objeto.' % donde)
@@ -263,7 +277,10 @@ def cargar_quiz(ruta_json, donde_catalogo):
         icono=texto_obligatorio(datos, 'icono', donde),
         nivel=nivel_valido(datos, donde),
         detalle=plural(len(preguntas), 'pregunta', 'preguntas'),
-        datos={'mezclarPreguntas': mezclar_preguntas, 'pasajes': pasajes, 'preguntas': preguntas},
+        datos={'mezclarPreguntas': mezclar_preguntas, 'leerEnVozAlta': leer_en_voz_alta,
+               'pasajes': pasajes, 'preguntas': preguntas},
+        titulo_seo=texto_opcional(datos, 'tituloSeo', donde),
+        descripcion_seo=texto_opcional(datos, 'descripcionSeo', donde),
     )
 
 
@@ -316,7 +333,8 @@ def cargar_catalogo():
                                      % (donde, color, uso, contraste(fondo, texto), CONTRASTE_MINIMO))
 
         materia = Materia(mid, texto_obligatorio(cruda, 'nombre', donde), texto_obligatorio(cruda, 'icono', donde),
-                          colores['base'], texto_obligatorio(cruda, 'descripcion', donde), [])
+                          colores['base'], texto_obligatorio(cruda, 'descripcion', donde), [],
+                          texto_opcional(cruda, 'tituloSeo', donde), texto_opcional(cruda, 'descripcionSeo', donde))
 
         for j, tema_crudo in enumerate(lista_obligatoria(cruda, 'temas', donde), 1):
             tid = id_valido(tema_crudo, '%s, tema %d' % (donde, j))
@@ -515,8 +533,8 @@ def pagina_inicio(materias, v):
     juegos = [j for m in materias for j in m.juegos]
     preguntas = sum(len(j.datos['preguntas']) for j in juegos if j.tipo == 'quiz')
     nombres = ', '.join(m.nombre.lower() for m in materias[:-1]) + ' y ' + materias[-1].nombre.lower()
-    descripcion = ('Juegos educativos gratuitos de %s. Para primaria y secundaria, '
-                   'sin registro y desde cualquier dispositivo.' % nombres)
+    descripcion = ('Juegos educativos online gratis de %s: juegos virtuales de aprendizaje para primaria '
+                   'y secundaria, sin registro y desde cualquier dispositivo.' % nombres)
 
     arte = '\n'.join('    <li class="materia-%s">%s</li>' % (m.id, esc(m.icono)) for m in materias)
     tarjetas = []
@@ -589,7 +607,7 @@ def pagina_inicio(materias, v):
 %s''' % (bloque_navegacion(materias), len(materias), len(juegos), preguntas, arte,
          indentar('\n'.join(tarjetas), '      '), bloque_pie(materias, v))
 
-    head = cabeza(v, '%s — Aprende jugando' % NOMBRE_SITIO, descripcion, 'index.html')
+    head = cabeza(v, 'Juegos educativos online gratis: aprende jugando — %s' % NOMBRE_SITIO, descripcion, 'index.html')
     return documento(head, 'pagina-inicio', cuerpo)
 
 
@@ -642,8 +660,9 @@ def pagina_materia(materia, materias, v):
          plural(len(materia.temas), 'tema', 'temas'), plural(len(materia.juegos), 'juego', 'juegos'),
          esc(materia.nombre), indice, indentar('\n'.join(secciones), '  '), otras, bloque_pie(materias, v))
 
-    head = cabeza(v, '%s — %s' % (materia.nombre, NOMBRE_SITIO),
-                  '%s Juegos educativos gratuitos de %s por temas.' % (materia.descripcion, materia.nombre.lower()),
+    head = cabeza(v, '%s — %s' % (materia.titulo_seo or materia.nombre, NOMBRE_SITIO),
+                  materia.descripcion_seo or '%s Juegos educativos gratuitos de %s por temas.'
+                  % (materia.descripcion, materia.nombre.lower()),
                   materia.id + '/index.html')
     return documento(head, 'materia-%s' % materia.id, cuerpo)
 
@@ -683,8 +702,8 @@ def pagina_quiz(juego, materias, v):
                 esc(juego.descripcion), esc(juego.nivel), esc(juego.detalle), url_de(ruta_ficha(juego)),
                 bloque_pie(materias, v, juego), v.url('quiz.js'), json_para_script(juego.datos))
 
-    head = cabeza(v, '%s — %s' % (juego.titulo, NOMBRE_SITIO), juego.descripcion, juego.ruta,
-                  tipo_og='article', estilos=('quiz.css',))
+    head = cabeza(v, '%s — %s' % (juego.titulo_seo or juego.titulo, NOMBRE_SITIO),
+                  juego.descripcion_seo or juego.descripcion, juego.ruta, tipo_og='article', estilos=('quiz.css',))
     return documento(head, 'materia-%s' % juego.materia.id, cuerpo)
 
 

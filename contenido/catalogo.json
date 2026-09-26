@@ -8,6 +8,17 @@
       "descripcion": "Operaciones, fracciones y geometría para calcular sin miedo.",
       "temas": [
         {
+          "id": "primeros-numeros",
+          "nombre": "Primeros números",
+          "descripcion": "Para 1.º de primaria: contar, sumar y restar hasta 10.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "matematicas/primero-primaria.json"
+            }
+          ]
+        },
+        {
           "id": "operaciones",
           "nombre": "Operaciones básicas",
           "descripcion": "Suma, resta, multiplicación y división con ejercicios que se generan solos.",
@@ -68,7 +79,8 @@
             }
           ]
         }
-      ]
+      ],
+      "tituloSeo": "Juegos de matemáticas online: sumas, restas, fracciones y geometría"
     },
     {
       "id": "espanol",
@@ -77,6 +89,25 @@
       "color": "#c2410c",
       "descripcion": "Lectura, ortografía y gramática para comunicarte mejor.",
       "temas": [
+        {
+          "id": "leer-escribir",
+          "nombre": "Aprender a leer y escribir",
+          "descripcion": "Juegos de lectoescritura con ayuda en voz alta: vocales, sílabas y primeras palabras.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "espanol/vocales.json"
+            },
+            {
+              "tipo": "quiz",
+              "datos": "espanol/silabas.json"
+            },
+            {
+              "tipo": "quiz",
+              "datos": "espanol/primeras-palabras.json"
+            }
+          ]
+        },
         {
           "id": "lectura",
           "nombre": "Comprensión lectora",
@@ -110,7 +141,8 @@
             }
           ]
         }
-      ]
+      ],
+      "tituloSeo": "Juegos de Español online: aprender a leer y escribir, lectura y ortografía"
     },
     {
       "id": "sociales",
@@ -180,6 +212,39 @@
             {
               "tipo": "quiz",
               "datos": "naturales/cuerpo-humano.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emociones",
+      "nombre": "Emociones",
+      "icono": "💛",
+      "color": "#0369a1",
+      "descripcion": "Reconocer lo que sentimos y aprender a convivir mejor con los demás.",
+      "tituloSeo": "Juegos de emociones online para niños",
+      "descripcionSeo": "Juegos de emociones online gratis: educación emocional para reconocer emociones, calmarse, ponerse en el lugar del otro y resolver conflictos.",
+      "temas": [
+        {
+          "id": "reconocer",
+          "nombre": "Reconocer las emociones",
+          "descripcion": "Alegría, tristeza, enojo, miedo, sorpresa… ¿qué siento yo y qué sienten los demás?",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "emociones/reconocer.json"
+            }
+          ]
+        },
+        {
+          "id": "manejar",
+          "nombre": "Manejar las emociones",
+          "descripcion": "Qué hacer con lo que sentimos y cómo ayudar a otros.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "emociones/manejar.json"
             }
           ]
         }

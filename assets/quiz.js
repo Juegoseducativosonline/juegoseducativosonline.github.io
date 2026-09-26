@@ -97,6 +97,16 @@
        de pantalla la anuncie. */
     elEnunciado.tabIndex = -1;
 
+    /* Botón para oír la pregunta: imprescindible para quien aún está
+       aprendiendo a leer. Solo aparece si el juego lo pide y el navegador
+       tiene síntesis de voz. */
+    var puedeHablar = config.leerEnVozAlta && 'speechSynthesis' in window;
+    var btnEscuchar = crear('button', 'btn btn-secundario quiz-escuchar', '🔊 Escuchar');
+    btnEscuchar.type = 'button';
+    if (!puedeHablar) {
+      btnEscuchar.classList.add('hidden');
+    }
+
     var elOpciones = crear('ul', 'quiz-opciones');
     var elFeedback = crear('p', 'feedback hidden');
     elFeedback.setAttribute('role', 'status');
@@ -108,7 +118,7 @@
     elAcciones.appendChild(btnSiguiente);
 
     var elJuego = crear('div', 'quiz-juego');
-    [elProgresoTexto, elBarra, elPasaje, elEnunciado, elOpciones, elFeedback, elAcciones]
+    [elProgresoTexto, elBarra, elPasaje, elEnunciado, btnEscuchar, elOpciones, elFeedback, elAcciones]
       .forEach(function (el) { elJuego.appendChild(el); });
 
     var elResultado = crear('section', 'quiz-resultado hidden');
@@ -177,8 +187,41 @@
       elBarra.setAttribute('aria-valuenow', String(indice));
     }
 
+    /* Los emojis se quitan antes de leer: la voz los nombraría («cara
+       sonriente…») y confundiría a quien escucha. */
+    function sinEmojis(texto) {
+      return texto.replace(/\p{Extended_Pictographic}|\uFE0F|\u200D/gu, '').replace(/\s+/g, ' ').trim();
+    }
+
+    function callar() {
+      if (puedeHablar) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function leerPregunta() {
+      var pregunta = ronda[indice];
+      /* Cada trozo acaba en pausa (punto), salvo si ya trae su propio signo. */
+      var trozos = [pregunta.enunciado].concat(pregunta.opciones.map(function (o) { return o.texto; }));
+      var texto = trozos.map(sinEmojis).filter(Boolean).map(function (t) {
+        return /[.?!…]$/.test(t) ? t : t + '.';
+      }).join(' ');
+      var locucion = new SpeechSynthesisUtterance(texto);
+      locucion.lang = 'es-ES';
+      locucion.rate = 0.9;
+      var voz = window.speechSynthesis.getVoices().filter(function (v) {
+        return v.lang && v.lang.toLowerCase().indexOf('es') === 0;
+      })[0];
+      if (voz) {
+        locucion.voice = voz;
+      }
+      callar();
+      window.speechSynthesis.speak(locucion);
+    }
+
     function mostrarPregunta() {
       var pregunta = ronda[indice];
+      callar();
 
       mostrarPasaje(pregunta.pasaje);
       actualizarProgreso();
@@ -272,6 +315,9 @@
 
     btnSiguiente.addEventListener('click', siguiente);
     btnReiniciar.addEventListener('click', empezar);
+    if (puedeHablar) {
+      btnEscuchar.addEventListener('click', leerPregunta);
+    }
 
     empezar();
   };
@@ -288,6 +334,7 @@
     JEO.iniciarQuiz({
       contenedor: contenedor,
       mezclarPreguntas: datos.mezclarPreguntas,
+      leerEnVozAlta: datos.leerEnVozAlta,
       preguntas: datos.preguntas.map(function (p) {
         if (p.pasaje && !pasajes[p.pasaje]) {
           throw new Error('cargarQuiz: la pregunta «' + p.enunciado + '» usa un pasaje que no existe.');

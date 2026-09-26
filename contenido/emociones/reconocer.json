@@ -1,0 +1,134 @@
+{
+  "titulo": "Reconocer las Emociones",
+  "icono": "😊",
+  "nivel": "Primaria",
+  "descripcion": "Descubre qué emoción muestra cada cara y cómo se sienten los demás.",
+  "tituloSeo": "Juegos de emociones online para niños: reconocer emociones",
+  "descripcionSeo": "Juego de emociones online gratis: aprende a reconocer la alegría, la tristeza, el enojo, el miedo y la sorpresa en caras y situaciones.",
+  "mezclarPreguntas": true,
+  "leerEnVozAlta": true,
+  "preguntas": [
+    {
+      "enunciado": "😊 ¿Qué emoción muestra esta cara?",
+      "opciones": [
+        "Alegría",
+        "Tristeza",
+        "Enojo",
+        "Miedo"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "😢 ¿Qué emoción muestra esta cara?",
+      "opciones": [
+        "Tristeza",
+        "Alegría",
+        "Sorpresa",
+        "Enojo"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "😠 ¿Qué emoción muestra esta cara?",
+      "opciones": [
+        "Enojo",
+        "Alegría",
+        "Calma",
+        "Sorpresa"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "😨 ¿Qué emoción muestra esta cara?",
+      "opciones": [
+        "Miedo",
+        "Alegría",
+        "Enojo",
+        "Aburrimiento"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "😲 ¿Qué emoción muestra esta cara?",
+      "opciones": [
+        "Sorpresa",
+        "Tristeza",
+        "Enojo",
+        "Calma"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🤢 ¿Qué emoción muestra esta cara?",
+      "opciones": [
+        "Asco",
+        "Alegría",
+        "Miedo",
+        "Tristeza"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "😌 ¿Qué emoción muestra esta cara?",
+      "opciones": [
+        "Calma",
+        "Enojo",
+        "Miedo",
+        "Sorpresa"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Lucía abre su regalo de cumpleaños y es justo lo que quería. ¿Cómo se siente?",
+      "opciones": [
+        "Alegre",
+        "Triste",
+        "Enojada",
+        "Asustada"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Pedro perdió su juguete favorito. ¿Cómo se siente?",
+      "opciones": [
+        "Triste",
+        "Alegre",
+        "Sorprendido",
+        "Tranquilo"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Un compañero rompe tu dibujo a propósito. ¿Qué emoción es normal sentir?",
+      "opciones": [
+        "Enojo",
+        "Alegría",
+        "Calma",
+        "Aburrimiento"
+      ],
+      "correcta": 0,
+      "explicacion": "Sentir enojo es normal; lo importante es expresarlo sin hacer daño a nadie."
+    },
+    {
+      "enunciado": "Durante una tormenta se apagan de repente todas las luces. ¿Qué emoción puedes sentir?",
+      "opciones": [
+        "Miedo",
+        "Alegría",
+        "Aburrimiento",
+        "Orgullo"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Hay emociones malas?",
+      "opciones": [
+        "No: todas las emociones son normales y nos dicen algo",
+        "Sí: la tristeza y el enojo son malas",
+        "Solo la alegría es buena",
+        "Hay que esconder las emociones"
+      ],
+      "correcta": 0,
+      "explicacion": "Lo que puede estar bien o mal es lo que hacemos con ellas."
+    }
+  ]
+}

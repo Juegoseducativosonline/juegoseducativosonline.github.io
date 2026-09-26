@@ -1,0 +1,135 @@
+{
+  "titulo": "Aprender a Leer y Escribir",
+  "icono": "✍️",
+  "nivel": "Primaria",
+  "descripcion": "Primeras palabras y frases: lee, relaciona con dibujos y escribe bien.",
+  "tituloSeo": "Juegos para aprender a leer y escribir online",
+  "descripcionSeo": "Juegos online para aprender a leer y escribir: relaciona palabras con dibujos, completa letras y lee frases cortas, con ayuda en voz alta.",
+  "mezclarPreguntas": true,
+  "leerEnVozAlta": true,
+  "preguntas": [
+    {
+      "enunciado": "🐶 ¿Qué palabra corresponde a este dibujo?",
+      "opciones": [
+        "perro",
+        "gato",
+        "pato",
+        "pera"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🍎 ¿Qué palabra corresponde a este dibujo?",
+      "opciones": [
+        "manzana",
+        "mango",
+        "melón",
+        "mesa"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🐟 ¿Qué palabra corresponde a este dibujo?",
+      "opciones": [
+        "pez",
+        "pie",
+        "paz",
+        "pan"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué dibujo corresponde a la palabra «sol»?",
+      "opciones": [
+        "☀️",
+        "🌙",
+        "⭐",
+        "☁️"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué palabra está bien escrita?",
+      "opciones": [
+        "casa",
+        "kasa",
+        "cassa",
+        "cása"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué palabra se forma con las letras m, a, n, o, en ese orden?",
+      "opciones": [
+        "mano",
+        "mona",
+        "nomá",
+        "amon"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🐱 ¿Qué letra falta en «_ato»?",
+      "opciones": [
+        "g",
+        "p",
+        "r",
+        "m"
+      ],
+      "correcta": 0,
+      "explicacion": "Se escribe gato."
+    },
+    {
+      "enunciado": "«Mi mamá me mima». ¿Quién mima?",
+      "opciones": [
+        "Mi mamá",
+        "Yo",
+        "El perro",
+        "Nadie"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "«El sapo salta». ¿Qué hace el sapo?",
+      "opciones": [
+        "Salta",
+        "Come",
+        "Duerme",
+        "Canta"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estas palabras es la más larga?",
+      "opciones": [
+        "mariposa",
+        "sol",
+        "pan",
+        "mar"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué letra no suena al leer «helado»?",
+      "opciones": [
+        "h",
+        "e",
+        "l",
+        "d"
+      ],
+      "correcta": 0,
+      "explicacion": "La h es muda: se escribe, pero no se pronuncia."
+    },
+    {
+      "enunciado": "¿Qué oración está bien escrita?",
+      "opciones": [
+        "Ana come pan.",
+        "ana come pan.",
+        "Ana come pan",
+        "ana Come pan."
+      ],
+      "correcta": 0,
+      "explicacion": "Empieza con mayúscula y termina con punto."
+    }
+  ]
+}

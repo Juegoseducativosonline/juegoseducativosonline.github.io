@@ -1,0 +1,132 @@
+{
+  "titulo": "Manejar las Emociones",
+  "icono": "🤝",
+  "nivel": "Primaria",
+  "descripcion": "Qué hacer cuando sentimos enojo, tristeza o miedo, y cómo ayudar a los demás.",
+  "tituloSeo": "Juego de emociones online: aprender a manejar las emociones",
+  "descripcionSeo": "Juego online de educación emocional: situaciones reales para aprender a calmarse, a pedir ayuda, a ponerse en el lugar del otro y a resolver conflictos.",
+  "mezclarPreguntas": true,
+  "leerEnVozAlta": true,
+  "preguntas": [
+    {
+      "enunciado": "Estás muy enojado. ¿Qué te puede ayudar a calmarte?",
+      "opciones": [
+        "Respirar hondo y contar hasta diez",
+        "Gritar e insultar",
+        "Romper algo",
+        "Empujar a alguien"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Un amigo está triste. ¿Qué puedes hacer?",
+      "opciones": [
+        "Preguntarle cómo está y escucharlo",
+        "Reírte de él",
+        "Ignorarlo",
+        "Contárselo a todos para burlarse"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Tienes miedo antes de un examen. ¿Qué te ayuda?",
+      "opciones": [
+        "Prepararte con tiempo y hablarlo con alguien de confianza",
+        "No dormir la noche anterior",
+        "Esconderte",
+        "Decir que estás enfermo"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué es la empatía?",
+      "opciones": [
+        "Ponerte en el lugar de otra persona y entender cómo se siente",
+        "Hacer siempre lo que tú quieres",
+        "Ganar todos los juegos",
+        "No sentir nada"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Te equivocaste en algo. ¿Cuál es una buena reacción?",
+      "opciones": [
+        "Aprender del error e intentarlo otra vez",
+        "Rendirte para siempre",
+        "Echarle la culpa a otro",
+        "Enfadarte contigo todo el día"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo puedes decir que algo te molestó sin pelear?",
+      "opciones": [
+        "Diciendo con calma «me sentí mal cuando…»",
+        "Gritando",
+        "Empujando",
+        "No volviendo a hablar nunca"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "En el recreo ves que molestan a un compañero. ¿Qué haces?",
+      "opciones": [
+        "Se lo cuento a un adulto y acompaño a mi compañero",
+        "Me uno a las burlas",
+        "Lo grabo y lo comparto",
+        "Miro y me río"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué ayuda a sentirse mejor cuando estás triste?",
+      "opciones": [
+        "Hablar con alguien de confianza",
+        "Guardártelo siempre",
+        "Pelear con alguien",
+        "Dejar de comer"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué es la autoestima?",
+      "opciones": [
+        "Lo que piensas y sientes sobre ti mismo",
+        "Ser el mejor de la clase",
+        "Tener muchos juguetes",
+        "Estar siempre contento"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Tu hermano rompió tu juguete sin querer y te pidió perdón. ¿Qué haces?",
+      "opciones": [
+        "Acepto sus disculpas y buscamos juntos una solución",
+        "Rompo algo suyo",
+        "No le hablo nunca más",
+        "Le grito"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué significa ser paciente?",
+      "opciones": [
+        "Saber esperar con calma",
+        "Querer todo ya",
+        "Enojarse al esperar",
+        "No escuchar a nadie"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Estás nervioso. ¿Cuál es un buen ejercicio?",
+      "opciones": [
+        "Tomar aire despacio por la nariz y soltarlo poco a poco",
+        "Aguantar la respiración mucho rato",
+        "Comer muchos dulces",
+        "Gritar muy fuerte"
+      ],
+      "correcta": 0
+    }
+  ]
+}

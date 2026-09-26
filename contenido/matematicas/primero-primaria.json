@@ -1,0 +1,134 @@
+{
+  "titulo": "Matemáticas para 1.º de Primaria",
+  "icono": "🔢",
+  "nivel": "Primaria",
+  "descripcion": "Contar, sumar y restar hasta 10, y ordenar los números.",
+  "tituloSeo": "Juegos de matemáticas para 1.º de primaria online",
+  "descripcionSeo": "Juegos de matemáticas online para 1.º de primaria: contar objetos, sumas y restas hasta 10, números anteriores y siguientes, con preguntas en voz alta.",
+  "mezclarPreguntas": true,
+  "leerEnVozAlta": true,
+  "preguntas": [
+    {
+      "enunciado": "🍎🍎🍎 ¿Cuántas manzanas hay?",
+      "opciones": [
+        "3",
+        "2",
+        "4",
+        "5"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "⭐⭐⭐⭐⭐ ¿Cuántas estrellas hay?",
+      "opciones": [
+        "5",
+        "4",
+        "6",
+        "3"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuánto es 2 + 3?",
+      "opciones": [
+        "5",
+        "4",
+        "6",
+        "23"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuánto es 4 + 4?",
+      "opciones": [
+        "8",
+        "7",
+        "9",
+        "44"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuánto es 7 − 2?",
+      "opciones": [
+        "5",
+        "4",
+        "9",
+        "6"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál es el número mayor?",
+      "opciones": [
+        "9",
+        "6",
+        "3",
+        "1"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué número va después del 7?",
+      "opciones": [
+        "8",
+        "6",
+        "9",
+        "17"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué número va antes del 10?",
+      "opciones": [
+        "9",
+        "11",
+        "8",
+        "1"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🍬🍬🍬 Tienes 3 caramelos y te dan 2 más. ¿Cuántos tienes ahora?",
+      "opciones": [
+        "5",
+        "3",
+        "2",
+        "6"
+      ],
+      "correcta": 0,
+      "explicacion": "3 + 2 = 5."
+    },
+    {
+      "enunciado": "🐦 Hay 6 pájaros en un árbol y se van volando 2. ¿Cuántos quedan?",
+      "opciones": [
+        "4",
+        "8",
+        "3",
+        "6"
+      ],
+      "correcta": 0,
+      "explicacion": "6 − 2 = 4."
+    },
+    {
+      "enunciado": "✋✋ ¿Cuántos dedos hay en dos manos?",
+      "opciones": [
+        "10",
+        "5",
+        "8",
+        "20"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué número se escribe «ocho»?",
+      "opciones": [
+        "8",
+        "6",
+        "3",
+        "18"
+      ],
+      "correcta": 0
+    }
+  ]
+}

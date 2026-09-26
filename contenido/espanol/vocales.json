@@ -1,0 +1,145 @@
+{
+  "titulo": "Las Vocales",
+  "icono": "🅰️",
+  "nivel": "Primaria",
+  "descripcion": "Reconoce las vocales al principio, al final y dentro de las palabras.",
+  "tituloSeo": "Juegos de vocales online para aprender a leer",
+  "descripcionSeo": "Juego de vocales online gratis para niños: reconoce la a, e, i, o, u en palabras con dibujos y escucha cada pregunta en voz alta.",
+  "mezclarPreguntas": true,
+  "leerEnVozAlta": true,
+  "preguntas": [
+    {
+      "enunciado": "🐝 ¿Con qué vocal empieza «abeja»?",
+      "opciones": [
+        "a",
+        "e",
+        "i",
+        "o",
+        "u"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🐘 ¿Con qué vocal empieza «elefante»?",
+      "opciones": [
+        "e",
+        "a",
+        "i",
+        "o",
+        "u"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🏝️ ¿Con qué vocal empieza «isla»?",
+      "opciones": [
+        "i",
+        "a",
+        "e",
+        "o",
+        "u"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🐻 ¿Con qué vocal empieza «oso»?",
+      "opciones": [
+        "o",
+        "a",
+        "e",
+        "i",
+        "u"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🍇 ¿Con qué vocal empieza «uva»?",
+      "opciones": [
+        "u",
+        "a",
+        "e",
+        "i",
+        "o"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🐱 ¿Con qué vocal termina «gato»?",
+      "opciones": [
+        "o",
+        "a",
+        "e",
+        "i",
+        "u"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🌙 ¿Con qué vocal termina «luna»?",
+      "opciones": [
+        "a",
+        "e",
+        "i",
+        "o",
+        "u"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "☕ ¿Con qué vocal termina «café»?",
+      "opciones": [
+        "e",
+        "a",
+        "i",
+        "o",
+        "u"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "🐶 ¿Qué vocal falta en «p_rro»?",
+      "opciones": [
+        "e",
+        "a",
+        "i",
+        "o",
+        "u"
+      ],
+      "correcta": 0,
+      "explicacion": "Se escribe perro."
+    },
+    {
+      "enunciado": "☀️ ¿Qué vocal falta en «s_l»?",
+      "opciones": [
+        "o",
+        "a",
+        "e",
+        "i",
+        "u"
+      ],
+      "correcta": 0,
+      "explicacion": "Se escribe sol."
+    },
+    {
+      "enunciado": "¿Cuántas vocales hay en español?",
+      "opciones": [
+        "Cinco: a, e, i, o, u",
+        "Tres",
+        "Siete",
+        "Diez"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estas letras es una vocal?",
+      "opciones": [
+        "i",
+        "m",
+        "p",
+        "s"
+      ],
+      "correcta": 0,
+      "explicacion": "Las demás son consonantes."
+    }
+  ]
+}
