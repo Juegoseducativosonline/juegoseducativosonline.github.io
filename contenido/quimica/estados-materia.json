@@ -1,0 +1,93 @@
+{
+  "titulo": "La Materia y sus Estados",
+  "icono": "🧊",
+  "nivel": "Primaria",
+  "descripcion": "Sólidos, líquidos y gases, y los cambios de estado.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Qué es la materia?",
+      "opciones": [
+        "Todo lo que tiene masa y ocupa un lugar en el espacio",
+        "Solo lo que podemos ver",
+        "Solo los seres vivos",
+        "Solo los líquidos"
+      ],
+      "correcta": 0,
+      "explicacion": "El aire también es materia, aunque no lo veamos."
+    },
+    {
+      "enunciado": "¿Cuáles son los tres estados más comunes de la materia en la Tierra?",
+      "opciones": [
+        "Sólido, líquido y gaseoso",
+        "Frío, tibio y caliente",
+        "Grande, mediano y pequeño",
+        "Duro, blando y elástico"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llama el paso de sólido a líquido?",
+      "opciones": [
+        "Fusión",
+        "Evaporación",
+        "Condensación",
+        "Solidificación"
+      ],
+      "correcta": 0,
+      "explicacion": "Es lo que le pasa a un cubo de hielo cuando se derrite."
+    },
+    {
+      "enunciado": "¿Cómo se llama el paso de gas a líquido?",
+      "opciones": [
+        "Condensación",
+        "Fusión",
+        "Sublimación",
+        "Evaporación"
+      ],
+      "correcta": 0,
+      "explicacion": "Por eso se forman gotitas por fuera de un vaso con agua muy fría."
+    },
+    {
+      "enunciado": "¿A qué temperatura hierve el agua a nivel del mar?",
+      "opciones": [
+        "100 °C",
+        "0 °C",
+        "50 °C",
+        "200 °C"
+      ],
+      "correcta": 0,
+      "explicacion": "En lo alto de una montaña hierve a menos temperatura, porque la presión del aire es menor."
+    },
+    {
+      "enunciado": "¿En qué estado las partículas están más separadas y se mueven con más libertad?",
+      "opciones": [
+        "Gaseoso",
+        "Sólido",
+        "Líquido"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué estado de la materia tiene forma y volumen propios?",
+      "opciones": [
+        "Sólido",
+        "Líquido",
+        "Gaseoso"
+      ],
+      "correcta": 0,
+      "explicacion": "Un líquido tiene volumen propio, pero toma la forma del recipiente que lo contiene."
+    },
+    {
+      "enunciado": "¿Cómo se llama el paso directo de sólido a gas, sin pasar por líquido?",
+      "opciones": [
+        "Sublimación",
+        "Fusión",
+        "Condensación",
+        "Ebullición"
+      ],
+      "correcta": 0,
+      "explicacion": "Le ocurre, por ejemplo, al hielo seco."
+    }
+  ]
+}

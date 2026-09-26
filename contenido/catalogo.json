@@ -1,0 +1,377 @@
+{
+  "materias": [
+    {
+      "id": "matematicas",
+      "nombre": "Matemáticas",
+      "icono": "🧮",
+      "color": "#1d4ed8",
+      "descripcion": "Operaciones, fracciones y geometría para calcular sin miedo.",
+      "temas": [
+        {
+          "id": "operaciones",
+          "nombre": "Operaciones básicas",
+          "descripcion": "Suma, resta, multiplicación y división con ejercicios que se generan solos.",
+          "juegos": [
+            {
+              "tipo": "interactivo",
+              "pagina": "matematicas/suma_practice.html",
+              "titulo": "Práctica de Suma",
+              "descripcion": "Hojas de sumas de 1 a 5 cifras que se corrigen de una vez.",
+              "icono": "➕",
+              "nivel": "Primaria"
+            },
+            {
+              "tipo": "interactivo",
+              "pagina": "matematicas/resta_practice_html.html",
+              "titulo": "Práctica de Resta",
+              "descripcion": "Restas de 1 a 5 cifras alineadas por valor posicional.",
+              "icono": "➖",
+              "nivel": "Primaria"
+            },
+            {
+              "tipo": "interactivo",
+              "pagina": "matematicas/multiplication_practice.html",
+              "titulo": "Práctica de Multiplicación",
+              "descripcion": "Multiplicaciones en cinco niveles de dificultad.",
+              "icono": "✖️",
+              "nivel": "Primaria"
+            },
+            {
+              "tipo": "interactivo",
+              "pagina": "matematicas/division_practice.html",
+              "titulo": "Práctica de División",
+              "descripcion": "Divisiones exactas con rachas y subida de nivel.",
+              "icono": "➗",
+              "nivel": "Primaria"
+            }
+          ]
+        },
+        {
+          "id": "fracciones",
+          "nombre": "Fracciones",
+          "descripcion": "Partes de un entero, fracciones equivalentes y operaciones sencillas.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "matematicas/fracciones.json"
+            }
+          ]
+        },
+        {
+          "id": "geometria",
+          "nombre": "Geometría",
+          "descripcion": "Figuras, ángulos, perímetros y áreas.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "matematicas/geometria.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "espanol",
+      "nombre": "Español",
+      "icono": "📖",
+      "color": "#c2410c",
+      "descripcion": "Lectura, ortografía y gramática para comunicarte mejor.",
+      "temas": [
+        {
+          "id": "lectura",
+          "nombre": "Comprensión lectora",
+          "descripcion": "Lee con atención y responde sobre lo que has leído.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "espanol/juego-lectura.json"
+            }
+          ]
+        },
+        {
+          "id": "ortografia",
+          "nombre": "Ortografía",
+          "descripcion": "Escribe sin faltas: tildes, mayúsculas y letras que confunden.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "espanol/ortografia.json"
+            }
+          ]
+        },
+        {
+          "id": "gramatica",
+          "nombre": "Gramática",
+          "descripcion": "Las clases de palabras y cómo se forman las oraciones.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "espanol/gramatica.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sociales",
+      "nombre": "Ciencias Sociales",
+      "icono": "🌎",
+      "color": "#92400e",
+      "descripcion": "Historia y geografía para entender el mundo y su pasado.",
+      "temas": [
+        {
+          "id": "historia",
+          "nombre": "Historia",
+          "descripcion": "Las grandes civilizaciones y los hechos que cambiaron el mundo.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "sociales/quiz-historia.json"
+            }
+          ]
+        },
+        {
+          "id": "geografia",
+          "nombre": "Geografía",
+          "descripcion": "Continentes, océanos, ríos, montañas y mapas.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "sociales/geografia.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naturales",
+      "nombre": "Ciencias Naturales",
+      "icono": "🌿",
+      "color": "#15803d",
+      "descripcion": "Plantas, animales y el cuerpo humano: el mundo de los seres vivos.",
+      "temas": [
+        {
+          "id": "plantas",
+          "nombre": "Las plantas",
+          "descripcion": "Cómo son, cómo se alimentan y cómo se reproducen.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "naturales/juego-plantas.json"
+            }
+          ]
+        },
+        {
+          "id": "animales",
+          "nombre": "Los animales",
+          "descripcion": "Cómo se clasifican, cómo respiran, qué comen y cómo nacen.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "naturales/animales.json"
+            }
+          ]
+        },
+        {
+          "id": "cuerpo-humano",
+          "nombre": "El cuerpo humano",
+          "descripcion": "Órganos, huesos y sentidos.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "naturales/cuerpo-humano.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quimica",
+      "nombre": "Química",
+      "icono": "⚗️",
+      "color": "#6d28d9",
+      "descripcion": "La materia, sus cambios y los elementos que forman todo lo que nos rodea.",
+      "temas": [
+        {
+          "id": "materia",
+          "nombre": "La materia",
+          "descripcion": "Qué es la materia y cómo pasa de un estado a otro.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "quimica/estados-materia.json"
+            }
+          ]
+        },
+        {
+          "id": "mezclas",
+          "nombre": "Mezclas y cambios",
+          "descripcion": "Cómo se mezclan y se separan las sustancias.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "quimica/mezclas.json"
+            }
+          ]
+        },
+        {
+          "id": "elementos",
+          "nombre": "Los elementos",
+          "descripcion": "Átomos, símbolos químicos y la tabla periódica.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "quimica/elementos.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fisica",
+      "nombre": "Física",
+      "icono": "🧲",
+      "color": "#0e7490",
+      "descripcion": "Fuerzas, energía, luz y sonido: cómo funciona el universo.",
+      "temas": [
+        {
+          "id": "fuerzas",
+          "nombre": "Fuerzas y movimiento",
+          "descripcion": "Por qué las cosas se mueven, se frenan y caen.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "fisica/fuerzas.json"
+            }
+          ]
+        },
+        {
+          "id": "energia",
+          "nombre": "La energía",
+          "descripcion": "De dónde viene la energía y cómo se transforma.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "fisica/energia.json"
+            }
+          ]
+        },
+        {
+          "id": "luz-sonido",
+          "nombre": "Luz y sonido",
+          "descripcion": "Cómo viajan, rebotan y se desvían.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "fisica/luz-sonido.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tecnologia",
+      "nombre": "Tecnología",
+      "icono": "💻",
+      "color": "#334155",
+      "descripcion": "Computadoras, seguridad en internet y máquinas que nos facilitan la vida.",
+      "temas": [
+        {
+          "id": "computadora",
+          "nombre": "La computadora",
+          "descripcion": "Sus partes y cómo funciona.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "tecnologia/computadora.json"
+            }
+          ]
+        },
+        {
+          "id": "internet-seguro",
+          "nombre": "Internet seguro",
+          "descripcion": "Cómo protegerte y proteger a los demás en línea.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "tecnologia/internet-seguro.json"
+            }
+          ]
+        },
+        {
+          "id": "maquinas",
+          "nombre": "Máquinas simples",
+          "descripcion": "Los inventos más sencillos que multiplican nuestra fuerza.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "tecnologia/maquinas-simples.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ingles",
+      "nombre": "Inglés",
+      "icono": "🔤",
+      "color": "#b91c1c",
+      "descripcion": "Vocabulario y frases básicas para empezar a hablar en inglés.",
+      "temas": [
+        {
+          "id": "vocabulario",
+          "nombre": "Vocabulario",
+          "descripcion": "Las primeras palabras en inglés.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "ingles/colores-numeros.json"
+            }
+          ]
+        },
+        {
+          "id": "conversacion",
+          "nombre": "Conversación",
+          "descripcion": "Frases para saludar, presentarte y ser amable.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "ingles/saludos.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "artes",
+      "nombre": "Artes",
+      "icono": "🎨",
+      "color": "#be185d",
+      "descripcion": "Colores, pintura y música para desarrollar tu creatividad.",
+      "temas": [
+        {
+          "id": "artes-plasticas",
+          "nombre": "Artes plásticas",
+          "descripcion": "El color y la pintura.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "artes/colores.json"
+            }
+          ]
+        },
+        {
+          "id": "musica",
+          "nombre": "Música",
+          "descripcion": "Notas, instrumentos y compositores.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "artes/musica.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

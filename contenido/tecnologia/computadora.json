@@ -1,0 +1,93 @@
+{
+  "titulo": "La Computadora",
+  "icono": "🖥️",
+  "nivel": "Primaria",
+  "descripcion": "Hardware, software, dispositivos de entrada y salida, y la memoria.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Qué es el hardware?",
+      "opciones": [
+        "Las partes físicas de la computadora, las que se pueden tocar",
+        "Los programas",
+        "Internet",
+        "Los archivos guardados"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué es el software?",
+      "opciones": [
+        "Los programas e instrucciones que usa la computadora",
+        "El teclado y el ratón",
+        "La pantalla",
+        "Los cables"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estos es un dispositivo de entrada?",
+      "opciones": [
+        "El teclado",
+        "El monitor",
+        "La impresora",
+        "Los altavoces"
+      ],
+      "correcta": 0,
+      "explicacion": "Los de entrada meten información en la computadora; los de salida la muestran."
+    },
+    {
+      "enunciado": "¿Cuál de estos es un dispositivo de salida?",
+      "opciones": [
+        "La impresora",
+        "El ratón",
+        "El micrófono",
+        "El escáner"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué parte se considera el «cerebro» de la computadora porque procesa la información?",
+      "opciones": [
+        "El procesador (CPU)",
+        "El monitor",
+        "El teclado",
+        "La memoria USB"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué es un sistema operativo?",
+      "opciones": [
+        "El programa principal que controla la computadora",
+        "Un videojuego",
+        "Un tipo de cable",
+        "Una página web"
+      ],
+      "correcta": 0,
+      "explicacion": "Windows, macOS, Linux y Android son sistemas operativos."
+    },
+    {
+      "enunciado": "¿Qué pasa con lo que hay en la memoria RAM al apagar la computadora?",
+      "opciones": [
+        "Se borra",
+        "Se guarda para siempre",
+        "Se imprime",
+        "Se envía por internet"
+      ],
+      "correcta": 0,
+      "explicacion": "Por eso hay que guardar los archivos en el disco antes de apagar."
+    },
+    {
+      "enunciado": "¿Cuál de estas cantidades de información es la mayor?",
+      "opciones": [
+        "1 gigabyte",
+        "1 megabyte",
+        "1 kilobyte",
+        "1 byte"
+      ],
+      "correcta": 0,
+      "explicacion": "Un gigabyte equivale a unos mil megabytes, y un megabyte a unos mil kilobytes."
+    }
+  ]
+}

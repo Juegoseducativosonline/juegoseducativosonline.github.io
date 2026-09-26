@@ -1,0 +1,89 @@
+{
+  "titulo": "Saludos y Frases",
+  "icono": "👋",
+  "nivel": "Primaria",
+  "descripcion": "Saludar, presentarte y las frases de cortesía más útiles.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Qué significa «Good morning»?",
+      "opciones": [
+        "Buenos días",
+        "Buenas noches",
+        "Adiós",
+        "Gracias"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se dice «gracias» en inglés?",
+      "opciones": [
+        "Thank you",
+        "Please",
+        "Sorry",
+        "Hello"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué significa «What is your name?»?",
+      "opciones": [
+        "¿Cómo te llamas?",
+        "¿Cuántos años tienes?",
+        "¿Dónde vives?",
+        "¿Cómo estás?"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Si alguien te dice «How are you?», ¿qué puedes responder?",
+      "opciones": [
+        "I'm fine, thank you",
+        "I'm ten years old",
+        "My name is Ana",
+        "Goodbye"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué significa «Please»?",
+      "opciones": [
+        "Por favor",
+        "Perdón",
+        "De nada",
+        "Hola"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se pregunta «¿Cuántos años tienes?» en inglés?",
+      "opciones": [
+        "How old are you?",
+        "How are you?",
+        "Where are you from?",
+        "What time is it?"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué significa «See you later»?",
+      "opciones": [
+        "Hasta luego",
+        "Mucho gusto",
+        "Buenas tardes",
+        "Lo siento"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué significa «Nice to meet you»?",
+      "opciones": [
+        "Encantado de conocerte",
+        "Hasta mañana",
+        "¿Qué hora es?",
+        "Buen provecho"
+      ],
+      "correcta": 0
+    }
+  ]
+}

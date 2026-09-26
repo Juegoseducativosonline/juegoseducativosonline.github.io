@@ -1,0 +1,94 @@
+{
+  "titulo": "Los Colores",
+  "icono": "🖌️",
+  "nivel": "Primaria",
+  "descripcion": "Colores primarios y secundarios, cálidos y fríos, y cómo mezclarlos.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "En la pintura tradicional, ¿cuáles son los colores primarios?",
+      "opciones": [
+        "Rojo, amarillo y azul",
+        "Verde, naranja y violeta",
+        "Blanco, negro y gris",
+        "Rosa, café y celeste"
+      ],
+      "correcta": 0,
+      "explicacion": "Se llaman primarios porque no se obtienen mezclando otros colores."
+    },
+    {
+      "enunciado": "¿Qué color se obtiene al mezclar azul y amarillo?",
+      "opciones": [
+        "Verde",
+        "Naranja",
+        "Morado",
+        "Café"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué color se obtiene al mezclar rojo y amarillo?",
+      "opciones": [
+        "Naranja",
+        "Verde",
+        "Violeta",
+        "Rosa"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué color se obtiene al mezclar rojo y azul?",
+      "opciones": [
+        "Violeta",
+        "Verde",
+        "Naranja",
+        "Amarillo"
+      ],
+      "correcta": 0,
+      "explicacion": "Verde, naranja y violeta son los colores secundarios."
+    },
+    {
+      "enunciado": "¿Cuál de estos es un color cálido?",
+      "opciones": [
+        "Rojo",
+        "Azul",
+        "Verde",
+        "Celeste"
+      ],
+      "correcta": 0,
+      "explicacion": "Los cálidos, como el rojo, el naranja y el amarillo, recuerdan al fuego y al sol."
+    },
+    {
+      "enunciado": "¿Qué pasa al mezclar un color con blanco?",
+      "opciones": [
+        "Se obtiene un tono más claro",
+        "Se obtiene un tono más oscuro",
+        "Siempre sale negro",
+        "Se obtiene un color primario"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llaman los colores que están enfrentados en el círculo cromático, como el rojo y el verde?",
+      "opciones": [
+        "Complementarios",
+        "Primarios",
+        "Cálidos",
+        "Neutros"
+      ],
+      "correcta": 0,
+      "explicacion": "Al ponerlos uno junto al otro, cada uno hace resaltar al otro."
+    },
+    {
+      "enunciado": "¿Quién pintó la Mona Lisa, también llamada La Gioconda?",
+      "opciones": [
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Frida Kahlo",
+        "Vincent van Gogh"
+      ],
+      "correcta": 0,
+      "explicacion": "La pintó a comienzos del siglo XVI y hoy está en el Museo del Louvre, en París."
+    }
+  ]
+}

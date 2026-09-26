@@ -1,0 +1,92 @@
+{
+  "titulo": "La Música",
+  "icono": "🎵",
+  "nivel": "Primaria",
+  "descripcion": "Notas musicales, familias de instrumentos y grandes compositores.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Cuántas notas tiene la escala musical básica (do, re, mi…)?",
+      "opciones": [
+        "Siete",
+        "Cinco",
+        "Doce",
+        "Diez"
+      ],
+      "correcta": 0,
+      "explicacion": "Son do, re, mi, fa, sol, la y si."
+    },
+    {
+      "enunciado": "¿Qué nota va después de «fa» en la escala?",
+      "opciones": [
+        "Sol",
+        "Mi",
+        "La",
+        "Re"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿A qué familia de instrumentos pertenece el violín?",
+      "opciones": [
+        "Cuerda",
+        "Viento",
+        "Percusión"
+      ],
+      "correcta": 0,
+      "explicacion": "Suena al frotar sus cuerdas con un arco."
+    },
+    {
+      "enunciado": "¿A qué familia de instrumentos pertenece la flauta?",
+      "opciones": [
+        "Viento",
+        "Cuerda",
+        "Percusión"
+      ],
+      "correcta": 0,
+      "explicacion": "Suena al soplar: el aire vibra dentro del tubo."
+    },
+    {
+      "enunciado": "¿A qué familia de instrumentos pertenece el tambor?",
+      "opciones": [
+        "Percusión",
+        "Viento",
+        "Cuerda"
+      ],
+      "correcta": 0,
+      "explicacion": "Suena al golpearlo."
+    },
+    {
+      "enunciado": "¿Cómo se llaman las cinco líneas sobre las que se escriben las notas?",
+      "opciones": [
+        "Pentagrama",
+        "Compás",
+        "Clave",
+        "Escala"
+      ],
+      "correcta": 0,
+      "explicacion": "Penta significa cinco."
+    },
+    {
+      "enunciado": "¿Qué es el ritmo en la música?",
+      "opciones": [
+        "La organización de los sonidos en el tiempo",
+        "El volumen de la música",
+        "El nombre de una canción",
+        "Un instrumento"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué compositor escribió la Novena Sinfonía, con el famoso «Himno a la alegría»?",
+      "opciones": [
+        "Ludwig van Beethoven",
+        "Wolfgang Amadeus Mozart",
+        "Johann Sebastian Bach",
+        "Antonio Vivaldi"
+      ],
+      "correcta": 0,
+      "explicacion": "La compuso cuando ya estaba casi completamente sordo."
+    }
+  ]
+}

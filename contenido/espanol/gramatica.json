@@ -1,0 +1,95 @@
+{
+  "titulo": "Gramática",
+  "icono": "📝",
+  "nivel": "Primaria",
+  "descripcion": "Sustantivos, verbos, adjetivos, sinónimos y el sujeto de la oración.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Qué es un sustantivo?",
+      "opciones": [
+        "Una palabra que nombra personas, animales, cosas o lugares",
+        "Una palabra que indica una acción",
+        "Una palabra que describe cómo es algo",
+        "Una palabra que une dos oraciones"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "En «El perro corre rápido», ¿cuál es el verbo?",
+      "opciones": [
+        "corre",
+        "perro",
+        "rápido",
+        "el"
+      ],
+      "correcta": 0,
+      "explicacion": "El verbo indica la acción: correr."
+    },
+    {
+      "enunciado": "En «La casa es grande», ¿qué palabra es un adjetivo?",
+      "opciones": [
+        "grande",
+        "casa",
+        "es",
+        "la"
+      ],
+      "correcta": 0,
+      "explicacion": "El adjetivo dice cómo es el sustantivo: la casa es grande."
+    },
+    {
+      "enunciado": "¿Cuál es un sinónimo de «feliz»?",
+      "opciones": [
+        "Contento",
+        "Triste",
+        "Enojado",
+        "Cansado"
+      ],
+      "correcta": 0,
+      "explicacion": "Los sinónimos son palabras con un significado parecido."
+    },
+    {
+      "enunciado": "¿Cuál es el antónimo de «alto»?",
+      "opciones": [
+        "Bajo",
+        "Grande",
+        "Largo",
+        "Ancho"
+      ],
+      "correcta": 0,
+      "explicacion": "Los antónimos son palabras con significado contrario."
+    },
+    {
+      "enunciado": "¿Cuál es la forma correcta?",
+      "opciones": [
+        "el agua fría",
+        "la agua fría",
+        "el agua frío",
+        "la agua frío"
+      ],
+      "correcta": 0,
+      "explicacion": "Agua es femenina, pero se dice «el agua» porque empieza por a con fuerza. Por eso es «fría»."
+    },
+    {
+      "enunciado": "En «Ana y Luis juegan en el patio», ¿cuál es el sujeto?",
+      "opciones": [
+        "Ana y Luis",
+        "juegan",
+        "en el patio",
+        "el patio"
+      ],
+      "correcta": 0,
+      "explicacion": "El sujeto es quien realiza la acción del verbo."
+    },
+    {
+      "enunciado": "¿En qué tiempo está el verbo de «Mañana viajaremos»?",
+      "opciones": [
+        "Futuro",
+        "Pasado",
+        "Presente"
+      ],
+      "correcta": 0,
+      "explicacion": "Viajaremos es algo que todavía no ha pasado."
+    }
+  ]
+}

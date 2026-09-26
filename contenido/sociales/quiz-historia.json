@@ -1,0 +1,96 @@
+{
+  "titulo": "Quiz de Historia",
+  "icono": "🏛️",
+  "nivel": "Primaria",
+  "descripcion": "Grandes civilizaciones, la llegada de Colón y la independencia de América.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿En qué año llegó Cristóbal Colón a América?",
+      "opciones": [
+        "1492",
+        "1810",
+        "1776",
+        "1500"
+      ],
+      "correcta": 0,
+      "explicacion": "Llegó el 12 de octubre de 1492 a una isla del Caribe."
+    },
+    {
+      "enunciado": "¿Qué civilización construyó Machu Picchu?",
+      "opciones": [
+        "Los incas",
+        "Los mayas",
+        "Los mexicas",
+        "Los romanos"
+      ],
+      "correcta": 0,
+      "explicacion": "Está en los Andes de Perú y se construyó en el siglo XV."
+    },
+    {
+      "enunciado": "¿Qué ciudad fue la capital de los mexicas, también llamados aztecas?",
+      "opciones": [
+        "Tenochtitlan",
+        "Cusco",
+        "Chichén Itzá",
+        "Bogotá"
+      ],
+      "correcta": 0,
+      "explicacion": "Se levantaba sobre un lago, en el lugar donde hoy está Ciudad de México."
+    },
+    {
+      "enunciado": "¿Qué pueblo antiguo creó un calendario muy preciso y usaba el cero en su numeración?",
+      "opciones": [
+        "Los mayas",
+        "Los romanos",
+        "Los vikingos"
+      ],
+      "correcta": 0,
+      "explicacion": "Los números romanos, por ejemplo, no tienen ningún símbolo para el cero."
+    },
+    {
+      "enunciado": "¿Con qué nombre es conocido Simón Bolívar?",
+      "opciones": [
+        "El Libertador",
+        "El Conquistador",
+        "El Navegante",
+        "El Descubridor"
+      ],
+      "correcta": 0,
+      "explicacion": "Encabezó la independencia de varios países de América del Sur."
+    },
+    {
+      "enunciado": "¿Qué pueblo construyó las pirámides de Guiza?",
+      "opciones": [
+        "Los egipcios",
+        "Los mayas",
+        "Los incas",
+        "Los griegos"
+      ],
+      "correcta": 0,
+      "explicacion": "Están en Egipto, cerca del río Nilo, y tienen más de 4500 años."
+    },
+    {
+      "enunciado": "¿En qué civilización antigua nacieron los Juegos Olímpicos?",
+      "opciones": [
+        "En la antigua Grecia",
+        "En la antigua Roma",
+        "En el antiguo Egipto",
+        "En la antigua China"
+      ],
+      "correcta": 0,
+      "explicacion": "Se celebraban en Olimpia, en honor al dios Zeus."
+    },
+    {
+      "enunciado": "¿Qué invento de Gutenberg, hacia 1450, permitió hacer muchos libros en poco tiempo?",
+      "opciones": [
+        "La imprenta de tipos móviles",
+        "El papel",
+        "La radio",
+        "El telescopio"
+      ],
+      "correcta": 0,
+      "explicacion": "Antes, los libros se copiaban a mano, uno por uno."
+    }
+  ]
+}

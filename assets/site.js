@@ -1,5 +1,5 @@
 /*
- * Utilidades compartidas por todos los juegos.
+ * Utilidades compartidas por todas las páginas.
  *
  * Se carga como script clásico (no módulo) para que las páginas sigan
  * funcionando al abrirlas directamente desde el disco, sin servidor.
@@ -51,6 +51,27 @@ window.JEO = (function () {
   function felicitacion() {
     return alAzar(ELOGIOS) + ' ' + alAzar(EMOJIS);
   }
+
+  /* El menú de materias es un <details>: funciona sin JavaScript. Esto solo
+     añade lo que se espera de un menú desplegable: cerrarse con Escape o al
+     pulsar fuera de él. */
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('details.menu-materias[open]').forEach(function (menu) {
+      if (!menu.contains(e.target)) {
+        menu.removeAttribute('open');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') {
+      return;
+    }
+    document.querySelectorAll('details.menu-materias[open]').forEach(function (menu) {
+      menu.removeAttribute('open');
+      menu.querySelector('summary').focus();
+    });
+  });
 
   return {
     EMOJIS: EMOJIS,

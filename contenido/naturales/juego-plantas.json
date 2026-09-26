@@ -1,0 +1,115 @@
+{
+  "titulo": "Conociendo las Plantas",
+  "icono": "🌱",
+  "nivel": "Primaria",
+  "descripcion": "Partes de la planta, fotosíntesis, germinación y polinización.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Qué parte de la planta absorbe el agua y los minerales del suelo?",
+      "opciones": [
+        "La raíz",
+        "La flor",
+        "La hoja",
+        "El fruto"
+      ],
+      "correcta": 0,
+      "explicacion": "Además, la raíz sujeta la planta a la tierra."
+    },
+    {
+      "enunciado": "¿Qué parte de la planta sostiene las hojas y lleva el agua hasta ellas?",
+      "opciones": [
+        "El tallo",
+        "La raíz",
+        "La semilla",
+        "La flor"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿En qué parte de la planta ocurre principalmente la fotosíntesis?",
+      "opciones": [
+        "En las hojas",
+        "En las raíces",
+        "En las semillas",
+        "En las flores"
+      ],
+      "correcta": 0,
+      "explicacion": "Las hojas captan la luz del sol gracias a la clorofila."
+    },
+    {
+      "enunciado": "¿Qué es la fotosíntesis?",
+      "opciones": [
+        "El proceso con el que la planta fabrica su alimento usando la luz del sol",
+        "La forma en que la planta duerme por la noche",
+        "El momento en que la planta pierde sus hojas",
+        "La manera en que la planta se mueve"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué gas toman las plantas del aire para hacer la fotosíntesis?",
+      "opciones": [
+        "Dióxido de carbono",
+        "Oxígeno",
+        "Helio"
+      ],
+      "correcta": 0,
+      "explicacion": "A la vez, liberan oxígeno al aire."
+    },
+    {
+      "enunciado": "¿Qué gas liberan las plantas en la fotosíntesis y necesitamos para respirar?",
+      "opciones": [
+        "Oxígeno",
+        "Dióxido de carbono",
+        "Humo",
+        "Helio"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llama la sustancia que da el color verde a las hojas?",
+      "opciones": [
+        "Clorofila",
+        "Savia",
+        "Néctar",
+        "Polen"
+      ],
+      "correcta": 0,
+      "explicacion": "La clorofila es la que capta la luz del sol para la fotosíntesis."
+    },
+    {
+      "enunciado": "¿De qué parte de la planta se forman los frutos?",
+      "opciones": [
+        "De la flor",
+        "De la raíz",
+        "Del tallo",
+        "De las hojas"
+      ],
+      "correcta": 0,
+      "explicacion": "Después de la polinización, la flor se transforma en fruto, que guarda las semillas."
+    },
+    {
+      "enunciado": "¿Qué necesita una semilla para germinar?",
+      "opciones": [
+        "Agua, aire y una temperatura adecuada",
+        "Solo mucha luz",
+        "Solo tierra seca",
+        "Nada: germina sola en cualquier sitio"
+      ],
+      "correcta": 0,
+      "explicacion": "Muchas semillas germinan incluso a oscuras, bajo la tierra."
+    },
+    {
+      "enunciado": "¿Cómo ayudan las abejas a las plantas?",
+      "opciones": [
+        "Llevan el polen de una flor a otra",
+        "Les dan agua",
+        "Les quitan las hojas secas",
+        "Les dan sombra"
+      ],
+      "correcta": 0,
+      "explicacion": "A esto se le llama polinización, y permite que se formen frutos y semillas."
+    }
+  ]
+}

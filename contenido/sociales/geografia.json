@@ -1,0 +1,106 @@
+{
+  "titulo": "Quiz de Geografía",
+  "icono": "🗺️",
+  "nivel": "Primaria",
+  "descripcion": "Ríos, montañas, océanos, continentes y cómo leer un mapa.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Qué cordillera recorre América del Sur de norte a sur?",
+      "opciones": [
+        "Los Andes",
+        "Los Alpes",
+        "El Himalaya",
+        "Los Pirineos"
+      ],
+      "correcta": 0,
+      "explicacion": "Es la cordillera continental más larga del mundo."
+    },
+    {
+      "enunciado": "¿Cuál es el río más caudaloso del mundo, es decir, el que lleva más agua?",
+      "opciones": [
+        "El Amazonas",
+        "El Nilo",
+        "El Misisipi",
+        "El Danubio"
+      ],
+      "correcta": 0,
+      "explicacion": "Atraviesa varios países de América del Sur antes de llegar al océano Atlántico."
+    },
+    {
+      "enunciado": "¿Qué línea imaginaria divide la Tierra en hemisferio norte y hemisferio sur?",
+      "opciones": [
+        "El ecuador",
+        "El meridiano de Greenwich",
+        "El trópico de Cáncer",
+        "El círculo polar ártico"
+      ],
+      "correcta": 0,
+      "explicacion": "El meridiano de Greenwich, en cambio, la divide en este y oeste."
+    },
+    {
+      "enunciado": "¿Cuál es el país más grande de América del Sur?",
+      "opciones": [
+        "Brasil",
+        "Argentina",
+        "Perú",
+        "Colombia"
+      ],
+      "correcta": 0,
+      "explicacion": "Ocupa casi la mitad del territorio de América del Sur."
+    },
+    {
+      "enunciado": "¿Qué océano baña la costa oeste de América del Sur?",
+      "opciones": [
+        "El océano Pacífico",
+        "El océano Atlántico",
+        "El océano Índico",
+        "El océano Ártico"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "En un mapa, ¿qué indica la rosa de los vientos?",
+      "opciones": [
+        "Los puntos cardinales",
+        "La temperatura",
+        "La cantidad de habitantes",
+        "La altura de las montañas"
+      ],
+      "correcta": 0,
+      "explicacion": "Sirve para orientarse: muestra dónde está el norte, el sur, el este y el oeste."
+    },
+    {
+      "enunciado": "¿Cuáles son los cuatro puntos cardinales?",
+      "opciones": [
+        "Norte, sur, este y oeste",
+        "Arriba, abajo, izquierda y derecha",
+        "Norte, sur, centro y lado",
+        "Mañana, tarde, noche y día"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál es el océano más grande del mundo?",
+      "opciones": [
+        "El océano Pacífico",
+        "El océano Atlántico",
+        "El océano Índico",
+        "El océano Ártico"
+      ],
+      "correcta": 0,
+      "explicacion": "Es tan grande que cabrían en él todos los continentes juntos."
+    },
+    {
+      "enunciado": "¿Cuál es el continente más grande del mundo?",
+      "opciones": [
+        "Asia",
+        "África",
+        "América",
+        "Europa"
+      ],
+      "correcta": 0,
+      "explicacion": "También es el continente donde vive más gente."
+    }
+  ]
+}

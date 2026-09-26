@@ -1,0 +1,93 @@
+{
+  "titulo": "Colores y Números",
+  "icono": "🔢",
+  "nivel": "Primaria",
+  "descripcion": "Los colores y los números en inglés.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Cómo se dice «rojo» en inglés?",
+      "opciones": [
+        "Red",
+        "Blue",
+        "Green",
+        "Yellow"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué color es «yellow»?",
+      "opciones": [
+        "Amarillo",
+        "Verde",
+        "Morado",
+        "Negro"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se escribe el número 3 en inglés?",
+      "opciones": [
+        "Three",
+        "Tree",
+        "Tri",
+        "Free"
+      ],
+      "correcta": 0,
+      "explicacion": "Cuidado: «tree» significa árbol."
+    },
+    {
+      "enunciado": "¿Qué número es «twelve»?",
+      "opciones": [
+        "12",
+        "20",
+        "2",
+        "11"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se dice «verde» en inglés?",
+      "opciones": [
+        "Green",
+        "Grey",
+        "Brown",
+        "Pink"
+      ],
+      "correcta": 0,
+      "explicacion": "Grey es gris; brown, marrón, y pink, rosa."
+    },
+    {
+      "enunciado": "¿Qué número es «fifteen»?",
+      "opciones": [
+        "15",
+        "50",
+        "5",
+        "14"
+      ],
+      "correcta": 0,
+      "explicacion": "Fifteen es 15 y fifty es 50: se parecen mucho."
+    },
+    {
+      "enunciado": "¿Cómo se dice «blanco» en inglés?",
+      "opciones": [
+        "White",
+        "Black",
+        "Blue",
+        "Purple"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "«Seven plus two is…» ¿Cuál es la respuesta?",
+      "opciones": [
+        "Nine",
+        "Eight",
+        "Ten",
+        "Five"
+      ],
+      "correcta": 0,
+      "explicacion": "Seven (7) plus (más) two (2) is (es) nine (9)."
+    }
+  ]
+}

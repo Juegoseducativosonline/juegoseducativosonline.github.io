@@ -1,0 +1,93 @@
+{
+  "titulo": "Internet Seguro",
+  "icono": "🔒",
+  "nivel": "Primaria",
+  "descripcion": "Contraseñas, engaños en línea, ciberacoso y cómo cuidar tus datos.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Cuál de estas contraseñas es la más segura?",
+      "opciones": [
+        "M1Perr0!Azul#27",
+        "123456",
+        "Tu nombre",
+        "contraseña"
+      ],
+      "correcta": 0,
+      "explicacion": "Las contraseñas seguras son largas y mezclan letras, números y símbolos."
+    },
+    {
+      "enunciado": "Un desconocido en un juego en línea te pide tu dirección. ¿Qué haces?",
+      "opciones": [
+        "No se la doy y se lo cuento a un adulto de confianza",
+        "Se la doy si es amable",
+        "Le digo solo el nombre de mi escuela",
+        "Le mando una foto de mi casa"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué es el phishing?",
+      "opciones": [
+        "Un engaño para robar datos haciéndose pasar por alguien de confianza",
+        "Un juego de pesca",
+        "Un tipo de antivirus",
+        "Una red social"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Recibes un mensaje: «¡Ganaste un celular! Haz clic aquí». ¿Qué haces?",
+      "opciones": [
+        "No hago clic y lo borro",
+        "Hago clic rápido antes de que se acabe",
+        "Lo reenvío a mis amigos",
+        "Doy mis datos para reclamarlo"
+      ],
+      "correcta": 0,
+      "explicacion": "Los premios que llegan sin haber participado en nada suelen ser engaños."
+    },
+    {
+      "enunciado": "¿Qué es el ciberacoso?",
+      "opciones": [
+        "Molestar, amenazar o humillar a alguien por internet",
+        "Jugar en línea con amigos",
+        "Usar mucho el celular",
+        "Descargar música"
+      ],
+      "correcta": 0,
+      "explicacion": "Si te pasa a ti o a alguien que conoces, cuéntaselo a un adulto de confianza."
+    },
+    {
+      "enunciado": "¿Con quién puedes compartir tus contraseñas?",
+      "opciones": [
+        "Solo con tus padres o tutores",
+        "Con tus mejores amigos",
+        "Con quien te la pida",
+        "Con todo el mundo, publicándola para no olvidarla"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Antes de publicar una foto en internet, ¿qué conviene pensar?",
+      "opciones": [
+        "Que puede quedarse ahí para siempre y verla mucha gente",
+        "Que se borra sola al día siguiente",
+        "Que nadie la va a ver",
+        "Que da igual lo que muestre"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué indica el candado junto a la dirección de una página web?",
+      "opciones": [
+        "Que la conexión con esa página va cifrada",
+        "Que la página es siempre de confianza",
+        "Que la página es gratis",
+        "Que no tiene anuncios"
+      ],
+      "correcta": 0,
+      "explicacion": "Ojo: una página falsa también puede tener candado. Solo significa que la conexión va protegida."
+    }
+  ]
+}

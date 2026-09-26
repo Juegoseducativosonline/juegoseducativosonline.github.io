@@ -1,6 +1,6 @@
 /*
- * Motor de preguntas de opción múltiple, compartido por los juegos de
- * Español, Sociales y Naturales. Requiere assets/site.js y assets/quiz.css.
+ * Motor de preguntas de opción múltiple que usan todos los juegos de tipo
+ * "quiz". Requiere assets/site.js y assets/quiz.css.
  *
  * Uso:
  *   JEO.iniciarQuiz({
@@ -274,5 +274,34 @@
     btnReiniciar.addEventListener('click', empezar);
 
     empezar();
+  };
+
+  /**
+   * Arranca un quiz con los datos que tools/generar.py incrusta en la página
+   * como <script type="application/json">. En esos datos cada pregunta nombra
+   * su pasaje por clave, en lugar de repetir el texto.
+   */
+  JEO.cargarQuiz = function (contenedor, elementoDatos) {
+    var datos = JSON.parse(elementoDatos.textContent);
+    var pasajes = datos.pasajes || {};
+
+    JEO.iniciarQuiz({
+      contenedor: contenedor,
+      mezclarPreguntas: datos.mezclarPreguntas,
+      preguntas: datos.preguntas.map(function (p) {
+        if (p.pasaje && !pasajes[p.pasaje]) {
+          throw new Error('cargarQuiz: la pregunta «' + p.enunciado + '» usa un pasaje que no existe.');
+        }
+        /* Las preguntas de un mismo pasaje reciben el mismo objeto: así el
+           motor sabe que el texto no cambia y no lo vuelve a dibujar. */
+        return {
+          enunciado: p.enunciado,
+          opciones: p.opciones,
+          correcta: p.correcta,
+          explicacion: p.explicacion,
+          pasaje: p.pasaje ? pasajes[p.pasaje] : null
+        };
+      })
+    });
   };
 })(window.JEO);

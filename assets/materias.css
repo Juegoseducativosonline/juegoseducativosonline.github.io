@@ -1,0 +1,82 @@
+/* Generado por tools/generar.py a partir de contenido/catalogo.json. No lo edites a mano. */
+
+.materia-matematicas {
+  --materia: #1d4ed8;
+  --materia-oscuro: #163aa2;
+  --materia-suave: #e8edfb;
+  --materia-borde: #b0c1f1;
+  --color-primario: #1d4ed8;
+  --color-primario-oscuro: #163aa2;
+}
+
+.materia-espanol {
+  --materia: #c2410c;
+  --materia-oscuro: #923109;
+  --materia-suave: #f9ece7;
+  --materia-borde: #eabcaa;
+  --color-primario: #c2410c;
+  --color-primario-oscuro: #923109;
+}
+
+.materia-sociales {
+  --materia: #92400e;
+  --materia-oscuro: #6e300a;
+  --materia-suave: #f4ece7;
+  --materia-borde: #d9bcab;
+  --color-primario: #92400e;
+  --color-primario-oscuro: #6e300a;
+}
+
+.materia-naturales {
+  --materia: #15803d;
+  --materia-oscuro: #10602e;
+  --materia-suave: #e8f2ec;
+  --materia-borde: #add3bb;
+  --color-primario: #15803d;
+  --color-primario-oscuro: #10602e;
+}
+
+.materia-quimica {
+  --materia: #6d28d9;
+  --materia-oscuro: #521ea3;
+  --materia-suave: #f0eafb;
+  --materia-borde: #ccb4f2;
+  --color-primario: #6d28d9;
+  --color-primario-oscuro: #521ea3;
+}
+
+.materia-fisica {
+  --materia: #0e7490;
+  --materia-oscuro: #0a576c;
+  --materia-suave: #e7f1f4;
+  --materia-borde: #abced8;
+  --color-primario: #0e7490;
+  --color-primario-oscuro: #0a576c;
+}
+
+.materia-tecnologia {
+  --materia: #334155;
+  --materia-oscuro: #263140;
+  --materia-suave: #ebecee;
+  --materia-borde: #b8bcc4;
+  --color-primario: #334155;
+  --color-primario-oscuro: #263140;
+}
+
+.materia-ingles {
+  --materia: #b91c1c;
+  --materia-oscuro: #8b1515;
+  --materia-suave: #f8e8e8;
+  --materia-borde: #e6b0b0;
+  --color-primario: #b91c1c;
+  --color-primario-oscuro: #8b1515;
+}
+
+.materia-artes {
+  --materia: #be185d;
+  --materia-oscuro: #8e1246;
+  --materia-suave: #f8e8ef;
+  --materia-borde: #e8aec6;
+  --color-primario: #be185d;
+  --color-primario-oscuro: #8e1246;
+}

@@ -1,0 +1,94 @@
+{
+  "titulo": "Los Animales",
+  "icono": "🦋",
+  "nivel": "Primaria",
+  "descripcion": "Vertebrados e invertebrados, cómo se alimentan, respiran y nacen.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Cómo se llaman los animales que tienen columna vertebral?",
+      "opciones": [
+        "Vertebrados",
+        "Invertebrados",
+        "Anfibios",
+        "Insectos"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estos animales es un mamífero?",
+      "opciones": [
+        "La ballena",
+        "El tiburón",
+        "El pingüino",
+        "La tortuga"
+      ],
+      "correcta": 0,
+      "explicacion": "Aunque vive en el mar, respira aire y alimenta a sus crías con leche."
+    },
+    {
+      "enunciado": "¿Cuántas patas tiene un insecto?",
+      "opciones": [
+        "6",
+        "8",
+        "4",
+        "10"
+      ],
+      "correcta": 0,
+      "explicacion": "Las arañas tienen 8 patas: no son insectos, sino arácnidos."
+    },
+    {
+      "enunciado": "¿Cómo se llaman los animales que se alimentan solo de plantas?",
+      "opciones": [
+        "Herbívoros",
+        "Carnívoros",
+        "Omnívoros",
+        "Insectívoros"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué animal cambia de forma al crecer, de renacuajo a adulto?",
+      "opciones": [
+        "La rana",
+        "El perro",
+        "La gallina",
+        "El pez payaso"
+      ],
+      "correcta": 0,
+      "explicacion": "Ese cambio se llama metamorfosis. Las mariposas también la tienen."
+    },
+    {
+      "enunciado": "¿Por dónde respiran los peces?",
+      "opciones": [
+        "Por las branquias",
+        "Por los pulmones",
+        "Por las aletas",
+        "Por la cola"
+      ],
+      "correcta": 0,
+      "explicacion": "Las branquias toman el oxígeno que hay disuelto en el agua."
+    },
+    {
+      "enunciado": "¿Cuál de estos animales nace de un huevo?",
+      "opciones": [
+        "La gallina",
+        "El perro",
+        "La vaca",
+        "El delfín"
+      ],
+      "correcta": 0,
+      "explicacion": "Los animales que nacen de huevos se llaman ovíparos."
+    },
+    {
+      "enunciado": "¿Qué cubre el cuerpo de las aves?",
+      "opciones": [
+        "Plumas",
+        "Escamas",
+        "Pelo",
+        "Caparazón"
+      ],
+      "correcta": 0
+    }
+  ]
+}

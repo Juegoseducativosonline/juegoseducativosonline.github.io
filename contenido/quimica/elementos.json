@@ -1,0 +1,94 @@
+{
+  "titulo": "Los Elementos Químicos",
+  "icono": "⚛️",
+  "nivel": "Secundaria",
+  "descripcion": "Átomos, símbolos químicos y la tabla periódica.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "¿Cuál es el símbolo químico del oxígeno?",
+      "opciones": [
+        "O",
+        "Ox",
+        "Og",
+        "Oi"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué elemento tiene el símbolo Fe?",
+      "opciones": [
+        "Hierro",
+        "Flúor",
+        "Fósforo",
+        "Francio"
+      ],
+      "correcta": 0,
+      "explicacion": "Viene de su nombre en latín, ferrum. El flúor es F y el fósforo, P."
+    },
+    {
+      "enunciado": "¿Qué elemento tiene el símbolo Na?",
+      "opciones": [
+        "Sodio",
+        "Nitrógeno",
+        "Níquel",
+        "Neón"
+      ],
+      "correcta": 0,
+      "explicacion": "Viene del latín natrium. El nitrógeno es N; el níquel, Ni, y el neón, Ne."
+    },
+    {
+      "enunciado": "¿Qué elemento tiene el símbolo Au?",
+      "opciones": [
+        "Oro",
+        "Plata",
+        "Aluminio",
+        "Argón"
+      ],
+      "correcta": 0,
+      "explicacion": "Viene del latín aurum. La plata es Ag; el aluminio, Al, y el argón, Ar."
+    },
+    {
+      "enunciado": "¿Qué partículas del átomo tienen carga eléctrica negativa?",
+      "opciones": [
+        "Los electrones",
+        "Los protones",
+        "Los neutrones"
+      ],
+      "correcta": 0,
+      "explicacion": "Los protones tienen carga positiva y los neutrones no tienen carga."
+    },
+    {
+      "enunciado": "¿Cómo se llama la tabla que ordena todos los elementos químicos?",
+      "opciones": [
+        "La tabla periódica",
+        "La tabla de multiplicar",
+        "El calendario químico",
+        "El mapa de sustancias"
+      ],
+      "correcta": 0,
+      "explicacion": "La organizó el químico ruso Dmitri Mendeléiev en 1869."
+    },
+    {
+      "enunciado": "La fórmula del agua es H₂O. ¿Qué significa?",
+      "opciones": [
+        "Dos átomos de hidrógeno y uno de oxígeno",
+        "Dos átomos de oxígeno y uno de hidrógeno",
+        "Solo átomos de hidrógeno",
+        "Hidrógeno y oro"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estos elementos es un gas noble?",
+      "opciones": [
+        "Helio",
+        "Hierro",
+        "Carbono",
+        "Sodio"
+      ],
+      "correcta": 0,
+      "explicacion": "Los gases nobles casi no reaccionan con otras sustancias."
+    }
+  ]
+}
