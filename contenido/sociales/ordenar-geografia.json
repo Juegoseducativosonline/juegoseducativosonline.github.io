@@ -1,0 +1,52 @@
+{
+  "titulo": "Ordena: El Mundo en Orden",
+  "icono": "🌍",
+  "nivel": "Primaria",
+  "descripcion": "Ordena continentes, océanos y montañas por tamaño, y los lugares de menor a mayor.",
+  "tituloSeo": "Juego de geografía: ordena continentes, océanos y montañas",
+  "descripcionSeo": "Juego interactivo de geografía: ordena los continentes y los océanos por tamaño y las montañas más altas del mundo.",
+  "rondas": [
+    {
+      "instruccion": "Ordena los continentes de mayor a menor superficie",
+      "elementos": [
+        "Asia",
+        "África",
+        "América",
+        "Antártida",
+        "Europa",
+        "Oceanía"
+      ]
+    },
+    {
+      "instruccion": "Ordena los océanos de mayor a menor",
+      "elementos": [
+        "Pacífico",
+        "Atlántico",
+        "Índico",
+        "Antártico",
+        "Ártico"
+      ]
+    },
+    {
+      "instruccion": "Ordena estas montañas de la más alta a la más baja",
+      "elementos": [
+        "Everest",
+        "Aconcagua",
+        "Kilimanjaro",
+        "Mont Blanc"
+      ],
+      "explicacion": "Unos 8849, 6961, 5895 y 4806 metros sobre el nivel del mar."
+    },
+    {
+      "instruccion": "Ordena de lo más pequeño a lo más grande",
+      "elementos": [
+        "Barrio",
+        "Ciudad",
+        "Departamento o provincia",
+        "País",
+        "Continente",
+        "Planeta Tierra"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "titulo": "Ordena: Pasos para Calmarme",
+  "icono": "🚦",
+  "nivel": "Primaria",
+  "descripcion": "Ordena los pasos para calmarte, respirar y resolver un conflicto.",
+  "tituloSeo": "Juego de emociones para aprender a calmarse",
+  "descripcionSeo": "Juego interactivo de educación emocional: ordena los pasos del semáforo de las emociones, la respiración y la resolución de conflictos.",
+  "rondas": [
+    {
+      "instruccion": "El semáforo de las emociones: ordena los pasos cuando te enojas",
+      "elementos": [
+        "Rojo: me detengo",
+        "Amarillo: respiro y pienso",
+        "Verde: actúo con calma"
+      ],
+      "explicacion": "Detenerse primero evita hacer o decir algo de lo que luego te arrepientas."
+    },
+    {
+      "instruccion": "Ordena los pasos para respirar y calmarte",
+      "elementos": [
+        "Me siento en una postura cómoda",
+        "Tomo aire despacio por la nariz",
+        "Aguanto el aire un momento",
+        "Suelto el aire poco a poco por la boca"
+      ]
+    },
+    {
+      "instruccion": "Ordena los pasos para resolver un conflicto con alguien",
+      "elementos": [
+        "Calmarme",
+        "Escuchar a la otra persona",
+        "Decir cómo me siento",
+        "Buscar juntos una solución",
+        "Cumplir lo que acordamos"
+      ]
+    },
+    {
+      "instruccion": "Ordena de menos intenso a más intenso",
+      "elementos": [
+        "Molestia",
+        "Enojo",
+        "Furia"
+      ],
+      "explicacion": "Reconocer la molestia a tiempo ayuda a que no se convierta en furia."
+    }
+  ]
+}

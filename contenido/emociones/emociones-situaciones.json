@@ -1,0 +1,52 @@
+{
+  "titulo": "Parejas: Emociones y Situaciones",
+  "icono": "🎭",
+  "nivel": "Primaria",
+  "descripcion": "Relaciona cada emoción con la situación que suele provocarla.",
+  "tituloSeo": "Juego de emociones online: relaciona emociones y situaciones",
+  "descripcionSeo": "Juego interactivo de emociones para niños: relaciona cada emoción con la situación que la provoca.",
+  "etiquetaA": "Emoción",
+  "etiquetaB": "Situación",
+  "pares": [
+    {
+      "a": "😊 Alegría",
+      "b": "Me dan una noticia muy buena"
+    },
+    {
+      "a": "😢 Tristeza",
+      "b": "Mi mejor amigo se muda a otra ciudad"
+    },
+    {
+      "a": "😨 Miedo",
+      "b": "Oigo un ruido extraño en plena noche"
+    },
+    {
+      "a": "😠 Enojo",
+      "b": "Alguien rompe mis cosas a propósito"
+    },
+    {
+      "a": "😲 Sorpresa",
+      "b": "Me hacen una fiesta que no esperaba"
+    },
+    {
+      "a": "🤢 Asco",
+      "b": "Pruebo una comida en mal estado"
+    },
+    {
+      "a": "😳 Vergüenza",
+      "b": "Me equivoco delante de toda la clase"
+    },
+    {
+      "a": "😌 Calma",
+      "b": "Descanso escuchando música suave"
+    },
+    {
+      "a": "🤩 Orgullo",
+      "b": "Termino yo solo un trabajo muy difícil"
+    },
+    {
+      "a": "😬 Nervios",
+      "b": "Mañana tengo que hablar en público"
+    }
+  ]
+}

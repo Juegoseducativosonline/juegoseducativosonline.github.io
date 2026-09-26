@@ -6,13 +6,17 @@
  */
 'use strict';
 
-var CACHE = 'jeo-85ac244308a9';
+var CACHE = 'jeo-248bc49681b2';
 var RECURSOS = [
   "/",
   "/404.html",
   "/artes/",
+  "/artes/artistas-obras-ficha.html",
+  "/artes/artistas-obras.html",
   "/artes/colores-ficha.html",
   "/artes/colores.html",
+  "/artes/musica-color-ficha.html",
+  "/artes/musica-color.html",
   "/artes/musica-ficha.html",
   "/artes/musica.html",
   "/assets/favicon.svg",
@@ -28,8 +32,12 @@ var RECURSOS = [
   "/assets/site.js?v=87e83ed258",
   "/descargar/",
   "/emociones/",
+  "/emociones/emociones-situaciones-ficha.html",
+  "/emociones/emociones-situaciones.html",
   "/emociones/manejar-ficha.html",
   "/emociones/manejar.html",
+  "/emociones/pasos-calma-ficha.html",
+  "/emociones/pasos-calma.html",
   "/emociones/reconocer-ficha.html",
   "/emociones/reconocer.html",
   "/espanol/",
@@ -99,10 +107,14 @@ var RECURSOS = [
   "/quimica/simbolos-quimicos.html",
   "/secundaria/",
   "/sociales/",
+  "/sociales/capitales-ficha.html",
+  "/sociales/capitales.html",
   "/sociales/geografia-ficha.html",
   "/sociales/geografia.html",
   "/sociales/linea-tiempo-ficha.html",
   "/sociales/linea-tiempo.html",
+  "/sociales/ordenar-geografia-ficha.html",
+  "/sociales/ordenar-geografia.html",
   "/sociales/personajes-ficha.html",
   "/sociales/personajes.html",
   "/sociales/quiz-historia-ficha.html",

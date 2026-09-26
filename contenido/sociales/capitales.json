@@ -1,0 +1,60 @@
+{
+  "titulo": "Parejas: Países y Capitales",
+  "icono": "🏙️",
+  "nivel": "Primaria",
+  "descripcion": "Relaciona cada país con su capital.",
+  "tituloSeo": "Juego de países y capitales de América online",
+  "descripcionSeo": "Juego interactivo de geografía: relaciona países de América y España con su capital.",
+  "etiquetaA": "País",
+  "etiquetaB": "Capital",
+  "pares": [
+    {
+      "a": "Colombia",
+      "b": "Bogotá"
+    },
+    {
+      "a": "México",
+      "b": "Ciudad de México"
+    },
+    {
+      "a": "Argentina",
+      "b": "Buenos Aires"
+    },
+    {
+      "a": "Perú",
+      "b": "Lima"
+    },
+    {
+      "a": "Chile",
+      "b": "Santiago"
+    },
+    {
+      "a": "Venezuela",
+      "b": "Caracas"
+    },
+    {
+      "a": "Ecuador",
+      "b": "Quito"
+    },
+    {
+      "a": "Uruguay",
+      "b": "Montevideo"
+    },
+    {
+      "a": "Paraguay",
+      "b": "Asunción"
+    },
+    {
+      "a": "Brasil",
+      "b": "Brasilia"
+    },
+    {
+      "a": "Cuba",
+      "b": "La Habana"
+    },
+    {
+      "a": "España",
+      "b": "Madrid"
+    }
+  ]
+}

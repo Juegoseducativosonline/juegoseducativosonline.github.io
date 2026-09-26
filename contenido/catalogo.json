@@ -193,6 +193,14 @@
             {
               "tipo": "quiz",
               "datos": "sociales/geografia.json"
+            },
+            {
+              "tipo": "parejas",
+              "datos": "sociales/capitales.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "sociales/ordenar-geografia.json"
             }
           ]
         }
@@ -268,6 +276,10 @@
             {
               "tipo": "quiz",
               "datos": "emociones/reconocer.json"
+            },
+            {
+              "tipo": "parejas",
+              "datos": "emociones/emociones-situaciones.json"
             }
           ]
         },
@@ -279,6 +291,10 @@
             {
               "tipo": "quiz",
               "datos": "emociones/manejar.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "emociones/pasos-calma.json"
             }
           ]
         }
@@ -497,6 +513,10 @@
             {
               "tipo": "quiz",
               "datos": "artes/colores.json"
+            },
+            {
+              "tipo": "parejas",
+              "datos": "artes/artistas-obras.json"
             }
           ]
         },
@@ -508,6 +528,10 @@
             {
               "tipo": "quiz",
               "datos": "artes/musica.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "artes/musica-color.json"
             }
           ]
         }

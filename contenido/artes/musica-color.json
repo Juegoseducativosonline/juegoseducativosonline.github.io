@@ -1,0 +1,55 @@
+{
+  "titulo": "Ordena: Música y Color",
+  "icono": "🌈",
+  "nivel": "Primaria",
+  "descripcion": "Ordena las notas, las figuras musicales, los colores del arcoíris y los tonos.",
+  "tituloSeo": "Juego de música y color: notas, figuras musicales y arcoíris",
+  "descripcionSeo": "Juego interactivo de artes para niños: ordena las notas musicales, las figuras por duración y los colores del arcoíris.",
+  "rondas": [
+    {
+      "instruccion": "Ordena las notas de la escala musical",
+      "elementos": [
+        "Do",
+        "Re",
+        "Mi",
+        "Fa",
+        "Sol",
+        "La",
+        "Si"
+      ]
+    },
+    {
+      "instruccion": "Ordena las figuras musicales de mayor a menor duración",
+      "elementos": [
+        "Redonda",
+        "Blanca",
+        "Negra",
+        "Corchea",
+        "Semicorchea"
+      ],
+      "explicacion": "Cada figura dura la mitad que la anterior: una redonda equivale a dos blancas."
+    },
+    {
+      "instruccion": "Ordena los colores del arcoíris, de arriba abajo",
+      "elementos": [
+        "Rojo",
+        "Naranja",
+        "Amarillo",
+        "Verde",
+        "Azul",
+        "Añil",
+        "Violeta"
+      ]
+    },
+    {
+      "instruccion": "Ordena del tono más claro al más oscuro",
+      "elementos": [
+        "Blanco",
+        "Gris claro",
+        "Gris",
+        "Gris oscuro",
+        "Negro"
+      ]
+    }
+  ]
+}

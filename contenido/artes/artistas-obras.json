@@ -1,0 +1,60 @@
+{
+  "titulo": "Parejas: Artistas y sus Obras",
+  "icono": "🖼️",
+  "nivel": "Secundaria",
+  "descripcion": "Relaciona a cada artista con una de sus obras más famosas.",
+  "tituloSeo": "Juego de arte: relaciona artistas y obras famosas",
+  "descripcionSeo": "Juego interactivo de historia del arte: relaciona pintores como Da Vinci, Van Gogh, Frida Kahlo o Botero con sus obras.",
+  "etiquetaA": "Artista",
+  "etiquetaB": "Obra",
+  "pares": [
+    {
+      "a": "Leonardo da Vinci",
+      "b": "La Mona Lisa"
+    },
+    {
+      "a": "Vincent van Gogh",
+      "b": "La noche estrellada"
+    },
+    {
+      "a": "Pablo Picasso",
+      "b": "Guernica"
+    },
+    {
+      "a": "Frida Kahlo",
+      "b": "Las dos Fridas"
+    },
+    {
+      "a": "Fernando Botero",
+      "b": "Mona Lisa a los doce años"
+    },
+    {
+      "a": "Claude Monet",
+      "b": "Impresión, sol naciente"
+    },
+    {
+      "a": "Miguel Ángel",
+      "b": "Los frescos de la Capilla Sixtina"
+    },
+    {
+      "a": "Diego Velázquez",
+      "b": "Las meninas"
+    },
+    {
+      "a": "Salvador Dalí",
+      "b": "La persistencia de la memoria"
+    },
+    {
+      "a": "Edvard Munch",
+      "b": "El grito"
+    },
+    {
+      "a": "Sandro Botticelli",
+      "b": "El nacimiento de Venus"
+    },
+    {
+      "a": "Johannes Vermeer",
+      "b": "La joven de la perla"
+    }
+  ]
+}
