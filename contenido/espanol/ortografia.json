@@ -90,6 +90,48 @@
       ],
       "correcta": 0,
       "explicacion": "«A ver» viene del verbo ver. «Haber» es otro verbo: «va a haber una fiesta»."
+    },
+    {
+      "enunciado": "¿Cómo se escribe correctamente el nombre de este insecto?",
+      "opciones": [
+        "Hormiga",
+        "Ormiga",
+        "Hormija",
+        "Jormiga"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estas palabras es esdrújula y lleva tilde?",
+      "opciones": [
+        "Música",
+        "Camión",
+        "Árbol",
+        "Mesa"
+      ],
+      "correcta": 0,
+      "explicacion": "Las esdrújulas, con la fuerza en la antepenúltima sílaba, siempre llevan tilde."
+    },
+    {
+      "enunciado": "En «Compré pan, leche y huevos», ¿qué signo separa los elementos de la lista?",
+      "opciones": [
+        "La coma",
+        "El punto",
+        "Los dos puntos",
+        "El guion"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Completa: «Mi hermano ya ha ___ la tarea».",
+      "opciones": [
+        "hecho",
+        "echo",
+        "hechó",
+        "echó"
+      ],
+      "correcta": 0,
+      "explicacion": "«Hecho» viene de hacer; «echo», de echar: «echo agua en el vaso»."
     }
   ]
 }

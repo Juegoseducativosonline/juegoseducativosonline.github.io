@@ -88,6 +88,48 @@
       ],
       "correcta": 0,
       "explicacion": "Un gigabyte equivale a unos mil megabytes, y un megabyte a unos mil kilobytes."
+    },
+    {
+      "enunciado": "¿Qué dispositivo sirve para guardar archivos y llevarlos a otra computadora?",
+      "opciones": [
+        "Una memoria USB",
+        "El monitor",
+        "Los altavoces",
+        "El ratón"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué es un navegador web?",
+      "opciones": [
+        "Un programa para visitar páginas de internet",
+        "Un tipo de cable",
+        "Un virus",
+        "Un teclado especial"
+      ],
+      "correcta": 0,
+      "explicacion": "Chrome, Firefox, Edge y Safari son navegadores."
+    },
+    {
+      "enunciado": "¿Para qué sirve un antivirus?",
+      "opciones": [
+        "Para proteger la computadora de programas dañinos",
+        "Para navegar más rápido",
+        "Para imprimir",
+        "Para enfriar la computadora"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "En Windows, ¿qué combinación de teclas sirve para copiar?",
+      "opciones": [
+        "Ctrl + C",
+        "Ctrl + V",
+        "Ctrl + Z",
+        "Alt + F4"
+      ],
+      "correcta": 0,
+      "explicacion": "Ctrl + V pega, Ctrl + Z deshace y Alt + F4 cierra la ventana."
     }
   ]
 }

@@ -88,6 +88,46 @@
       ],
       "correcta": 0,
       "explicacion": "Ojo: una página falsa también puede tener candado. Solo significa que la conexión va protegida."
+    },
+    {
+      "enunciado": "¿Qué haces si algo en internet te hace sentir mal o incómodo?",
+      "opciones": [
+        "Contárselo a un adulto de confianza",
+        "Guardarlo en secreto",
+        "Responder con insultos",
+        "Compartirlo con todos"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estos datos NO debes publicar en internet?",
+      "opciones": [
+        "Tu dirección y tu número de teléfono",
+        "Tu color favorito",
+        "Tu comida favorita",
+        "Tu película favorita"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué significa verificar una información de internet?",
+      "opciones": [
+        "Comprobar en fuentes confiables si es verdad",
+        "Creer todo lo que dice",
+        "Compartirla enseguida",
+        "Darle «me gusta»"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Es buena idea usar la misma contraseña en todas tus cuentas?",
+      "opciones": [
+        "No: si alguien la descubre, podría entrar en todas",
+        "Sí, así no se olvida",
+        "Sí, es más seguro",
+        "Solo si es corta"
+      ],
+      "correcta": 0
     }
   ]
 }

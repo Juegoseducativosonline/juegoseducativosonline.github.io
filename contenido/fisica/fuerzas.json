@@ -90,6 +90,48 @@
       ],
       "correcta": 0,
       "explicacion": "El globo empuja el aire hacia atrás y el aire empuja al globo hacia delante."
+    },
+    {
+      "enunciado": "¿Qué instrumento sirve para medir fuerzas?",
+      "opciones": [
+        "El dinamómetro",
+        "El termómetro",
+        "El cronómetro",
+        "El barómetro"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Sin aire, en el vacío, se sueltan a la vez una pluma y un martillo. ¿Qué pasa?",
+      "opciones": [
+        "Caen al mismo tiempo",
+        "Cae antes el martillo",
+        "Cae antes la pluma",
+        "Ninguno cae"
+      ],
+      "correcta": 0,
+      "explicacion": "En la Tierra la pluma cae más despacio por el aire que la frena. Un astronauta lo comprobó en la Luna en 1971."
+    },
+    {
+      "enunciado": "¿Qué fuerza mantiene a la Luna girando alrededor de la Tierra?",
+      "opciones": [
+        "La gravedad",
+        "El rozamiento",
+        "El magnetismo",
+        "El viento"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Un ciclista recorre 30 km en hora y media. ¿Cuál es su velocidad media?",
+      "opciones": [
+        "20 km/h",
+        "30 km/h",
+        "45 km/h",
+        "15 km/h"
+      ],
+      "correcta": 0,
+      "explicacion": "Velocidad = distancia ÷ tiempo = 30 km ÷ 1,5 h = 20 km/h."
     }
   ]
 }

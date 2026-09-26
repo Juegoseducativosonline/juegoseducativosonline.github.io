@@ -90,6 +90,45 @@
       ],
       "correcta": 0,
       "explicacion": "Viajaremos es algo que todavía no ha pasado."
+    },
+    {
+      "enunciado": "¿Cuál es el plural de «el ratón»?",
+      "opciones": [
+        "los ratones",
+        "las ratones",
+        "los ratóns",
+        "el ratones"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "En «Los niños cantan», ¿cuál es el artículo?",
+      "opciones": [
+        "Los",
+        "niños",
+        "cantan"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estas palabras es un verbo?",
+      "opciones": [
+        "Saltar",
+        "Mesa",
+        "Azul",
+        "Despacio"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estas oraciones es una pregunta?",
+      "opciones": [
+        "¿Vienes mañana?",
+        "¡Qué bonito día!",
+        "Hoy llueve.",
+        "Cierra la puerta."
+      ],
+      "correcta": 0
     }
   ]
 }

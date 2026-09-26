@@ -73,6 +73,76 @@ window.JEO = (function () {
     });
   });
 
+  /* --- Uso sin internet -------------------------------------------------- */
+
+  /* El service worker guarda el sitio para usarlo sin conexión. Solo existe en
+     https y en localhost; abierto como archivo local simplemente no se usa. */
+  var puedeTrabajarSinConexion = 'serviceWorker' in navigator &&
+    (location.protocol === 'https:' || location.hostname === 'localhost');
+
+  if (puedeTrabajarSinConexion) {
+    navigator.serviceWorker.register('/sw.js').catch(function (error) {
+      /* Sin service worker el sitio funciona igual, solo que no sin conexión. */
+      console.warn('No se pudo activar el modo sin conexión:', error);
+    });
+  }
+
+  var estado = document.getElementById('estado-offline');
+  if (estado) {
+    var marcar = function (texto, clase) {
+      estado.textContent = texto;
+      estado.className = 'estado-offline ' + clase;
+    };
+    if (!puedeTrabajarSinConexion || !window.caches) {
+      marcar('Este navegador no permite guardar el sitio para usarlo sin conexión. Prueba con Chrome, Edge, Firefox o Safari actualizados.', 'estado-aviso');
+    } else {
+      marcar('Guardando el sitio en este dispositivo…', 'estado-pendiente');
+      navigator.serviceWorker.ready.then(function () {
+        return caches.open(estado.dataset.cache);
+      }).then(function (cache) {
+        return cache.keys();
+      }).then(function (guardados) {
+        if (guardados.length >= Number(estado.dataset.total)) {
+          marcar('✓ Listo: este dispositivo ya tiene todo el sitio guardado y puede usarse sin conexión.', 'estado-ok');
+        } else {
+          marcar('El sitio se está actualizando. Vuelve a abrir esta página en unos segundos, con conexión.', 'estado-pendiente');
+        }
+      }).catch(function () {
+        marcar('No se pudo comprobar el modo sin conexión. Vuelve a intentarlo con internet.', 'estado-aviso');
+      });
+    }
+  }
+
+  /* Chrome, Edge y Android avisan cuando el sitio se puede instalar; entonces
+     se muestra el botón. Safari no lo permite: ahí sirven las instrucciones. */
+  var avisoInstalacion = null;
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    avisoInstalacion = e;
+    document.querySelectorAll('[data-instalar]').forEach(function (boton) {
+      boton.classList.remove('hidden');
+    });
+  });
+
+  document.querySelectorAll('[data-instalar]').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+      if (!avisoInstalacion) {
+        return;
+      }
+      avisoInstalacion.prompt();
+      avisoInstalacion.userChoice.then(function () {
+        avisoInstalacion = null;
+        boton.classList.add('hidden');
+      });
+    });
+  });
+
+  document.querySelectorAll('[data-imprimir]').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+      window.print();
+    });
+  });
+
   return {
     EMOJIS: EMOJIS,
     ELOGIOS: ELOGIOS,

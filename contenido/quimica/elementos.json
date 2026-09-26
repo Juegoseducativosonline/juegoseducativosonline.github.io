@@ -89,6 +89,49 @@
       ],
       "correcta": 0,
       "explicacion": "Los gases nobles casi no reaccionan con otras sustancias."
+    },
+    {
+      "enunciado": "¿Qué elemento tiene el símbolo C?",
+      "opciones": [
+        "Carbono",
+        "Calcio",
+        "Cobre",
+        "Cloro"
+      ],
+      "correcta": 0,
+      "explicacion": "El calcio es Ca; el cobre, Cu, y el cloro, Cl."
+    },
+    {
+      "enunciado": "¿Qué elemento tiene el símbolo H?",
+      "opciones": [
+        "Hidrógeno",
+        "Helio",
+        "Hierro",
+        "Mercurio"
+      ],
+      "correcta": 0,
+      "explicacion": "El helio es He; el hierro, Fe, y el mercurio, Hg."
+    },
+    {
+      "enunciado": "¿Cuál es el gas más abundante en el aire que respiramos?",
+      "opciones": [
+        "Nitrógeno",
+        "Oxígeno",
+        "Hidrógeno",
+        "Dióxido de carbono"
+      ],
+      "correcta": 0,
+      "explicacion": "Casi cuatro de cada cinco partes del aire son nitrógeno. El oxígeno es alrededor de una quinta parte."
+    },
+    {
+      "enunciado": "¿Qué metal es líquido a temperatura ambiente?",
+      "opciones": [
+        "El mercurio",
+        "El hierro",
+        "El oro",
+        "El cobre"
+      ],
+      "correcta": 0
     }
   ]
 }

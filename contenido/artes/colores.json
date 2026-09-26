@@ -89,6 +89,48 @@
       ],
       "correcta": 0,
       "explicacion": "La pintó a comienzos del siglo XVI y hoy está en el Museo del Louvre, en París."
+    },
+    {
+      "enunciado": "¿Qué grupo está formado por colores fríos?",
+      "opciones": [
+        "Azul, verde y violeta",
+        "Rojo, naranja y amarillo",
+        "Rojo, amarillo y naranja oscuro",
+        "Café, dorado y rojo"
+      ],
+      "correcta": 0,
+      "explicacion": "Los colores fríos recuerdan al agua, al cielo y a la vegetación."
+    },
+    {
+      "enunciado": "¿Qué pintora mexicana es famosa por sus autorretratos?",
+      "opciones": [
+        "Frida Kahlo",
+        "Leonardo da Vinci",
+        "Claude Monet",
+        "Pablo Picasso"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué pasa al mezclar un color con negro?",
+      "opciones": [
+        "Se obtiene un tono más oscuro",
+        "Se obtiene un tono más claro",
+        "Sale blanco",
+        "Se obtiene un color primario"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llama la tabla donde el pintor coloca y mezcla sus pinturas?",
+      "opciones": [
+        "Paleta",
+        "Caballete",
+        "Marco",
+        "Lienzo"
+      ],
+      "correcta": 0,
+      "explicacion": "El caballete sostiene el cuadro y el lienzo es la tela sobre la que se pinta."
     }
   ]
 }

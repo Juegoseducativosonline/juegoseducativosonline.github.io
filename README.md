@@ -8,6 +8,10 @@ Sitio estático publicado en https://juegoseducativosonline.github.io con GitHub
 - `contenido/<materia>/<juego>.json`: las preguntas de cada juego de tipo quiz.
 - `tools/generar.py`: genera las páginas HTML a partir de `contenido/`.
 - `assets/`: estilos y scripts compartidos (`materias.css` también se genera).
+- `sw.js` y `manifest.webmanifest` (generados): permiten instalar el sitio como aplicación
+  y usarlo sin internet. Cada juego de preguntas tiene además una ficha para imprimir
+  (`<juego>-ficha.html`). Todo esto se regenera solo al ejecutar el generador.
+- `tools/iconos.py`: dibuja los iconos de la aplicación; solo hace falta si cambia su diseño.
 - `matematicas/*_practice*.html`: juegos interactivos hechos a mano. El generador solo
   reescribe sus bloques `<!-- generado:... -->` (cabecera, menú y pie).
 

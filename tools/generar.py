@@ -19,6 +19,7 @@ import argparse
 import hashlib
 import html
 import json
+import random
 import re
 import sys
 from dataclasses import dataclass, field
@@ -33,6 +34,10 @@ NOMBRE_SITIO = 'Juegos Educativos Online'
 NIVELES = ('Primaria', 'Secundaria')
 FUENTES = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap'
 MAX_RELACIONADOS = 3
+COLOR_MARCA = '#3b5bdb'
+RUTA_DESCARGAS = 'descargar/index.html'
+# Carpetas del sitio que no pueden usarse como id de materia.
+IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar'}
 
 # Contraste mínimo WCAG AA para texto normal.
 CONTRASTE_MINIMO = 4.5
@@ -292,6 +297,8 @@ def cargar_catalogo():
     for i, cruda in enumerate(lista_obligatoria(catalogo, 'materias', 'catalogo.json'), 1):
         mid = id_valido(cruda, 'catalogo.json, materia %d' % i)
         donde = 'catalogo.json, materia "%s"' % mid
+        if mid in IDS_RESERVADOS:
+            raise ErrorContenido('%s: "%s" está reservado; usa otro id.' % (donde, mid))
         if any(m.id == mid for m in materias):
             raise ErrorContenido('%s: el id está repetido.' % donde)
 
@@ -371,6 +378,9 @@ def bloque(nombre, contenido):
 def bloque_comun(v):
     return '\n'.join([
         '<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />',
+        '<link rel="apple-touch-icon" href="/assets/icono-180.png" />',
+        '<link rel="manifest" href="/manifest.webmanifest" />',
+        '<meta name="theme-color" content="%s" />' % COLOR_MARCA,
         '<link rel="preconnect" href="https://fonts.googleapis.com" />',
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
         '<link rel="stylesheet" href="%s" />' % esc(FUENTES),
@@ -455,6 +465,7 @@ def bloque_pie(materias, v, juego=None):
     <div class="pie-marca">
       <a class="marca" href="/"><span class="marca-logo" aria-hidden="true">🎮</span>Juegos Educativos</a>
       <p>Juegos gratuitos para aprender en casa o en clase, desde cualquier dispositivo y sin registrarse.</p>
+      <p><a class="enlace-flecha" href="/descargar/">📥 Usar sin internet y fichas para imprimir</a></p>
     </div>
     <nav aria-labelledby="pie-materias-titulo">
       <h2 class="pie-titulo" id="pie-materias-titulo">Materias</h2>
@@ -553,6 +564,17 @@ def pagina_inicio(materias, v):
     </ul>
   </section>
 
+  <section class="seccion" aria-labelledby="sin-internet-titulo">
+    <div class="aviso-offline">
+      <span class="paso-icono" aria-hidden="true">📥</span>
+      <div>
+        <h2 id="sin-internet-titulo">Juega sin internet o imprime las fichas</h2>
+        <p>Instala el sitio como aplicación para usarlo sin conexión, o descarga fichas con las preguntas y sus respuestas para trabajar en papel.</p>
+      </div>
+      <a class="btn" href="/descargar/">Ver opciones</a>
+    </div>
+  </section>
+
   <section class="seccion" aria-labelledby="como-titulo">
     <div class="seccion-cabeza">
       <h2 id="como-titulo">¿Cómo funciona?</h2>
@@ -644,7 +666,7 @@ def pagina_quiz(juego, materias, v):
     <span class="header-icono" aria-hidden="true">%s</span>
     <h1>%s</h1>
     <p>%s</p>
-    <p class="header-meta"><span class="insignia insignia-clara">%s</span><span>%s</span></p>
+    <p class="header-meta"><span class="insignia insignia-clara">%s</span><span>%s</span><a class="enlace-ficha" href="%s">🖨️ Ficha para imprimir</a></p>
   </header>
   <main class="content" id="contenido">
     <div id="quiz">
@@ -658,7 +680,7 @@ def pagina_quiz(juego, materias, v):
 <script>
   JEO.cargarQuiz(document.getElementById('quiz'), document.getElementById('datos-quiz'));
 </script>''' % (bloque_navegacion(materias, migas=migas_de(juego)), esc(juego.icono), esc(juego.titulo),
-                esc(juego.descripcion), esc(juego.nivel), esc(juego.detalle),
+                esc(juego.descripcion), esc(juego.nivel), esc(juego.detalle), url_de(ruta_ficha(juego)),
                 bloque_pie(materias, v, juego), v.url('quiz.js'), json_para_script(juego.datos))
 
     head = cabeza(v, '%s — %s' % (juego.titulo, NOMBRE_SITIO), juego.descripcion, juego.ruta,
@@ -705,8 +727,232 @@ def materias_css(materias):
     return '\n'.join(reglas) + '\n'
 
 
+def ruta_ficha(juego):
+    return juego.ruta[:-len('.html')] + '-ficha.html'
+
+
+def opciones_de_ficha(juego, pregunta):
+    """Orden de las opciones en papel. Es aleatorio pero fijo (depende solo del
+    enunciado): así la respuesta no cae siempre en la a) y la ficha no cambia
+    cada vez que se genera el sitio."""
+    semilla = int(hashlib.sha256((juego.ruta + pregunta['enunciado']).encode('utf-8')).hexdigest(), 16)
+    orden = list(range(len(pregunta['opciones'])))
+    random.Random(semilla).shuffle(orden)
+    return [pregunta['opciones'][i] for i in orden], orden.index(pregunta['correcta'])
+
+
+def pagina_ficha(juego, materias, v):
+    letras = 'abcdefghij'
+    bloques, respuestas = [], []
+    pasaje_actual = None
+    for n, p in enumerate(juego.datos['preguntas'], 1):
+        if p.get('pasaje') and p['pasaje'] != pasaje_actual:
+            pasaje_actual = p['pasaje']
+            pasaje = juego.datos['pasajes'][pasaje_actual]
+            parrafos = '\n'.join('  <p>%s</p>' % esc(t) for t in pasaje['parrafos'])
+            bloques.append('<article class="quiz-pasaje">\n  <h2 class="quiz-pasaje-titulo">📖 %s</h2>\n%s\n</article>'
+                           % (esc(pasaje['titulo']), parrafos))
+        opciones, correcta = opciones_de_ficha(juego, p)
+        items = '\n'.join('    <li>%s</li>' % esc(o) for o in opciones)
+        bloques.append('<div class="ficha-pregunta">\n  <p class="ficha-enunciado"><span class="ficha-numero">%d.</span> %s</p>\n'
+                       '  <ol class="ficha-opciones" type="a">\n%s\n  </ol>\n</div>' % (n, esc(p['enunciado']), items))
+        explicacion = (' <span class="ficha-explicacion">%s</span>' % esc(p['explicacion'])) if p.get('explicacion') else ''
+        respuestas.append('        <li><strong>%s)</strong> %s%s</li>' % (letras[correcta], esc(opciones[correcta]), explicacion))
+
+    migas = migas_de(juego)[:-1] + [(juego.titulo, url_de(juego.ruta)), ('Ficha', None)]
+    cuerpo = """%s
+<div class="container ficha">
+  <header class="header">
+    <span class="header-icono" aria-hidden="true">%s</span>
+    <h1>%s</h1>
+    <p>%s</p>
+    <p class="header-meta"><span class="insignia insignia-clara">%s</span><span>%s · %s</span></p>
+  </header>
+  <main class="content" id="contenido">
+    <div class="ficha-acciones no-imprimir">
+      <button type="button" class="btn" data-imprimir>🖨️ Imprimir o guardar como PDF</button>
+      <a class="btn btn-secundario" href="%s">🎮 Jugar en pantalla</a>
+    </div>
+    <p class="ficha-datos"><span>Nombre:</span><span>Fecha:</span></p>
+    <p class="ficha-instrucciones">Rodea con un círculo la letra de la respuesta correcta.</p>
+%s
+    <section class="ficha-respuestas" aria-labelledby="respuestas-titulo">
+      <h2 id="respuestas-titulo">Respuestas: %s</h2>
+      <ol>
+%s
+      </ol>
+    </section>
+  </main>
+</div>
+%s""" % (bloque_navegacion(materias, migas=migas), esc(juego.icono), esc(juego.titulo), esc(juego.descripcion),
+         esc(juego.nivel), esc(juego.materia.nombre), esc(juego.detalle), url_de(juego.ruta),
+         indentar('\n'.join(bloques), '    '), esc(juego.titulo), '\n'.join(respuestas), bloque_pie(materias, v))
+
+    head = cabeza(v, 'Ficha: %s — %s' % (juego.titulo, NOMBRE_SITIO),
+                  'Ficha para imprimir con las preguntas de %s y sus respuestas.' % juego.titulo,
+                  ruta_ficha(juego), robots='noindex')
+    return documento(head, 'materia-%s pagina-ficha' % juego.materia.id, cuerpo)
+
+
+def pagina_descargas(materias, v, version, total_recursos):
+    grupos = []
+    for m in materias:
+        fichas = [j for j in m.juegos if j.tipo == 'quiz']
+        if not fichas:
+            continue
+        enlaces = '\n'.join('    <li><a href="%s">%s %s</a> <span class="detalle">%s</span></li>'
+                            % (url_de(ruta_ficha(j)), esc(j.icono), esc(j.titulo), esc(j.detalle)) for j in fichas)
+        grupos.append('<div class="grupo-fichas materia-%s">\n  <h3><span class="menu-icono" aria-hidden="true">%s</span>%s</h3>\n'
+                      '  <ul>\n%s\n  </ul>\n</div>' % (m.id, esc(m.icono), esc(m.nombre), enlaces))
+
+    cuerpo = """%s
+<div class="container">
+  <header class="header">
+    <span class="header-icono" aria-hidden="true">📥</span>
+    <h1>Usar sin internet</h1>
+    <p>Para jugar en clase, en casa o de viaje, aunque no haya conexión.</p>
+  </header>
+  <main class="content" id="contenido">
+    <section class="opcion-offline" aria-labelledby="app-titulo">
+      <h2 id="app-titulo">1. Instalar como aplicación <span class="insignia">Recomendado</span></h2>
+      <p>El sitio completo, con todos los juegos, se guarda en el dispositivo y funciona sin conexión. Ocupa muy poco espacio y se actualiza solo la próxima vez que haya internet.</p>
+      <p class="estado-offline" id="estado-offline" data-cache="%s" data-total="%d" role="status">Comprobando si este dispositivo ya tiene el sitio guardado…</p>
+      <p><button type="button" class="btn hidden" data-instalar>📲 Instalar la aplicación</button></p>
+      <ul class="pasos-instalar">
+        <li><strong>Android (Chrome):</strong> menú <em>⋮</em> → <em>Instalar aplicación</em> o <em>Añadir a pantalla de inicio</em>.</li>
+        <li><strong>iPhone o iPad (Safari):</strong> botón <em>Compartir</em> → <em>Añadir a pantalla de inicio</em>.</li>
+        <li><strong>Computadora (Chrome o Edge):</strong> icono de instalar en la barra de direcciones, o menú → <em>Instalar Juegos Educativos</em>.</li>
+      </ul>
+      <p class="nota">Aunque no la instales, después de visitar el sitio una vez con conexión este navegador también podrá abrirlo sin internet.</p>
+    </section>
+
+    <section class="opcion-offline" aria-labelledby="fichas-titulo">
+      <h2 id="fichas-titulo">2. Fichas para imprimir o guardar como PDF</h2>
+      <p>Cada juego de preguntas tiene una ficha con espacio para el nombre y la hoja de respuestas en una página aparte, pensada para docentes y familias. Ábrela y pulsa <em>Imprimir o guardar como PDF</em>.</p>
+      <div class="rejilla-fichas">
+%s
+      </div>
+      <p class="nota">Los juegos de operaciones (suma, resta, multiplicación y división) generan ejercicios nuevos en cada partida, así que no tienen una ficha fija.</p>
+    </section>
+
+    <section class="opcion-offline" aria-labelledby="docentes-titulo">
+      <h2 id="docentes-titulo">3. Para docentes: todo el contenido</h2>
+      <p>Todas las preguntas están en archivos de datos abiertos, listos para reutilizar o adaptar.</p>
+      <ul class="pasos-instalar">
+        <li><a href="https://github.com/Juegoseducativosonline/juegoseducativosonline.github.io/tree/main/contenido">Ver las preguntas en GitHub</a> (un archivo por juego).</li>
+        <li><a href="https://github.com/Juegoseducativosonline/juegoseducativosonline.github.io/archive/refs/heads/main.zip">Descargar todo el sitio en un ZIP</a>. Para abrirlo sin internet hace falta un pequeño servidor local; por ejemplo, con Python instalado, ejecuta <code>python -m http.server</code> dentro de la carpeta y abre <code>http://localhost:8000</code>.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+%s""" % (bloque_navegacion(materias, migas=[('Inicio', '/'), ('Usar sin internet', None)]), version, total_recursos,
+         indentar('\n'.join(grupos), '        '), bloque_pie(materias, v))
+
+    head = cabeza(v, 'Usar sin internet y fichas para imprimir — %s' % NOMBRE_SITIO,
+                  'Instala los juegos educativos para usarlos sin conexión o descarga fichas para imprimir con sus respuestas.',
+                  RUTA_DESCARGAS)
+    return documento(head, 'pagina-descargas', cuerpo)
+
+
+def manifiesto():
+    datos = {
+        'name': NOMBRE_SITIO,
+        'short_name': 'Juegos Educativos',
+        'description': 'Juegos educativos gratuitos de matemáticas, lectura, ciencias, inglés y más.',
+        'lang': 'es',
+        'start_url': '/',
+        'scope': '/',
+        'display': 'standalone',
+        'background_color': '#f4f6fb',
+        'theme_color': COLOR_MARCA,
+        'icons': [
+            {'src': '/assets/icono-192.png', 'sizes': '192x192', 'type': 'image/png'},
+            {'src': '/assets/icono-512.png', 'sizes': '512x512', 'type': 'image/png'},
+            {'src': '/assets/icono-maskable-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'maskable'},
+        ],
+    }
+    return json.dumps(datos, ensure_ascii=False, indent=2) + '\n'
+
+
+PLANTILLA_SW = r"""/* __MARCA__. No lo edites a mano. */
+/*
+ * Guarda el sitio completo en el dispositivo para que funcione sin internet.
+ * El nombre de la caché cambia con cada versión publicada: el navegador
+ * descarga la nueva y borra la anterior.
+ */
+'use strict';
+
+var CACHE = '__VERSION__';
+var RECURSOS = __RECURSOS__;
+var FUENTES = /^https:\/\/fonts\.(googleapis|gstatic)\.com\//;
+
+self.addEventListener('install', function (evento) {
+  evento.waitUntil(caches.open(CACHE).then(function (cache) {
+    return cache.addAll(RECURSOS);
+  }).then(function () {
+    return self.skipWaiting();
+  }));
+});
+
+self.addEventListener('activate', function (evento) {
+  evento.waitUntil(caches.keys().then(function (nombres) {
+    return Promise.all(nombres.filter(function (n) {
+      return n.indexOf('jeo-') === 0 && n !== CACHE;
+    }).map(function (n) {
+      return caches.delete(n);
+    }));
+  }).then(function () {
+    return self.clients.claim();
+  }));
+});
+
+self.addEventListener('fetch', function (evento) {
+  var peticion = evento.request;
+  if (peticion.method !== 'GET') {
+    return;
+  }
+
+  /* Páginas: primero la red, para ver siempre lo último; sin conexión, la copia guardada. */
+  if (peticion.mode === 'navigate') {
+    evento.respondWith(fetch(peticion).catch(function () {
+      return caches.match(peticion, { ignoreSearch: true }).then(function (guardada) {
+        return guardada || caches.match('/404.html');
+      });
+    }));
+    return;
+  }
+
+  /* Tipografía de Google: se guarda la primera vez que se usa. */
+  if (FUENTES.test(peticion.url)) {
+    evento.respondWith(caches.open(CACHE).then(function (cache) {
+      return cache.match(peticion).then(function (guardada) {
+        return guardada || fetch(peticion).then(function (respuesta) {
+          cache.put(peticion, respuesta.clone());
+          return respuesta;
+        });
+      });
+    }));
+    return;
+  }
+
+  /* Estilos, scripts e iconos llevan su versión en la URL: la copia guardada siempre vale. */
+  if (new URL(peticion.url).origin === self.location.origin) {
+    evento.respondWith(caches.match(peticion).then(function (guardada) {
+      return guardada || fetch(peticion);
+    }));
+  }
+});
+"""
+
+
+def service_worker(version, recursos):
+    return (PLANTILLA_SW.replace('__MARCA__', MARCA_GENERADO).replace('__VERSION__', version)
+            .replace('__RECURSOS__', json.dumps(recursos, indent=2)))
+
+
 def sitemap(materias):
-    rutas = ['index.html'] + ['%s/index.html' % m.id for m in materias] + [j.ruta for m in materias for j in m.juegos]
+    rutas = (['index.html', RUTA_DESCARGAS] + ['%s/index.html' % m.id for m in materias]
+             + [j.ruta for m in materias for j in m.juegos])
     urls = '\n'.join('  <url><loc>%s%s</loc></url>' % (URL_SITIO, esc(url_de(r))) for r in rutas)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<!-- %s. No lo edites a mano. -->\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s\n</urlset>\n'
@@ -744,7 +990,7 @@ class Escritor:
         ruta = RAIZ / ruta_rel
         actual = ruta.read_text(encoding='utf-8') if ruta.exists() else None
         # Protege páginas hechas a mano de ser machacadas por error.
-        if generado and actual is not None and MARCA_GENERADO not in actual:
+        if generado and actual is not None and MARCA_GENERADO not in actual and not ruta_rel.endswith('.webmanifest'):
             raise ErrorContenido('%s ya existe y no lo generó este script. Si debe generarse, bórralo '
                                  'primero; si es una página hecha a mano, cambia la ruta del juego.' % ruta_rel)
         if actual == contenido:
@@ -758,6 +1004,13 @@ class Escritor:
 
 def generar(comprobar):
     materias = cargar_catalogo()
+    juegos = [j for m in materias for j in m.juegos]
+    quizzes = [j for j in juegos if j.tipo == 'quiz']
+
+    rutas_juegos = {j.ruta for j in juegos}
+    for j in quizzes:
+        if ruta_ficha(j) in rutas_juegos:
+            raise ErrorContenido('La ficha de %s (%s) coincide con la ruta de otro juego.' % (j.ruta, ruta_ficha(j)))
 
     css_materias = materias_css(materias)
     recursos = {nombre: (RAIZ / 'assets' / nombre).read_text(encoding='utf-8')
@@ -765,18 +1018,41 @@ def generar(comprobar):
     recursos['materias.css'] = css_materias
     v = Versiones(recursos)
 
-    e = Escritor(comprobar)
-    e.escribir('assets/materias.css', css_materias)
-    e.escribir('index.html', pagina_inicio(materias, v))
-    e.escribir('404.html', pagina_404(materias, v))
-    e.escribir('sitemap.xml', sitemap(materias))
+    salida = {'assets/materias.css': css_materias, 'manifest.webmanifest': manifiesto(),
+              'index.html': pagina_inicio(materias, v), '404.html': pagina_404(materias, v),
+              'sitemap.xml': sitemap(materias)}
     for m in materias:
-        e.escribir('%s/index.html' % m.id, pagina_materia(m, materias, v))
-        for j in m.juegos:
-            if j.tipo == 'quiz':
-                e.escribir(j.ruta, pagina_quiz(j, materias, v))
-            else:
-                e.escribir(j.ruta, parchear_interactivo(j, materias, v), generado=False)
+        salida['%s/index.html' % m.id] = pagina_materia(m, materias, v)
+    for j in quizzes:
+        salida[j.ruta] = pagina_quiz(j, materias, v)
+        salida[ruta_ficha(j)] = pagina_ficha(j, materias, v)
+    interactivos = {j.ruta: parchear_interactivo(j, materias, v) for j in juegos if j.tipo == 'interactivo'}
+
+    # Lo que la aplicación guarda para funcionar sin internet: todas las páginas,
+    # los recursos versionados y los iconos.
+    paginas = [r for r in list(salida) + list(interactivos) if r.endswith('.html')] + [RUTA_DESCARGAS]
+    lista = sorted({url_de(r) for r in paginas} | {v.url(n) for n in recursos} |
+                   {'/assets/favicon.svg', '/assets/icono-192.png', '/assets/icono-512.png',
+                    '/assets/icono-180.png', '/manifest.webmanifest'})
+
+    # La versión resume todo lo publicado: cualquier cambio renueva la copia sin conexión.
+    huella = hashlib.sha256()
+    for ruta, contenido in sorted(list(salida.items()) + list(interactivos.items())):
+        huella.update(ruta.encode('utf-8') + contenido.encode('utf-8'))
+    for icono in sorted((RAIZ / 'assets').glob('icono-*.png')):
+        huella.update(icono.read_bytes())
+    # La página de descargas lleva dentro la versión, así que se resume sin ella.
+    huella.update(pagina_descargas(materias, v, '', 0).encode('utf-8'))
+    version = 'jeo-' + huella.hexdigest()[:12]
+
+    salida[RUTA_DESCARGAS] = pagina_descargas(materias, v, version, len(lista))
+    salida['sw.js'] = service_worker(version, lista)
+
+    e = Escritor(comprobar)
+    for ruta, contenido in salida.items():
+        e.escribir(ruta, contenido)
+    for ruta, contenido in interactivos.items():
+        e.escribir(ruta, contenido, generado=False)
     return materias, e.cambiados
 
 

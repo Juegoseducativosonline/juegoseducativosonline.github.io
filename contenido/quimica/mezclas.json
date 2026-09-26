@@ -90,6 +90,48 @@
       ],
       "correcta": 0,
       "explicacion": "El papel cortado sigue siendo papel: solo cambia su forma."
+    },
+    {
+      "enunciado": "¿Cómo se llama una mezcla homogénea, como el agua con sal disuelta?",
+      "opciones": [
+        "Disolución",
+        "Mezcla heterogénea",
+        "Elemento",
+        "Átomo"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué método separa sólidos de distinto tamaño, como piedritas y arena?",
+      "opciones": [
+        "Tamizado",
+        "Imantación",
+        "Evaporación",
+        "Condensación"
+      ],
+      "correcta": 0,
+      "explicacion": "Se usa un tamiz o colador: los granos pequeños pasan y los grandes se quedan."
+    },
+    {
+      "enunciado": "Cuando el hierro se oxida, ¿qué se forma?",
+      "opciones": [
+        "Óxido, una sustancia nueva",
+        "Hierro más brillante",
+        "Agua",
+        "Arena"
+      ],
+      "correcta": 0,
+      "explicacion": "Por eso la oxidación es un cambio químico."
+    },
+    {
+      "enunciado": "¿Qué indica que ha ocurrido un cambio químico?",
+      "opciones": [
+        "Un cambio de color u olor, o que se desprenda un gas",
+        "Que el objeto cambie de forma",
+        "Que se rompa en trozos",
+        "Que se mueva de lugar"
+      ],
+      "correcta": 0
     }
   ]
 }

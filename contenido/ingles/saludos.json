@@ -84,6 +84,47 @@
         "Buen provecho"
       ],
       "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué significa «Good night»?",
+      "opciones": [
+        "Buenas noches",
+        "Buenos días",
+        "Buenas tardes",
+        "Hola"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se dice «lo siento» en inglés?",
+      "opciones": [
+        "Sorry",
+        "Please",
+        "Thanks",
+        "Welcome"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué significa «Where are you from?»?",
+      "opciones": [
+        "¿De dónde eres?",
+        "¿Dónde está el baño?",
+        "¿Cómo te llamas?",
+        "¿Qué hora es?"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Si alguien te dice «Thank you», ¿qué puedes responder?",
+      "opciones": [
+        "You're welcome",
+        "Good morning",
+        "How old are you?",
+        "My name is Luis"
+      ],
+      "correcta": 0,
+      "explicacion": "«You're welcome» significa «de nada»."
     }
   ]
 }

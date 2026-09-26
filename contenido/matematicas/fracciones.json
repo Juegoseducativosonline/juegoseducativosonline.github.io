@@ -91,6 +91,48 @@
       ],
       "correcta": 0,
       "explicacion": "Si tomas todas las partes en que se dividió, tienes el entero."
+    },
+    {
+      "enunciado": "Si de 10 cuadritos iguales hay 3 pintados, ¿qué fracción está pintada?",
+      "opciones": [
+        "3/10",
+        "10/3",
+        "3/7",
+        "7/10"
+      ],
+      "correcta": 0,
+      "explicacion": "El denominador es el total de partes (10) y el numerador, las pintadas (3)."
+    },
+    {
+      "enunciado": "¿Cuánto es 3/4 − 1/4?",
+      "opciones": [
+        "2/4, que es lo mismo que 1/2",
+        "2/0",
+        "4/4",
+        "3/1"
+      ],
+      "correcta": 0,
+      "explicacion": "Con el mismo denominador se restan los numeradores: 3 − 1 = 2."
+    },
+    {
+      "enunciado": "¿Cuánto es la mitad de 18?",
+      "opciones": [
+        "9",
+        "8",
+        "36",
+        "6"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estas fracciones es la más pequeña?",
+      "opciones": [
+        "1/8",
+        "1/4",
+        "1/2"
+      ],
+      "correcta": 0,
+      "explicacion": "Cuantas más partes tiene el entero, más pequeña es cada parte."
     }
   ]
 }

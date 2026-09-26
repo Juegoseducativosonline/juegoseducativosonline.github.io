@@ -22,6 +22,14 @@
         "Se alimenta sobre todo del néctar de las flores, que es un líquido dulce. Para alcanzarlo usa su pico largo y delgado. Al pasar de flor en flor, lleva polen de una a otra y así ayuda a que las plantas produzcan semillas.",
         "Los colibríes solo viven en América: desde Alaska, en el norte, hasta el extremo sur de Argentina y Chile."
       ]
+    },
+    "paraguas": {
+      "titulo": "El paraguas amarillo",
+      "parrafos": [
+        "Aquella mañana el cielo estaba gris. Antes de salir hacia la escuela, la mamá de Tomás le dio un paraguas amarillo. —No me hace falta —protestó él—. Seguro que no llueve.",
+        "A la hora del recreo empezaron a caer gruesas gotas. Todos corrieron a refugiarse, menos Sofía, que se quedó sola bajo un árbol porque había dejado su chaqueta en el salón.",
+        "Tomás abrió su paraguas amarillo, cruzó el patio y la invitó a compartirlo. Cuando llegaron al salón, los dos se reían, secos y contentos. Esa tarde, al volver a casa, Tomás le dio las gracias a su mamá."
+      ]
     }
   },
   "preguntas": [
@@ -139,6 +147,52 @@
       ],
       "correcta": 0,
       "pasaje": "colibri"
+    },
+    {
+      "enunciado": "¿Qué le dio la mamá a Tomás antes de ir a la escuela?",
+      "opciones": [
+        "Un paraguas amarillo",
+        "Una chaqueta",
+        "Un libro",
+        "Una merienda"
+      ],
+      "correcta": 0,
+      "pasaje": "paraguas"
+    },
+    {
+      "enunciado": "¿Por qué se quedó Sofía sola bajo un árbol?",
+      "opciones": [
+        "Porque había dejado su chaqueta en el salón",
+        "Porque le gustaba mojarse",
+        "Porque estaba castigada",
+        "Porque no quería jugar"
+      ],
+      "correcta": 0,
+      "pasaje": "paraguas"
+    },
+    {
+      "enunciado": "¿Qué palabra describe mejor lo que hizo Tomás en el recreo?",
+      "opciones": [
+        "Solidario",
+        "Egoísta",
+        "Perezoso",
+        "Miedoso"
+      ],
+      "correcta": 0,
+      "explicacion": "Compartió su paraguas con Sofía para que no se mojara.",
+      "pasaje": "paraguas"
+    },
+    {
+      "enunciado": "¿Por qué crees que Tomás le dio las gracias a su mamá?",
+      "opciones": [
+        "Porque el paraguas que ella le dio le fue muy útil",
+        "Porque le preparó la cena",
+        "Porque le compró un juguete",
+        "Porque lo llevó al parque"
+      ],
+      "correcta": 0,
+      "explicacion": "Por la mañana no quería llevarlo, pero luego le sirvió a él y a Sofía.",
+      "pasaje": "paraguas"
     }
   ]
 }

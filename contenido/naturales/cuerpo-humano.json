@@ -87,6 +87,46 @@
         "La piel"
       ],
       "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué lleva la sangre a todas las partes del cuerpo?",
+      "opciones": [
+        "Oxígeno y nutrientes",
+        "Solo agua",
+        "Pensamientos",
+        "Trocitos de hueso"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué órganos filtran la sangre y forman la orina?",
+      "opciones": [
+        "Los riñones",
+        "Los pulmones",
+        "El corazón",
+        "El cerebro"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué hábito ayuda a tener los dientes sanos?",
+      "opciones": [
+        "Cepillarlos después de las comidas",
+        "Comer muchos dulces",
+        "Cepillarlos una vez al mes",
+        "No beber agua"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué une los músculos con los huesos?",
+      "opciones": [
+        "Los tendones",
+        "Los nervios",
+        "Las uñas",
+        "Las venas"
+      ],
+      "correcta": 0
     }
   ]
 }

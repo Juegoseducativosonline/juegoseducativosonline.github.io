@@ -88,6 +88,48 @@
       ],
       "correcta": 0,
       "explicacion": "Seven (7) plus (más) two (2) is (es) nine (9)."
+    },
+    {
+      "enunciado": "¿Cómo se dice «azul» en inglés?",
+      "opciones": [
+        "Blue",
+        "Black",
+        "Brown",
+        "Purple"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué número es «twenty»?",
+      "opciones": [
+        "20",
+        "12",
+        "2",
+        "200"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué color es «orange»?",
+      "opciones": [
+        "Naranja",
+        "Rosa",
+        "Gris",
+        "Rojo"
+      ],
+      "correcta": 0,
+      "explicacion": "«Orange» también significa la fruta naranja."
+    },
+    {
+      "enunciado": "«Ten minus four is…» ¿Cuál es la respuesta?",
+      "opciones": [
+        "Six",
+        "Five",
+        "Seven",
+        "Four"
+      ],
+      "correcta": 0,
+      "explicacion": "Ten (10) minus (menos) four (4) is (es) six (6)."
     }
   ]
 }

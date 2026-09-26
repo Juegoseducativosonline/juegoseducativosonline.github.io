@@ -87,6 +87,47 @@
       ],
       "correcta": 0,
       "explicacion": "Una pared es opaca; un vidrio limpio es transparente."
+    },
+    {
+      "enunciado": "¿Cómo se llama un cuerpo que deja pasar la luz, como un vidrio limpio?",
+      "opciones": [
+        "Transparente",
+        "Opaco",
+        "Oscuro",
+        "Sonoro"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cuál de estos produce luz propia?",
+      "opciones": [
+        "El Sol",
+        "La Luna",
+        "Un espejo",
+        "Una pared blanca"
+      ],
+      "correcta": 0,
+      "explicacion": "La Luna no tiene luz propia: refleja la luz del Sol."
+    },
+    {
+      "enunciado": "¿Por dónde viaja más rápido el sonido?",
+      "opciones": [
+        "Por los sólidos",
+        "Por el aire",
+        "Por el vacío"
+      ],
+      "correcta": 0,
+      "explicacion": "Por eso, si pegas la oreja a una mesa, oyes muy bien los golpecitos del otro lado."
+    },
+    {
+      "enunciado": "¿Qué es una sombra?",
+      "opciones": [
+        "La zona oscura que se forma cuando un cuerpo opaco tapa la luz",
+        "Un reflejo en el agua",
+        "Un tipo de luz",
+        "Un sonido muy bajo"
+      ],
+      "correcta": 0
     }
   ]
 }

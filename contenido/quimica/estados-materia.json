@@ -88,6 +88,48 @@
       ],
       "correcta": 0,
       "explicacion": "Le ocurre, por ejemplo, al hielo seco."
+    },
+    {
+      "enunciado": "¿A qué temperatura se congela el agua a nivel del mar?",
+      "opciones": [
+        "0 °C",
+        "100 °C",
+        "10 °C",
+        "−50 °C"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llama el paso de líquido a gas?",
+      "opciones": [
+        "Vaporización",
+        "Condensación",
+        "Solidificación",
+        "Fusión"
+      ],
+      "correcta": 0,
+      "explicacion": "Puede ocurrir poco a poco (evaporación) o al hervir (ebullición)."
+    },
+    {
+      "enunciado": "¿Cómo se llama el paso de líquido a sólido?",
+      "opciones": [
+        "Solidificación",
+        "Fusión",
+        "Sublimación",
+        "Evaporación"
+      ],
+      "correcta": 0,
+      "explicacion": "Es lo que pasa cuando el agua se convierte en hielo en el congelador."
+    },
+    {
+      "enunciado": "¿Qué instrumento sirve para medir la temperatura?",
+      "opciones": [
+        "El termómetro",
+        "La balanza",
+        "La regla",
+        "El reloj"
+      ],
+      "correcta": 0
     }
   ]
 }

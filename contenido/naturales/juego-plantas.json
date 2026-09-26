@@ -110,6 +110,28 @@
       ],
       "correcta": 0,
       "explicacion": "A esto se le llama polinización, y permite que se formen frutos y semillas."
+    },
+    {
+      "enunciado": "¿Cómo se llaman los árboles que conservan sus hojas todo el año?",
+      "opciones": [
+        "De hoja perenne",
+        "De hoja caduca",
+        "Acuáticos",
+        "Trepadores"
+      ],
+      "correcta": 0,
+      "explicacion": "Los de hoja caduca, en cambio, pierden sus hojas en otoño."
+    },
+    {
+      "enunciado": "¿Qué parte de la planta de la papa nos comemos?",
+      "opciones": [
+        "Un tallo subterráneo llamado tubérculo",
+        "La raíz",
+        "La flor",
+        "La hoja"
+      ],
+      "correcta": 0,
+      "explicacion": "Aunque crece bajo tierra, la papa no es una raíz, sino un tallo que guarda alimento."
     }
   ]
 }

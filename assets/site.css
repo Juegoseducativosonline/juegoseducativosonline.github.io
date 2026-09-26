@@ -1262,3 +1262,283 @@ a {
     font-size: 0.9rem;
   }
 }
+
+/* --- Uso sin internet ---------------------------------------------------- */
+
+.aviso-offline {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 22px;
+  box-shadow: var(--sombra-suave);
+}
+
+.aviso-offline h2 {
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+}
+
+.aviso-offline p {
+  margin: 0;
+  color: var(--color-texto-suave);
+}
+
+.aviso-offline .paso-icono {
+  flex: none;
+  margin: 0;
+}
+
+.aviso-offline .btn {
+  flex: none;
+  margin-left: auto;
+}
+
+@media (max-width: 700px) {
+  .aviso-offline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aviso-offline .btn {
+    margin-left: 0;
+  }
+}
+
+.opcion-offline {
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px dashed var(--color-borde);
+}
+
+.opcion-offline:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.opcion-offline h2 {
+  font-size: 1.35rem;
+  margin: 0 0 8px;
+}
+
+.estado-offline {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  background: var(--color-superficie-alt);
+}
+
+.estado-ok {
+  background: var(--color-exito-fondo);
+  color: var(--color-exito);
+}
+
+.estado-aviso {
+  background: var(--color-error-fondo);
+  color: var(--color-error);
+}
+
+.pasos-instalar li {
+  margin-bottom: 6px;
+}
+
+.nota {
+  color: var(--color-texto-suave);
+  font-size: 0.92rem;
+}
+
+.rejilla-fichas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.grupo-fichas {
+  padding: 16px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+.grupo-fichas h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+
+.grupo-fichas ul {
+  margin: 0;
+  padding-left: 4px;
+  list-style: none;
+}
+
+.grupo-fichas li {
+  margin-bottom: 6px;
+}
+
+.grupo-fichas a {
+  font-weight: 700;
+  color: var(--materia-oscuro);
+}
+
+.detalle {
+  color: var(--color-texto-suave);
+  font-size: 0.85rem;
+}
+
+.enlace-ficha {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* --- Fichas imprimibles --------------------------------------------------- */
+
+.ficha-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.ficha-datos {
+  display: flex;
+  gap: 24px;
+  font-weight: 700;
+}
+
+.ficha-datos span {
+  flex: 1;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-texto-suave);
+}
+
+.ficha-datos span:last-child {
+  flex: 0 0 30%;
+}
+
+.ficha-instrucciones {
+  color: var(--color-texto-suave);
+}
+
+.ficha-pregunta {
+  break-inside: avoid;
+  margin-bottom: 18px;
+}
+
+.ficha-enunciado {
+  margin: 0 0 6px;
+  font-weight: 800;
+}
+
+.ficha-numero {
+  color: var(--materia-oscuro);
+}
+
+.ficha-opciones {
+  margin: 0;
+  padding-left: 2.2em;
+}
+
+.ficha-opciones li {
+  margin-bottom: 2px;
+}
+
+.ficha-respuestas {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 2px dashed var(--color-borde);
+}
+
+.ficha-respuestas h2 {
+  font-size: 1.2rem;
+}
+
+.ficha-respuestas li {
+  margin-bottom: 6px;
+}
+
+.ficha-explicacion {
+  color: var(--color-texto-suave);
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    font-size: 11pt;
+  }
+
+  .barra-sitio,
+  .migas,
+  .relacionados,
+  .pie-sitio,
+  .no-imprimir,
+  .salto-contenido,
+  .header-icono {
+    display: none !important;
+  }
+
+  .container {
+    margin: 0;
+    max-width: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .header {
+    background: none;
+    color: #000000;
+    padding: 0 0 12px;
+    text-align: left;
+    border-bottom: 2px solid #000000;
+  }
+
+  .header::before,
+  .header::after {
+    display: none;
+  }
+
+  .header p,
+  .header .header-meta {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  .insignia-clara {
+    background: none;
+    color: #000000;
+    padding: 0;
+  }
+
+  .content {
+    padding: 16px 0 0;
+  }
+
+  .quiz-pasaje {
+    border: 1px solid #999999;
+    background: none;
+    break-inside: avoid;
+  }
+
+  /* La hoja de respuestas va en página aparte: se puede quitar antes de repartir. */
+  .ficha-respuestas {
+    break-before: page;
+    border-top: none;
+    margin-top: 0;
+  }
+}
+
+.btn-secundario,
+.btn-secundario:hover {
+  color: var(--materia-oscuro);
+  background: var(--color-superficie);
+  border: 2px solid var(--materia-borde);
+  box-shadow: none;
+}
+
+.btn-secundario:hover {
+  background: var(--materia-suave);
+}

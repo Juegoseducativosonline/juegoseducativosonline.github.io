@@ -87,6 +87,48 @@
       ],
       "correcta": 0,
       "explicacion": "La compuso cuando ya estaba casi completamente sordo."
+    },
+    {
+      "enunciado": "¿Qué instrumento tiene teclas blancas y negras?",
+      "opciones": [
+        "El piano",
+        "La guitarra",
+        "El tambor",
+        "La trompeta"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿A qué familia de instrumentos pertenece la trompeta?",
+      "opciones": [
+        "Viento",
+        "Cuerda",
+        "Percusión"
+      ],
+      "correcta": 0,
+      "explicacion": "Es un instrumento de viento metal: suena al soplar haciendo vibrar los labios."
+    },
+    {
+      "enunciado": "¿Cómo se llama un grupo grande de músicos que tocan juntos instrumentos de varias familias?",
+      "opciones": [
+        "Orquesta",
+        "Coro",
+        "Solista",
+        "Dúo"
+      ],
+      "correcta": 0,
+      "explicacion": "Un coro canta; un solista actúa solo, y un dúo son dos músicos."
+    },
+    {
+      "enunciado": "¿Qué cualidad del sonido distingue un sonido fuerte de uno suave?",
+      "opciones": [
+        "La intensidad",
+        "El tono",
+        "El timbre",
+        "La duración"
+      ],
+      "correcta": 0,
+      "explicacion": "El tono distingue un sonido agudo de uno grave."
     }
   ]
 }

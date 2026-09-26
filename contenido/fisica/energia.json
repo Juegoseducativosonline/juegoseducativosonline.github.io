@@ -88,6 +88,46 @@
       ],
       "correcta": 0,
       "explicacion": "La solar viene del sol; la geotérmica, del calor de la Tierra, y la hidráulica, del agua."
+    },
+    {
+      "enunciado": "¿Qué energía se obtiene del agua que cae en una represa?",
+      "opciones": [
+        "Hidráulica",
+        "Eólica",
+        "Solar",
+        "Geotérmica"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué transformación de energía ocurre en una bombilla encendida?",
+      "opciones": [
+        "De eléctrica a luz y calor",
+        "De luz a electricidad",
+        "De sonido a luz",
+        "De movimiento a sonido"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Por qué conviene apagar la luz al salir de una habitación?",
+      "opciones": [
+        "Para ahorrar energía",
+        "Para que la bombilla brille más después",
+        "Porque la luz se gasta sola",
+        "Para que la habitación se enfríe"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llama la energía relacionada con el calor?",
+      "opciones": [
+        "Térmica",
+        "Eólica",
+        "Cinética",
+        "Sonora"
+      ],
+      "correcta": 0
     }
   ]
 }

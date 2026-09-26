@@ -89,6 +89,46 @@
       ],
       "correcta": 0,
       "explicacion": "Cada hoja de las tijeras gira sobre el tornillo del centro, que es el punto de apoyo."
+    },
+    {
+      "enunciado": "Una carretilla tiene su punto de apoyo en la rueda. ¿Qué máquina simple es?",
+      "opciones": [
+        "Palanca",
+        "Polea",
+        "Cuña",
+        "Plano inclinado"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Para qué usa una grúa un sistema de varias poleas?",
+      "opciones": [
+        "Para levantar cargas muy pesadas con menos esfuerzo",
+        "Para cortar metal",
+        "Para medir el peso",
+        "Para enfriar su motor"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué es una máquina compuesta?",
+      "opciones": [
+        "Una formada por varias máquinas simples, como la bicicleta",
+        "Una que tiene una sola pieza",
+        "Una que funciona sin ninguna fuerza",
+        "Una máquina rota"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llama el punto sobre el que gira una palanca?",
+      "opciones": [
+        "Punto de apoyo o fulcro",
+        "Carga",
+        "Potencia",
+        "Eje de la rueda"
+      ],
+      "correcta": 0
     }
   ]
 }

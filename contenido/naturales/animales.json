@@ -89,6 +89,49 @@
         "Caparazón"
       ],
       "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llaman los animales que comen tanto plantas como carne?",
+      "opciones": [
+        "Omnívoros",
+        "Herbívoros",
+        "Carnívoros",
+        "Vertebrados"
+      ],
+      "correcta": 0,
+      "explicacion": "Los seres humanos somos omnívoros."
+    },
+    {
+      "enunciado": "¿Cuál de estos animales es un reptil?",
+      "opciones": [
+        "La iguana",
+        "La rana",
+        "El delfín",
+        "El búho"
+      ],
+      "correcta": 0,
+      "explicacion": "La rana es un anfibio; el delfín, un mamífero, y el búho, un ave."
+    },
+    {
+      "enunciado": "¿Cuál de estos animales es invertebrado?",
+      "opciones": [
+        "El pulpo",
+        "El gato",
+        "La paloma",
+        "El sapo"
+      ],
+      "correcta": 0,
+      "explicacion": "El pulpo no tiene huesos ni columna vertebral."
+    },
+    {
+      "enunciado": "¿Qué es un animal en peligro de extinción?",
+      "opciones": [
+        "Uno del que quedan tan pocos que podría desaparecer",
+        "Uno que es peligroso para las personas",
+        "Uno que vive en la selva",
+        "Uno que come carne"
+      ],
+      "correcta": 0
     }
   ]
 }

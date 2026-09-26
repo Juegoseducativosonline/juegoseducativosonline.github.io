@@ -101,6 +101,38 @@
       ],
       "correcta": 0,
       "explicacion": "También es el continente donde vive más gente."
+    },
+    {
+      "enunciado": "¿Cuál es el desierto cálido más grande del mundo?",
+      "opciones": [
+        "El Sahara",
+        "El de Atacama",
+        "El de Gobi",
+        "El de Sonora"
+      ],
+      "correcta": 0,
+      "explicacion": "Está en el norte de África."
+    },
+    {
+      "enunciado": "¿Cuál es la montaña más alta del mundo?",
+      "opciones": [
+        "El Everest",
+        "El Aconcagua",
+        "El Kilimanjaro",
+        "El Mont Blanc"
+      ],
+      "correcta": 0,
+      "explicacion": "Está en la cordillera del Himalaya y mide cerca de 8850 metros."
+    },
+    {
+      "enunciado": "¿Cómo se llama la representación de la Tierra con forma de esfera?",
+      "opciones": [
+        "Globo terráqueo",
+        "Plano",
+        "Croquis",
+        "Brújula"
+      ],
+      "correcta": 0
     }
   ]
 }

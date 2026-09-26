@@ -90,6 +90,49 @@
       ],
       "correcta": 0,
       "explicacion": "Tiene 6 caras, 12 aristas y 8 vértices."
+    },
+    {
+      "enunciado": "¿Cuántos vértices tiene un triángulo?",
+      "opciones": [
+        "3",
+        "4",
+        "2",
+        "6"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Cómo se llaman dos rectas que nunca se cruzan?",
+      "opciones": [
+        "Paralelas",
+        "Perpendiculares",
+        "Secantes",
+        "Curvas"
+      ],
+      "correcta": 0,
+      "explicacion": "Las perpendiculares se cruzan formando ángulos rectos."
+    },
+    {
+      "enunciado": "¿Cómo se llama un ángulo que mide menos de 90°?",
+      "opciones": [
+        "Agudo",
+        "Obtuso",
+        "Recto",
+        "Llano"
+      ],
+      "correcta": 0,
+      "explicacion": "El obtuso mide más de 90° y el llano, 180°."
+    },
+    {
+      "enunciado": "El radio de una circunferencia mide 4 cm. ¿Cuánto mide el diámetro?",
+      "opciones": [
+        "8 cm",
+        "4 cm",
+        "2 cm",
+        "16 cm"
+      ],
+      "correcta": 0,
+      "explicacion": "El diámetro mide el doble que el radio."
     }
   ]
 }

@@ -91,6 +91,48 @@
       ],
       "correcta": 0,
       "explicacion": "Antes, los libros se copiaban a mano, uno por uno."
+    },
+    {
+      "enunciado": "¿Qué civilización construyó la ciudad de Chichén Itzá, en México?",
+      "opciones": [
+        "Los mayas",
+        "Los incas",
+        "Los egipcios",
+        "Los romanos"
+      ],
+      "correcta": 0,
+      "explicacion": "Su gran pirámide se llama El Castillo."
+    },
+    {
+      "enunciado": "¿Qué gran muralla se construyó para proteger un antiguo imperio de Asia?",
+      "opciones": [
+        "La Gran Muralla china",
+        "El Muro de Berlín",
+        "La muralla de Ávila",
+        "El Muro de Adriano"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué hecho de 1969 vieron millones de personas por televisión?",
+      "opciones": [
+        "La llegada del ser humano a la Luna",
+        "La invención de la imprenta",
+        "La llegada de Colón a América",
+        "La construcción de las pirámides"
+      ],
+      "correcta": 0,
+      "explicacion": "Neil Armstrong fue la primera persona en pisar la Luna."
+    },
+    {
+      "enunciado": "¿Cuál era la capital del Imperio inca?",
+      "opciones": [
+        "Cusco",
+        "Tenochtitlan",
+        "Roma",
+        "Lima"
+      ],
+      "correcta": 0
     }
   ]
 }
