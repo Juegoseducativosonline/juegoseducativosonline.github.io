@@ -76,6 +76,10 @@
             {
               "tipo": "quiz",
               "datos": "matematicas/geometria.json"
+            },
+            {
+              "tipo": "parejas",
+              "datos": "matematicas/figuras-lados.json"
             }
           ]
         },
@@ -131,6 +135,10 @@
             {
               "tipo": "quiz",
               "datos": "espanol/juego-lectura.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "espanol/ordenar-textos.json"
             }
           ]
         },
@@ -153,6 +161,10 @@
             {
               "tipo": "quiz",
               "datos": "espanol/gramatica.json"
+            },
+            {
+              "tipo": "parejas",
+              "datos": "espanol/sinonimos.json"
             }
           ]
         }
@@ -232,6 +244,10 @@
             {
               "tipo": "quiz",
               "datos": "naturales/animales.json"
+            },
+            {
+              "tipo": "parejas",
+              "datos": "naturales/crias.json"
             }
           ]
         },
@@ -315,6 +331,10 @@
             {
               "tipo": "quiz",
               "datos": "quimica/estados-materia.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "quimica/ordenar-materia.json"
             }
           ]
         },
@@ -418,6 +438,10 @@
             {
               "tipo": "quiz",
               "datos": "tecnologia/computadora.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "tecnologia/ordenar-tecnologia.json"
             }
           ]
         },
@@ -471,6 +495,10 @@
             {
               "tipo": "quiz",
               "datos": "ingles/colores-numeros.json"
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "ingles/ordenar-ingles.json"
             }
           ]
         },

@@ -1,0 +1,54 @@
+{
+  "titulo": "Ordena: Algoritmos y Evolución",
+  "icono": "🧭",
+  "nivel": "Primaria",
+  "descripcion": "Ordena los pasos de un algoritmo, la historia de la computación y las unidades de información.",
+  "tituloSeo": "Juego de tecnología: algoritmos, historia de la computación y unidades",
+  "descripcionSeo": "Juego interactivo de tecnología: ordena algoritmos, la evolución de la computadora y las unidades de información.",
+  "rondas": [
+    {
+      "instruccion": "Ordena los pasos del algoritmo para lavarse las manos",
+      "elementos": [
+        "Abrir el grifo",
+        "Mojarse las manos",
+        "Poner jabón",
+        "Frotar las manos",
+        "Enjuagar",
+        "Secarse las manos"
+      ],
+      "explicacion": "Un algoritmo es eso: una serie de pasos en un orden preciso."
+    },
+    {
+      "instruccion": "Ordena del invento más antiguo al más reciente",
+      "elementos": [
+        "Ábaco",
+        "Calculadora mecánica",
+        "Computadora de válvulas",
+        "Computadora personal",
+        "Teléfono inteligente"
+      ]
+    },
+    {
+      "instruccion": "Ordena las unidades de información de menor a mayor",
+      "elementos": [
+        "Bit",
+        "Byte",
+        "Kilobyte",
+        "Megabyte",
+        "Gigabyte",
+        "Terabyte"
+      ],
+      "explicacion": "Un byte son 8 bits; cada unidad siguiente equivale a unas mil de la anterior."
+    },
+    {
+      "instruccion": "Ordena los pasos para enviar un correo electrónico",
+      "elementos": [
+        "Abrir el correo",
+        "Pulsar «Redactar»",
+        "Escribir la dirección del destinatario",
+        "Escribir el asunto y el mensaje",
+        "Pulsar «Enviar»"
+      ]
+    }
+  ]
+}

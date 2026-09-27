@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var CACHE = 'jeo-248bc49681b2';
+var CACHE = 'jeo-f2368a9dabe7';
 var RECURSOS = [
   "/",
   "/404.html",
@@ -45,12 +45,16 @@ var RECURSOS = [
   "/espanol/gramatica.html",
   "/espanol/juego-lectura-ficha.html",
   "/espanol/juego-lectura.html",
+  "/espanol/ordenar-textos-ficha.html",
+  "/espanol/ordenar-textos.html",
   "/espanol/ortografia-ficha.html",
   "/espanol/ortografia.html",
   "/espanol/primeras-palabras-ficha.html",
   "/espanol/primeras-palabras.html",
   "/espanol/silabas-ficha.html",
   "/espanol/silabas.html",
+  "/espanol/sinonimos-ficha.html",
+  "/espanol/sinonimos.html",
   "/espanol/vocales-ficha.html",
   "/espanol/vocales.html",
   "/fisica/",
@@ -67,6 +71,8 @@ var RECURSOS = [
   "/ingles/",
   "/ingles/colores-numeros-ficha.html",
   "/ingles/colores-numeros.html",
+  "/ingles/ordenar-ingles-ficha.html",
+  "/ingles/ordenar-ingles.html",
   "/ingles/saludos-ficha.html",
   "/ingles/saludos.html",
   "/ingles/verbos-irregulares-ficha.html",
@@ -74,6 +80,8 @@ var RECURSOS = [
   "/manifest.webmanifest",
   "/matematicas/",
   "/matematicas/division_practice.html",
+  "/matematicas/figuras-lados-ficha.html",
+  "/matematicas/figuras-lados.html",
   "/matematicas/fracciones-ficha.html",
   "/matematicas/fracciones.html",
   "/matematicas/geometria-ficha.html",
@@ -90,6 +98,8 @@ var RECURSOS = [
   "/naturales/",
   "/naturales/animales-ficha.html",
   "/naturales/animales.html",
+  "/naturales/crias-ficha.html",
+  "/naturales/crias.html",
   "/naturales/cuerpo-humano-ficha.html",
   "/naturales/cuerpo-humano.html",
   "/naturales/juego-plantas-ficha.html",
@@ -103,6 +113,8 @@ var RECURSOS = [
   "/quimica/estados-materia.html",
   "/quimica/mezclas-ficha.html",
   "/quimica/mezclas.html",
+  "/quimica/ordenar-materia-ficha.html",
+  "/quimica/ordenar-materia.html",
   "/quimica/simbolos-quimicos-ficha.html",
   "/quimica/simbolos-quimicos.html",
   "/secundaria/",
@@ -126,6 +138,8 @@ var RECURSOS = [
   "/tecnologia/internet-seguro.html",
   "/tecnologia/maquinas-simples-ficha.html",
   "/tecnologia/maquinas-simples.html",
+  "/tecnologia/ordenar-tecnologia-ficha.html",
+  "/tecnologia/ordenar-tecnologia.html",
   "/tecnologia/programacion-ficha.html",
   "/tecnologia/programacion.html"
 ];

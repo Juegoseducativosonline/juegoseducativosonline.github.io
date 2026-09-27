@@ -1,0 +1,50 @@
+{
+  "titulo": "Ordena: Escalas de la Química",
+  "icono": "🧪",
+  "nivel": "Secundaria",
+  "descripcion": "Ordena estados, tamaños, temperaturas y el pH de sustancias cotidianas.",
+  "tituloSeo": "Juego de química para secundaria: escalas, temperatura y pH",
+  "descripcionSeo": "Juego interactivo de química: ordena la materia por tamaño, temperatura y pH de sustancias cotidianas.",
+  "rondas": [
+    {
+      "instruccion": "Ordena los estados de la materia, de partículas más juntas a más separadas",
+      "elementos": [
+        "Sólido",
+        "Líquido",
+        "Gaseoso"
+      ]
+    },
+    {
+      "instruccion": "Ordena de lo más pequeño a lo más grande",
+      "elementos": [
+        "Núcleo de un átomo",
+        "Átomo",
+        "Molécula de agua",
+        "Virus",
+        "Bacteria",
+        "Grano de arena"
+      ]
+    },
+    {
+      "instruccion": "Ordena de menor a mayor temperatura",
+      "elementos": [
+        "El hielo se derrite",
+        "Temperatura del cuerpo humano",
+        "El agua hierve",
+        "Superficie del Sol"
+      ],
+      "explicacion": "0 °C, unos 37 °C, 100 °C a nivel del mar y unos 5500 °C."
+    },
+    {
+      "instruccion": "Ordena por su pH, de la más ácida a la más básica",
+      "elementos": [
+        "Jugo de limón",
+        "Café",
+        "Agua pura",
+        "Bicarbonato disuelto en agua",
+        "Lejía"
+      ],
+      "explicacion": "pH de unos 2, 5, 7, 8 y 12. El 7 es neutro."
+    }
+  ]
+}

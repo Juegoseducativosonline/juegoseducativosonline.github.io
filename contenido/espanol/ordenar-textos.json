@@ -1,0 +1,58 @@
+{
+  "titulo": "Ordena: Palabras, Cuentos y Cartas",
+  "icono": "📚",
+  "nivel": "Primaria",
+  "descripcion": "Orden alfabético, sílabas, partes de un cuento y partes de una carta.",
+  "tituloSeo": "Juego para ordenar palabras en orden alfabético y partes del cuento",
+  "descripcionSeo": "Juego interactivo de Español: orden alfabético, sílabas, partes de un cuento y de una carta.",
+  "rondas": [
+    {
+      "instruccion": "Ordena estas palabras en orden alfabético",
+      "elementos": [
+        "abeja",
+        "barco",
+        "casa",
+        "dedo",
+        "elefante"
+      ]
+    },
+    {
+      "instruccion": "Ordena alfabéticamente: todas empiezan por m, fíjate en la segunda letra",
+      "elementos": [
+        "mano",
+        "mapa",
+        "mesa",
+        "mono",
+        "mundo"
+      ],
+      "explicacion": "Si la primera letra es igual, se mira la segunda; si también coincide, la tercera."
+    },
+    {
+      "instruccion": "Ordena las sílabas para formar la palabra «mariposa»",
+      "elementos": [
+        "ma",
+        "ri",
+        "po",
+        "sa"
+      ]
+    },
+    {
+      "instruccion": "Ordena las partes de un cuento",
+      "elementos": [
+        "Inicio: se presentan los personajes",
+        "Nudo: aparece un problema",
+        "Desenlace: se resuelve el problema"
+      ]
+    },
+    {
+      "instruccion": "Ordena las partes de una carta",
+      "elementos": [
+        "Lugar y fecha",
+        "Saludo",
+        "Cuerpo del mensaje",
+        "Despedida",
+        "Firma"
+      ]
+    }
+  ]
+}

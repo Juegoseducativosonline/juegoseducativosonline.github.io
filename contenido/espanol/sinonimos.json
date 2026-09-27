@@ -1,0 +1,52 @@
+{
+  "titulo": "Parejas: Sinónimos",
+  "icono": "🔗",
+  "nivel": "Primaria",
+  "descripcion": "Relaciona cada palabra con otra que significa lo mismo.",
+  "tituloSeo": "Juego de sinónimos online para niños",
+  "descripcionSeo": "Juego interactivo de Español: relaciona cada palabra con su sinónimo y amplía tu vocabulario.",
+  "etiquetaA": "Palabra",
+  "etiquetaB": "Sinónimo",
+  "pares": [
+    {
+      "a": "Feliz",
+      "b": "Contento"
+    },
+    {
+      "a": "Rápido",
+      "b": "Veloz"
+    },
+    {
+      "a": "Bonito",
+      "b": "Hermoso"
+    },
+    {
+      "a": "Empezar",
+      "b": "Comenzar"
+    },
+    {
+      "a": "Grande",
+      "b": "Enorme"
+    },
+    {
+      "a": "Hablar",
+      "b": "Conversar"
+    },
+    {
+      "a": "Miedo",
+      "b": "Temor"
+    },
+    {
+      "a": "Terminar",
+      "b": "Acabar"
+    },
+    {
+      "a": "Regalo",
+      "b": "Obsequio"
+    },
+    {
+      "a": "Listo",
+      "b": "Inteligente"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "titulo": "Parejas: Figuras y Lados",
+  "icono": "🔷",
+  "nivel": "Primaria",
+  "descripcion": "Relaciona cada polígono con su número de lados.",
+  "tituloSeo": "Juego de polígonos: figuras y número de lados",
+  "descripcionSeo": "Juego interactivo de geometría para primaria: relaciona cada polígono con su número de lados.",
+  "etiquetaA": "Polígono",
+  "etiquetaB": "Número de lados",
+  "pares": [
+    {
+      "a": "Triángulo",
+      "b": "3 lados"
+    },
+    {
+      "a": "Cuadrilátero",
+      "b": "4 lados"
+    },
+    {
+      "a": "Pentágono",
+      "b": "5 lados"
+    },
+    {
+      "a": "Hexágono",
+      "b": "6 lados"
+    },
+    {
+      "a": "Heptágono",
+      "b": "7 lados"
+    },
+    {
+      "a": "Octágono",
+      "b": "8 lados"
+    },
+    {
+      "a": "Eneágono",
+      "b": "9 lados"
+    },
+    {
+      "a": "Decágono",
+      "b": "10 lados"
+    }
+  ]
+}
