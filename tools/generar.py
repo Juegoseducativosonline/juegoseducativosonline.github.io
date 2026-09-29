@@ -64,6 +64,8 @@ IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar', 'secundaria',
 RUTA_DOCENTES = 'docentes/index.html'
 RUTA_FAMILIAS = 'familias/index.html'
 RUTA_CURRICULO = 'docentes/curriculo/index.html'
+# Los PDF los produce tools/pdf.py imprimiendo las fichas y los packs con Chrome.
+CARPETA_PDF = 'pdf'
 RUTA_SECUNDARIA = 'secundaria/index.html'
 
 # Juegos cuyos datos viven en contenido/*.json: hoja de estilos, script y función
@@ -653,11 +655,48 @@ def etiqueta_estandar(ref, fuentes):
     return '%s · %s%s' % (ref['area'], ref['grupo'], ' (%s)' % sigla if sigla else '')
 
 
+def ruta_pack_grado(grado):
+    return 'packs/grado-%s.html' % grado[1]
+
+
+def ruta_pack_materia(materia):
+    return 'packs/materia-%s.html' % materia.id
+
+
+def pdf_de(ruta_html):
+    """PDF que tools/pdf.py genera para una ficha o un pack."""
+    if ruta_html.startswith('packs/'):
+        return '%s/%s.pdf' % (CARPETA_PDF, ruta_html[len('packs/'):-len('.html')])
+    return '%s/%s.pdf' % (CARPETA_PDF, ruta_html[:-len('-ficha.html')])
+
+
+def peso_pdf(ruta_html):
+    """Tamaño del PDF ya generado, para mostrarlo junto al enlace ('' si aún no existe)."""
+    archivo = RAIZ / pdf_de(ruta_html)
+    if not archivo.exists():
+        return ''
+    kb = archivo.stat().st_size / 1024
+    return ' (%s)' % ('%d KB' % kb if kb < 1024 else ('%.1f MB' % (kb / 1024)).replace('.', ','))
+
+
+def enlace_pdf(ruta_html, texto, clase='btn'):
+    return '<a class="%s" href="/%s" download>%s%s</a>' % (clase, pdf_de(ruta_html), texto, esc(peso_pdf(ruta_html)))
+
+
 def bloque_curriculo(juego):
     c = juego.curriculo
     fuentes = c['fuentes_doc']
-    partes = ['<section class="curriculo" aria-labelledby="curriculo-titulo">',
-              '  <h2 id="curriculo-titulo">🍎 Para docentes: objetivo y relación con el currículo</h2>',
+    # Plegada: quien entra a jugar no la ve; el docente la abre con un clic.
+    descargas = []
+    if juego.tipo in MOTORES:
+        descargas.append(enlace_pdf(ruta_ficha(juego), '📄 Ficha en PDF'))
+    descargas += [enlace_pdf(ruta_pack_grado(GRADO[g]), '📦 Pack de %s' % GRADO[g][2], 'btn btn-secundario')
+                  for g in juego.grados]
+    descargas.append(enlace_pdf(ruta_pack_materia(juego.materia), '📚 Pack de %s' % juego.materia.nombre,
+                                'btn btn-secundario'))
+    partes = ['<details class="curriculo">',
+              '  <summary>🍎 ¿Eres docente? Objetivo, DBA y fichas en PDF</summary>',
+              '  <div class="descargas">%s</div>' % ' '.join(descargas),
               '  <p><strong>Objetivo de aprendizaje:</strong> %s</p>' % esc(c['objetivo']),
               '  <p><strong>Competencia que se trabaja:</strong> %s</p>' % esc(c['competencia'])]
     if c['dba']:
@@ -677,7 +716,7 @@ def bloque_curriculo(juego):
     partes.append('  <p class="nota">Fuentes: %s. Textos citados literalmente. '
                   '<a href="/docentes/curriculo/">Ver la matriz curricular completa</a>.</p>'
                   % '; '.join('<a href="%s">%s</a>' % (esc(fuentes[f]['url']), esc(fuentes[f]['titulo'])) for f in usadas))
-    partes.append('</section>')
+    partes.append('</details>')
     return '\n'.join(partes)
 
 
@@ -1115,6 +1154,7 @@ def pagina_ficha(juego, materias, v):
   <main class="content" id="contenido">
     <div class="ficha-acciones no-imprimir">
       <button type="button" class="btn" data-imprimir>🖨️ Imprimir o guardar como PDF</button>
+      %s
       <a class="btn btn-secundario" href="%s">🎮 Jugar en pantalla</a>
     </div>
     <p class="ficha-datos"><span>Nombre:</span><span>Fecha:</span></p>
@@ -1130,8 +1170,8 @@ def pagina_ficha(juego, materias, v):
   </main>
 </div>
 %s""" % (bloque_navegacion(materias, migas=migas), esc(juego.icono), esc(juego.titulo), esc(juego.descripcion),
-         esc(etiqueta_grados(juego.grados)), esc(juego.materia.nombre), esc(juego.detalle), url_de(juego.ruta),
-         instrucciones,
+         esc(etiqueta_grados(juego.grados)), esc(juego.materia.nombre), esc(juego.detalle),
+         enlace_pdf(ruta_ficha(juego), '📄 Descargar PDF', 'btn btn-acento'), url_de(juego.ruta), instrucciones,
          indentar('\n'.join(bloques), '    '), esc(juego.titulo), indentar('\n'.join(respuestas), '        '),
          indentar(resumen_curriculo(juego), '      '), bloque_pie(materias, v))
 
@@ -1239,6 +1279,8 @@ def pagina_docentes(materias, v):
     cuerpo = """%s
 %s
 <main id="contenido" class="pagina">
+%s
+
   <section class="tema" aria-labelledby="por-grado">
     <div class="tema-cabeza">
       <h2 id="por-grado">Recursos por grado</h2>
@@ -1277,7 +1319,7 @@ def pagina_docentes(materias, v):
                         'Juegos educativos, fichas imprimibles con respuestas y actividades por grado. Gratis y sin registro.',
                         '%s · de Transición a %s' % (plural(sum(len(m.juegos) for m in materias), 'recurso', 'recursos'),
                                                      grados[-1][0][2])),
-         indentar(tarjetas, '    '), bloque_pie(materias, v))
+         indentar(seccion_packs(materias), '  '), indentar(tarjetas, '    '), bloque_pie(materias, v))
     head = cabeza(v, 'Recursos educativos gratis para docentes: juegos y fichas por grado — %s' % NOMBRE_SITIO,
                   'Recursos educativos gratuitos para docentes: juegos interactivos y fichas imprimibles con '
                   'respuestas, organizados por grado de Transición a secundaria.', RUTA_DOCENTES)
@@ -1357,7 +1399,9 @@ def pagina_grado(grado, juegos, materias, v):
          cabecera_banda([('Inicio', '/'), ('Docentes', '/docentes/'), (grado[3].capitalize(), None)],
                         '🎒' if grado[0] < PRIMER_GRADO_SECUNDARIA else '🎓', titulo,
                         'Juegos y fichas imprimibles para %s (unos %d años), de todas las materias.' % (grado[3], edad),
-                        plural(len(juegos), 'juego', 'juegos'), '\n' + indentar(hermanas, '    ')),
+                        plural(len(juegos), 'juego', 'juegos'),
+                        '\n    <p class="descargas">%s</p>\n' % enlace_pdf(ruta_pack_grado(grado), '📦 Descargar todas las fichas en PDF', 'btn btn-blanco')
+                        + indentar(hermanas, '    ')),
          indentar(juegos_por_materia(materias, juegos), '  '), indentar(enlaces_fichas(juegos), '  '),
          bloque_pie(materias, v))
     head = cabeza(v, '%s — %s' % (titulo, NOMBRE_SITIO),
@@ -1440,6 +1484,93 @@ def pagina_matriz(materias, v):
                   'Matriz curricular: cada juego educativo con su objetivo de aprendizaje, los Derechos Básicos de '
                   'Aprendizaje (DBA) y los Estándares Básicos de Competencias del MEN de Colombia.', RUTA_CURRICULO)
     return documento(head, 'pagina-curriculo', cuerpo)
+
+
+def pagina_pack(titulo, subtitulo, juegos, v, ruta):
+    """Pack imprimible: portada con índice y, detrás, cada ficha seguida de su hoja
+    de respuestas. tools/pdf.py lo convierte en un único PDF."""
+    fichas = [j for j in juegos if j.tipo in MOTORES]
+    indice = '\n'.join('      <li><strong>%s %s</strong> <span class="detalle">%s · %s</span></li>'
+                       % (esc(j.icono), esc(j.titulo), esc(j.materia.nombre), esc(etiqueta_grados(j.grados)))
+                       for j in fichas)
+    articulos = []
+    for n, j in enumerate(fichas, 1):
+        instrucciones, bloques, respuestas = FICHAS[j.tipo](j)
+        articulos.append("""<article class="pack-ficha">
+  <header class="pack-ficha-cabeza">
+    <p class="pack-ficha-num">Ficha %d · %s · %s</p>
+    <h2>%s %s</h2>
+    <p>%s</p>
+  </header>
+  <p class="ficha-datos"><span>Nombre:</span><span>Fecha:</span></p>
+  <p class="ficha-instrucciones">%s</p>
+%s
+  <section class="ficha-respuestas">
+    <h3>Respuestas: %s</h3>
+    <ol>
+%s
+    </ol>
+%s
+  </section>
+</article>""" % (n, esc(j.materia.nombre), esc(etiqueta_grados(j.grados)), esc(j.icono), esc(j.titulo),
+                 esc(j.descripcion), instrucciones, indentar('\n'.join(bloques), '  '), esc(j.titulo),
+                 indentar('\n'.join(respuestas), '      '), indentar(resumen_curriculo(j), '    ')))
+
+    cuerpo = """<main id="contenido" class="pack">
+  <section class="pack-portada">
+    <p class="pack-marca"><span class="marca-logo" aria-hidden="true">🎮</span> %s</p>
+    <h1>%s</h1>
+    <p class="pack-subtitulo">%s</p>
+    <p class="pack-cifras">%s con hoja de respuestas · Objetivo y DBA en cada una</p>
+    <h2>Contenido</h2>
+    <ol class="pack-indice">
+%s
+    </ol>
+    <p class="nota">Juegos y fichas gratuitos en %s · Alineados con los DBA y los Estándares del MEN.</p>
+  </section>
+%s
+</main>""" % (esc(NOMBRE_SITIO), esc(titulo), esc(subtitulo), plural(len(fichas), 'ficha', 'fichas'), indice,
+              esc(URL_SITIO.replace('https://', '')), indentar('\n'.join(articulos), '  '))
+    head = cabeza(v, '%s — %s' % (titulo, NOMBRE_SITIO), subtitulo, ruta, robots='noindex')
+    return documento(head, 'pagina-pack', cuerpo)
+
+
+def packs(materias, v):
+    """Packs por grado y por materia: {ruta_html: html}."""
+    salida = {}
+    for grado, juegos in grados_con_juegos(materias):
+        if any(j.tipo in MOTORES for j in juegos):
+            salida[ruta_pack_grado(grado)] = pagina_pack(
+                'Pack de fichas: %s' % grado[3], 'Fichas de todas las materias para %s.' % grado[3],
+                juegos, v, ruta_pack_grado(grado))
+    for m in materias:
+        salida[ruta_pack_materia(m)] = pagina_pack(
+            'Pack de fichas: %s' % m.nombre, 'Todas las fichas de %s, de todos los grados.' % m.nombre,
+            m.juegos, v, ruta_pack_materia(m))
+    return salida
+
+
+def seccion_packs(materias):
+    """Bloque destacado de descargas en PDF para la página de docentes."""
+    por_grado = '\n'.join('      <li>%s</li>' % enlace_pdf(ruta_pack_grado(g), '📦 %s' % (g[2] if g[0] else 'Transición'),
+                                                           'btn btn-secundario')
+                          for g, js in grados_con_juegos(materias) if any(j.tipo in MOTORES for j in js))
+    por_materia = '\n'.join('      <li>%s</li>' % enlace_pdf(ruta_pack_materia(m), '%s %s' % (m.icono, m.nombre),
+                                                             'btn btn-secundario') for m in materias)
+    return """<section class="tema packs-pdf" aria-labelledby="packs-titulo">
+  <div class="tema-cabeza">
+    <h2 id="packs-titulo">📦 Packs de fichas en PDF</h2>
+    <p>Descarga todas las fichas de un grado o de una materia en un solo PDF, listo para imprimir: portada con índice, y cada ficha con su hoja de respuestas, su objetivo y sus DBA.</p>
+  </div>
+  <h3>Por grado</h3>
+  <ul class="lista-descargas">
+%s
+  </ul>
+  <h3>Por materia</h3>
+  <ul class="lista-descargas">
+%s
+  </ul>
+</section>""" % (por_grado, por_materia)
 
 
 def pagina_secundaria(materias, v):
@@ -1715,6 +1846,7 @@ def generar(comprobar):
               'sitemap.xml': sitemap(materias), RUTA_SECUNDARIA: pagina_secundaria(materias, v),
               RUTA_DOCENTES: pagina_docentes(materias, v), RUTA_FAMILIAS: pagina_familias(materias, v),
               RUTA_CURRICULO: pagina_matriz(materias, v)}
+    salida.update(packs(materias, v))
     for grado, juegos_grado in grados_con_juegos(materias):
         salida[ruta_grado(grado)] = pagina_grado(grado, juegos_grado, materias, v)
     for franja, juegos_edad in edades_con_juegos(materias):
@@ -1728,7 +1860,9 @@ def generar(comprobar):
 
     # Lo que la aplicación guarda para funcionar sin internet: todas las páginas,
     # los recursos versionados y los iconos.
-    paginas = [r for r in list(salida) + list(interactivos) if r.endswith('.html')] + [RUTA_DESCARGAS]
+    # Los packs son grandes y solo sirven para imprimir: no se guardan para uso sin conexión.
+    paginas = [r for r in list(salida) + list(interactivos)
+               if r.endswith('.html') and not r.startswith('packs/')] + [RUTA_DESCARGAS]
     lista = sorted({url_de(r) for r in paginas} | {v.url(n) for n in recursos} |
                    {'/assets/favicon.svg', '/assets/icono-192.png', '/assets/icono-512.png',
                     '/assets/icono-180.png', '/manifest.webmanifest'})

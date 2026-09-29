@@ -18,6 +18,9 @@ Sitio estático publicado en https://juegoseducativosonline.github.io con GitHub
 - `sw.js` y `manifest.webmanifest` (generados): permiten instalar el sitio como aplicación
   y usarlo sin internet. Cada juego de preguntas tiene además una ficha para imprimir
   (`<juego>-ficha.html`). Todo esto se regenera solo al ejecutar el generador.
+- `packs/` (generado) y `pdf/`: los packs de fichas por grado y por materia, y los PDF que
+  `tools/pdf.py` imprime con Chrome a partir de las fichas y los packs. Solo reimprime lo que
+  cambió (`pdf/huellas.json`).
 - `tools/iconos.py`: dibuja los iconos de la aplicación; solo hace falta si cambia su diseño.
 - `matematicas/*_practice*.html`: juegos interactivos hechos a mano. El generador solo
   reescribe sus bloques `<!-- generado:... -->` (cabecera, menú y pie).
@@ -38,6 +41,8 @@ contenido y vuelve a generar.
 
 ```bash
 python tools/generar.py
+python tools/pdf.py        # PDF de las fichas y de los packs (necesita Chrome o Edge)
+python tools/generar.py    # otra vez, para mostrar el tamaño de cada PDF
 git add -A
 git commit -m "Describe el cambio"
 git push
