@@ -1,0 +1,101 @@
+{
+  "titulo": "Cuento y coloreo",
+  "icono": "🔢",
+  "descripcion": "Ficha para Transición: contar dibujos y colorear la misma cantidad, repasar los números del 1 al 5 y resolver quién tiene más.",
+  "tituloSeo": "Fichas de contar del 1 al 5 para preescolar (imprimibles)",
+  "descripcionSeo": "Fichas imprimibles gratis para niños de 4 y 5 años: contar y colorear, trazar números del 1 al 5 y comparar cantidades.",
+  "actividades": [
+    {
+      "tipo": "contar_colorear",
+      "consigna": "Cuenta los dibujos de cada fila y colorea la misma cantidad de círculos.",
+      "filas": [
+        {
+          "emoji": "🍎",
+          "cantidad": 3
+        },
+        {
+          "emoji": "🐟",
+          "cantidad": 5
+        },
+        {
+          "emoji": "⭐",
+          "cantidad": 1
+        },
+        {
+          "emoji": "🎈",
+          "cantidad": 4
+        },
+        {
+          "emoji": "🐥",
+          "cantidad": 2
+        }
+      ],
+      "respuesta": "Manzanas 3 · peces 5 · estrella 1 · globos 4 · pollitos 2."
+    },
+    {
+      "tipo": "trazar_numeros",
+      "consigna": "Repasa los números por los puntos. Muestra cada número con tus dedos.",
+      "numeros": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "tipo": "encerrar",
+      "consigna": "Un adulto lee cada problema. Encierra la respuesta.",
+      "filas": [
+        {
+          "pregunta": "Ana tiene unas manzanas y Luis otras. ¿Quién tiene más? Encierra el grupo más grande.",
+          "items": [
+            [
+              "🍎🍎🍎🍎",
+              44
+            ],
+            [
+              "🍎🍎",
+              44
+            ]
+          ]
+        },
+        {
+          "pregunta": "Hay 3 perritos. ¿Qué plato alcanza justo para darle un hueso a cada uno?",
+          "items": [
+            [
+              "🦴🦴",
+              44
+            ],
+            [
+              "🦴🦴🦴",
+              44
+            ],
+            [
+              "🦴",
+              44
+            ]
+          ]
+        },
+        {
+          "pregunta": "¿Dónde hay menos pájaros? Encierra el grupo más pequeño.",
+          "items": [
+            [
+              "🐦🐦🐦",
+              44
+            ],
+            [
+              "🐦",
+              44
+            ],
+            [
+              "🐦🐦🐦🐦🐦",
+              40
+            ]
+          ]
+        }
+      ],
+      "respuesta": "Ana (4 manzanas) · el plato de 3 huesos · el grupo de 1 pájaro."
+    }
+  ]
+}

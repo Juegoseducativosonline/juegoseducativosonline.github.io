@@ -1,0 +1,36 @@
+{
+  "titulo": "Colorea mi mundo",
+  "icono": "🖍️",
+  "descripcion": "Ficha para Transición: dibujos grandes para colorear con crayolas y completar con tu imaginación.",
+  "tituloSeo": "Dibujos para colorear para niños de preescolar (imprimibles)",
+  "descripcionSeo": "Dibujos para colorear gratis para niños de 4 y 5 años: casa, sol, árbol, flor, pez, manzana y globos, listos para imprimir.",
+  "actividades": [
+    {
+      "tipo": "dibujo_colorear",
+      "consigna": "Colorea la casa, el árbol y el sol. ¿De qué color es tu casa?",
+      "dibujos": [
+        "casa",
+        "arbol",
+        "sol"
+      ]
+    },
+    {
+      "tipo": "dibujo_colorear",
+      "consigna": "Colorea la flor, el pez y la manzana con los colores que quieras.",
+      "dibujos": [
+        "flor",
+        "pez",
+        "manzana"
+      ]
+    },
+    {
+      "tipo": "dibujo_colorear",
+      "consigna": "Colorea los globos y dibuja a quién se los vas a regalar.",
+      "dibujos": [
+        "globo",
+        "globo",
+        "globo"
+      ]
+    }
+  ]
+}

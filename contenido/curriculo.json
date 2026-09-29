@@ -2300,6 +2300,133 @@
           "texto": "Esta facultad sensible-racional se denomina apreciación estética"
         }
       ]
+    },
+    "espanol/trazos-vocales.json": {
+      "grados": [
+        0
+      ],
+      "objetivo": "Desarrollar la motricidad fina con trazos guiados, repasar la forma de las vocales y reconocer su sonido al inicio de palabras.",
+      "competencia": "Conciencia fonológica y aproximación a la escritura (grafías).",
+      "dba": [
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 10,
+          "texto": "Expresa ideas, intereses y emociones a través de sus propias grafías y formas semejantes a las letras convencionales en formatos con diferentes intenciones comunicativas."
+        },
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 8,
+          "texto": "Identifica las relaciones sonoras en el lenguaje oral."
+        },
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 9,
+          "texto": "Establece relaciones e interpreta imágenes, letras, objetos, personajes que encuentra en distintos tipos de textos."
+        }
+      ],
+      "estandares": []
+    },
+    "matematicas/cuento-y-coloreo.json": {
+      "grados": [
+        0
+      ],
+      "objetivo": "Contar colecciones de hasta 5 objetos, representar la cantidad y resolver situaciones problema de comparar y repartir.",
+      "competencia": "Pensamiento numérico: conteo, correspondencia uno a uno y comparación de cantidades.",
+      "dba": [
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 16,
+          "texto": "Determina la cantidad de objetos que conforman una colección,al establecer relaciones de correspondencia y acciones de juntar y separar."
+        },
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 11,
+          "texto": "Crea situaciones y propone alternativas de solución a problemas cotidianos a partir de sus conocimientos e imaginación."
+        }
+      ],
+      "estandares": []
+    },
+    "matematicas/formas-y-series.json": {
+      "grados": [
+        0
+      ],
+      "objetivo": "Reconocer figuras geométricas básicas, completar patrones y comparar tamaños y posiciones.",
+      "competencia": "Pensamiento espacial y variacional: formas, patrones, tamaño y posición.",
+      "dba": [
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 14,
+          "texto": "Construye nociones de espacio, tiempo y medida a través de experiencias cotidianas."
+        },
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 11,
+          "texto": "Crea situaciones y propone alternativas de solución a problemas cotidianos a partir de sus conocimientos e imaginación."
+        }
+      ],
+      "estandares": []
+    },
+    "artes/colorea-mi-mundo.json": {
+      "grados": [
+        0
+      ],
+      "objetivo": "Expresarse por medio del color y el dibujo, y fortalecer la motricidad fina al colorear dentro de los contornos.",
+      "competencia": "Sensibilidad y expresión gráfica.",
+      "dba": [
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 7,
+          "texto": "Expresa y representa lo que observa, siente, piensa e imagina, a través del juego, la música, el dibujo y la expresión corporal."
+        },
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 13,
+          "texto": "Usa diferentes herramientas y objetos con variadas posibilidades."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "D16",
+          "area": "Educación Artística",
+          "grupo": "Todos los grados",
+          "texto": "la sensibilidad es una competencia que se sustenta en un tipo de disposición humana evidente al afectarse y afectar a otros"
+        }
+      ]
+    },
+    "naturales/animales-y-alimentos.json": {
+      "grados": [
+        0
+      ],
+      "objetivo": "Relacionar animales con su alimento y clasificarlos según dónde viven, cómo se desplazan y cómo nacen.",
+      "competencia": "Exploración del medio: observación y clasificación de seres vivos.",
+      "dba": [
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 9,
+          "texto": "Establece relaciones e interpreta imágenes, letras, objetos, personajes que encuentra en distintos tipos de textos."
+        }
+      ],
+      "estandares": []
     }
   }
 }

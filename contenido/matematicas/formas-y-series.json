@@ -1,0 +1,133 @@
+{
+  "titulo": "Formas y series",
+  "icono": "🔷",
+  "descripcion": "Ficha para Transición: colorear figuras según la clave de colores, completar series y comparar tamaños.",
+  "tituloSeo": "Fichas de figuras geométricas y series para preescolar",
+  "descripcionSeo": "Fichas imprimibles gratis para niños de 4 y 5 años: colorear círculos, cuadrados y triángulos, completar series y comparar tamaños.",
+  "actividades": [
+    {
+      "tipo": "colorear_formas",
+      "consigna": "Mira la clave de arriba: pinta cada figura con su color.",
+      "colores": {
+        "circulo": "rojo",
+        "cuadrado": "azul",
+        "triangulo": "amarillo",
+        "estrella": "verde"
+      },
+      "formas": [
+        "circulo",
+        "triangulo",
+        "cuadrado",
+        "estrella",
+        "circulo",
+        "cuadrado",
+        "estrella",
+        "triangulo",
+        "circulo",
+        "triangulo"
+      ],
+      "respuesta": "3 círculos rojos, 2 cuadrados azules, 3 triángulos amarillos y 2 estrellas verdes."
+    },
+    {
+      "tipo": "completar_serie",
+      "consigna": "¿Qué sigue? Dibuja en el cuadro lo que falta.",
+      "series": [
+        [
+          "🔴",
+          "🔵",
+          "🔴",
+          "🔵",
+          "🔴"
+        ],
+        [
+          "🍎",
+          "🍌",
+          "🍎",
+          "🍌",
+          "🍎"
+        ],
+        [
+          "⭐",
+          "⭐",
+          "🌙",
+          "⭐",
+          "⭐"
+        ],
+        [
+          "🐱",
+          "🐶",
+          "🐭",
+          "🐱",
+          "🐶"
+        ]
+      ],
+      "respuesta": "🔵 · 🍌 · 🌙 · 🐭"
+    },
+    {
+      "tipo": "encerrar",
+      "consigna": "Encierra lo que se pide en cada fila.",
+      "filas": [
+        {
+          "pregunta": "El elefante más grande.",
+          "items": [
+            [
+              "🐘",
+              40
+            ],
+            [
+              "🐘",
+              80
+            ],
+            [
+              "🐘",
+              28
+            ]
+          ]
+        },
+        {
+          "pregunta": "El árbol más pequeño.",
+          "items": [
+            [
+              "🌳",
+              70
+            ],
+            [
+              "🌳",
+              30
+            ],
+            [
+              "🌳",
+              52
+            ]
+          ]
+        },
+        {
+          "pregunta": "El balón que está entre los dos perritos.",
+          "items": [
+            [
+              "🐕",
+              50
+            ],
+            [
+              "⚽",
+              40
+            ],
+            [
+              "🐕",
+              50
+            ],
+            [
+              "🧸",
+              45
+            ],
+            [
+              "⚽",
+              40
+            ]
+          ]
+        }
+      ],
+      "respuesta": "El elefante del medio · el árbol del medio · el primer balón."
+    }
+  ]
+}

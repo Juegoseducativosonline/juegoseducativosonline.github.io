@@ -73,6 +73,46 @@ window.JEO = (function () {
     });
   });
 
+  /* --- Vista docente ----------------------------------------------------- */
+
+  /* Quien llega desde /docentes/ o una página de grado ve, en cada juego, los
+     lineamientos arriba; quien entra a jugar ve solo el juego. Se recuerda
+     durante la visita (sessionStorage), y sin almacenamiento todo funciona
+     igual, solo que sin recordar la elección. */
+  var CLAVE_MODO = 'jeo-modo';
+
+  function guardarModo(modo) {
+    try {
+      sessionStorage.setItem(CLAVE_MODO, modo);
+    } catch (e) { /* almacenamiento no disponible: no se recuerda */ }
+  }
+
+  function leerModo() {
+    try {
+      return sessionStorage.getItem(CLAVE_MODO);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  if (/^\/(docentes|grados)\//.test(location.pathname)) {
+    guardarModo('docente');
+  }
+
+  function aplicarModo() {
+    document.documentElement.classList.toggle('vista-docente', leerModo() === 'docente');
+  }
+  aplicarModo();
+
+  document.addEventListener('click', function (e) {
+    var destino = e.target.closest('[data-modo], .entrada-jugar a');
+    if (!destino) {
+      return;
+    }
+    guardarModo(destino.getAttribute('data-modo') || 'estudiante');
+    aplicarModo();
+  });
+
   /* --- Uso sin internet -------------------------------------------------- */
 
   /* El service worker guarda el sitio para usarlo sin conexión. Solo existe en

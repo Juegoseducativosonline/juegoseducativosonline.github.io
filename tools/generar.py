@@ -20,11 +20,14 @@ import hashlib
 import html
 import json
 import random
+import unicodedata
 import re
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional
+
+import imprimibles  # tools/imprimibles.py: actividades de Transición
 
 RAIZ = Path(__file__).resolve().parent.parent
 CONTENIDO = RAIZ / 'contenido'
@@ -423,6 +426,27 @@ def cargar_ordenar(ruta_json):
         **meta)
 
 
+def cargar_imprimible(ruta_json):
+    """Ficha para imprimir de Transición (trazar, colorear, encerrar...): no tiene
+    juego en pantalla; su página muestra las actividades y los botones para imprimir."""
+    datos = leer_json(ruta_json)
+    donde = rel(ruta_json)
+    meta = meta_de_juego(datos, donde)
+    actividades = lista_obligatoria(datos, 'actividades', donde)
+    try:
+        imprimibles.renderizar(actividades, donde)   # valida los datos antes de seguir
+    except imprimibles.ErrorActividad as e:
+        raise ErrorContenido(str(e))
+    return Juego(
+        tipo='imprimible', ruta=ruta_json.relative_to(CONTENIDO).with_suffix('.html').as_posix(),
+        detalle='Para imprimir · %s' % plural(len(actividades), 'actividad', 'actividades'),
+        datos={'actividades': actividades}, **meta)
+
+
+def tiene_ficha(juego):
+    return juego.tipo in MOTORES or juego.tipo == 'imprimible'
+
+
 def cargar_interactivo(crudo, donde):
     ruta = texto_obligatorio(crudo, 'pagina', donde)
     archivo = RAIZ / ruta
@@ -493,10 +517,12 @@ def cargar_catalogo():
                     cargador = {'quiz': lambda r: cargar_quiz(r, donde_juego),
                                 'parejas': cargar_parejas, 'ordenar': cargar_ordenar}[tipo]
                     juego = cargador(CONTENIDO / archivo)
+                elif tipo == 'imprimible':
+                    juego = cargar_imprimible(CONTENIDO / texto_obligatorio(juego_crudo, 'datos', donde_juego))
                 elif tipo == 'interactivo':
                     juego = cargar_interactivo(juego_crudo, donde_juego)
                 else:
-                    raise ErrorContenido('%s: tipo de juego desconocido %r; usa %s o "interactivo".'
+                    raise ErrorContenido('%s: tipo de juego desconocido %r; usa %s, "imprimible" o "interactivo".'
                                          % (donde_juego, tipo, ', '.join('"%s"' % t for t in MOTORES)))
 
                 # Cada juego vive en la carpeta de su materia; así la URL dice a qué materia pertenece.
@@ -597,7 +623,7 @@ def migas_html(migas):
     return '<nav class="migas" aria-label="Ruta de navegación">\n  <ol>\n%s\n  </ol>\n</nav>' % '\n'.join(items)
 
 
-def bloque_navegacion(materias, actual=None, migas=None):
+def bloque_navegacion(materias, actual=None, migas=None, docente=None):
     enlaces = []
     for m in materias:
         actual_attr = ' aria-current="page"' if m is actual else ''
@@ -623,6 +649,8 @@ def bloque_navegacion(materias, actual=None, migas=None):
 </header>''' % '\n'.join(enlaces)]
     if migas:
         partes.append(migas_html(migas))
+    if docente:
+        partes.append(docente)
     return '\n'.join(partes)
 
 
@@ -683,41 +711,64 @@ def enlace_pdf(ruta_html, texto, clase='btn'):
     return '<a class="%s" href="/%s" download>%s%s</a>' % (clase, pdf_de(ruta_html), texto, esc(peso_pdf(ruta_html)))
 
 
-def bloque_curriculo(juego):
+def contenido_curriculo(juego):
+    """Lineamientos primero (objetivo, DBA, estándares) y, después, las descargas."""
     c = juego.curriculo
     fuentes = c['fuentes_doc']
-    # Plegada: quien entra a jugar no la ve; el docente la abre con un clic.
+    partes = ['<p><strong>Objetivo de aprendizaje:</strong> %s</p>' % esc(c['objetivo']),
+              '<p><strong>Competencia que se trabaja:</strong> %s</p>' % esc(c['competencia'])]
+    if c['dba']:
+        partes.append('<h3>Derechos Básicos de Aprendizaje (DBA)</h3>')
+        partes.append('<ul class="lista-curriculo">')
+        partes += ['  <li><span class="insignia">%s</span> «%s»</li>' % (esc(etiqueta_dba(r)), esc(r['texto']))
+                   for r in c['dba']]
+        partes.append('</ul>')
+    if c['estandares']:
+        partes.append('<h3>Estándares y orientaciones del MEN</h3>')
+        partes.append('<ul class="lista-curriculo">')
+        partes += ['  <li><span class="insignia">%s</span> «%s»</li>' % (esc(etiqueta_estandar(r, fuentes)), esc(r['texto']))
+                   for r in c['estandares']]
+        partes.append('</ul>')
+    usadas = []
+    for r in c['dba'] + c['estandares']:
+        if r['fuente'] not in usadas:
+            usadas.append(r['fuente'])
+    partes.append('<p class="nota">Fuentes: %s. Textos citados literalmente. '
+                  '<a href="/docentes/curriculo/">Ver la matriz curricular completa</a>.</p>'
+                  % '; '.join('<a href="%s">%s</a>' % (esc(fuentes[f]['url']), esc(fuentes[f]['titulo'])) for f in usadas))
+
     descargas = []
-    if juego.tipo in MOTORES:
+    if tiene_ficha(juego):
         descargas.append(enlace_pdf(ruta_ficha(juego), '📄 Ficha en PDF'))
     descargas += [enlace_pdf(ruta_pack_grado(GRADO[g]), '📦 Pack de %s' % GRADO[g][2], 'btn btn-secundario')
                   for g in juego.grados]
     descargas.append(enlace_pdf(ruta_pack_materia(juego.materia), '📚 Pack de %s' % juego.materia.nombre,
                                 'btn btn-secundario'))
-    partes = ['<details class="curriculo">',
-              '  <summary>🍎 ¿Eres docente? Objetivo, DBA y fichas en PDF</summary>',
-              '  <div class="descargas">%s</div>' % ' '.join(descargas),
-              '  <p><strong>Objetivo de aprendizaje:</strong> %s</p>' % esc(c['objetivo']),
-              '  <p><strong>Competencia que se trabaja:</strong> %s</p>' % esc(c['competencia'])]
-    if c['dba']:
-        partes.append('  <h3>Derechos Básicos de Aprendizaje (DBA)</h3>\n  <ul class="lista-curriculo">')
-        partes += ['    <li><span class="insignia">%s</span> «%s»</li>' % (esc(etiqueta_dba(r)), esc(r['texto']))
-                   for r in c['dba']]
-        partes.append('  </ul>')
-    if c['estandares']:
-        partes.append('  <h3>Estándares y orientaciones del MEN</h3>\n  <ul class="lista-curriculo">')
-        partes += ['    <li><span class="insignia">%s</span> «%s»</li>' % (esc(etiqueta_estandar(r, fuentes)), esc(r['texto']))
-                   for r in c['estandares']]
-        partes.append('  </ul>')
-    usadas = []
-    for r in c['dba'] + c['estandares']:
-        if r['fuente'] not in usadas:
-            usadas.append(r['fuente'])
-    partes.append('  <p class="nota">Fuentes: %s. Textos citados literalmente. '
-                  '<a href="/docentes/curriculo/">Ver la matriz curricular completa</a>.</p>'
-                  % '; '.join('<a href="%s">%s</a>' % (esc(fuentes[f]['url']), esc(fuentes[f]['titulo'])) for f in usadas))
-    partes.append('</details>')
+    partes.append('<h3>Descargar para imprimir</h3>')
+    partes.append('<div class="descargas">%s</div>' % ' '.join(descargas))
     return '\n'.join(partes)
+
+
+def bloque_curriculo(juego, posicion='inferior'):
+    """Dos versiones del mismo contenido:
+    - 'superior': arriba del juego y abierta; solo se ve en la vista de docente
+      (quien llega desde /docentes/ o una página de grado; lo decide site.js).
+    - 'inferior': al final y plegada, para quien entra a jugar."""
+    cuerpo = indentar(contenido_curriculo(juego), '  ')
+    if posicion == 'superior':
+        return '\n'.join([
+            '<section class="bloque-docente-superior" aria-labelledby="docente-titulo">',
+            '  <div class="bloque-docente-cabeza">',
+            '    <h2 id="docente-titulo">🍎 Vista docente: lineamientos de esta actividad</h2>',
+            '    <button type="button" class="btn btn-secundario" data-modo="estudiante">Ver como estudiante</button>',
+            '  </div>',
+            cuerpo,
+            '</section>'])
+    return '\n'.join([
+        '<details class="curriculo curriculo-inferior">',
+        '  <summary>🍎 ¿Eres docente? Objetivo, DBA y fichas en PDF</summary>',
+        cuerpo,
+        '</details>'])
 
 
 def resumen_curriculo(juego):
@@ -991,7 +1042,40 @@ def json_para_script(datos):
     return texto.replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
 
 
+def pagina_imprimible(juego, materias, v):
+    instrucciones, bloques, _ = ficha_imprimible(juego)
+    cuerpo = """%s
+<div class="container">
+  <header class="header">
+    <span class="header-icono" aria-hidden="true">%s</span>
+    <h1>%s</h1>
+    <p>%s</p>
+    <p class="header-meta"><span class="insignia insignia-clara">%s</span><span>%s</span></p>
+  </header>
+  <main class="content" id="contenido">
+    <div class="ficha-acciones">
+      %s
+      <a class="btn btn-secundario" href="%s">🖨️ Ver la ficha para imprimir</a>
+    </div>
+    <p class="ficha-instrucciones">%s</p>
+    <div class="ficha-cuerpo act-cuerpo act-pantalla">
+%s
+    </div>
+  </main>
+</div>
+%s""" % (bloque_navegacion(materias, migas=migas_de(juego), docente=bloque_curriculo(juego, 'superior')),
+         esc(juego.icono), esc(juego.titulo), esc(juego.descripcion), esc(etiqueta_grados(juego.grados)),
+         esc('%s · %s' % (juego.detalle, etiqueta_edades(juego.grados))),
+         enlace_pdf(ruta_ficha(juego), '📄 Descargar PDF', 'btn btn-acento'), url_de(ruta_ficha(juego)),
+         instrucciones, indentar('\n'.join(bloques), '      '), bloque_pie(materias, v, juego))
+    head = cabeza(v, '%s — %s' % (juego.titulo_seo or juego.titulo, NOMBRE_SITIO),
+                  juego.descripcion_seo or juego.descripcion, juego.ruta, tipo_og='article')
+    return documento(head, 'materia-%s' % juego.materia.id, cuerpo)
+
+
 def pagina_juego(juego, materias, v):
+    if juego.tipo == 'imprimible':
+        return pagina_imprimible(juego, materias, v)
     estilos, script, arranque = MOTORES[juego.tipo]
     cuerpo = '''%s
 <div class="container">
@@ -1012,7 +1096,8 @@ def pagina_juego(juego, materias, v):
 <script type="application/json" id="datos-quiz">%s</script>
 <script>
   JEO.%s(document.getElementById('quiz'), document.getElementById('datos-quiz'));
-</script>''' % (bloque_navegacion(materias, migas=migas_de(juego)), esc(juego.icono), esc(juego.titulo),
+</script>''' % (bloque_navegacion(materias, migas=migas_de(juego), docente=bloque_curriculo(juego, 'superior')),
+                esc(juego.icono), esc(juego.titulo),
                 esc(juego.descripcion), esc(etiqueta_grados(juego.grados)),
                 esc('%s · %s' % (juego.detalle, etiqueta_edades(juego.grados))), url_de(ruta_ficha(juego)),
                 bloque_pie(materias, v, juego), v.url(script), json_para_script(juego.datos), arranque)
@@ -1084,20 +1169,48 @@ def opciones_de_ficha(juego, pregunta):
 LETRAS = 'abcdefghijklmnopqrstuvwxyz'
 
 
+# Opciones de hasta este largo caben en dos columnas dentro de la ficha impresa.
+LARGO_OPCION_CORTA = 22
+
+
+def separar_ilustracion(texto):
+    """Separa los emojis del inicio de un enunciado («🍎🍎🍎 ¿Cuántas…?») para
+    imprimirlos grandes como ilustración. Devuelve (emojis, resto del texto)."""
+    i = 0
+    while i < len(texto) and (unicodedata.category(texto[i]) in ('So', 'Sk', 'Mn', 'Cf')
+                              or texto[i] in '‍️'):
+        i += 1
+    if i == 0:
+        return '', texto
+    return texto[:i], texto[i:].lstrip()
+
+
+def enunciado_ficha(n, texto):
+    emojis, resto = separar_ilustracion(texto)
+    ilustracion = ('<span class="ficha-ilustracion" aria-hidden="true">%s</span>' % esc(emojis)) if emojis else ''
+    return '  %s<p class="ficha-enunciado"><span class="ficha-numero">%d.</span> %s</p>' % (ilustracion, n, esc(resto))
+
+
+def pasaje_ficha(pasaje):
+    parrafos = '\n'.join('  <p>%s</p>' % esc(t) for t in pasaje['parrafos'])
+    ilustracion = pasaje.get('ilustracion', '')
+    arte = ('\n  <p class="ficha-pasaje-arte" aria-hidden="true">%s</p>' % esc(ilustracion)) if ilustracion else ''
+    return ('<article class="quiz-pasaje ficha-pasaje">%s\n  <h2 class="quiz-pasaje-titulo">📖 %s</h2>\n%s\n</article>'
+            % (arte, esc(pasaje['titulo']), parrafos))
+
+
 def ficha_quiz(juego):
     bloques, respuestas = [], []
     pasaje_actual = None
     for n, p in enumerate(juego.datos['preguntas'], 1):
         if p.get('pasaje') and p['pasaje'] != pasaje_actual:
             pasaje_actual = p['pasaje']
-            pasaje = juego.datos['pasajes'][pasaje_actual]
-            parrafos = '\n'.join('  <p>%s</p>' % esc(t) for t in pasaje['parrafos'])
-            bloques.append('<article class="quiz-pasaje">\n  <h2 class="quiz-pasaje-titulo">📖 %s</h2>\n%s\n</article>'
-                           % (esc(pasaje['titulo']), parrafos))
+            bloques.append(pasaje_ficha(juego.datos['pasajes'][pasaje_actual]))
         opciones, correcta = opciones_de_ficha(juego, p)
         items = '\n'.join('    <li>%s</li>' % esc(o) for o in opciones)
-        bloques.append('<div class="ficha-pregunta">\n  <p class="ficha-enunciado"><span class="ficha-numero">%d.</span> %s</p>\n'
-                       '  <ol class="ficha-opciones" type="a">\n%s\n  </ol>\n</div>' % (n, esc(p['enunciado']), items))
+        cortas = ' cortas' if max(len(o) for o in opciones) <= LARGO_OPCION_CORTA else ''
+        bloques.append('<div class="ficha-pregunta">\n%s\n  <ol class="ficha-opciones%s" type="a">\n%s\n  </ol>\n</div>'
+                       % (enunciado_ficha(n, p['enunciado']), cortas, items))
         explicacion = (' <span class="ficha-explicacion">%s</span>' % esc(p['explicacion'])) if p.get('explicacion') else ''
         respuestas.append('<li><strong>%s)</strong> %s%s</li>' % (LETRAS[correcta], esc(opciones[correcta]), explicacion))
     return 'Rodea con un círculo la letra de la respuesta correcta.', bloques, respuestas
@@ -1137,7 +1250,25 @@ def ficha_ordenar(juego):
     return 'Numera cada elemento según el orden correcto, empezando por el 1.', bloques, respuestas
 
 
-FICHAS = {'quiz': ficha_quiz, 'parejas': ficha_parejas, 'ordenar': ficha_ordenar}
+def ficha_imprimible(juego):
+    actividades = juego.datos['actividades']
+    bloques = imprimibles.renderizar(actividades, juego.ruta)
+    respuestas = ['<li><strong>Actividad %d:</strong> %s</li>' % (n, esc(a['respuesta']))
+                  for n, a in enumerate(actividades, 1) if a.get('respuesta')]
+    return ('Un adulto lee cada consigna en voz alta. Se necesitan lápiz y colores.', bloques, respuestas)
+
+
+FICHAS = {'quiz': ficha_quiz, 'parejas': ficha_parejas, 'ordenar': ficha_ordenar, 'imprimible': ficha_imprimible}
+
+
+def clase_cuerpo(juego):
+    """Las actividades con dibujos grandes ocupan todo el ancho; el resto va a dos columnas."""
+    return 'ficha-cuerpo act-cuerpo' if juego.tipo == 'imprimible' else 'ficha-cuerpo'
+
+
+def titulo_respuestas(respuestas):
+    """En las fichas de Transición la hoja final es una guía para el adulto."""
+    return 'Respuestas' if respuestas else 'Para el adulto'
 
 
 def pagina_ficha(juego, materias, v):
@@ -1155,13 +1286,15 @@ def pagina_ficha(juego, materias, v):
     <div class="ficha-acciones no-imprimir">
       <button type="button" class="btn" data-imprimir>🖨️ Imprimir o guardar como PDF</button>
       %s
-      <a class="btn btn-secundario" href="%s">🎮 Jugar en pantalla</a>
+      <a class="btn btn-secundario" href="%s">🎮 %s</a>
     </div>
     <p class="ficha-datos"><span>Nombre:</span><span>Fecha:</span></p>
     <p class="ficha-instrucciones">%s</p>
+    <div class="%s">
 %s
+    </div>
     <section class="ficha-respuestas" aria-labelledby="respuestas-titulo">
-      <h2 id="respuestas-titulo">Respuestas: %s</h2>
+      <h2 id="respuestas-titulo">%s: %s</h2>
       <ol>
 %s
       </ol>
@@ -1171,8 +1304,10 @@ def pagina_ficha(juego, materias, v):
 </div>
 %s""" % (bloque_navegacion(materias, migas=migas), esc(juego.icono), esc(juego.titulo), esc(juego.descripcion),
          esc(etiqueta_grados(juego.grados)), esc(juego.materia.nombre), esc(juego.detalle),
-         enlace_pdf(ruta_ficha(juego), '📄 Descargar PDF', 'btn btn-acento'), url_de(juego.ruta), instrucciones,
-         indentar('\n'.join(bloques), '    '), esc(juego.titulo), indentar('\n'.join(respuestas), '        '),
+         enlace_pdf(ruta_ficha(juego), '📄 Descargar PDF', 'btn btn-acento'), url_de(juego.ruta),
+         'Ver en pantalla' if juego.tipo == 'imprimible' else 'Jugar en pantalla', instrucciones, clase_cuerpo(juego),
+         indentar('\n'.join(bloques), '      '), titulo_respuestas(respuestas), esc(juego.titulo),
+         indentar('\n'.join(respuestas), '        '),
          indentar(resumen_curriculo(juego), '      '), bloque_pie(materias, v))
 
     head = cabeza(v, 'Ficha: %s — %s' % (juego.titulo, NOMBRE_SITIO),
@@ -1258,7 +1393,7 @@ def juegos_por_materia(materias, juegos):
 
 
 def enlaces_fichas(juegos):
-    fichas = [j for j in juegos if j.tipo in MOTORES]
+    fichas = [j for j in juegos if tiene_ficha(j)]
     if not fichas:
         return ''
     return """<section class="opcion-offline" aria-labelledby="fichas-seccion">
@@ -1489,7 +1624,7 @@ def pagina_matriz(materias, v):
 def pagina_pack(titulo, subtitulo, juegos, v, ruta):
     """Pack imprimible: portada con índice y, detrás, cada ficha seguida de su hoja
     de respuestas. tools/pdf.py lo convierte en un único PDF."""
-    fichas = [j for j in juegos if j.tipo in MOTORES]
+    fichas = [j for j in juegos if tiene_ficha(j)]
     indice = '\n'.join('      <li><strong>%s %s</strong> <span class="detalle">%s · %s</span></li>'
                        % (esc(j.icono), esc(j.titulo), esc(j.materia.nombre), esc(etiqueta_grados(j.grados)))
                        for j in fichas)
@@ -1504,16 +1639,19 @@ def pagina_pack(titulo, subtitulo, juegos, v, ruta):
   </header>
   <p class="ficha-datos"><span>Nombre:</span><span>Fecha:</span></p>
   <p class="ficha-instrucciones">%s</p>
+  <div class="%s">
 %s
+  </div>
   <section class="ficha-respuestas">
-    <h3>Respuestas: %s</h3>
+    <h3>%s: %s</h3>
     <ol>
 %s
     </ol>
 %s
   </section>
 </article>""" % (n, esc(j.materia.nombre), esc(etiqueta_grados(j.grados)), esc(j.icono), esc(j.titulo),
-                 esc(j.descripcion), instrucciones, indentar('\n'.join(bloques), '  '), esc(j.titulo),
+                 esc(j.descripcion), instrucciones, clase_cuerpo(j), indentar('\n'.join(bloques), '    '),
+                 titulo_respuestas(respuestas), esc(j.titulo),
                  indentar('\n'.join(respuestas), '      '), indentar(resumen_curriculo(j), '    ')))
 
     cuerpo = """<main id="contenido" class="pack">
@@ -1539,7 +1677,9 @@ def packs(materias, v):
     """Packs por grado y por materia: {ruta_html: html}."""
     salida = {}
     for grado, juegos in grados_con_juegos(materias):
-        if any(j.tipo in MOTORES for j in juegos):
+        if any(tiene_ficha(j) for j in juegos):
+            if grado[0] == 0:
+                juegos = [j for j in juegos if j.tipo == 'imprimible']
             salida[ruta_pack_grado(grado)] = pagina_pack(
                 'Pack de fichas: %s' % grado[3], 'Fichas de todas las materias para %s.' % grado[3],
                 juegos, v, ruta_pack_grado(grado))
@@ -1554,7 +1694,7 @@ def seccion_packs(materias):
     """Bloque destacado de descargas en PDF para la página de docentes."""
     por_grado = '\n'.join('      <li>%s</li>' % enlace_pdf(ruta_pack_grado(g), '📦 %s' % (g[2] if g[0] else 'Transición'),
                                                            'btn btn-secundario')
-                          for g, js in grados_con_juegos(materias) if any(j.tipo in MOTORES for j in js))
+                          for g, js in grados_con_juegos(materias) if any(tiene_ficha(j) for j in js))
     por_materia = '\n'.join('      <li>%s</li>' % enlace_pdf(ruta_pack_materia(m), '%s %s' % (m.icono, m.nombre),
                                                              'btn btn-secundario') for m in materias)
     return """<section class="tema packs-pdf" aria-labelledby="packs-titulo">
@@ -1617,7 +1757,7 @@ def pagina_secundaria(materias, v):
 def pagina_descargas(materias, v, version, total_recursos):
     grupos = []
     for m in materias:
-        fichas = [j for j in m.juegos if j.tipo in MOTORES]
+        fichas = [j for j in m.juegos if tiene_ficha(j)]
         if not fichas:
             continue
         enlaces = '\n'.join('    <li><a href="%s">%s %s</a> <span class="detalle">%s</span></li>'
@@ -1788,7 +1928,7 @@ def parchear_interactivo(juego, materias, v):
     texto = ruta.read_text(encoding='utf-8')
     bloques = {
         'comun': bloque_comun(v),
-        'navegacion': bloque_navegacion(materias, migas=migas_de(juego)),
+        'navegacion': bloque_navegacion(materias, migas=migas_de(juego), docente=bloque_curriculo(juego, 'superior')),
         'pie': bloque_pie(materias, v, juego),
     }
     for nombre, contenido in bloques.items():
@@ -1828,7 +1968,7 @@ class Escritor:
 def generar(comprobar):
     materias = cargar_catalogo()
     juegos = [j for m in materias for j in m.juegos]
-    con_datos = [j for j in juegos if j.tipo in MOTORES]
+    con_datos = [j for j in juegos if tiene_ficha(j)]
 
     rutas_juegos = {j.ruta for j in juegos}
     for j in con_datos:

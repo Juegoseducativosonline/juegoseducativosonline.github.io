@@ -13,6 +13,13 @@
           "descripcion": "Para 1.º de primaria: contar, sumar y restar hasta 10.",
           "juegos": [
             {
+              "tipo": "imprimible",
+              "datos": "matematicas/cuento-y-coloreo.json",
+              "grados": [
+                0
+              ]
+            },
+            {
               "tipo": "quiz",
               "datos": "matematicas/primero-primaria.json",
               "grados": [
@@ -133,6 +140,13 @@
           "descripcion": "Figuras, ángulos, perímetros y áreas.",
           "juegos": [
             {
+              "tipo": "imprimible",
+              "datos": "matematicas/formas-y-series.json",
+              "grados": [
+                0
+              ]
+            },
+            {
               "tipo": "quiz",
               "datos": "matematicas/geometria.json",
               "grados": [
@@ -200,6 +214,13 @@
           "nombre": "Aprender a leer y escribir",
           "descripcion": "Juegos de lectoescritura con ayuda en voz alta: vocales, sílabas y primeras palabras.",
           "juegos": [
+            {
+              "tipo": "imprimible",
+              "datos": "espanol/trazos-vocales.json",
+              "grados": [
+                0
+              ]
+            },
             {
               "tipo": "quiz",
               "datos": "espanol/vocales.json",
@@ -450,6 +471,13 @@
           "nombre": "Los animales",
           "descripcion": "Cómo se clasifican, cómo respiran, qué comen y cómo nacen.",
           "juegos": [
+            {
+              "tipo": "imprimible",
+              "datos": "naturales/animales-y-alimentos.json",
+              "grados": [
+                0
+              ]
+            },
             {
               "tipo": "quiz",
               "datos": "naturales/animales.json",
@@ -894,6 +922,13 @@
           "nombre": "Artes plásticas",
           "descripcion": "El color y la pintura.",
           "juegos": [
+            {
+              "tipo": "imprimible",
+              "datos": "artes/colorea-mi-mundo.json",
+              "grados": [
+                0
+              ]
+            },
             {
               "tipo": "quiz",
               "datos": "artes/colores.json",

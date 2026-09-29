@@ -1,0 +1,97 @@
+{
+  "titulo": "Trazos y vocales",
+  "icono": "✏️",
+  "descripcion": "Ficha para Transición: seguir caminos punteados, repasar las vocales y encerrar dibujos por su primer sonido.",
+  "tituloSeo": "Fichas de trazos y vocales para preescolar (imprimibles)",
+  "descripcionSeo": "Fichas imprimibles gratis para niños de 4 y 5 años: trazos punteados, repasar las vocales y encerrar dibujos por su sonido inicial.",
+  "actividades": [
+    {
+      "tipo": "trazar_lineas",
+      "consigna": "Lleva a cada animal hasta su premio: sigue los puntos con tu lápiz, de izquierda a derecha.",
+      "filas": [
+        {
+          "patron": "rectas",
+          "inicio": "🐝",
+          "fin": "🌸"
+        },
+        {
+          "patron": "ondas",
+          "inicio": "🐟",
+          "fin": "🫧"
+        },
+        {
+          "patron": "zigzag",
+          "inicio": "🐇",
+          "fin": "🥕"
+        },
+        {
+          "patron": "arcos",
+          "inicio": "🐸",
+          "fin": "🪷"
+        },
+        {
+          "patron": "escalones",
+          "inicio": "🐞",
+          "fin": "🍃"
+        }
+      ]
+    },
+    {
+      "tipo": "trazar_letras",
+      "consigna": "Repasa las vocales mayúsculas por los puntos. Di su sonido en voz alta.",
+      "letras": "AEIOU"
+    },
+    {
+      "tipo": "trazar_letras",
+      "consigna": "Ahora repasa las vocales minúsculas.",
+      "letras": "aeiou"
+    },
+    {
+      "tipo": "encerrar",
+      "consigna": "Un adulto nombra cada dibujo. Encierra los que empiezan con el sonido de la vocal.",
+      "filas": [
+        {
+          "pregunta": "A: avión, abeja, perro, árbol, gato.",
+          "items": [
+            "✈️",
+            "🐝",
+            "🐕",
+            "🌳",
+            "🐈"
+          ]
+        },
+        {
+          "pregunta": "E: elefante, estrella, sol, escoba, casa.",
+          "items": [
+            "🐘",
+            "⭐",
+            "☀️",
+            "🧹",
+            "🏠"
+          ]
+        },
+        {
+          "pregunta": "O: oso, luna, oveja, ojo, pez.",
+          "items": [
+            "🐻",
+            "🌙",
+            "🐑",
+            "👁️",
+            "🐟"
+          ]
+        },
+        {
+          "pregunta": "U: uvas, carro, uno, flor, uña.",
+          "items": [
+            "🍇",
+            "🚗",
+            "1️⃣",
+            "🌼",
+            "💅"
+          ]
+        }
+      ],
+      "respuesta": "A: avión, abeja, árbol · E: elefante, estrella, escoba · O: oso, oveja, ojo · U: uvas, uno, uña."
+    }
+  ]
+}

@@ -170,7 +170,13 @@
         return;
       }
 
-      var hijos = [crear('h2', 'quiz-pasaje-titulo', '📖 ' + pasaje.titulo)];
+      var hijos = [];
+      if (pasaje.ilustracion) {
+        var arte = crear('p', 'ficha-pasaje-arte', pasaje.ilustracion);
+        arte.setAttribute('aria-hidden', 'true');
+        hijos.push(arte);
+      }
+      hijos.push(crear('h2', 'quiz-pasaje-titulo', '📖 ' + pasaje.titulo));
       pasaje.parrafos.forEach(function (texto) {
         hijos.push(crear('p', null, texto));
       });

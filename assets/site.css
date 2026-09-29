@@ -2000,3 +2000,222 @@ details.curriculo[open] > summary::after {
     max-width: none;
   }
 }
+
+/* --- Vista docente: lineamientos arriba del juego ------------------------- */
+
+.bloque-docente-superior {
+  display: none;
+  max-width: 900px;
+  margin: 14px auto 0;
+  padding: 20px 24px;
+  background: var(--color-superficie);
+  border: 2px solid var(--materia-borde);
+  border-left: 6px solid var(--materia);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-suave);
+}
+
+.vista-docente .bloque-docente-superior {
+  display: block;
+}
+
+.vista-docente .curriculo-inferior {
+  display: none;
+}
+
+.bloque-docente-cabeza {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.bloque-docente-cabeza h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.bloque-docente-superior h3,
+.curriculo-inferior h3 {
+  margin: 16px 0 8px;
+  font-size: 0.95rem;
+  color: var(--color-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 940px) {
+  .bloque-docente-superior {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+@media print {
+  .bloque-docente-superior,
+  .curriculo-inferior {
+    display: none !important;
+  }
+}
+
+/* --- Ilustraciones de fichas y lecturas ------------------------------------ */
+
+.ficha-ilustracion {
+  float: right;
+  margin: 0 0 4px 8px;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.ficha-pasaje-arte {
+  float: right;
+  margin: 0 0 6px 12px;
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.ficha-pregunta::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* --- Fichas impresas compactas: carta, dos columnas ------------------------ */
+
+@page {
+  size: letter;
+  margin: 12mm;
+}
+
+@media print {
+  body {
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+
+  .ficha .header,
+  .pack-ficha-cabeza {
+    padding: 0 0 6px;
+    margin-bottom: 6px;
+  }
+
+  .ficha .header h1 {
+    margin: 0;
+    font-size: 16pt;
+  }
+
+  .ficha .header p,
+  .pack-ficha-cabeza p {
+    font-size: 9pt;
+  }
+
+  .pack-ficha-cabeza h2 {
+    font-size: 15pt;
+  }
+
+  .ficha .header .header-meta {
+    margin-top: 2px;
+  }
+
+  .ficha .content {
+    padding-top: 6px;
+  }
+
+  .ficha-datos {
+    margin: 4px 0 6px;
+  }
+
+  .ficha-instrucciones {
+    margin: 0 0 6px;
+    font-style: italic;
+  }
+
+  /* Las preguntas se reparten en dos columnas; lecturas y tablas ocupan el ancho. */
+  .ficha-cuerpo {
+    columns: 2;
+    column-gap: 8mm;
+  }
+
+  .ficha-cuerpo .ficha-pasaje,
+  .ficha-cuerpo .ficha-tabla {
+    column-span: all;
+  }
+
+  .ficha-pregunta {
+    margin-bottom: 7px;
+  }
+
+  .ficha-enunciado {
+    margin-bottom: 2px;
+  }
+
+  .ficha-opciones {
+    padding-left: 1.6em;
+  }
+
+  .ficha-opciones.cortas {
+    columns: 2;
+    column-gap: 4mm;
+  }
+
+  .ficha-ilustracion {
+    font-size: 20pt;
+  }
+
+  .quiz-pasaje.ficha-pasaje {
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  .ficha-pasaje-arte {
+    font-size: 24pt;
+  }
+
+  .ficha-tabla th,
+  .ficha-tabla td {
+    padding: 4px 6px;
+  }
+
+  .ficha-respuestas {
+    font-size: 8.5pt;
+  }
+
+  .ficha-respuestas ol {
+    columns: 2;
+    column-gap: 8mm;
+  }
+
+  .ficha-respuestas li {
+    break-inside: avoid;
+    margin-bottom: 3px;
+  }
+
+  .ficha-curriculo {
+    font-size: 8pt;
+  }
+}
+
+/* --- Fichas de Transición: dibujos grandes, poco texto ------------------------------------ */
+.act-cuerpo { display: grid; gap: 1.5rem; }
+.actividad { border: 2px dashed #cfd6e4; border-radius: 16px; padding: 1rem; background: #fff; break-inside: avoid; }
+.act-consigna { display: flex; align-items: center; gap: .6rem; font-size: 1.2rem; font-weight: 700; margin: 0 0 .75rem; color: #222; }
+.act-icono { font-size: 2rem; line-height: 1; }
+.act-num { display: inline-grid; place-items: center; min-width: 2rem; height: 2rem; border-radius: 50%;
+  background: var(--marca, #3b5bdb); color: #fff; font-weight: 800; }
+.act-preguntas { margin: 0 0 .5rem 1.5rem; padding: 0; font-size: 1rem; color: #444; }
+.act-svg { display: block; width: 100%; max-width: 640px; height: auto; margin: 0 auto; }
+
+@media print {
+  .ficha-cuerpo.act-cuerpo { columns: auto; display: block; }
+  .actividad { border: 1.5px dashed #999; padding: 3mm 4mm; margin: 0 0 4mm; page-break-inside: avoid; }
+  .act-consigna { font-size: 13pt; margin-bottom: 2mm; }
+  .act-icono { font-size: 18pt; }
+  .act-num { min-width: 7mm; height: 7mm; background: #222; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .act-preguntas { font-size: 10pt; }
+  .act-svg { max-width: 165mm; max-height: 205mm; }
+}

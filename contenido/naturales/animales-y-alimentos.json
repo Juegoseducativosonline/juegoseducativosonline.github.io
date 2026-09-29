@@ -1,0 +1,80 @@
+{
+  "titulo": "Animales: une y encierra",
+  "icono": "🐰",
+  "descripcion": "Ficha para Transición: unir cada animal con lo que come y encerrar animales según dónde viven o cómo nacen.",
+  "tituloSeo": "Fichas de animales para preescolar: unir y encerrar",
+  "descripcionSeo": "Fichas imprimibles gratis para niños de 4 y 5 años: une cada animal con su alimento y encierra los que viven en el agua o vuelan.",
+  "actividades": [
+    {
+      "tipo": "unir",
+      "consigna": "Une con una línea cada animal con lo que come.",
+      "pares": [
+        [
+          "🐰",
+          "🥕"
+        ],
+        [
+          "🐒",
+          "🍌"
+        ],
+        [
+          "🐭",
+          "🧀"
+        ],
+        [
+          "🐝",
+          "🌸"
+        ],
+        [
+          "🐄",
+          "🌾"
+        ]
+      ],
+      "orden_derecha": [
+        2,
+        0,
+        4,
+        1,
+        3
+      ],
+      "respuesta": "Conejo–zanahoria, mono–banano, ratón–queso, abeja–flor, vaca–pasto."
+    },
+    {
+      "tipo": "encerrar",
+      "consigna": "Encierra los animales que se piden.",
+      "filas": [
+        {
+          "pregunta": "Los que viven en el agua.",
+          "items": [
+            "🐟",
+            "🐄",
+            "🐬",
+            "🐓",
+            "🦀"
+          ]
+        },
+        {
+          "pregunta": "Los que vuelan.",
+          "items": [
+            "🐦",
+            "🐕",
+            "🦋",
+            "🐖",
+            "🦅"
+          ]
+        },
+        {
+          "pregunta": "Los que nacen de un huevo.",
+          "items": [
+            "🐥",
+            "🐱",
+            "🐢",
+            "🐴",
+            "🐍"
+          ]
+        }
+      ],
+      "respuesta": "Agua: pez, delfín, cangrejo · Vuelan: pájaro, mariposa, águila · Huevo: pollito, tortuga, serpiente."
+    }
+  ]
+}
