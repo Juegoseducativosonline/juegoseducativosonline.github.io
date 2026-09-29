@@ -1,7 +1,6 @@
 {
   "titulo": "La Energía",
   "icono": "⚡",
-  "nivel": "Primaria",
   "descripcion": "Tipos de energía, fuentes renovables y cómo se transforma.",
   "mezclarPreguntas": true,
   "preguntas": [

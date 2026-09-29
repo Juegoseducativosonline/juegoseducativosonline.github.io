@@ -27,7 +27,9 @@ contenido y vuelve a generar.
    `correcta` es la posición (empezando en 0) de la respuesta buena en `opciones`.
    El juego baraja las opciones al jugar.
 2. Si es un juego nuevo, añádelo a un tema en `contenido/catalogo.json`:
-   `{"tipo": "quiz", "datos": "<materia>/<juego>.json"}` (o `"parejas"` / `"ordenar"`).
+   `{"tipo": "quiz", "datos": "<materia>/<juego>.json", "grados": [3, 4, 5]}` (o `"parejas"` /
+   `"ordenar"`). `grados` es obligatorio: grados seguidos de 0 (Transición) a 11. De ahí salen
+   la edad, el nivel (primaria o secundaria) y las páginas por grado y por edad.
 3. Genera y publica:
 
 ```bash

@@ -1,7 +1,6 @@
 {
   "titulo": "Ordena: Del Más Pequeño al Más Grande",
   "icono": "🔭",
-  "nivel": "Secundaria",
   "descripcion": "Ordena tamaños y velocidades del universo, de menor a mayor.",
   "rondas": [
     {

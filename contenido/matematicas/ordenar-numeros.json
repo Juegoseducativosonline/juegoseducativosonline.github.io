@@ -1,7 +1,6 @@
 {
   "titulo": "Ordena: Números y Operaciones",
   "icono": "🔢",
-  "nivel": "Secundaria",
   "descripcion": "Ordena enteros, fracciones y potencias, y el orden de las operaciones.",
   "rondas": [
     {

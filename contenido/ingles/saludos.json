@@ -1,7 +1,6 @@
 {
   "titulo": "Saludos y Frases",
   "icono": "👋",
-  "nivel": "Primaria",
   "descripcion": "Saludar, presentarte y las frases de cortesía más útiles.",
   "mezclarPreguntas": true,
   "preguntas": [

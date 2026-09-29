@@ -1,7 +1,6 @@
 {
   "titulo": "Internet Seguro",
   "icono": "🔒",
-  "nivel": "Primaria",
   "descripcion": "Contraseñas, engaños en línea, ciberacoso y cómo cuidar tus datos.",
   "mezclarPreguntas": true,
   "preguntas": [

@@ -1,7 +1,6 @@
 {
   "titulo": "La Música",
   "icono": "🎵",
-  "nivel": "Primaria",
   "descripcion": "Notas musicales, familias de instrumentos y grandes compositores.",
   "mezclarPreguntas": true,
   "preguntas": [

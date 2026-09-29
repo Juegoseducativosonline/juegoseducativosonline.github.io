@@ -1,7 +1,6 @@
 {
   "titulo": "Quiz de Geografía",
   "icono": "🗺️",
-  "nivel": "Primaria",
   "descripcion": "Ríos, montañas, océanos, continentes y cómo leer un mapa.",
   "mezclarPreguntas": true,
   "preguntas": [

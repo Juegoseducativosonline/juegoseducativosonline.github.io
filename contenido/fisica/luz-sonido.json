@@ -1,7 +1,6 @@
 {
   "titulo": "Luz y Sonido",
   "icono": "💡",
-  "nivel": "Primaria",
   "descripcion": "Cómo viajan la luz y el sonido, reflexión, refracción y eco.",
   "mezclarPreguntas": true,
   "preguntas": [

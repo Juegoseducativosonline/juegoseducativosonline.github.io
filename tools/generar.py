@@ -31,13 +31,38 @@ CONTENIDO = RAIZ / 'contenido'
 
 URL_SITIO = 'https://juegoseducativosonline.github.io'
 NOMBRE_SITIO = 'Juegos Educativos Online'
-NIVELES = ('Primaria', 'Secundaria')
+# Grados del sistema colombiano: 0 = Transición (preescolar), 1.º a 5.º primaria,
+# 6.º a 9.º básica secundaria, 10.º y 11.º media. La edad de referencia es la del
+# inicio de cada grado (Transición, 5 años).
+PRIMER_GRADO_SECUNDARIA = 6
+EDAD_EN_TRANSICION = 5
+GRADOS = [
+    # (número, slug de la URL, etiqueta corta, cómo se nombra en una frase)
+    (0, 'transicion', 'Transición', 'transición (preescolar)'),
+    (1, 'primero', '1.º', 'primero de primaria'),
+    (2, 'segundo', '2.º', 'segundo de primaria'),
+    (3, 'tercero', '3.º', 'tercero de primaria'),
+    (4, 'cuarto', '4.º', 'cuarto de primaria'),
+    (5, 'quinto', '5.º', 'quinto de primaria'),
+    (6, 'sexto', '6.º', 'sexto grado'),
+    (7, 'septimo', '7.º', 'séptimo grado'),
+    (8, 'octavo', '8.º', 'octavo grado'),
+    (9, 'noveno', '9.º', 'noveno grado'),
+    (10, 'decimo', '10.º', 'décimo grado'),
+    (11, 'once', '11.º', 'grado once'),
+]
+GRADO = {g[0]: g for g in GRADOS}
+# Franjas de edad para las familias: (edad mínima, edad máxima), en años.
+EDADES = [(5, 6), (7, 8), (9, 10), (11, 12), (13, 14), (15, 16)]
 FUENTES = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap'
 MAX_RELACIONADOS = 3
 COLOR_MARCA = '#3b5bdb'
 RUTA_DESCARGAS = 'descargar/index.html'
 # Carpetas del sitio que no pueden usarse como id de materia.
-IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar', 'secundaria'}
+IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar', 'secundaria',
+                  'docentes', 'familias', 'grados', 'edades'}
+RUTA_DOCENTES = 'docentes/index.html'
+RUTA_FAMILIAS = 'familias/index.html'
 RUTA_SECUNDARIA = 'secundaria/index.html'
 
 # Juegos cuyos datos viven en contenido/*.json: hoja de estilos, script y función
@@ -74,11 +99,12 @@ class Juego:
     titulo: str
     descripcion: str
     icono: str
-    nivel: str
+    nivel: str           # 'Primaria' o 'Secundaria': se deduce de los grados
     detalle: str         # '8 preguntas' o 'Interactivo'
     datos: Optional[dict] = None   # solo en los quiz: lo que se incrusta en la página
     titulo_seo: Optional[str] = None
     descripcion_seo: Optional[str] = None
+    grados: List[int] = field(default_factory=list)
     materia: 'Materia' = field(default=None, repr=False)
     tema: 'Tema' = field(default=None, repr=False)
 
@@ -172,11 +198,39 @@ def id_valido(obj, donde):
     return valor
 
 
-def nivel_valido(obj, donde):
-    nivel = texto_obligatorio(obj, 'nivel', donde)
-    if nivel not in NIVELES:
-        raise ErrorContenido('%s: el nivel debe ser %s, no "%s".' % (donde, ' o '.join(NIVELES), nivel))
-    return nivel
+def grados_validos(obj, donde):
+    grados = obj.get('grados') if isinstance(obj, dict) else None
+    validos = isinstance(grados, list) and grados and all(
+        isinstance(g, int) and not isinstance(g, bool) and g in GRADO for g in grados)
+    # Se exige una serie seguida (1, 2, 3) para poder mostrarla como «1.º–3.º».
+    if not validos or grados != list(range(grados[0], grados[0] + len(grados))):
+        raise ErrorContenido('%s: "grados" debe ser una lista de grados seguidos entre 0 (Transición) y 11, '
+                             'p. ej. [1, 2, 3].' % donde)
+    return grados
+
+
+def etiqueta_grados(grados):
+    if len(grados) == 1:
+        return GRADO[grados[0]][2]
+    return '%s–%s' % (GRADO[grados[0]][2], GRADO[grados[-1]][2])
+
+
+def edades_de(grados):
+    return grados[0] + EDAD_EN_TRANSICION, grados[-1] + EDAD_EN_TRANSICION
+
+
+def etiqueta_edades(grados):
+    desde, hasta = edades_de(grados)
+    return '%d años' % desde if desde == hasta else '%d–%d años' % (desde, hasta)
+
+
+def juegos_de_edad(juegos, franja):
+    desde, hasta = franja
+    return [j for j in juegos if edades_de(j.grados)[0] <= hasta and edades_de(j.grados)[1] >= desde]
+
+
+def slug_edad(franja):
+    return 'de-%d-a-%d-anos' % franja
 
 
 # --- Color ------------------------------------------------------------------
@@ -286,7 +340,7 @@ def cargar_quiz(ruta_json, donde_catalogo):
         titulo=texto_obligatorio(datos, 'titulo', donde),
         descripcion=texto_obligatorio(datos, 'descripcion', donde),
         icono=texto_obligatorio(datos, 'icono', donde),
-        nivel=nivel_valido(datos, donde),
+        nivel='',
         detalle=plural(len(preguntas), 'pregunta', 'preguntas'),
         datos={'mezclarPreguntas': mezclar_preguntas, 'leerEnVozAlta': leer_en_voz_alta,
                'pasajes': pasajes, 'preguntas': preguntas},
@@ -303,7 +357,7 @@ def meta_de_juego(datos, donde):
         titulo=texto_obligatorio(datos, 'titulo', donde),
         descripcion=texto_obligatorio(datos, 'descripcion', donde),
         icono=texto_obligatorio(datos, 'icono', donde),
-        nivel=nivel_valido(datos, donde),
+        nivel='',
         titulo_seo=texto_opcional(datos, 'tituloSeo', donde),
         descripcion_seo=texto_opcional(datos, 'descripcionSeo', donde),
     )
@@ -382,7 +436,7 @@ def cargar_interactivo(crudo, donde):
         titulo=texto_obligatorio(crudo, 'titulo', donde),
         descripcion=texto_obligatorio(crudo, 'descripcion', donde),
         icono=texto_obligatorio(crudo, 'icono', donde),
-        nivel=nivel_valido(crudo, donde),
+        nivel='',
         detalle='Interactivo',
     )
 
@@ -450,6 +504,8 @@ def cargar_catalogo():
                                          % (donde_juego, juego.ruta, rutas[juego.ruta]))
                 rutas[juego.ruta] = donde_juego
 
+                juego.grados = grados_validos(juego_crudo, donde_juego)
+                juego.nivel = 'Secundaria' if juego.grados[0] >= PRIMER_GRADO_SECUNDARIA else 'Primaria'
                 juego.materia, juego.tema = materia, tema
                 tema.juegos.append(juego)
             materia.temas.append(tema)
@@ -512,7 +568,11 @@ def bloque_navegacion(materias, actual=None, migas=None):
     partes = ['''<a class="salto-contenido" href="#contenido">Saltar al contenido</a>
 <header class="barra-sitio">
   <div class="barra-sitio-interior">
-    <a class="marca" href="/"><span class="marca-logo" aria-hidden="true">🎮</span>Juegos Educativos</a>
+    <a class="marca" href="/"><span class="marca-logo" aria-hidden="true">🎮</span><span class="marca-texto">Juegos Educativos</span></a>
+    <nav class="barra-enlaces" aria-label="Secciones">
+      <a href="/docentes/"><span aria-hidden="true">🍎</span><span class="barra-texto">Docentes</span></a>
+      <a href="/familias/"><span aria-hidden="true">🏠</span><span class="barra-texto">Familias</span></a>
+    </nav>
     <details class="menu-materias">
       <summary>📚 Materias</summary>
       <ul class="menu-materias-lista">
@@ -535,10 +595,10 @@ def tarjeta_juego(j):
     </span>
     <h3>%s</h3>
     <span class="tarjeta-juego-desc">%s</span>
-    <span class="tarjeta-juego-pie"><span>%s</span><span class="tarjeta-juego-cta" aria-hidden="true">Jugar →</span></span>
+    <span class="tarjeta-juego-pie"><span>%s · %s</span><span class="tarjeta-juego-cta" aria-hidden="true">Jugar →</span></span>
   </a>
-</li>''' % (j.materia.id, url_de(j.ruta), esc(j.icono), esc(j.nivel), esc(j.titulo),
-            esc(j.descripcion), esc(j.detalle))
+</li>''' % (j.materia.id, url_de(j.ruta), esc(j.icono), esc(etiqueta_grados(j.grados)), esc(j.titulo),
+            esc(j.descripcion), esc(j.detalle), esc(etiqueta_edades(j.grados)))
 
 
 def lista_tarjetas(juegos, clase='rejilla-juegos'):
@@ -564,7 +624,7 @@ def bloque_pie(materias, v, juego=None):
     partes.append('''<footer class="pie-sitio">
   <div class="pie-sitio-interior">
     <div class="pie-marca">
-      <a class="marca" href="/"><span class="marca-logo" aria-hidden="true">🎮</span>Juegos Educativos</a>
+      <a class="marca" href="/"><span class="marca-logo" aria-hidden="true">🎮</span><span class="marca-texto">Juegos Educativos</span></a>
       <p>Juegos gratuitos para aprender en casa o en clase, desde cualquier dispositivo y sin registrarse.</p>
       <p><a class="enlace-flecha" href="/secundaria/">🎓 Juegos para secundaria</a></p>
       <p><a class="enlace-flecha" href="/descargar/">📥 Usar sin internet y fichas para imprimir</a></p>
@@ -640,7 +700,7 @@ def pagina_inicio(materias, v):
   <section class="portada">
     <div class="portada-interior">
       <div class="portada-texto">
-        <p class="portada-etiqueta">Gratis · Sin registro · Primaria y secundaria</p>
+        <p class="portada-etiqueta">Gratis · Sin registro · Para estudiantes, docentes y familias</p>
         <h1>Aprende jugando</h1>
         <p class="portada-lema">Juegos para practicar matemáticas, lectura, ciencias, inglés y mucho más, desde cualquier dispositivo.</p>
         <ul class="portada-cifras">
@@ -654,6 +714,39 @@ def pagina_inicio(materias, v):
 %s
       </ul>
     </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="entradas-titulo">
+    <div class="seccion-cabeza">
+      <h2 id="entradas-titulo">¿Quién eres?</h2>
+      <p>Elige tu camino: cada uno te lleva a lo que necesitas.</p>
+    </div>
+    <ul class="rejilla-entradas">
+      <li class="entrada entrada-jugar">
+        <a href="#materias">
+          <span class="entrada-icono" aria-hidden="true">🎮</span>
+          <h3>Quiero jugar</h3>
+          <span>Juegos de todas las materias para aprender mientras te diviertes.</span>
+          <span class="entrada-cta">Elegir materia →</span>
+        </a>
+      </li>
+      <li class="entrada entrada-docentes">
+        <a href="/docentes/">
+          <span class="entrada-icono" aria-hidden="true">🍎</span>
+          <h3>Soy docente</h3>
+          <span>Recursos por grado, fichas imprimibles con respuestas e ideas para usarlos en clase.</span>
+          <span class="entrada-cta">Ver recursos →</span>
+        </a>
+      </li>
+      <li class="entrada entrada-familias">
+        <a href="/familias/">
+          <span class="entrada-icono" aria-hidden="true">🏠</span>
+          <h3>Soy madre o padre</h3>
+          <span>Actividades según la edad de tus hijos, para hacer en casa con o sin pantalla.</span>
+          <span class="entrada-cta">Ver actividades →</span>
+        </a>
+      </li>
+    </ul>
   </section>
 
   <section class="seccion" id="materias" aria-labelledby="materias-titulo">
@@ -795,7 +888,8 @@ def pagina_juego(juego, materias, v):
 <script>
   JEO.%s(document.getElementById('quiz'), document.getElementById('datos-quiz'));
 </script>''' % (bloque_navegacion(materias, migas=migas_de(juego)), esc(juego.icono), esc(juego.titulo),
-                esc(juego.descripcion), esc(juego.nivel), esc(juego.detalle), url_de(ruta_ficha(juego)),
+                esc(juego.descripcion), esc(etiqueta_grados(juego.grados)),
+                esc('%s · %s' % (juego.detalle, etiqueta_edades(juego.grados))), url_de(ruta_ficha(juego)),
                 bloque_pie(materias, v, juego), v.url(script), json_para_script(juego.datos), arranque)
 
     head = cabeza(v, '%s — %s' % (juego.titulo_seo or juego.titulo, NOMBRE_SITIO),
@@ -949,7 +1043,8 @@ def pagina_ficha(juego, materias, v):
   </main>
 </div>
 %s""" % (bloque_navegacion(materias, migas=migas), esc(juego.icono), esc(juego.titulo), esc(juego.descripcion),
-         esc(juego.nivel), esc(juego.materia.nombre), esc(juego.detalle), url_de(juego.ruta), instrucciones,
+         esc(etiqueta_grados(juego.grados)), esc(juego.materia.nombre), esc(juego.detalle), url_de(juego.ruta),
+         instrucciones,
          indentar('\n'.join(bloques), '    '), esc(juego.titulo), indentar('\n'.join(respuestas), '        '),
          bloque_pie(materias, v))
 
@@ -959,11 +1054,257 @@ def pagina_ficha(juego, materias, v):
     return documento(head, 'materia-%s pagina-ficha' % juego.materia.id, cuerpo)
 
 
+def cabecera_banda(migas, icono, titulo, texto, meta='', extra=''):
+    """Cabecera de color de las páginas de sección (docentes, familias, grado, edad)."""
+    return """<div class="cabecera-materia cabecera-marca">
+  <div class="cabecera-materia-interior">
+%s
+    <div class="cabecera-materia-titulo">
+      <span class="cabecera-materia-icono" aria-hidden="true">%s</span>
+      <div>
+        <h1>%s</h1>
+        <p>%s</p>
+      </div>
+    </div>%s%s
+  </div>
+</div>""" % (indentar(migas_html(migas), '    '), icono, esc(titulo), esc(texto),
+             ('\n    <p class="cabecera-materia-meta">%s</p>' % esc(meta)) if meta else '', extra)
+
+
+def grados_con_juegos(materias):
+    juegos = [j for m in materias for j in m.juegos]
+    return [(g, [j for j in juegos if g[0] in j.grados]) for g in GRADOS
+            if any(g[0] in j.grados for j in juegos)]
+
+
+def edades_con_juegos(materias):
+    juegos = [j for m in materias for j in m.juegos]
+    return [(f, juegos_de_edad(juegos, f)) for f in EDADES if juegos_de_edad(juegos, f)]
+
+
+def ruta_grado(grado):
+    return 'grados/%s/index.html' % grado[1]
+
+
+def ruta_edad(franja):
+    return 'edades/%s/index.html' % slug_edad(franja)
+
+
+def titulo_grado(grado):
+    return 'Juegos educativos para %s' % grado[3]
+
+
+EDAD_JOVENES = 13
+
+
+def quienes(franja):
+    return 'jóvenes' if franja[0] >= EDAD_JOVENES else 'niños'
+
+
+def titulo_edad(franja):
+    return 'Juegos educativos para %s de %d a %d años' % ((quienes(franja),) + franja)
+
+
+def tarjetas_seccion(items):
+    """items: (url, icono, título, subtítulo, recuento)."""
+    return '<ul class="rejilla-secciones">\n%s\n</ul>' % '\n'.join(
+        '  <li><a href="%s"><span class="seccion-icono" aria-hidden="true">%s</span>'
+        '<strong>%s</strong><span>%s</span><span class="seccion-recuento">%s</span></a></li>'
+        % (url, icono, esc(titulo), esc(sub), esc(n)) for url, icono, titulo, sub, n in items)
+
+
+def juegos_por_materia(materias, juegos):
+    """Secciones de tarjetas, una por materia, con los juegos dados."""
+    # Por identidad: comparar juegos con == recorrería materia → juegos → materia sin fin.
+    elegidos = {id(j) for j in juegos}
+    secciones = []
+    for m in materias:
+        propios = [j for j in m.juegos if id(j) in elegidos]
+        if propios:
+            secciones.append("""<section class="tema materia-%s" aria-labelledby="sec-%s">
+  <div class="tema-cabeza">
+    <h2 id="sec-%s">%s %s</h2>
+  </div>
+%s
+</section>""" % (m.id, m.id, m.id, esc(m.icono), esc(m.nombre), indentar(lista_tarjetas(propios), '  ')))
+    return '\n'.join(secciones)
+
+
+def enlaces_fichas(juegos):
+    fichas = [j for j in juegos if j.tipo in MOTORES]
+    if not fichas:
+        return ''
+    return """<section class="opcion-offline" aria-labelledby="fichas-seccion">
+  <h2 id="fichas-seccion">🖨️ Fichas para imprimir</h2>
+  <ul class="lista-fichas">
+%s
+  </ul>
+</section>""" % '\n'.join('    <li><a href="%s">%s %s</a> <span class="detalle">%s</span></li>'
+                          % (url_de(ruta_ficha(j)), esc(j.icono), esc(j.titulo), esc(j.materia.nombre))
+                          for j in fichas)
+
+
+def pagina_docentes(materias, v):
+    grados = grados_con_juegos(materias)
+    tarjetas = tarjetas_seccion([(url_de(ruta_grado(g)), '🎒' if g[0] < PRIMER_GRADO_SECUNDARIA else '🎓',
+                                  g[2] if g[0] else 'Transición', g[3].capitalize(),
+                                  plural(len(js), 'juego', 'juegos')) for g, js in grados])
+    cuerpo = """%s
+%s
+<main id="contenido" class="pagina">
+  <section class="tema" aria-labelledby="por-grado">
+    <div class="tema-cabeza">
+      <h2 id="por-grado">Recursos por grado</h2>
+      <p>Juegos y fichas de todas las materias, organizados según el grado de tus estudiantes.</p>
+    </div>
+%s
+  </section>
+
+  <section class="tema" aria-labelledby="en-clase">
+    <div class="tema-cabeza">
+      <h2 id="en-clase">Cómo usarlos en clase</h2>
+      <p>Ideas que funcionan con un solo computador o con toda la sala de informática.</p>
+    </div>
+    <ul class="pasos">
+      <li><span class="paso-icono" aria-hidden="true">📽️</span><h3>Jugar en grupo</h3><p>Proyecta un juego y que la clase vote cada respuesta antes de marcarla. Las explicaciones abren la discusión.</p></li>
+      <li><span class="paso-icono" aria-hidden="true">🖨️</span><h3>Evaluación rápida</h3><p>Imprime la ficha del tema y quita la hoja de respuestas antes de repartirla.</p></li>
+      <li><span class="paso-icono" aria-hidden="true">🔁</span><h3>Estaciones</h3><p>Rota a los grupos entre juegos de parejas, de ordenar y fichas en papel.</p></li>
+      <li><span class="paso-icono" aria-hidden="true">📥</span><h3>Aula sin internet</h3><p>Instala el sitio en los equipos con conexión una vez, y funcionará después sin ella.</p></li>
+    </ul>
+  </section>
+
+  <section class="tema" aria-labelledby="recursos-mas">
+    <div class="tema-cabeza">
+      <h2 id="recursos-mas">Más recursos</h2>
+    </div>
+    <ul class="lista-fichas">
+      <li><a href="/descargar/">📥 Todas las fichas para imprimir y cómo usar el sitio sin internet</a></li>
+      <li><a href="/secundaria/">🎓 Juegos interactivos para secundaria</a></li>
+      <li><a href="https://github.com/Juegoseducativosonline/juegoseducativosonline.github.io/tree/main/contenido">📂 Todas las preguntas en datos abiertos, para adaptarlas</a></li>
+    </ul>
+  </section>
+</main>
+%s""" % (bloque_navegacion(materias),
+         cabecera_banda([('Inicio', '/'), ('Docentes', None)], '🍎', 'Recursos para docentes',
+                        'Juegos educativos, fichas imprimibles con respuestas y actividades por grado. Gratis y sin registro.',
+                        '%s · de Transición a %s' % (plural(sum(len(m.juegos) for m in materias), 'recurso', 'recursos'),
+                                                     grados[-1][0][2])),
+         indentar(tarjetas, '    '), bloque_pie(materias, v))
+    head = cabeza(v, 'Recursos educativos gratis para docentes: juegos y fichas por grado — %s' % NOMBRE_SITIO,
+                  'Recursos educativos gratuitos para docentes: juegos interactivos y fichas imprimibles con '
+                  'respuestas, organizados por grado de Transición a secundaria.', RUTA_DOCENTES)
+    return documento(head, 'pagina-docentes', cuerpo)
+
+
+def pagina_familias(materias, v):
+    edades = edades_con_juegos(materias)
+    iconos = ['🧸', '🎈', '🚲', '⚽', '🎧', '🎓']
+    tarjetas = tarjetas_seccion([(url_de(ruta_edad(f)), iconos[EDADES.index(f)], '%d a %d años' % f,
+                                  ', '.join(GRADO[g][2] for g in range(f[0] - EDAD_EN_TRANSICION,
+                                                                        f[1] - EDAD_EN_TRANSICION + 1) if g in GRADO),
+                                  plural(len(js), 'actividad', 'actividades')) for f, js in edades])
+    cuerpo = """%s
+%s
+<main id="contenido" class="pagina">
+  <section class="tema" aria-labelledby="por-edad">
+    <div class="tema-cabeza">
+      <h2 id="por-edad">Actividades por edad</h2>
+      <p>Elige la edad de tu hijo o hija y encontrarás juegos y fichas pensados para esa etapa.</p>
+    </div>
+%s
+  </section>
+
+  <section class="tema" aria-labelledby="consejos">
+    <div class="tema-cabeza">
+      <h2 id="consejos">Consejos para acompañar</h2>
+      <p>Pequeños hábitos que hacen que el juego se convierta en aprendizaje.</p>
+    </div>
+    <ul class="pasos">
+      <li><span class="paso-icono" aria-hidden="true">⏱️</span><h3>Ratos cortos</h3><p>De 15 a 20 minutos es suficiente. Mejor un poco cada día que mucho de una vez.</p></li>
+      <li><span class="paso-icono" aria-hidden="true">💬</span><h3>Juega a su lado</h3><p>Pregúntale por qué eligió una respuesta. Explicarlo en voz alta fija lo aprendido.</p></li>
+      <li><span class="paso-icono" aria-hidden="true">🖨️</span><h3>También sin pantalla</h3><p>Cada juego tiene una ficha para imprimir: ideal para el fin de semana o un viaje.</p></li>
+      <li><span class="paso-icono" aria-hidden="true">🌟</span><h3>Celebra el esfuerzo</h3><p>Las estrellas miden el progreso, no el valor. Anímale a volver a jugar para mejorar.</p></li>
+    </ul>
+  </section>
+
+  <section class="tema" aria-labelledby="sin-internet-familias">
+    <div class="tema-cabeza">
+      <h2 id="sin-internet-familias">Para usar sin internet</h2>
+    </div>
+    <ul class="lista-fichas">
+      <li><a href="/descargar/">📥 Instala los juegos en tu teléfono o tableta y úsalos sin conexión</a></li>
+      <li><a href="/emociones/">💛 Juegos de emociones para hablar en familia de lo que sentimos</a></li>
+    </ul>
+  </section>
+</main>
+%s""" % (bloque_navegacion(materias),
+         cabecera_banda([('Inicio', '/'), ('Familias', None)], '🏠', 'Actividades para hacer en casa',
+                        'Juegos educativos y fichas para tus hijos según su edad: gratis, sin registro y también sin internet.'),
+         indentar(tarjetas, '    '), bloque_pie(materias, v))
+    head = cabeza(v, 'Actividades educativas para niños en casa: juegos y fichas por edad — %s' % NOMBRE_SITIO,
+                  'Actividades educativas para hacer en casa con tus hijos: juegos y fichas imprimibles gratis, '
+                  'organizados por edad, de 5 a 16 años.', RUTA_FAMILIAS)
+    return documento(head, 'pagina-familias', cuerpo)
+
+
+def navegacion_hermanas(items, actual):
+    """Fila de enlaces a los otros grados o edades."""
+    return '<nav class="indice-temas" aria-label="Otros">\n  <ul>\n%s\n  </ul>\n</nav>' % '\n'.join(
+        '    <li><a href="%s"%s>%s</a></li>' % (url, ' aria-current="page"' if clave == actual else '', esc(texto))
+        for clave, url, texto in items)
+
+
+def pagina_grado(grado, juegos, materias, v):
+    hermanas = navegacion_hermanas([(g[0], url_de(ruta_grado(g)), g[2]) for g, _ in grados_con_juegos(materias)],
+                                   grado[0])
+    edad = grado[0] + EDAD_EN_TRANSICION
+    titulo = titulo_grado(grado)
+    cuerpo = """%s
+%s
+<main id="contenido" class="pagina">
+%s
+%s
+</main>
+%s""" % (bloque_navegacion(materias),
+         cabecera_banda([('Inicio', '/'), ('Docentes', '/docentes/'), (grado[3].capitalize(), None)],
+                        '🎒' if grado[0] < PRIMER_GRADO_SECUNDARIA else '🎓', titulo,
+                        'Juegos y fichas imprimibles para %s (unos %d años), de todas las materias.' % (grado[3], edad),
+                        plural(len(juegos), 'juego', 'juegos'), '\n' + indentar(hermanas, '    ')),
+         indentar(juegos_por_materia(materias, juegos), '  '), indentar(enlaces_fichas(juegos), '  '),
+         bloque_pie(materias, v))
+    head = cabeza(v, '%s — %s' % (titulo, NOMBRE_SITIO),
+                  '%s: juegos interactivos y fichas imprimibles gratis de matemáticas, lectura, ciencias y más, '
+                  'para usar en clase o en casa.' % titulo, ruta_grado(grado))
+    return documento(head, 'pagina-grado', cuerpo)
+
+
+def pagina_edad(franja, juegos, materias, v):
+    hermanas = navegacion_hermanas([(f, url_de(ruta_edad(f)), '%d–%d años' % f) for f, _ in edades_con_juegos(materias)],
+                                   franja)
+    titulo = titulo_edad(franja)
+    cuerpo = """%s
+%s
+<main id="contenido" class="pagina">
+%s
+%s
+</main>
+%s""" % (bloque_navegacion(materias),
+         cabecera_banda([('Inicio', '/'), ('Familias', '/familias/'), ('%d a %d años' % franja, None)], '🧒', titulo,
+                        'Actividades educativas para hacer en casa con %s de %d a %d años: juegos y fichas para imprimir.'
+                        % ((quienes(franja),) + franja), plural(len(juegos), 'actividad', 'actividades'), '\n' + indentar(hermanas, '    ')),
+         indentar(juegos_por_materia(materias, juegos), '  '), indentar(enlaces_fichas(juegos), '  '),
+         bloque_pie(materias, v))
+    head = cabeza(v, '%s — %s' % (titulo, NOMBRE_SITIO),
+                  'Actividades y juegos educativos gratis para %s de %d a %d años: lectura, matemáticas, '
+                  'emociones, ciencias y fichas para imprimir.' % ((quienes(franja),) + franja), ruta_edad(franja))
+    return documento(head, 'pagina-edad', cuerpo)
+
+
 def pagina_secundaria(materias, v):
     grupos = []
     total = 0
     for m in materias:
-        juegos = [j for j in m.juegos if j.nivel == 'Secundaria']
+        juegos = [j for j in m.juegos if j.grados[-1] >= PRIMER_GRADO_SECUNDARIA]
         if not juegos:
             continue
         total += len(juegos)
@@ -1157,7 +1498,10 @@ def service_worker(version, recursos):
 
 
 def sitemap(materias):
-    rutas = (['index.html', RUTA_SECUNDARIA, RUTA_DESCARGAS] + ['%s/index.html' % m.id for m in materias]
+    rutas = (['index.html', RUTA_DOCENTES, RUTA_FAMILIAS, RUTA_SECUNDARIA, RUTA_DESCARGAS]
+             + [ruta_grado(g) for g, _ in grados_con_juegos(materias)]
+             + [ruta_edad(f) for f, _ in edades_con_juegos(materias)]
+             + ['%s/index.html' % m.id for m in materias]
              + [j.ruta for m in materias for j in m.juegos])
     urls = '\n'.join('  <url><loc>%s%s</loc></url>' % (URL_SITIO, esc(url_de(r))) for r in rutas)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<!-- %s. No lo edites a mano. -->\n'
@@ -1226,7 +1570,12 @@ def generar(comprobar):
 
     salida = {'assets/materias.css': css_materias, 'manifest.webmanifest': manifiesto(),
               'index.html': pagina_inicio(materias, v), '404.html': pagina_404(materias, v),
-              'sitemap.xml': sitemap(materias), RUTA_SECUNDARIA: pagina_secundaria(materias, v)}
+              'sitemap.xml': sitemap(materias), RUTA_SECUNDARIA: pagina_secundaria(materias, v),
+              RUTA_DOCENTES: pagina_docentes(materias, v), RUTA_FAMILIAS: pagina_familias(materias, v)}
+    for grado, juegos_grado in grados_con_juegos(materias):
+        salida[ruta_grado(grado)] = pagina_grado(grado, juegos_grado, materias, v)
+    for franja, juegos_edad in edades_con_juegos(materias):
+        salida[ruta_edad(franja)] = pagina_edad(franja, juegos_edad, materias, v)
     for m in materias:
         salida['%s/index.html' % m.id] = pagina_materia(m, materias, v)
     for j in con_datos:

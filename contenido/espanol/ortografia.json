@@ -1,7 +1,6 @@
 {
   "titulo": "Ortografía",
   "icono": "✏️",
-  "nivel": "Primaria",
   "descripcion": "Tildes, mayúsculas, signos de puntuación y palabras que confunden.",
   "mezclarPreguntas": true,
   "preguntas": [

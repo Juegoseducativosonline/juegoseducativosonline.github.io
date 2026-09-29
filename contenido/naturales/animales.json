@@ -1,7 +1,6 @@
 {
   "titulo": "Los Animales",
   "icono": "🦋",
-  "nivel": "Primaria",
   "descripcion": "Vertebrados e invertebrados, cómo se alimentan, respiran y nacen.",
   "mezclarPreguntas": true,
   "preguntas": [

@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var CACHE = 'jeo-f2368a9dabe7';
+var CACHE = 'jeo-f6839d04afc1';
 var RECURSOS = [
   "/",
   "/404.html",
@@ -28,9 +28,16 @@ var RECURSOS = [
   "/assets/materias.css?v=9f1248c012",
   "/assets/quiz.css?v=ca763d9b25",
   "/assets/quiz.js?v=3ac616eefd",
-  "/assets/site.css?v=4e4f5f9a55",
+  "/assets/site.css?v=67e886133e",
   "/assets/site.js?v=87e83ed258",
   "/descargar/",
+  "/docentes/",
+  "/edades/de-11-a-12-anos/",
+  "/edades/de-13-a-14-anos/",
+  "/edades/de-15-a-16-anos/",
+  "/edades/de-5-a-6-anos/",
+  "/edades/de-7-a-8-anos/",
+  "/edades/de-9-a-10-anos/",
   "/emociones/",
   "/emociones/emociones-situaciones-ficha.html",
   "/emociones/emociones-situaciones.html",
@@ -57,6 +64,7 @@ var RECURSOS = [
   "/espanol/sinonimos.html",
   "/espanol/vocales-ficha.html",
   "/espanol/vocales.html",
+  "/familias/",
   "/fisica/",
   "/fisica/energia-ficha.html",
   "/fisica/energia.html",
@@ -68,6 +76,17 @@ var RECURSOS = [
   "/fisica/luz-sonido.html",
   "/fisica/unidades-ficha.html",
   "/fisica/unidades.html",
+  "/grados/cuarto/",
+  "/grados/decimo/",
+  "/grados/noveno/",
+  "/grados/octavo/",
+  "/grados/primero/",
+  "/grados/quinto/",
+  "/grados/segundo/",
+  "/grados/septimo/",
+  "/grados/sexto/",
+  "/grados/tercero/",
+  "/grados/transicion/",
   "/ingles/",
   "/ingles/colores-numeros-ficha.html",
   "/ingles/colores-numeros.html",

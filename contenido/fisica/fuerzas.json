@@ -1,7 +1,6 @@
 {
   "titulo": "Fuerzas y Movimiento",
   "icono": "🚀",
-  "nivel": "Secundaria",
   "descripcion": "Gravedad, rozamiento, velocidad y las leyes de Newton.",
   "mezclarPreguntas": true,
   "preguntas": [

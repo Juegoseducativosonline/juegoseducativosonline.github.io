@@ -1,7 +1,6 @@
 {
   "titulo": "Máquinas Simples",
   "icono": "⚙️",
-  "nivel": "Primaria",
   "descripcion": "Palancas, poleas, ruedas, rampas y cuñas.",
   "mezclarPreguntas": true,
   "preguntas": [

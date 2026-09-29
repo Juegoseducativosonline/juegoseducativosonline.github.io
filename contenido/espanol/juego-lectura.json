@@ -1,7 +1,6 @@
 {
   "titulo": "Comprensión de Lectura",
   "icono": "📚",
-  "nivel": "Primaria",
   "descripcion": "Lee un cuento y un texto informativo, y demuestra que los has entendido.",
   "mezclarPreguntas": false,
   "pasajes": {

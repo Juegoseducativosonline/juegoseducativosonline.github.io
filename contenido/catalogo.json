@@ -14,7 +14,10 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "matematicas/primero-primaria.json"
+              "datos": "matematicas/primero-primaria.json",
+              "grados": [
+                1
+              ]
             }
           ]
         },
@@ -29,7 +32,12 @@
               "titulo": "Práctica de Suma",
               "descripcion": "Hojas de sumas de 1 a 5 cifras que se corrigen de una vez.",
               "icono": "➕",
-              "nivel": "Primaria"
+              "grados": [
+                1,
+                2,
+                3,
+                4
+              ]
             },
             {
               "tipo": "interactivo",
@@ -37,7 +45,12 @@
               "titulo": "Práctica de Resta",
               "descripcion": "Restas de 1 a 5 cifras alineadas por valor posicional.",
               "icono": "➖",
-              "nivel": "Primaria"
+              "grados": [
+                1,
+                2,
+                3,
+                4
+              ]
             },
             {
               "tipo": "interactivo",
@@ -45,7 +58,12 @@
               "titulo": "Práctica de Multiplicación",
               "descripcion": "Multiplicaciones en cinco niveles de dificultad.",
               "icono": "✖️",
-              "nivel": "Primaria"
+              "grados": [
+                2,
+                3,
+                4,
+                5
+              ]
             },
             {
               "tipo": "interactivo",
@@ -53,7 +71,11 @@
               "titulo": "Práctica de División",
               "descripcion": "Divisiones exactas con rachas y subida de nivel.",
               "icono": "➗",
-              "nivel": "Primaria"
+              "grados": [
+                3,
+                4,
+                5
+              ]
             }
           ]
         },
@@ -64,7 +86,12 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "matematicas/fracciones.json"
+              "datos": "matematicas/fracciones.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
             }
           ]
         },
@@ -75,11 +102,21 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "matematicas/geometria.json"
+              "datos": "matematicas/geometria.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
             },
             {
               "tipo": "parejas",
-              "datos": "matematicas/figuras-lados.json"
+              "datos": "matematicas/figuras-lados.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             }
           ]
         },
@@ -90,11 +127,21 @@
           "juegos": [
             {
               "tipo": "parejas",
-              "datos": "matematicas/potencias.json"
+              "datos": "matematicas/potencias.json",
+              "grados": [
+                6,
+                7,
+                8
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "matematicas/ordenar-numeros.json"
+              "datos": "matematicas/ordenar-numeros.json",
+              "grados": [
+                6,
+                7,
+                8
+              ]
             }
           ]
         }
@@ -115,15 +162,28 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "espanol/vocales.json"
+              "datos": "espanol/vocales.json",
+              "grados": [
+                0,
+                1
+              ]
             },
             {
               "tipo": "quiz",
-              "datos": "espanol/silabas.json"
+              "datos": "espanol/silabas.json",
+              "grados": [
+                0,
+                1,
+                2
+              ]
             },
             {
               "tipo": "quiz",
-              "datos": "espanol/primeras-palabras.json"
+              "datos": "espanol/primeras-palabras.json",
+              "grados": [
+                1,
+                2
+              ]
             }
           ]
         },
@@ -134,11 +194,21 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "espanol/juego-lectura.json"
+              "datos": "espanol/juego-lectura.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "espanol/ordenar-textos.json"
+              "datos": "espanol/ordenar-textos.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             }
           ]
         },
@@ -149,7 +219,12 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "espanol/ortografia.json"
+              "datos": "espanol/ortografia.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
             }
           ]
         },
@@ -160,11 +235,21 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "espanol/gramatica.json"
+              "datos": "espanol/gramatica.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
             },
             {
               "tipo": "parejas",
-              "datos": "espanol/sinonimos.json"
+              "datos": "espanol/sinonimos.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             }
           ]
         }
@@ -185,15 +270,31 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "sociales/quiz-historia.json"
+              "datos": "sociales/quiz-historia.json",
+              "grados": [
+                4,
+                5,
+                6
+              ]
             },
             {
               "tipo": "parejas",
-              "datos": "sociales/personajes.json"
+              "datos": "sociales/personajes.json",
+              "grados": [
+                6,
+                7,
+                8
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "sociales/linea-tiempo.json"
+              "datos": "sociales/linea-tiempo.json",
+              "grados": [
+                6,
+                7,
+                8,
+                9
+              ]
             }
           ]
         },
@@ -204,15 +305,31 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "sociales/geografia.json"
+              "datos": "sociales/geografia.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
             },
             {
               "tipo": "parejas",
-              "datos": "sociales/capitales.json"
+              "datos": "sociales/capitales.json",
+              "grados": [
+                3,
+                4,
+                5,
+                6
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "sociales/ordenar-geografia.json"
+              "datos": "sociales/ordenar-geografia.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
             }
           ]
         }
@@ -232,7 +349,12 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "naturales/juego-plantas.json"
+              "datos": "naturales/juego-plantas.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             }
           ]
         },
@@ -243,11 +365,21 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "naturales/animales.json"
+              "datos": "naturales/animales.json",
+              "grados": [
+                1,
+                2,
+                3
+              ]
             },
             {
               "tipo": "parejas",
-              "datos": "naturales/crias.json"
+              "datos": "naturales/crias.json",
+              "grados": [
+                0,
+                1,
+                2
+              ]
             }
           ]
         },
@@ -258,7 +390,12 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "naturales/cuerpo-humano.json"
+              "datos": "naturales/cuerpo-humano.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             }
           ]
         },
@@ -269,7 +406,11 @@
           "juegos": [
             {
               "tipo": "ordenar",
-              "datos": "naturales/procesos.json"
+              "datos": "naturales/procesos.json",
+              "grados": [
+                6,
+                7
+              ]
             }
           ]
         }
@@ -291,11 +432,21 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "emociones/reconocer.json"
+              "datos": "emociones/reconocer.json",
+              "grados": [
+                0,
+                1,
+                2
+              ]
             },
             {
               "tipo": "parejas",
-              "datos": "emociones/emociones-situaciones.json"
+              "datos": "emociones/emociones-situaciones.json",
+              "grados": [
+                1,
+                2,
+                3
+              ]
             }
           ]
         },
@@ -306,11 +457,23 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "emociones/manejar.json"
+              "datos": "emociones/manejar.json",
+              "grados": [
+                2,
+                3,
+                4,
+                5
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "emociones/pasos-calma.json"
+              "datos": "emociones/pasos-calma.json",
+              "grados": [
+                1,
+                2,
+                3,
+                4
+              ]
             }
           ]
         }
@@ -330,11 +493,19 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "quimica/estados-materia.json"
+              "datos": "quimica/estados-materia.json",
+              "grados": [
+                4,
+                5
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "quimica/ordenar-materia.json"
+              "datos": "quimica/ordenar-materia.json",
+              "grados": [
+                8,
+                9
+              ]
             }
           ]
         },
@@ -345,7 +516,11 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "quimica/mezclas.json"
+              "datos": "quimica/mezclas.json",
+              "grados": [
+                4,
+                5
+              ]
             }
           ]
         },
@@ -356,11 +531,20 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "quimica/elementos.json"
+              "datos": "quimica/elementos.json",
+              "grados": [
+                8,
+                9
+              ]
             },
             {
               "tipo": "parejas",
-              "datos": "quimica/simbolos-quimicos.json"
+              "datos": "quimica/simbolos-quimicos.json",
+              "grados": [
+                8,
+                9,
+                10
+              ]
             }
           ]
         }
@@ -380,7 +564,12 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "fisica/fuerzas.json"
+              "datos": "fisica/fuerzas.json",
+              "grados": [
+                7,
+                8,
+                9
+              ]
             }
           ]
         },
@@ -391,7 +580,11 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "fisica/energia.json"
+              "datos": "fisica/energia.json",
+              "grados": [
+                4,
+                5
+              ]
             }
           ]
         },
@@ -402,7 +595,11 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "fisica/luz-sonido.json"
+              "datos": "fisica/luz-sonido.json",
+              "grados": [
+                4,
+                5
+              ]
             }
           ]
         },
@@ -413,11 +610,20 @@
           "juegos": [
             {
               "tipo": "parejas",
-              "datos": "fisica/unidades.json"
+              "datos": "fisica/unidades.json",
+              "grados": [
+                8,
+                9,
+                10
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "fisica/escalas.json"
+              "datos": "fisica/escalas.json",
+              "grados": [
+                6,
+                7
+              ]
             }
           ]
         }
@@ -437,11 +643,21 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "tecnologia/computadora.json"
+              "datos": "tecnologia/computadora.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "tecnologia/ordenar-tecnologia.json"
+              "datos": "tecnologia/ordenar-tecnologia.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
             }
           ]
         },
@@ -452,7 +668,13 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "tecnologia/internet-seguro.json"
+              "datos": "tecnologia/internet-seguro.json",
+              "grados": [
+                3,
+                4,
+                5,
+                6
+              ]
             }
           ]
         },
@@ -463,7 +685,11 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "tecnologia/maquinas-simples.json"
+              "datos": "tecnologia/maquinas-simples.json",
+              "grados": [
+                4,
+                5
+              ]
             }
           ]
         },
@@ -474,7 +700,12 @@
           "juegos": [
             {
               "tipo": "parejas",
-              "datos": "tecnologia/programacion.json"
+              "datos": "tecnologia/programacion.json",
+              "grados": [
+                6,
+                7,
+                8
+              ]
             }
           ]
         }
@@ -494,11 +725,21 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "ingles/colores-numeros.json"
+              "datos": "ingles/colores-numeros.json",
+              "grados": [
+                1,
+                2,
+                3
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "ingles/ordenar-ingles.json"
+              "datos": "ingles/ordenar-ingles.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             }
           ]
         },
@@ -509,7 +750,12 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "ingles/saludos.json"
+              "datos": "ingles/saludos.json",
+              "grados": [
+                1,
+                2,
+                3
+              ]
             }
           ]
         },
@@ -520,7 +766,12 @@
           "juegos": [
             {
               "tipo": "parejas",
-              "datos": "ingles/verbos-irregulares.json"
+              "datos": "ingles/verbos-irregulares.json",
+              "grados": [
+                6,
+                7,
+                8
+              ]
             }
           ]
         }
@@ -540,11 +791,22 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "artes/colores.json"
+              "datos": "artes/colores.json",
+              "grados": [
+                1,
+                2,
+                3
+              ]
             },
             {
               "tipo": "parejas",
-              "datos": "artes/artistas-obras.json"
+              "datos": "artes/artistas-obras.json",
+              "grados": [
+                6,
+                7,
+                8,
+                9
+              ]
             }
           ]
         },
@@ -555,11 +817,21 @@
           "juegos": [
             {
               "tipo": "quiz",
-              "datos": "artes/musica.json"
+              "datos": "artes/musica.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             },
             {
               "tipo": "ordenar",
-              "datos": "artes/musica-color.json"
+              "datos": "artes/musica-color.json",
+              "grados": [
+                2,
+                3,
+                4
+              ]
             }
           ]
         }

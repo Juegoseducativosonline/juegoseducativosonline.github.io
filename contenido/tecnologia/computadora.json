@@ -1,7 +1,6 @@
 {
   "titulo": "La Computadora",
   "icono": "🖥️",
-  "nivel": "Primaria",
   "descripcion": "Hardware, software, dispositivos de entrada y salida, y la memoria.",
   "mezclarPreguntas": true,
   "preguntas": [

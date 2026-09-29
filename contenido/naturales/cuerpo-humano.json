@@ -1,7 +1,6 @@
 {
   "titulo": "El Cuerpo Humano",
   "icono": "💪",
-  "nivel": "Primaria",
   "descripcion": "Órganos, huesos, sentidos y cómo funciona nuestro cuerpo.",
   "mezclarPreguntas": true,
   "preguntas": [

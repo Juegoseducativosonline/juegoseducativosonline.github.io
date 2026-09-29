@@ -1,7 +1,6 @@
 {
   "titulo": "Quiz de Historia",
   "icono": "🏛️",
-  "nivel": "Primaria",
   "descripcion": "Grandes civilizaciones, la llegada de Colón y la independencia de América.",
   "mezclarPreguntas": true,
   "preguntas": [

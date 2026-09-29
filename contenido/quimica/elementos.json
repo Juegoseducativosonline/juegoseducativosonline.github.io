@@ -1,7 +1,6 @@
 {
   "titulo": "Los Elementos Químicos",
   "icono": "⚛️",
-  "nivel": "Secundaria",
   "descripcion": "Átomos, símbolos químicos y la tabla periódica.",
   "mezclarPreguntas": true,
   "preguntas": [

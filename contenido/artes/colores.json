@@ -1,7 +1,6 @@
 {
   "titulo": "Los Colores",
   "icono": "🖌️",
-  "nivel": "Primaria",
   "descripcion": "Colores primarios y secundarios, cálidos y fríos, y cómo mezclarlos.",
   "mezclarPreguntas": true,
   "preguntas": [

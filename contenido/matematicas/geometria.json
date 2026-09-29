@@ -1,7 +1,6 @@
 {
   "titulo": "Geometría",
   "icono": "📐",
-  "nivel": "Primaria",
   "descripcion": "Figuras, ángulos, perímetro y área.",
   "mezclarPreguntas": true,
   "preguntas": [

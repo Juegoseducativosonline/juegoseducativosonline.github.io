@@ -1580,3 +1580,182 @@ a {
 .ficha-ordenar li {
   margin-bottom: 4px;
 }
+
+/* --- Accesos por público: barra, portada y páginas de sección -------------- */
+
+.barra-enlaces {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.barra-enlaces a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-radius: var(--radio-pildora);
+  color: var(--color-texto);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.barra-enlaces a:hover {
+  background: var(--color-superficie-alt);
+}
+
+/* En pantallas estrechas solo quedan los iconos; el texto sigue para lectores de pantalla. */
+@media (max-width: 560px) {
+  .barra-texto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .marca {
+    font-size: 1rem;
+  }
+}
+
+/* En móviles la barra no cabe entera: la marca queda solo con su logo
+   (el nombre se sigue anunciando a los lectores de pantalla). */
+@media (max-width: 480px) {
+  .barra-sitio .marca-texto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .barra-sitio-interior {
+    gap: 6px;
+  }
+}
+
+.rejilla-entradas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 20px;
+}
+
+.entrada a {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 26px 24px;
+  border-radius: 22px;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s ease;
+}
+
+.entrada a:hover {
+  transform: translateY(-4px);
+}
+
+.entrada-jugar a {
+  background: linear-gradient(135deg, #3b5bdb, #7048e8);
+}
+
+.entrada-docentes a {
+  background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+}
+
+.entrada-familias a {
+  background: linear-gradient(135deg, #15803d, #0f5a2b);
+}
+
+.entrada h3 {
+  margin: 4px 0 0;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.entrada-icono {
+  font-size: 2.2rem;
+}
+
+.entrada-cta {
+  margin-top: auto;
+  padding-top: 10px;
+  font-weight: 900;
+}
+
+/* Cabecera de las páginas de sección: color de marca en lugar del de una materia. */
+.cabecera-marca {
+  background: linear-gradient(135deg, #3b5bdb 0%, #5b3fc4 100%);
+}
+
+.rejilla-secciones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  gap: 14px;
+}
+
+.rejilla-secciones a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  padding: 18px;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 18px;
+  box-shadow: var(--sombra-suave);
+  color: var(--color-texto);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.rejilla-secciones a:hover {
+  transform: translateY(-3px);
+  border-color: var(--materia-borde);
+}
+
+.rejilla-secciones strong {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.rejilla-secciones span {
+  color: var(--color-texto-suave);
+  font-size: 0.92rem;
+}
+
+.seccion-icono {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.rejilla-secciones .seccion-recuento {
+  margin-top: auto;
+  padding-top: 8px;
+  color: var(--materia-oscuro);
+  font-weight: 800;
+}
+
+.lista-fichas {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.lista-fichas li {
+  margin-bottom: 6px;
+}
+
+.lista-fichas a {
+  font-weight: 700;
+}
