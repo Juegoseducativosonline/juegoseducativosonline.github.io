@@ -1,0 +1,143 @@
+{
+  "titulo": "Problemas de Suma y Resta",
+  "icono": "🧩",
+  "descripcion": "Situaciones de juntar, quitar, completar y comparar para resolver con sumas y restas.",
+  "tituloSeo": "Problemas de suma y resta para primero y segundo de primaria",
+  "descripcionSeo": "Juego de problemas matemáticos de suma y resta para 1.º y 2.º de primaria: juntar, quitar, completar y comparar, con lectura en voz alta.",
+  "mezclarPreguntas": true,
+  "leerEnVozAlta": true,
+  "preguntas": [
+    {
+      "enunciado": "🍎 Ana tiene 5 manzanas y su abuela le regala 3 más. ¿Cuántas manzanas tiene ahora?",
+      "opciones": [
+        "8",
+        "2",
+        "7",
+        "53"
+      ],
+      "correcta": 0,
+      "explicacion": "Es un problema de juntar: 5 + 3 = 8."
+    },
+    {
+      "enunciado": "🎈 Había 9 globos en la fiesta y se reventaron 4. ¿Cuántos globos quedan?",
+      "opciones": [
+        "5",
+        "13",
+        "4",
+        "6"
+      ],
+      "correcta": 0,
+      "explicacion": "Es un problema de quitar: 9 − 4 = 5."
+    },
+    {
+      "enunciado": "✏️ Luis tiene 7 lápices. ¿Cuántos le faltan para tener 10?",
+      "opciones": [
+        "3",
+        "17",
+        "7",
+        "4"
+      ],
+      "correcta": 0,
+      "explicacion": "Es un problema de completar: 7 + 3 = 10, así que le faltan 3."
+    },
+    {
+      "enunciado": "🚌 En el bus iban 12 niños. En la primera parada se bajaron 5. ¿Cuántos niños siguen en el bus?",
+      "opciones": [
+        "7",
+        "17",
+        "8",
+        "6"
+      ],
+      "correcta": 0,
+      "explicacion": "12 − 5 = 7."
+    },
+    {
+      "enunciado": "⚽ Pedro metió 6 goles y Sara metió 9. ¿Cuántos goles más metió Sara que Pedro?",
+      "opciones": [
+        "3",
+        "15",
+        "6",
+        "2"
+      ],
+      "correcta": 0,
+      "explicacion": "Es un problema de comparar: 9 − 6 = 3."
+    },
+    {
+      "enunciado": "📚 En la biblioteca del salón hay 14 cuentos y llegan 6 nuevos. ¿Cuántos cuentos hay en total?",
+      "opciones": [
+        "20",
+        "8",
+        "19",
+        "21"
+      ],
+      "correcta": 0,
+      "explicacion": "14 + 6 = 20."
+    },
+    {
+      "enunciado": "🐔 Una gallina puso 8 huevos el lunes y 7 el martes. ¿Cuántos huevos puso en los dos días?",
+      "opciones": [
+        "15",
+        "1",
+        "14",
+        "16"
+      ],
+      "correcta": 0,
+      "explicacion": "8 + 7 = 15."
+    },
+    {
+      "enunciado": "🍬 María tenía 20 caramelos y regaló 8 a sus amigos. ¿Cuántos caramelos le quedan?",
+      "opciones": [
+        "12",
+        "28",
+        "13",
+        "11"
+      ],
+      "correcta": 0,
+      "explicacion": "20 − 8 = 12."
+    },
+    {
+      "enunciado": "🌻 Camilo sembró 15 semillas y germinaron 11. ¿Cuántas semillas no germinaron?",
+      "opciones": [
+        "4",
+        "26",
+        "5",
+        "3"
+      ],
+      "correcta": 0,
+      "explicacion": "15 − 11 = 4."
+    },
+    {
+      "enunciado": "🧒 En un salón hay 13 niñas y 12 niños. ¿Cuántos estudiantes hay en total?",
+      "opciones": [
+        "25",
+        "1",
+        "24",
+        "35"
+      ],
+      "correcta": 0,
+      "explicacion": "13 + 12 = 25."
+    },
+    {
+      "enunciado": "Juan tenía algunas canicas, ganó 4 y ahora tiene 10. ¿Qué operación sirve para saber cuántas tenía al principio?",
+      "opciones": [
+        "10 − 4",
+        "10 + 4",
+        "4 − 10",
+        "10 × 4"
+      ],
+      "correcta": 0,
+      "explicacion": "Si al ganar 4 llegó a 10, al principio tenía 10 − 4 = 6."
+    },
+    {
+      "enunciado": "Un problema dice: «Sofía tiene 8 colores y le regalan 5». ¿Qué pregunta tiene sentido para ese problema?",
+      "opciones": [
+        "¿Cuántos colores tiene ahora?",
+        "¿Cuántos años tiene Sofía?",
+        "¿De qué color es su camisa?",
+        "¿Cuántos colores tenía ayer su hermano?"
+      ],
+      "correcta": 0,
+      "explicacion": "La pregunta debe poder responderse con los datos del problema."
+    }
+  ]
+}

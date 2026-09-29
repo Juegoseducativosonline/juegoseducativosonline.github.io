@@ -1,0 +1,120 @@
+{
+  "titulo": "Problemas con Números Enteros",
+  "icono": "🌡️",
+  "descripcion": "Temperaturas, altitudes, saldos y deudas para resolver con números positivos y negativos.",
+  "tituloSeo": "Problemas con números enteros para sexto y séptimo grado",
+  "descripcionSeo": "Situaciones problema con números enteros: temperaturas bajo cero, altitud, saldo y deudas, para 6.º y 7.º grado.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "🌡️ En un páramo la temperatura era de −2 °C al amanecer y subió 9 grados. ¿Qué temperatura hay ahora?",
+      "opciones": [
+        "7 °C",
+        "11 °C",
+        "−11 °C",
+        "−7 °C"
+      ],
+      "correcta": 0,
+      "explicacion": "−2 + 9 = 7."
+    },
+    {
+      "enunciado": "🏔️ Un avión vuela a 3.000 m y un submarino está a −200 m. ¿Cuántos metros los separan?",
+      "opciones": [
+        "3.200 m",
+        "2.800 m",
+        "3.000 m",
+        "200 m"
+      ],
+      "correcta": 0,
+      "explicacion": "3.000 − (−200) = 3.200 metros."
+    },
+    {
+      "enunciado": "💳 Tienes un saldo de $15.000 y compras algo de $22.000 a crédito. ¿Cuál es tu saldo?",
+      "opciones": [
+        "−$7.000",
+        "$7.000",
+        "−$37.000",
+        "$37.000"
+      ],
+      "correcta": 0,
+      "explicacion": "15.000 − 22.000 = −7.000: quedas debiendo 7.000 pesos."
+    },
+    {
+      "enunciado": "🧊 Un congelador está a −18 °C y la cocina a 22 °C. ¿Cuál es la diferencia de temperatura?",
+      "opciones": [
+        "40 °C",
+        "4 °C",
+        "−40 °C",
+        "18 °C"
+      ],
+      "correcta": 0,
+      "explicacion": "22 − (−18) = 40 grados."
+    },
+    {
+      "enunciado": "🏊 Una buzo está a −12 m y baja 8 m más. ¿A qué profundidad está?",
+      "opciones": [
+        "−20 m",
+        "−4 m",
+        "20 m",
+        "4 m"
+      ],
+      "correcta": 0,
+      "explicacion": "−12 − 8 = −20 metros."
+    },
+    {
+      "enunciado": "📉 Una empresa perdió $3 millones en enero y ganó $5 millones en febrero. ¿Cuál es el resultado de los dos meses?",
+      "opciones": [
+        "+$2 millones",
+        "−$2 millones",
+        "+$8 millones",
+        "−$8 millones"
+      ],
+      "correcta": 0,
+      "explicacion": "−3 + 5 = +2 millones."
+    },
+    {
+      "enunciado": "🌍 ¿Qué temperatura es más fría: −5 °C o −9 °C?",
+      "opciones": [
+        "−9 °C",
+        "−5 °C",
+        "Son iguales",
+        "Depende del lugar"
+      ],
+      "correcta": 0,
+      "explicacion": "Entre dos negativos, es menor el que está más lejos del cero."
+    },
+    {
+      "enunciado": "🛗 Un ascensor está en el piso 3, baja 5 pisos y luego sube 2. ¿En qué piso queda? (0 = primer piso)",
+      "opciones": [
+        "0",
+        "−2",
+        "10",
+        "6"
+      ],
+      "correcta": 0,
+      "explicacion": "3 − 5 + 2 = 0."
+    },
+    {
+      "enunciado": "❄️ La temperatura baja 3 °C cada hora. Si empieza en 4 °C, ¿cuál será después de 3 horas?",
+      "opciones": [
+        "−5 °C",
+        "13 °C",
+        "−9 °C",
+        "1 °C"
+      ],
+      "correcta": 0,
+      "explicacion": "4 − 3 × 3 = 4 − 9 = −5."
+    },
+    {
+      "enunciado": "💸 Debes $8.000 a un amigo y te regalan $10.000. Después de pagarle, ¿cuánto te queda?",
+      "opciones": [
+        "$2.000",
+        "$18.000",
+        "−$2.000",
+        "$0"
+      ],
+      "correcta": 0,
+      "explicacion": "−8.000 + 10.000 = 2.000 pesos."
+    }
+  ]
+}

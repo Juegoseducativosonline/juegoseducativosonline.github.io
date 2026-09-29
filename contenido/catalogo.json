@@ -23,8 +23,8 @@
         },
         {
           "id": "operaciones",
-          "nombre": "Operaciones básicas",
-          "descripcion": "Suma, resta, multiplicación y división con ejercicios que se generan solos.",
+          "nombre": "Operaciones y resolución de problemas",
+          "descripcion": "Suma, resta, multiplicación y división: practica el cálculo y aplícalo a situaciones problema de la vida diaria.",
           "juegos": [
             {
               "tipo": "interactivo",
@@ -73,6 +73,38 @@
               "icono": "➗",
               "grados": [
                 3,
+                4,
+                5
+              ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "matematicas/problemas-suma-resta.json",
+              "grados": [
+                1,
+                2
+              ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "matematicas/tienda-escolar.json",
+              "grados": [
+                2,
+                3
+              ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "matematicas/problemas-multiplicacion-division.json",
+              "grados": [
+                3,
+                4
+              ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "matematicas/problemas-fracciones.json",
+              "grados": [
                 4,
                 5
               ]
@@ -129,9 +161,9 @@
               "tipo": "parejas",
               "datos": "matematicas/potencias.json",
               "grados": [
+                5,
                 6,
-                7,
-                8
+                7
               ]
             },
             {
@@ -141,6 +173,14 @@
                 6,
                 7,
                 8
+              ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "matematicas/problemas-enteros.json",
+              "grados": [
+                6,
+                7
               ]
             }
           ]
@@ -208,6 +248,22 @@
                 2,
                 3,
                 4
+              ]
+            }
+          ]
+        },
+        {
+          "id": "comunicacion",
+          "nombre": "Comunicación",
+          "descripcion": "Situaciones comunicativas: quién habla, a quién, con qué propósito y cómo decirlo.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "espanol/situaciones-comunicativas.json",
+              "grados": [
+                3,
+                4,
+                5
               ]
             }
           ]
@@ -332,6 +388,22 @@
               ]
             }
           ]
+        },
+        {
+          "id": "ciudadania",
+          "nombre": "Convivencia y ciudadanía",
+          "descripcion": "Situaciones de la vida escolar para aplicar derechos, deberes, normas y participación.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "sociales/convivencia-ciudadania.json",
+              "grados": [
+                3,
+                4,
+                5
+              ]
+            }
+          ]
         }
       ]
     },
@@ -354,6 +426,21 @@
                 2,
                 3,
                 4
+              ]
+            }
+          ]
+        },
+        {
+          "id": "indagacion",
+          "nombre": "Pensamiento científico",
+          "descripcion": "Situaciones problema para preguntar, proponer hipótesis y diseñar experimentos.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "naturales/pienso-cientifico.json",
+              "grados": [
+                4,
+                5
               ]
             }
           ]
@@ -392,9 +479,9 @@
               "tipo": "quiz",
               "datos": "naturales/cuerpo-humano.json",
               "grados": [
-                2,
                 3,
-                4
+                4,
+                5
               ]
             }
           ]
@@ -408,6 +495,7 @@
               "tipo": "ordenar",
               "datos": "naturales/procesos.json",
               "grados": [
+                5,
                 6,
                 7
               ]
@@ -495,8 +583,9 @@
               "tipo": "quiz",
               "datos": "quimica/estados-materia.json",
               "grados": [
-                4,
-                5
+                2,
+                3,
+                4
               ]
             },
             {
@@ -533,17 +622,17 @@
               "tipo": "quiz",
               "datos": "quimica/elementos.json",
               "grados": [
-                8,
-                9
+                6,
+                7,
+                8
               ]
             },
             {
               "tipo": "parejas",
               "datos": "quimica/simbolos-quimicos.json",
               "grados": [
-                8,
-                9,
-                10
+                7,
+                8
               ]
             }
           ]
@@ -566,9 +655,9 @@
               "tipo": "quiz",
               "datos": "fisica/fuerzas.json",
               "grados": [
-                7,
                 8,
-                9
+                9,
+                10
               ]
             }
           ]
@@ -582,8 +671,9 @@
               "tipo": "quiz",
               "datos": "fisica/energia.json",
               "grados": [
-                4,
-                5
+                5,
+                6,
+                7
               ]
             }
           ]
@@ -597,8 +687,8 @@
               "tipo": "quiz",
               "datos": "fisica/luz-sonido.json",
               "grados": [
-                4,
-                5
+                3,
+                4
               ]
             }
           ]
@@ -705,6 +795,21 @@
                 6,
                 7,
                 8
+              ]
+            }
+          ]
+        },
+        {
+          "id": "solucion-problemas",
+          "nombre": "Solución de problemas",
+          "descripcion": "Problemas tecnológicos del día a día: detectar fallas y comparar soluciones.",
+          "juegos": [
+            {
+              "tipo": "quiz",
+              "datos": "tecnologia/problemas-tecnologicos.json",
+              "grados": [
+                4,
+                5
               ]
             }
           ]

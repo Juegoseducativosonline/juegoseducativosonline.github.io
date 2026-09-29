@@ -9,6 +9,10 @@ Sitio estático publicado en https://juegoseducativosonline.github.io con GitHub
   `quiz` (preguntas de opción múltiple), `parejas` (lista `pares` con `a` y `b`) y
   `ordenar` (lista `rondas`, cada una con `instruccion` y sus `elementos` en el orden
   correcto). Copia un archivo existente del mismo tipo como plantilla.
+- `contenido/curriculo.json`: la alineación curricular de cada juego (objetivo, competencia,
+  DBA y Estándares del MEN), con los enunciados citados literalmente de los documentos
+  oficiales y sus fuentes. Todo juego debe tener su entrada, con los mismos grados que el
+  catálogo, y solo puede citar DBA de sus propios grados: el generador lo comprueba.
 - `tools/generar.py`: genera las páginas HTML a partir de `contenido/`.
 - `assets/`: estilos y scripts compartidos (`materias.css` también se genera).
 - `sw.js` y `manifest.webmanifest` (generados): permiten instalar el sitio como aplicación

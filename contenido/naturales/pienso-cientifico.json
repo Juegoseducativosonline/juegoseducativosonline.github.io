@@ -1,0 +1,114 @@
+{
+  "titulo": "Pienso como Científico",
+  "icono": "🔬",
+  "descripcion": "Situaciones problema para preguntar, proponer hipótesis y diseñar experimentos.",
+  "tituloSeo": "Situaciones problema de ciencias naturales: pienso como científico",
+  "descripcionSeo": "Juego de ciencias naturales para 4.º y 5.º: resuelve situaciones problema formulando preguntas, hipótesis y experimentos con una sola variable.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "Quieres saber si las plantas necesitan luz para crecer. ¿Qué experimento es correcto?",
+      "opciones": [
+        "Dos plantas iguales, con la misma agua y tierra: una al sol y otra en la oscuridad",
+        "Dos plantas distintas, una al sol con agua y otra a oscuras sin agua",
+        "Una sola planta al sol",
+        "Preguntarle a un amigo"
+      ],
+      "correcta": 0,
+      "explicacion": "Solo debe cambiar la luz; todo lo demás se mantiene igual."
+    },
+    {
+      "enunciado": "En un experimento, ¿qué es la variable?",
+      "opciones": [
+        "Lo que se cambia para ver qué efecto tiene",
+        "Lo que nunca se mide",
+        "El nombre del experimento",
+        "El resultado esperado"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Qué es una hipótesis?",
+      "opciones": [
+        "Una posible respuesta que se pone a prueba",
+        "Un resultado seguro",
+        "Una opinión sin razones",
+        "El material del experimento"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Tu hipótesis era que el hielo se derrite más rápido en agua salada, pero el resultado fue otro. ¿Qué haces?",
+      "opciones": [
+        "Registrar lo que pasó y sacar conclusiones con esos datos",
+        "Cambiar los datos para que coincidan",
+        "Olvidar el experimento",
+        "Decir que el experimento salió mal y no contarlo"
+      ],
+      "correcta": 0,
+      "explicacion": "Una conclusión vale aunque no sea la esperada."
+    },
+    {
+      "enunciado": "Quieres separar arena del agua de un vaso. ¿Qué método eliges?",
+      "opciones": [
+        "Filtrar con un papel o tela",
+        "Usar un imán",
+        "Agitar con fuerza",
+        "Añadir más arena"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "¿Por qué es importante repetir un experimento varias veces?",
+      "opciones": [
+        "Para comprobar que el resultado no fue casualidad",
+        "Para gastar más materiales",
+        "Porque es aburrido una sola vez",
+        "No es importante"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Observas que tu sombra es larga por la mañana y corta al mediodía. ¿Qué pregunta científica puedes formular?",
+      "opciones": [
+        "¿Cómo cambia la sombra según la posición del Sol?",
+        "¿Me gusta mi sombra?",
+        "¿Mi sombra es bonita?",
+        "¿Qué desayuné hoy?"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Para registrar la temperatura del agua cada 5 minutos, ¿qué instrumentos necesitas?",
+      "opciones": [
+        "Un termómetro y un reloj",
+        "Una regla y un imán",
+        "Una lupa y una balanza",
+        "Un espejo y una linterna"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Quieres saber qué material conduce mejor el calor. ¿Qué debes mantener igual en todas las pruebas?",
+      "opciones": [
+        "El tamaño de las piezas y la fuente de calor",
+        "El material",
+        "Nada",
+        "El resultado"
+      ],
+      "correcta": 0,
+      "explicacion": "Solo cambia el material; lo demás debe ser igual para compararlo con justicia."
+    },
+    {
+      "enunciado": "Empujas dos pelotas iguales: una con suavidad y otra con fuerza. ¿Qué esperas observar?",
+      "opciones": [
+        "La empujada con más fuerza va más rápido y más lejos",
+        "Las dos van igual",
+        "La empujada suave va más lejos",
+        "Ninguna se mueve"
+      ],
+      "correcta": 0,
+      "explicacion": "La fuerza aplicada cambia la rapidez del movimiento."
+    }
+  ]
+}

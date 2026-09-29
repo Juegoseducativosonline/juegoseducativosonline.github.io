@@ -1,0 +1,112 @@
+{
+  "titulo": "Problemas Tecnológicos del Día a Día",
+  "icono": "🛠️",
+  "descripcion": "Detecta fallas, compara soluciones y elige la más segura y eficiente.",
+  "tituloSeo": "Situaciones problema de tecnología para primaria",
+  "descripcionSeo": "Juego de tecnología e informática para 4.º y 5.º: resuelve problemas cotidianos detectando fallas y comparando soluciones tecnológicas.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "La lámpara de tu mesa no enciende. ¿Qué revisas primero, de forma segura?",
+      "opciones": [
+        "Que esté enchufada y que el bombillo no esté fundido",
+        "Abrir el enchufe con un cuchillo",
+        "Mojarla",
+        "Golpearla fuerte"
+      ],
+      "correcta": 0,
+      "explicacion": "Primero se revisan las causas más sencillas, sin ponerse en riesgo."
+    },
+    {
+      "enunciado": "Necesitas subir una caja pesada a un camión. ¿Qué solución requiere menos esfuerzo?",
+      "opciones": [
+        "Usar una rampa (plano inclinado)",
+        "Levantarla con los brazos",
+        "Tirarla hacia arriba",
+        "Esperar a que suba sola"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "El computador está muy lento. ¿Qué solución es razonable?",
+      "opciones": [
+        "Cerrar los programas que no se usan",
+        "Golpear el teclado",
+        "Echarle agua",
+        "Apagarlo desenchufándolo mientras trabaja"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Para llevar agua a una huerta lejos del grifo, ¿qué solución es la más adecuada?",
+      "opciones": [
+        "Una manguera o un sistema de tubos",
+        "Llevarla con las manos",
+        "Esperar a que llueva siempre",
+        "Mover la huerta al grifo"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Dos soluciones para iluminar un salón: bombillos LED o incandescentes. ¿Cuál gasta menos energía?",
+      "opciones": [
+        "Los bombillos LED",
+        "Los incandescentes",
+        "Gastan lo mismo",
+        "Ninguno gasta energía"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Un cable de un aparato está pelado. ¿Qué haces?",
+      "opciones": [
+        "No usarlo y avisar a un adulto",
+        "Tocarlo para ver si da corriente",
+        "Seguir usándolo",
+        "Envolverlo en papel mojado"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Quieres construir una maqueta de un puente. ¿Cuál es el primer paso?",
+      "opciones": [
+        "Diseñar un plano o boceto",
+        "Pegar piezas sin pensar",
+        "Pintarlo",
+        "Mostrarlo a todos"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Tienes muchas botellas plásticas vacías. ¿Qué solución tecnológica ayuda al ambiente?",
+      "opciones": [
+        "Reutilizarlas para hacer materas o separarlas para reciclar",
+        "Quemarlas",
+        "Tirarlas al río",
+        "Enterrarlas en el patio"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Para abrir una lata de pintura sin dañarla, ¿qué herramienta funciona como palanca?",
+      "opciones": [
+        "Un destornillador plano usado en el borde de la tapa",
+        "Un martillo golpeando la tapa",
+        "Una tijera",
+        "Los dientes"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Comparas dos mochilas: una más barata que se rompe rápido y otra resistente y algo más cara. ¿Qué criterio usar?",
+      "opciones": [
+        "La durabilidad y la calidad, no solo el precio",
+        "Solo el color",
+        "Solo el precio más bajo",
+        "La que tenga más bolsillos"
+      ],
+      "correcta": 0,
+      "explicacion": "Elegir bien un producto implica comparar ventajas y desventajas."
+    }
+  ]
+}

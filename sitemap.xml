@@ -3,6 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://juegoseducativosonline.github.io/</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/docentes/</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/docentes/curriculo/</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/familias/</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/secundaria/</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/descargar/</loc></url>
@@ -38,16 +39,22 @@
   <url><loc>https://juegoseducativosonline.github.io/matematicas/resta_practice_html.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/matematicas/multiplication_practice.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/matematicas/division_practice.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/matematicas/problemas-suma-resta.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/matematicas/tienda-escolar.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/matematicas/problemas-multiplicacion-division.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/matematicas/problemas-fracciones.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/matematicas/fracciones.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/matematicas/geometria.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/matematicas/figuras-lados.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/matematicas/potencias.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/matematicas/ordenar-numeros.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/matematicas/problemas-enteros.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/espanol/vocales.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/espanol/silabas.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/espanol/primeras-palabras.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/espanol/juego-lectura.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/espanol/ordenar-textos.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/espanol/situaciones-comunicativas.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/espanol/ortografia.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/espanol/gramatica.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/espanol/sinonimos.html</loc></url>
@@ -57,7 +64,9 @@
   <url><loc>https://juegoseducativosonline.github.io/sociales/geografia.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/sociales/capitales.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/sociales/ordenar-geografia.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/sociales/convivencia-ciudadania.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/naturales/juego-plantas.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/naturales/pienso-cientifico.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/naturales/animales.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/naturales/crias.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/naturales/cuerpo-humano.html</loc></url>
@@ -81,6 +90,7 @@
   <url><loc>https://juegoseducativosonline.github.io/tecnologia/internet-seguro.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/tecnologia/maquinas-simples.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/tecnologia/programacion.html</loc></url>
+  <url><loc>https://juegoseducativosonline.github.io/tecnologia/problemas-tecnologicos.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/ingles/colores-numeros.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/ingles/ordenar-ingles.html</loc></url>
   <url><loc>https://juegoseducativosonline.github.io/ingles/saludos.html</loc></url>

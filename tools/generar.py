@@ -63,6 +63,7 @@ IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar', 'secundaria',
                   'docentes', 'familias', 'grados', 'edades'}
 RUTA_DOCENTES = 'docentes/index.html'
 RUTA_FAMILIAS = 'familias/index.html'
+RUTA_CURRICULO = 'docentes/curriculo/index.html'
 RUTA_SECUNDARIA = 'secundaria/index.html'
 
 # Juegos cuyos datos viven en contenido/*.json: hoja de estilos, script y función
@@ -105,6 +106,7 @@ class Juego:
     titulo_seo: Optional[str] = None
     descripcion_seo: Optional[str] = None
     grados: List[int] = field(default_factory=list)
+    curriculo: Optional[dict] = None   # objetivo, competencia, DBA y estándares (contenido/curriculo.json)
     materia: 'Materia' = field(default=None, repr=False)
     tema: 'Tema' = field(default=None, repr=False)
 
@@ -511,7 +513,43 @@ def cargar_catalogo():
             materia.temas.append(tema)
         materias.append(materia)
 
+    asignar_curriculo(materias)
     return materias
+
+
+def asignar_curriculo(materias):
+    """Une a cada juego su alineación curricular. Todo juego debe tenerla, con los
+    mismos grados que el catálogo: así la página nunca muestra un DBA de otro grado."""
+    datos = leer_json(CONTENIDO / 'curriculo.json')
+    fuentes, alineacion = datos.get('fuentes', {}), datos.get('juegos', {})
+    juegos = {}
+    for m in materias:
+        for j in m.juegos:
+            clave = j.ruta if j.tipo == 'interactivo' else j.ruta[:-len('.html')] + '.json'
+            juegos[clave] = j
+    for clave, j in juegos.items():
+        c = alineacion.get(clave)
+        donde = 'curriculo.json, juego "%s"' % clave
+        if c is None:
+            raise ErrorContenido('%s: falta su alineación curricular (objetivo, DBA y estándares).' % donde)
+        if c.get('grados') != j.grados:
+            raise ErrorContenido('%s: los grados %s no coinciden con los del catálogo %s.' % (donde, c.get('grados'), j.grados))
+        texto_obligatorio(c, 'objetivo', donde)
+        texto_obligatorio(c, 'competencia', donde)
+        for ref in c.get('dba', []) + c.get('estandares', []):
+            if ref.get('fuente') not in fuentes or not ref.get('texto'):
+                raise ErrorContenido('%s: una referencia no tiene fuente conocida o texto.' % donde)
+        if not c.get('dba') and not c.get('estandares'):
+            raise ErrorContenido('%s: necesita al menos un DBA o un estándar.' % donde)
+        # Coherencia: un juego solo cita DBA de sus propios grados.
+        for ref in c.get('dba', []):
+            if ref.get('grado') not in j.grados:
+                raise ErrorContenido('%s: cita un DBA de grado %s, fuera de sus grados %s.'
+                                     % (donde, ref.get('grado'), j.grados))
+        j.curriculo = dict(c, fuentes_doc=fuentes)
+    sobran = set(alineacion) - set(juegos)
+    if sobran:
+        raise ErrorContenido('curriculo.json tiene juegos que no están en el catálogo: %s.' % ', '.join(sorted(sobran)))
 
 
 # --- Bloques compartidos -----------------------------------------------------
@@ -605,8 +643,56 @@ def lista_tarjetas(juegos, clase='rejilla-juegos'):
     return '<ul class="%s">\n%s\n</ul>' % (clase, indentar('\n'.join(tarjeta_juego(j) for j in juegos), '  '))
 
 
+def etiqueta_dba(ref):
+    grado = 'Transición' if ref['grado'] == 0 else '%d.º' % ref['grado']
+    return '%s · %s · DBA %s' % (ref['area'], grado, ref['numero'])
+
+
+def etiqueta_estandar(ref, fuentes):
+    sigla = {'G22': 'Guía 22', 'G30': 'Guía 30', 'D16': 'Documento 16'}.get(ref['fuente'])
+    return '%s · %s%s' % (ref['area'], ref['grupo'], ' (%s)' % sigla if sigla else '')
+
+
+def bloque_curriculo(juego):
+    c = juego.curriculo
+    fuentes = c['fuentes_doc']
+    partes = ['<section class="curriculo" aria-labelledby="curriculo-titulo">',
+              '  <h2 id="curriculo-titulo">🍎 Para docentes: objetivo y relación con el currículo</h2>',
+              '  <p><strong>Objetivo de aprendizaje:</strong> %s</p>' % esc(c['objetivo']),
+              '  <p><strong>Competencia que se trabaja:</strong> %s</p>' % esc(c['competencia'])]
+    if c['dba']:
+        partes.append('  <h3>Derechos Básicos de Aprendizaje (DBA)</h3>\n  <ul class="lista-curriculo">')
+        partes += ['    <li><span class="insignia">%s</span> «%s»</li>' % (esc(etiqueta_dba(r)), esc(r['texto']))
+                   for r in c['dba']]
+        partes.append('  </ul>')
+    if c['estandares']:
+        partes.append('  <h3>Estándares y orientaciones del MEN</h3>\n  <ul class="lista-curriculo">')
+        partes += ['    <li><span class="insignia">%s</span> «%s»</li>' % (esc(etiqueta_estandar(r, fuentes)), esc(r['texto']))
+                   for r in c['estandares']]
+        partes.append('  </ul>')
+    usadas = []
+    for r in c['dba'] + c['estandares']:
+        if r['fuente'] not in usadas:
+            usadas.append(r['fuente'])
+    partes.append('  <p class="nota">Fuentes: %s. Textos citados literalmente. '
+                  '<a href="/docentes/curriculo/">Ver la matriz curricular completa</a>.</p>'
+                  % '; '.join('<a href="%s">%s</a>' % (esc(fuentes[f]['url']), esc(fuentes[f]['titulo'])) for f in usadas))
+    partes.append('</section>')
+    return '\n'.join(partes)
+
+
+def resumen_curriculo(juego):
+    """Versión corta para la hoja de respuestas de la ficha impresa."""
+    c = juego.curriculo
+    dba = '; '.join('%s: «%s»' % (etiqueta_dba(r), r['texto']) for r in c['dba'])
+    return ('<div class="ficha-curriculo">\n  <p><strong>Objetivo:</strong> %s</p>\n%s</div>'
+            % (esc(c['objetivo']), ('  <p><strong>DBA:</strong> %s</p>\n' % esc(dba)) if dba else ''))
+
+
 def bloque_pie(materias, v, juego=None):
     partes = []
+    if juego and juego.curriculo:
+        partes.append(bloque_curriculo(juego))
     if juego:
         # Primero los del mismo tema; sort es estable, así se respeta el orden del catálogo.
         otros = sorted((j for j in juego.materia.juegos if j is not juego),
@@ -1039,6 +1125,7 @@ def pagina_ficha(juego, materias, v):
       <ol>
 %s
       </ol>
+%s
     </section>
   </main>
 </div>
@@ -1046,7 +1133,7 @@ def pagina_ficha(juego, materias, v):
          esc(etiqueta_grados(juego.grados)), esc(juego.materia.nombre), esc(juego.detalle), url_de(juego.ruta),
          instrucciones,
          indentar('\n'.join(bloques), '    '), esc(juego.titulo), indentar('\n'.join(respuestas), '        '),
-         bloque_pie(materias, v))
+         indentar(resumen_curriculo(juego), '      '), bloque_pie(materias, v))
 
     head = cabeza(v, 'Ficha: %s — %s' % (juego.titulo, NOMBRE_SITIO),
                   'Ficha para imprimir de %s, con sus respuestas.' % juego.titulo,
@@ -1180,6 +1267,7 @@ def pagina_docentes(materias, v):
     <ul class="lista-fichas">
       <li><a href="/descargar/">📥 Todas las fichas para imprimir y cómo usar el sitio sin internet</a></li>
       <li><a href="/secundaria/">🎓 Juegos interactivos para secundaria</a></li>
+      <li><a href="/docentes/curriculo/">📘 Matriz curricular: objetivo, DBA y estándares del MEN de cada juego</a></li>
       <li><a href="https://github.com/Juegoseducativosonline/juegoseducativosonline.github.io/tree/main/contenido">📂 Todas las preguntas en datos abiertos, para adaptarlas</a></li>
     </ul>
   </section>
@@ -1298,6 +1386,60 @@ def pagina_edad(franja, juegos, materias, v):
                   'Actividades y juegos educativos gratis para %s de %d a %d años: lectura, matemáticas, '
                   'emociones, ciencias y fichas para imprimir.' % ((quienes(franja),) + franja), ruta_edad(franja))
     return documento(head, 'pagina-edad', cuerpo)
+
+
+def pagina_matriz(materias, v):
+    fuentes = next(j.curriculo['fuentes_doc'] for m in materias for j in m.juegos)
+    secciones = []
+    total_dba = total_est = 0
+    for m in materias:
+        filas = []
+        for j in m.juegos:
+            c = j.curriculo
+            total_dba += len(c['dba'])
+            total_est += len(c['estandares'])
+            dba = '<br>'.join('<strong>%s</strong> %s' % (esc(etiqueta_dba(r)), esc(r['texto'])) for r in c['dba']) or '—'
+            est = '<br>'.join('<strong>%s</strong> %s' % (esc(etiqueta_estandar(r, fuentes)), esc(r['texto']))
+                              for r in c['estandares']) or '—'
+            filas.append('      <tr><td><a href="%s">%s %s</a></td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'
+                         % (url_de(j.ruta), esc(j.icono), esc(j.titulo), esc(etiqueta_grados(j.grados)),
+                            esc(c['objetivo']), dba, est))
+        secciones.append("""<section class="tema materia-%s" aria-labelledby="mc-%s">
+  <div class="tema-cabeza"><h2 id="mc-%s">%s %s</h2></div>
+  <div class="tabla-desplazable">
+    <table class="tabla-curriculo">
+      <thead><tr><th>Juego</th><th>Grados</th><th>Objetivo de aprendizaje</th><th>DBA</th><th>Estándares y orientaciones</th></tr></thead>
+      <tbody>
+%s
+      </tbody>
+    </table>
+  </div>
+</section>""" % (m.id, m.id, m.id, esc(m.icono), esc(m.nombre), '\n'.join(filas)))
+
+    lista_fuentes = '\n'.join('      <li><a href="%s">%s</a></li>' % (esc(f['url']), esc(f['titulo'])) for f in fuentes.values())
+    juegos = sum(len(m.juegos) for m in materias)
+    cuerpo = """%s
+%s
+<main id="contenido" class="pagina">
+  <p class="nota">Cada juego está alineado con los Derechos Básicos de Aprendizaje (DBA) y con los Estándares Básicos de Competencias del Ministerio de Educación Nacional de Colombia. Los enunciados se citan literalmente de los documentos oficiales. En Tecnología, Inglés de secundaria y Artes, que no tienen DBA, se usan las guías y orientaciones del MEN para esas áreas.</p>
+%s
+  <section class="opcion-offline" aria-labelledby="fuentes-titulo">
+    <h2 id="fuentes-titulo">Documentos oficiales consultados</h2>
+    <ul class="lista-fichas">
+%s
+    </ul>
+  </section>
+</main>
+%s""" % (bloque_navegacion(materias),
+         cabecera_banda([('Inicio', '/'), ('Docentes', '/docentes/'), ('Matriz curricular', None)], '📘',
+                        'Matriz curricular: DBA y estándares',
+                        'Objetivo de aprendizaje, DBA y estándares del MEN de cada juego, para planear clases con confianza.',
+                        '%s · %d DBA · %d estándares y orientaciones' % (plural(juegos, 'juego', 'juegos'), total_dba, total_est)),
+         indentar('\n'.join(secciones), '  '), lista_fuentes, bloque_pie(materias, v))
+    head = cabeza(v, 'Juegos educativos alineados con los DBA y los Estándares del MEN — %s' % NOMBRE_SITIO,
+                  'Matriz curricular: cada juego educativo con su objetivo de aprendizaje, los Derechos Básicos de '
+                  'Aprendizaje (DBA) y los Estándares Básicos de Competencias del MEN de Colombia.', RUTA_CURRICULO)
+    return documento(head, 'pagina-curriculo', cuerpo)
 
 
 def pagina_secundaria(materias, v):
@@ -1498,7 +1640,7 @@ def service_worker(version, recursos):
 
 
 def sitemap(materias):
-    rutas = (['index.html', RUTA_DOCENTES, RUTA_FAMILIAS, RUTA_SECUNDARIA, RUTA_DESCARGAS]
+    rutas = (['index.html', RUTA_DOCENTES, RUTA_CURRICULO, RUTA_FAMILIAS, RUTA_SECUNDARIA, RUTA_DESCARGAS]
              + [ruta_grado(g) for g, _ in grados_con_juegos(materias)]
              + [ruta_edad(f) for f, _ in edades_con_juegos(materias)]
              + ['%s/index.html' % m.id for m in materias]
@@ -1571,7 +1713,8 @@ def generar(comprobar):
     salida = {'assets/materias.css': css_materias, 'manifest.webmanifest': manifiesto(),
               'index.html': pagina_inicio(materias, v), '404.html': pagina_404(materias, v),
               'sitemap.xml': sitemap(materias), RUTA_SECUNDARIA: pagina_secundaria(materias, v),
-              RUTA_DOCENTES: pagina_docentes(materias, v), RUTA_FAMILIAS: pagina_familias(materias, v)}
+              RUTA_DOCENTES: pagina_docentes(materias, v), RUTA_FAMILIAS: pagina_familias(materias, v),
+              RUTA_CURRICULO: pagina_matriz(materias, v)}
     for grado, juegos_grado in grados_con_juegos(materias):
         salida[ruta_grado(grado)] = pagina_grado(grado, juegos_grado, materias, v)
     for franja, juegos_edad in edades_con_juegos(materias):

@@ -1,0 +1,2305 @@
+{
+  "fuentes": {
+    "MAT": {
+      "titulo": "Derechos Básicos de Aprendizaje de Matemáticas, V.2 (MEN)",
+      "url": "https://colombiaaprende.edu.co/recurso-coleccion/derechos-basicos-de-aprendizaje-matematicas"
+    },
+    "LEN": {
+      "titulo": "Derechos Básicos de Aprendizaje de Lenguaje, V.2 (MEN)",
+      "url": "https://colombiaaprende.edu.co/recurso-coleccion/derechos-basicos-de-aprendizaje-dba-lenguaje"
+    },
+    "NAT": {
+      "titulo": "Derechos Básicos de Aprendizaje de Ciencias Naturales, V.1 (MEN)",
+      "url": "https://colombiaaprende.edu.co/recurso-coleccion/derechos-basicos-de-aprendizaje-dba-ciencias-naturales"
+    },
+    "SOC": {
+      "titulo": "Derechos Básicos de Aprendizaje de Ciencias Sociales, V.1 (MEN)",
+      "url": "https://colombiaaprende.edu.co/recurso-coleccion/derechos-basicos-de-aprendizaje-dba-ciencias-sociales"
+    },
+    "TRA": {
+      "titulo": "Derechos Básicos de Aprendizaje de Transición, V.1 (MEN)",
+      "url": "https://colombiaaprende.edu.co/recurso-coleccion/derechos-basicos-de-aprendizaje-transicion"
+    },
+    "ING": {
+      "titulo": "Derechos Básicos de Aprendizaje de Inglés, Transición a 5.º (MEN)",
+      "url": "https://colombiaaprende.edu.co/recurso-coleccion/derechos-basicos-de-aprendizaje-dba-ingles-primaria"
+    },
+    "EBC": {
+      "titulo": "Estándares Básicos de Competencias en Lenguaje, Matemáticas, Ciencias y Ciudadanas (MEN, 2006)",
+      "url": "https://www.mineducacion.gov.co/1621/article-340021.html"
+    },
+    "G22": {
+      "titulo": "Guía 22. Estándares Básicos de Competencias en Lenguas Extranjeras: Inglés (MEN, 2006)",
+      "url": "https://www.mineducacion.gov.co/1621/w3-article-115174.html"
+    },
+    "G30": {
+      "titulo": "Guía 30. Orientaciones generales para la educación en tecnología (MEN, 2008)",
+      "url": "https://www.mineducacion.gov.co/1621/article-160915.html"
+    },
+    "D16": {
+      "titulo": "Documento 16. Orientaciones pedagógicas para la Educación Artística en Básica y Media (MEN, 2010)",
+      "url": "https://www.mineducacion.gov.co/1621/article-241907.html"
+    }
+  },
+  "juegos": {
+    "matematicas/primero-primaria.json": {
+      "grados": [
+        1
+      ],
+      "objetivo": "Contar colecciones de hasta 10 elementos, comparar y ordenar números y resolver sumas y restas sencillas en situaciones cotidianas.",
+      "competencia": "Pensamiento numérico: conteo, orden y problemas aditivos.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 1,
+          "numero": 2,
+          "texto": "Utiliza diferentes estrategias para contar, realizar operaciones (suma y resta ) y resolver problemas aditivos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 1,
+          "numero": 1,
+          "texto": "Identifica los usos de los números (como código, cardinal, medida, ordinal) y las operaciones (suma y resta) en contextos de juego, familiares, económicos, entre otros."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Resuelvo y formulo problemas en situaciones aditivas de composición y de transformación."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Describo, comparo y cuantifico situaciones con números, en diferentes contextos y con diversas representaciones."
+        }
+      ]
+    },
+    "matematicas/suma_practice.html": {
+      "grados": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Calcular sumas de números de 1 a 5 cifras con agilidad y verificar los resultados.",
+      "competencia": "Pensamiento numérico: cálculo y estimación de sumas.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 1,
+          "numero": 2,
+          "texto": "Utiliza diferentes estrategias para contar, realizar operaciones (suma y resta ) y resolver problemas aditivos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 2,
+          "numero": 2,
+          "texto": "Utiliza diferentes estrategias para calcular (agrupar, representar elementos en colecciones, etc.) o estimar el resultado de una suma y resta, multiplicación o reparto equitativo."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 2,
+          "texto": "Propone, desarrolla y justifica estrategias para hacer estimaciones y cálculos con operaciones básicas en la solución de problemas."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Uso diversas estrategias de cálculo (especialmente cálculo mental) y de estimación para resolver problemas en situaciones aditivas y multiplicativas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Uso diversas estrategias de cálculo y de estimación para resolver problemas en situaciones aditivas y multiplicativas."
+        }
+      ]
+    },
+    "matematicas/resta_practice_html.html": {
+      "grados": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Restar números de 1 a 5 cifras apoyándose en el valor posicional de cada cifra.",
+      "competencia": "Pensamiento numérico: sistema de numeración decimal y resta.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 1,
+          "numero": 3,
+          "texto": "Utiliza las características posicionales del Sistema de Numeración Decimal (SND) para establecer relaciones entre cantidades y comparar números."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 2,
+          "numero": 3,
+          "texto": "Utiliza el Sistema de Numeración Decimal para comparar, ordenar y establecer diferentes relaciones entre dos o más secuencias de números con ayuda de diferentes recursos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 2,
+          "texto": "Propone, desarrolla y justifica estrategias para hacer estimaciones y cálculos con operaciones básicas en la solución de problemas."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Uso representaciones –principalmente concretas y pictóricas– para explicar el valor de posición en el sistema de numeración decimal."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Uso diversas estrategias de cálculo (especialmente cálculo mental) y de estimación para resolver problemas en situaciones aditivas y multiplicativas."
+        }
+      ]
+    },
+    "matematicas/multiplication_practice.html": {
+      "grados": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Multiplicar números de hasta 5 cifras por una cifra y afianzar las tablas de multiplicar.",
+      "competencia": "Pensamiento numérico: estructura multiplicativa y cálculo.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 2,
+          "numero": 2,
+          "texto": "Utiliza diferentes estrategias para calcular (agrupar, representar elementos en colecciones, etc.) o estimar el resultado de una suma y resta, multiplicación o reparto equitativo."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 3,
+          "texto": "Establece comparaciones entre cantidades y expresiones que involucran operaciones y relaciones aditivas y multiplicativas y sus representaciones numéricas."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 4,
+          "numero": 2,
+          "texto": "Describe y justifica diferentes estrategias para representar, operar y hacer estimaciones con números naturales y números racionales (fraccionarios)1, expresados como fracción o como decimal"
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Uso diversas estrategias de cálculo (especialmente cálculo mental) y de estimación para resolver problemas en situaciones aditivas y multiplicativas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Uso diversas estrategias de cálculo y de estimación para resolver problemas en situaciones aditivas y multiplicativas."
+        }
+      ]
+    },
+    "matematicas/division_practice.html": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Resolver divisiones exactas y reconocer la división como operación inversa de la multiplicación.",
+      "competencia": "Pensamiento numérico: relaciones multiplicativas y división.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 1,
+          "texto": "Interpreta, formula y resuelve problemas aditivos de composición, transformación y comparación en diferentes contextos; y multiplicativos, directos e inversos, en diferentes contextos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 3,
+          "texto": "Establece comparaciones entre cantidades y expresiones que involucran operaciones y relaciones aditivas y multiplicativas y sus representaciones numéricas."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 4,
+          "numero": 2,
+          "texto": "Describe y justifica diferentes estrategias para representar, operar y hacer estimaciones con números naturales y números racionales (fraccionarios)1, expresados como fracción o como decimal"
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Resuelvo y formulo problemas cuya estrategia de solución requiera de las relaciones y propiedades de los números naturales y sus operaciones."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Uso diversas estrategias de cálculo y de estimación para resolver problemas en situaciones aditivas y multiplicativas."
+        }
+      ]
+    },
+    "matematicas/problemas-suma-resta.json": {
+      "grados": [
+        1,
+        2
+      ],
+      "objetivo": "Interpretar enunciados y resolver problemas de juntar, quitar, completar y comparar con sumas y restas.",
+      "competencia": "Resolución de problemas: situaciones aditivas de composición, transformación y comparación.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 1,
+          "numero": 2,
+          "texto": "Utiliza diferentes estrategias para contar, realizar operaciones (suma y resta ) y resolver problemas aditivos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 2,
+          "numero": 1,
+          "texto": "Interpreta, propone y resuelve problemas aditivos (de composición, transformación y relación) que involucren la cantidad en una colección, la medida de magnitudes (longitud, peso, capacidad y duración de eventos) y problemas multiplicativos sencillos."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Resuelvo y formulo problemas en situaciones aditivas de composición y de transformación."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico, si a la luz de los datos de un problema, los resultados obtenidos son o no razonables."
+        }
+      ]
+    },
+    "matematicas/tienda-escolar.json": {
+      "grados": [
+        2,
+        3
+      ],
+      "objetivo": "Resolver situaciones de compra y venta con dinero colombiano: calcular totales, cambios y comparar precios.",
+      "competencia": "Resolución de problemas: situaciones aditivas y multiplicativas en contextos económicos.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 2,
+          "numero": 1,
+          "texto": "Interpreta, propone y resuelve problemas aditivos (de composición, transformación y relación) que involucren la cantidad en una colección, la medida de magnitudes (longitud, peso, capacidad y duración de eventos) y problemas multiplicativos sencillos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 1,
+          "texto": "Interpreta, formula y resuelve problemas aditivos de composición, transformación y comparación en diferentes contextos; y multiplicativos, directos e inversos, en diferentes contextos."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Resuelvo y formulo problemas en situaciones aditivas de composición y de transformación."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Resuelvo y formulo problemas en situaciones de variación proporcional."
+        }
+      ]
+    },
+    "matematicas/problemas-multiplicacion-division.json": {
+      "grados": [
+        3,
+        4
+      ],
+      "objetivo": "Resolver problemas de grupos iguales, repartos y comparación multiplicativa, eligiendo la operación adecuada.",
+      "competencia": "Resolución de problemas: situaciones multiplicativas directas e inversas.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 1,
+          "texto": "Interpreta, formula y resuelve problemas aditivos de composición, transformación y comparación en diferentes contextos; y multiplicativos, directos e inversos, en diferentes contextos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 2,
+          "texto": "Propone, desarrolla y justifica estrategias para hacer estimaciones y cálculos con operaciones básicas en la solución de problemas."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Resuelvo y formulo problemas en situaciones de variación proporcional."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Resuelvo y formulo problemas en situaciones de proporcionalidad directa, inversa y producto de medidas."
+        }
+      ]
+    },
+    "matematicas/problemas-fracciones.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Resolver problemas con fracciones como parte de un todo y como operador, en repartos, recetas y medidas.",
+      "competencia": "Resolución de problemas: números racionales en situaciones cotidianas.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 4,
+          "numero": 1,
+          "texto": "Interpreta las fracciones como razón, relación parte todo, cociente y operador en diferentes contextos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 5,
+          "numero": 1,
+          "texto": "Interpreta y utiliza los números naturales y racionales en su representación fraccionaria para formular y resolver problemas aditivos, multiplicativos y que involucren operaciones de potenciación."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Resuelvo y formulo problemas cuya estrategia de solución requiera de las relaciones y propiedades de los números naturales y sus operaciones."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico, en el contexto de una situación, la necesidad de un cálculo exacto o aproximado y lo razonable de los resultados obtenidos."
+        }
+      ]
+    },
+    "matematicas/problemas-enteros.json": {
+      "grados": [
+        6,
+        7
+      ],
+      "objetivo": "Resolver problemas con números enteros en contextos de temperatura, altitud, dinero y deudas.",
+      "competencia": "Resolución de problemas: números enteros y sus operaciones.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 6,
+          "numero": 1,
+          "texto": "Interpreta los números enteros y racionales (en sus representaciones de fracción y de decimal) con sus operaciones, en diferentes contextos, al resolver problemas de variación, repartos, particiones, estimaciones, etc. Reconoce y establece diferentes relaciones (de orden y equivalencia y las utiliza para argumentar procedimientos)."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 7,
+          "numero": 1,
+          "texto": "Comprende y resuelve problemas, que involucran los números racionales con las operaciones (suma, resta, multiplicación, división, potenciación, radicación) en contextos escolares y extraescolares."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "6.º y 7.º",
+          "texto": "Resuelvo y formulo problemas utilizando propiedades básicas de la teoría de números, como las de la igualdad, las de las distintas formas de la desigualdad y las de la adición, sustracción, multiplicación, división y potenciación."
+        }
+      ]
+    },
+    "matematicas/fracciones.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Reconocer fracciones como parte de un todo, encontrar fracciones equivalentes y sumar y restar con igual denominador.",
+      "competencia": "Pensamiento numérico: fracciones como relación parte-todo.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 4,
+          "numero": 1,
+          "texto": "Interpreta las fracciones como razón, relación parte todo, cociente y operador en diferentes contextos."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 4,
+          "numero": 3,
+          "texto": "Establece relaciones mayor que, menor que, igual que y relaciones multiplicativas entre números racionales en sus formas de fracción o decimal."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 5,
+          "numero": 3,
+          "texto": "Compara y ordena números fraccionarios a través de diversas interpretaciones, recursos y representaciones."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Describo situaciones de medición utilizando fracciones comunes."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Utilizo la notación decimal para expresar fracciones en diferentes contextos y relaciono estas dos notaciones con la de los porcentajes."
+        }
+      ]
+    },
+    "matematicas/geometria.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Identificar polígonos, ángulos y cuerpos geométricos y calcular perímetros y áreas de figuras planas.",
+      "competencia": "Pensamiento espacial y métrico: figuras, perímetro y área.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 4,
+          "texto": "Describe y argumenta posibles relaciones entre los valores del área y el perímetro de figuras planas (especialmente cuadriláteros)."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 6,
+          "texto": "Describe y representa formas bidimensionales y tridimensionales de acuerdo con las propiedades geométricas."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 4,
+          "numero": 6,
+          "texto": "Identifica, describe y representa figuras bidimensionales y tridimensionales, y establece relaciones entre ellas."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Diferencio y ordeno, en objetos y eventos, propiedades o atributos que se puedan medir (longitudes, distancias, áreas de superficies, volúmenes de cuerpos sólidos, volúmenes de líquidos y capacidades de recipientes; pesos y masa de cuerpos sólidos; duración de eventos o procesos; amplitud de ángulos)."
+        }
+      ]
+    },
+    "matematicas/figuras-lados.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Relacionar cada polígono con su número de lados y nombrarlo correctamente.",
+      "competencia": "Pensamiento espacial: clasificación de figuras planas.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 2,
+          "numero": 6,
+          "texto": "Clasifica, describe y representa objetos del entorno a partir de sus propiedades geométricas para establecer relaciones entre las formas bidimensionales y tridimensionales."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 3,
+          "numero": 6,
+          "texto": "Describe y representa formas bidimensionales y tridimensionales de acuerdo con las propiedades geométricas."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 4,
+          "numero": 6,
+          "texto": "Identifica, describe y representa figuras bidimensionales y tridimensionales, y establece relaciones entre ellas."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "1.º a 3.º",
+          "texto": "Reconozco y valoro simetrías en distintos aspectos del arte y el diseño."
+        }
+      ]
+    },
+    "matematicas/potencias.json": {
+      "grados": [
+        5,
+        6,
+        7
+      ],
+      "objetivo": "Calcular potencias y raíces cuadradas exactas y relacionarlas como operaciones inversas.",
+      "competencia": "Pensamiento numérico: potenciación y radicación.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 5,
+          "numero": 2,
+          "texto": "Describe y desarrolla estrategias (algoritmos, propiedades de las operaciones básicas y sus relaciones) para hacer estimaciones y cálculos al solucionar problemas de potenciación."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 7,
+          "numero": 1,
+          "texto": "Comprende y resuelve problemas, que involucran los números racionales con las operaciones (suma, resta, multiplicación, división, potenciación, radicación) en contextos escolares y extraescolares."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico la potenciación y la radicación en contextos matemáticos y no matemáticos."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "6.º y 7.º",
+          "texto": "Resuelvo y formulo problemas cuya solución requiere de la potenciación o radicación."
+        }
+      ]
+    },
+    "matematicas/ordenar-numeros.json": {
+      "grados": [
+        6,
+        7,
+        8
+      ],
+      "objetivo": "Ordenar números enteros, fraccionarios, decimales y potencias de 10, y aplicar la jerarquía de las operaciones.",
+      "competencia": "Pensamiento numérico: relaciones de orden entre números racionales.",
+      "dba": [
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 6,
+          "numero": 1,
+          "texto": "Interpreta los números enteros y racionales (en sus representaciones de fracción y de decimal) con sus operaciones, en diferentes contextos, al resolver problemas de variación, repartos, particiones, estimaciones, etc. Reconoce y establece diferentes relaciones (de orden y equivalencia y las utiliza para argumentar procedimientos)."
+        },
+        {
+          "fuente": "MAT",
+          "area": "Matemáticas",
+          "grado": 6,
+          "numero": 3,
+          "texto": "Reconoce y establece diferentes relaciones (orden y equivalencia) entre elementos de diversos dominios numéricos y los utiliza para argumentar procedimientos sencillos."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Matemáticas",
+          "grupo": "6.º y 7.º",
+          "texto": "Justifico la extensión de la representación polinomial decimal usual de los números naturales a la representación decimal usual de los números racionales, utilizando las propiedades del sistema de numeración decimal."
+        }
+      ]
+    },
+    "espanol/vocales.json": {
+      "grados": [
+        0,
+        1
+      ],
+      "objetivo": "Reconocer las cinco vocales al inicio, al final y dentro de palabras cotidianas, apoyándose en la imagen y el sonido.",
+      "competencia": "Conciencia fonológica: identificación de sonidos vocálicos.",
+      "dba": [
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 8,
+          "texto": "Identifica las relaciones sonoras en el lenguaje oral."
+        },
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 9,
+          "texto": "Establece relaciones e interpreta imágenes, letras, objetos, personajes que encuentra en distintos tipos de textos."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 1,
+          "numero": 5,
+          "texto": "Reconoce las temáticas presentes en los mensajes que escucha, a partir de la diferenciación de los sonidos que componen las palabras."
+        }
+      ],
+      "estandares": []
+    },
+    "espanol/silabas.json": {
+      "grados": [
+        0,
+        1,
+        2
+      ],
+      "objetivo": "Segmentar palabras en sílabas, unir sílabas para formar palabras y reconocer rimas.",
+      "competencia": "Conciencia fonológica y silábica.",
+      "dba": [
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 8,
+          "texto": "Identifica las relaciones sonoras en el lenguaje oral."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 1,
+          "numero": 5,
+          "texto": "Reconoce las temáticas presentes en los mensajes que escucha, a partir de la diferenciación de los sonidos que componen las palabras."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 2,
+          "numero": 5,
+          "texto": "Identifica las palabras relevantes de un mensaje y las agrupa en unidades significativas: sonidos en palabras y palabras en oraciones."
+        }
+      ],
+      "estandares": []
+    },
+    "espanol/primeras-palabras.json": {
+      "grados": [
+        1,
+        2
+      ],
+      "objetivo": "Leer palabras y frases cortas relacionándolas con imágenes, y escribir palabras con la ortografía adecuada.",
+      "competencia": "Lectura y escritura inicial.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 1,
+          "numero": 6,
+          "texto": "Interpreta diversos textos a partir de la lectura de palabras sencillas y de las imágenes que contienen."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 1,
+          "numero": 8,
+          "texto": "Escribe palabras que le permiten comunicar sus ideas, preferencias y aprendizajes."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 2,
+          "numero": 5,
+          "texto": "Identifica las palabras relevantes de un mensaje y las agrupa en unidades significativas: sonidos en palabras y palabras en oraciones."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "1.º a 3.º",
+          "texto": "Leo diferentes clases de textos: manuales, tarjetas, afiches, cartas, periódicos, etc."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "1.º a 3.º",
+          "texto": "Expreso en forma clara mis ideas y sentimientos, según lo amerite la situación comunicativa."
+        }
+      ]
+    },
+    "espanol/juego-lectura.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Comprender cuentos y textos informativos: identificar personajes, acciones y datos, y hacer inferencias.",
+      "competencia": "Comprensión lectora literal e inferencial.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 2,
+          "numero": 3,
+          "texto": "Identifica algunos elementos constitutivos de textos literarios como personajes, espacios y acciones."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 3,
+          "numero": 6,
+          "texto": "Interpreta el contenido y la estructura del texto, respondiendo preguntas de orden inferencial y crítico."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 4,
+          "numero": 6,
+          "texto": "Organiza la información que encuentra en los textos que lee, utilizando técnicas para el procesamiento de la información que le facilitan el proceso de compresión e interpretación textual."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico el propósito comunicativo y la idea global de un texto."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico la intención comunicativa de cada uno de los textos leídos."
+        }
+      ]
+    },
+    "espanol/ordenar-textos.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Ordenar palabras alfabéticamente y reconocer la estructura del cuento (inicio, nudo y desenlace) y de la carta.",
+      "competencia": "Comprensión de la estructura de los textos.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 2,
+          "numero": 6,
+          "texto": "Predice y analiza los contenidos y estructuras de diversos tipos de texto, a partir de sus conocimientos previos."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 3,
+          "numero": 3,
+          "texto": "Reconoce algunas características de los textos narrativos, tales como el concepto de narrador y estructura narrativa, a partir de la recreación y disfrute de los mismos."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico maneras de cómo se formula el inicio y el final de algunas narraciones."
+        }
+      ]
+    },
+    "espanol/ortografia.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Aplicar reglas de acentuación, uso de mayúsculas, signos de puntuación y escritura correcta de palabras que confunden.",
+      "competencia": "Producción textual: aspectos ortográficos.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 3,
+          "numero": 8,
+          "texto": "Produce textos verbales y no verbales en los que tiene en cuenta aspectos gramaticales y ortográficos."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 4,
+          "numero": 8,
+          "texto": "Produce textos atiendo a elementos como el tipo de público al que va dirigido, el contexto de circulación, sus saberes previos y la diversidad de formatos de la que dispone para su presentación."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "1.º a 3.º",
+          "texto": "Reviso, socializo y corrijo mis escritos, teniendo en cuenta las propuestas de mis compañeros y profesor, y atendiendo algunos aspectos gramaticales (concordancia, tiempos verbales, pronombres) y ortográficos (acentuación, mayúsculas, signos de puntuación) de la lengua castellana."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "4.º y 5.º",
+          "texto": "Produzco la primera versión de un texto informativo, atendiendo a requerimientos (formales y conceptuales) de la producción escrita en lengua castellana, con énfasis en algunos aspectos gramaticales (concordancia, tiempos verbales, nombres, pronombres, entre otros) y ortográficos."
+        }
+      ]
+    },
+    "espanol/gramatica.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Reconocer sustantivos, verbos, adjetivos, artículos y el sujeto de la oración, y usar la concordancia.",
+      "competencia": "Producción textual: aspectos gramaticales.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 3,
+          "numero": 8,
+          "texto": "Produce textos verbales y no verbales en los que tiene en cuenta aspectos gramaticales y ortográficos."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "1.º a 3.º",
+          "texto": "Tengo en cuenta aspectos semánticos y morfosintácticos, de acuerdo con la situación comunicativa en la que intervengo."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "4.º y 5.º",
+          "texto": "Produzco la primera versión de un texto informativo, atendiendo a requerimientos (formales y conceptuales) de la producción escrita en lengua castellana, con énfasis en algunos aspectos gramaticales (concordancia, tiempos verbales, nombres, pronombres, entre otros) y ortográficos."
+        }
+      ]
+    },
+    "espanol/sinonimos.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Ampliar el vocabulario relacionando palabras con significado parecido.",
+      "competencia": "Competencia semántica: vocabulario y sinónimos.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 2,
+          "numero": 5,
+          "texto": "Identifica las palabras relevantes de un mensaje y las agrupa en unidades significativas: sonidos en palabras y palabras en oraciones."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "1.º a 3.º",
+          "texto": "Tengo en cuenta aspectos semánticos y morfosintácticos, de acuerdo con la situación comunicativa en la que intervengo."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "4.º y 5.º",
+          "texto": "Selecciono el léxico apropiado y acomodo mi estilo al plan de exposición así como al contexto comunicativo."
+        }
+      ]
+    },
+    "espanol/situaciones-comunicativas.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Analizar situaciones comunicativas reales: identificar quién habla, a quién, con qué propósito, y elegir la forma adecuada de expresarse.",
+      "competencia": "Resolución de situaciones comunicativas: interlocutores, propósito y contexto.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 3,
+          "numero": 5,
+          "texto": "Identifica el papel del emisor y el receptor y sus propósitos comunicativos en una situación específica."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 4,
+          "numero": 7,
+          "texto": "Participa en espacios de discusión en los que adapta sus emisiones a los requerimientos de la situación comunicativa."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 5,
+          "numero": 6,
+          "texto": "Identifica la intención comunicativa de los textos con los que interactúa a partir del análisis de su contenido y estructura."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "1.º a 3.º",
+          "texto": "Reconozco los principales elementos constitutivos de un proceso de comunicación: interlocutores, código, canal, texto y situación comunicativa."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico en situaciones comunicativas reales los roles, las intenciones de los interlocutores y el respeto por los principios básicos de la comunicación."
+        }
+      ]
+    },
+    "sociales/quiz-historia.json": {
+      "grados": [
+        4,
+        5,
+        6
+      ],
+      "objetivo": "Reconocer civilizaciones antiguas y prehispánicas, y hechos clave de la historia de América y del mundo.",
+      "competencia": "Relaciones con la historia y las culturas.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 4,
+          "numero": 4,
+          "texto": "Analiza las características de las culturas ancestrales que a la llegada de los españoles, habitaban el territorio nacional."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 5,
+          "texto": "Analiza el origen y consolidación de Colombia como república y sus cambios políticos, económicos y sociales."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 6,
+          "numero": 5,
+          "texto": "Analiza los legados que las sociedades americanas prehispánicas dejaron en diversos campos."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "6.º y 7.º",
+          "texto": "Identifico algunas situaciones que han generado conflictos en las organizaciones sociales (el uso de la mano de obra en el imperio egipcio, la expansión de los imperios, la tenencia de la tierra en el medioevo…)."
+        }
+      ]
+    },
+    "sociales/personajes.json": {
+      "grados": [
+        6,
+        7,
+        8
+      ],
+      "objetivo": "Relacionar personajes históricos y científicos con sus aportes, ubicándolos en su época.",
+      "competencia": "Relaciones con la historia y las culturas.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 7,
+          "numero": 5,
+          "texto": "Analiza el Renacimiento como una época que dio paso en Europa a una nueva configuración cultural en campos como las ciencias, la política, las artes y la literatura."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 8,
+          "numero": 5,
+          "texto": "Comprende cómo se produjeron los procesos de independencia de las colonias americanas durante los siglos XVIII y XIX y sus implicaciones para las sociedades contemporáneas."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 8,
+          "numero": 7,
+          "texto": "Evalúa hechos trascendentales para la dignidad humana(abolición de la esclavitud, reconocimiento de los derechos de las mujeres,derechos de las minorías) y describe las discriminaciones que aún se presentan."
+        }
+      ],
+      "estandares": []
+    },
+    "sociales/linea-tiempo.json": {
+      "grados": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "objetivo": "Ordenar cronológicamente hechos históricos e inventos, desde la Antigüedad hasta el siglo XX.",
+      "competencia": "Pensamiento temporal: ubicación y secuencia de hechos históricos.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 6,
+          "numero": 4,
+          "texto": "Analiza cómo en las sociedades antiguas surgieron las primeras ciudades y el papel de la agricultura y el comercio para la expansión de estas."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 8,
+          "numero": 5,
+          "texto": "Comprende cómo se produjeron los procesos de independencia de las colonias americanas durante los siglos XVIII y XIX y sus implicaciones para las sociedades contemporáneas."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 9,
+          "numero": 4,
+          "texto": "Analiza los cambios sociales, políticos, económicos y culturales en Colombia en el siglo XX y su impacto en la vida de los habitantes del país."
+        }
+      ],
+      "estandares": []
+    },
+    "sociales/geografia.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Reconocer continentes, océanos, relieve y los puntos cardinales, y usar la rosa de los vientos para orientarse.",
+      "competencia": "Relaciones espaciales y ambientales.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 3,
+          "numero": 1,
+          "texto": "Comprende la importancia de los océanos y mares en la organización económica y social de los pueblos costeros en la actualidad."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 4,
+          "numero": 1,
+          "texto": "Comprende la importancia de los límites geográficos y el establecimiento de las fronteras en la organización de los territorios."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 1,
+          "texto": "Comprende la organización territorial existente en Colombia y las particularidades geográficas de las regiones."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Me ubico en el entorno físico utilizando referentes espaciales (izquierda, derecha, puntos cardinales)."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico y describo características de las diferentes regiones naturales del mundo (desiertos, polos, selva húmeda tropical, océanos…)."
+        }
+      ]
+    },
+    "sociales/capitales.json": {
+      "grados": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "objetivo": "Relacionar países de América y España con sus capitales y ubicarlos en el mapa.",
+      "competencia": "Relaciones espaciales: organización territorial.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 4,
+          "numero": 1,
+          "texto": "Comprende la importancia de los límites geográficos y el establecimiento de las fronteras en la organización de los territorios."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 1,
+          "texto": "Comprende la organización territorial existente en Colombia y las particularidades geográficas de las regiones."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Utilizo coordenadas, escalas y convenciones para ubicar los fenómenos históricos y culturales en mapas y planos de representación."
+        }
+      ]
+    },
+    "sociales/ordenar-geografia.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Comparar y ordenar continentes, océanos y montañas por tamaño, y reconocer las escalas del territorio.",
+      "competencia": "Relaciones espaciales y ambientales.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 3,
+          "numero": 1,
+          "texto": "Comprende la importancia de los océanos y mares en la organización económica y social de los pueblos costeros en la actualidad."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 1,
+          "texto": "Comprende la organización territorial existente en Colombia y las particularidades geográficas de las regiones."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "1.º a 3.º",
+          "texto": "Establezco relaciones entre los espacios físicos que ocupo (salón de clase, colegio, municipio…) y sus representaciones (mapas, planos, maquetas...)."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico y describo características de las diferentes regiones naturales del mundo (desiertos, polos, selva húmeda tropical, océanos…)."
+        }
+      ]
+    },
+    "sociales/convivencia-ciudadania.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Resolver situaciones de la vida escolar aplicando derechos, deberes, normas y mecanismos de participación.",
+      "competencia": "Resolución de situaciones problema: convivencia, derechos y participación.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 3,
+          "numero": 7,
+          "texto": "Comprende la importancia de participar en las decisiones de su comunidad cercana (institución educativa) mediante la elección del gobierno escolar."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 4,
+          "numero": 7,
+          "texto": "Analiza los derechos que protegen la niñez y los deberes que deben cumplirse en una sociedad democrática para el desarrollo de una sana convivencia."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 7,
+          "texto": "Comprende que en la sociedad colombiana existen derechos, deberes, principios y acciones para orientar y regular la convivencia de las personas."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico mis derechos y deberes y los de otras personas en las comunidades a las que pertenezco."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Participo en la construcción de normas para la convivencia en los grupos a los que pertenezco (familia, colegio, barrio...)."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico múltiples opciones para manejar mis conflictos y veo las posibles consecuencias de cada opción."
+        }
+      ]
+    },
+    "naturales/juego-plantas.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Identificar las partes de la planta y sus funciones, y explicar cómo se alimentan, crecen y se reproducen.",
+      "competencia": "Entorno vivo: características y necesidades de las plantas.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 2,
+          "numero": 3,
+          "texto": "Comprende la relación entre las características físicas de plantas y animales con los ambientes en donde viven, teniendo en cuenta sus necesidades básicas (luz, agua, aire, suelo, nutrientes, desplazamiento y protección)."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 2,
+          "numero": 4,
+          "texto": "Explica los procesos de cambios físicos que ocurren en el ciclo de vida de plantas y animales de su entorno, en un período de tiempo determinado."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 3,
+          "numero": 5,
+          "texto": "Explica la influencia de los factores abióticos (luz, temperatura, suelo y aire) en el desarrollo de los factores bióticos (fauna y flora) de un ecosistema."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "1.º a 3.º",
+          "texto": "Describo y verifico ciclos de vida de seres vivos."
+        }
+      ]
+    },
+    "naturales/animales.json": {
+      "grados": [
+        1,
+        2,
+        3
+      ],
+      "objetivo": "Clasificar animales según su alimentación, respiración, forma de nacer y cubierta corporal.",
+      "competencia": "Entorno vivo: diversidad y clasificación de los animales.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 1,
+          "numero": 3,
+          "texto": "Comprende que los seres vivos (plantas y animales) tienen características comunes (se alimentan, respiran, tienen un ciclo de vida, responden al entorno) y los diferencia de los objetos inertes."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 2,
+          "numero": 3,
+          "texto": "Comprende la relación entre las características físicas de plantas y animales con los ambientes en donde viven, teniendo en cuenta sus necesidades básicas (luz, agua, aire, suelo, nutrientes, desplazamiento y protección)."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 3,
+          "numero": 6,
+          "texto": "Comprende las relaciones de los seres vivos con otros organismos de su entorno (intra e interespecíficas) y las explica como esenciales para su supervivencia en un ambiente determinado."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "1.º a 3.º",
+          "texto": "Describo características de seres vivos y objetos inertes, establezco semejanzas y diferencias entre ellos y los clasifico."
+        }
+      ]
+    },
+    "naturales/crias.json": {
+      "grados": [
+        0,
+        1,
+        2
+      ],
+      "objetivo": "Relacionar animales con sus crías y reconocer que los seres vivos nacen, crecen y cambian.",
+      "competencia": "Entorno vivo: ciclo de vida.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 1,
+          "numero": 3,
+          "texto": "Comprende que los seres vivos (plantas y animales) tienen características comunes (se alimentan, respiran, tienen un ciclo de vida, responden al entorno) y los diferencia de los objetos inertes."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 2,
+          "numero": 4,
+          "texto": "Explica los procesos de cambios físicos que ocurren en el ciclo de vida de plantas y animales de su entorno, en un período de tiempo determinado."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "1.º a 3.º",
+          "texto": "Describo y verifico ciclos de vida de seres vivos."
+        }
+      ]
+    },
+    "naturales/cuerpo-humano.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Reconocer los principales órganos y sistemas del cuerpo humano, sus funciones y hábitos para cuidarlo.",
+      "competencia": "Entorno vivo: el cuerpo humano y su cuidado.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 5,
+          "numero": 3,
+          "texto": "Comprende que los sistemas del cuerpo humano están formados por órganos, tejidos y células y que la estructura de cada tipo de célula está relacionada con la función del tejido que forman."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 5,
+          "numero": 4,
+          "texto": "Comprende que en los seres humanos (y en muchos otros animales) la nutrición involucra el funcionamiento integrado de un conjunto de sistemas de órganos: digestivo, respiratorio y circulatorio."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico necesidades de cuidado de mi cuerpo y el de otras personas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Represento los diversos sistemas de órganos del ser humano y explico su función."
+        }
+      ]
+    },
+    "naturales/procesos.json": {
+      "grados": [
+        5,
+        6,
+        7
+      ],
+      "objetivo": "Ordenar las etapas del método científico, del ciclo del agua y de la digestión, y la posición de los planetas.",
+      "competencia": "Indagación y comprensión de procesos naturales.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 5,
+          "numero": 4,
+          "texto": "Comprende que en los seres humanos (y en muchos otros animales) la nutrición involucra el funcionamiento integrado de un conjunto de sistemas de órganos: digestivo, respiratorio y circulatorio."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 7,
+          "numero": 4,
+          "texto": "Comprende la relación entre los ciclos del carbono, el nitrógeno y del agua, explicando su importancia en el mantenimiento de los ecosistemas."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Describo los principales elementos del sistema solar y establezco relaciones de tamaño, movimiento y posición."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Describo y relaciono los ciclos del agua, de algunos elementos y de la energía en los ecosistemas."
+        }
+      ]
+    },
+    "naturales/pienso-cientifico.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Resolver situaciones problema como un científico: formular preguntas, proponer hipótesis y diseñar experimentos controlando una variable.",
+      "competencia": "Resolución de problemas científicos: indagación.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 4,
+          "numero": 5,
+          "texto": "Comprende que existen distintos tipos de mezclas (homogéneas y heterogéneas) que de acuerdo con los materiales que las componen pueden separarse mediante diferentes técnicas (filtración, tamizado, decantación, evaporación)."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 4,
+          "numero": 1,
+          "texto": "Comprende que la magnitud y la dirección en que se aplica una fuerza puede producir cambios en la forma como se mueve un objeto (dirección y rapidez)."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Formulo preguntas a partir de una observación o experiencia y escojo algunas de ellas para buscar posibles respuestas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Diseño y realizo experimentos modificando una sola variable para dar respuesta a preguntas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Saco conclusiones de mis experimentos, aunque no obtenga los resultados esperados."
+        }
+      ]
+    },
+    "emociones/reconocer.json": {
+      "grados": [
+        0,
+        1,
+        2
+      ],
+      "objetivo": "Reconocer las emociones básicas en expresiones faciales y en situaciones cotidianas, propias y de otras personas.",
+      "competencia": "Competencias emocionales: identificación de emociones.",
+      "dba": [
+        {
+          "fuente": "TRA",
+          "area": "Transición",
+          "grado": 0,
+          "numero": 3,
+          "texto": "Identifica y valora las características corporales y emocionales en sí mismo y en los demás."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "1.º a 3.º",
+          "texto": "Reconozco las emociones básicas (alegría, tristeza, rabia, temor) en mí y en las otras personas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "1.º a 3.º",
+          "texto": "Expreso mis sentimientos y emociones mediante distintas formas y lenguajes (gestos, palabras, pintura, teatro, juegos, etc.)."
+        }
+      ]
+    },
+    "emociones/emociones-situaciones.json": {
+      "grados": [
+        1,
+        2,
+        3
+      ],
+      "objetivo": "Relacionar situaciones de la vida diaria con la emoción que suelen provocar.",
+      "competencia": "Competencias emocionales: comprensión de las emociones en contexto.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "1.º a 3.º",
+          "texto": "Reconozco las emociones básicas (alegría, tristeza, rabia, temor) en mí y en las otras personas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "1.º a 3.º",
+          "texto": "Reconozco que las acciones se relacionan con las emociones y que puedo aprender a manejar mis emociones para no hacer daño a otras personas."
+        }
+      ]
+    },
+    "emociones/manejar.json": {
+      "grados": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Elegir formas adecuadas de manejar la rabia, la tristeza o el miedo, y de actuar con empatía ante los demás.",
+      "competencia": "Competencias emocionales y de convivencia: manejo de emociones y empatía.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "1.º a 3.º",
+          "texto": "Reconozco que las acciones se relacionan con las emociones y que puedo aprender a manejar mis emociones para no hacer daño a otras personas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico cómo me siento yo o las personas cercanas cuando no recibimos buen trato y expreso empatía, es decir, sentimientos parecidos o compatibles con los de otros."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "4.º y 5.º",
+          "texto": "Utilizo mecanismos para manejar mi rabia."
+        }
+      ]
+    },
+    "emociones/pasos-calma.json": {
+      "grados": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Seguir estrategias para calmarse (semáforo, respiración) y los pasos para resolver un conflicto de forma pacífica.",
+      "competencia": "Competencias integradoras: manejo de emociones y resolución pacífica de conflictos.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "1.º a 3.º",
+          "texto": "Conozco y uso estrategias sencillas de resolución pacífica de conflictos."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "4.º y 5.º",
+          "texto": "Utilizo mecanismos para manejar mi rabia."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Competencias Ciudadanas",
+          "grupo": "4.º y 5.º",
+          "texto": "Expongo mis posiciones y escucho las posiciones ajenas, en situaciones de conflicto."
+        }
+      ]
+    },
+    "quimica/estados-materia.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Reconocer los estados de la materia y explicar los cambios de estado por efecto de la temperatura.",
+      "competencia": "Entorno físico: la materia y sus cambios de estado.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 2,
+          "numero": 2,
+          "texto": "Comprende que las sustancias pueden encontrarse en distintos estados (sólido, líquido y gaseoso)."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 3,
+          "numero": 4,
+          "texto": "Comprende la influencia de la variación de la temperatura en los cambios de estado de la materia, considerando como ejemplo el caso del agua."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico diferentes estados físicos de la materia (el agua, por ejemplo) y verifico causas para cambios de estado."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Describo y verifico el efecto de la transferencia de energía térmica en los cambios de estado de algunas sustancias."
+        }
+      ]
+    },
+    "quimica/mezclas.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Diferenciar mezclas homogéneas y heterogéneas, elegir métodos de separación y distinguir cambios físicos y químicos.",
+      "competencia": "Entorno físico: mezclas y métodos de separación.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 4,
+          "numero": 5,
+          "texto": "Comprende que existen distintos tipos de mezclas (homogéneas y heterogéneas) que de acuerdo con los materiales que las componen pueden separarse mediante diferentes técnicas (filtración, tamizado, decantación, evaporación)."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Verifico la posibilidad de mezclar diversos líquidos, sólidos y gases."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Propongo y verifico diferentes métodos de separación de mezclas."
+        }
+      ]
+    },
+    "quimica/elementos.json": {
+      "grados": [
+        6,
+        7,
+        8
+      ],
+      "objetivo": "Reconocer elementos químicos, sus símbolos y la organización de la tabla periódica, y las partículas del átomo.",
+      "competencia": "Entorno físico: elementos, compuestos y tabla periódica.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 6,
+          "numero": 3,
+          "texto": "Comprende la clasificación de los materiales a partir de grupos de sustancias (elementos y compuestos) y mezclas (homogéneas y heterogéneas)."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 7,
+          "numero": 2,
+          "texto": "Explica cómo las sustancias se forman a partir de la interacción de los elementos y que estos se encuentran agrupados en un sistema periódico."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Explico y utilizo la tabla periódica como herramienta para predecir procesos químicos."
+        }
+      ]
+    },
+    "quimica/simbolos-quimicos.json": {
+      "grados": [
+        7,
+        8
+      ],
+      "objetivo": "Relacionar con rapidez los elementos químicos más comunes con su símbolo.",
+      "competencia": "Entorno físico: lenguaje de la química.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 7,
+          "numero": 2,
+          "texto": "Explica cómo las sustancias se forman a partir de la interacción de los elementos y que estos se encuentran agrupados en un sistema periódico."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Explico cómo un número limitado de elementos hace posible la diversidad de la materia conocida."
+        }
+      ]
+    },
+    "quimica/ordenar-materia.json": {
+      "grados": [
+        8,
+        9
+      ],
+      "objetivo": "Ordenar sustancias por su pH, comparar estados de la materia y escalas de tamaño y temperatura.",
+      "competencia": "Entorno físico: propiedades de la materia; acidez y basicidad.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 9,
+          "numero": 2,
+          "texto": "Comprende que la acidez y la basicidad son propiedades químicas de algunas sustancias y las relaciona con su importancia biológica y su uso cotidiano e industrial."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "8.º y 9.º",
+          "texto": "Comparo sólidos, líquidos y gases teniendo en cuenta el movimiento de sus moléculas y las fuerzas electroestáticas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "8.º y 9.º",
+          "texto": "Comparo los modelos que sustentan la definición ácido-base."
+        }
+      ]
+    },
+    "fisica/fuerzas.json": {
+      "grados": [
+        8,
+        9,
+        10
+      ],
+      "objetivo": "Explicar el efecto de las fuerzas sobre el movimiento, aplicar las leyes de Newton y calcular la velocidad media.",
+      "competencia": "Entorno físico: fuerzas y movimiento.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 9,
+          "numero": 1,
+          "texto": "Comprende que el movimiento de un cuerpo, en un marco de referencia inercial dado, se puede describir con gráficos y predecir por medio de expresiones matemáticas."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 10,
+          "numero": 1,
+          "texto": "Comprende, que el reposo o el movimiento rectilíneo uniforme, se presentan cuando las fuerzas aplicadas sobre el sistema se anulan entre ellas, y que en presencia de fuerzas resultantes no nulas se producen cambios de velocidad."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "10.º y 11.º",
+          "texto": "Establezco relaciones entre las diferentes fuerzas que actúan sobre los cuerpos en reposo o en movimiento rectilíneo uniforme y establezco condiciones para conservar la energía mecánica."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "10.º y 11.º",
+          "texto": "Modelo matemáticamente el movimiento de objetos cotidianos a partir de las fuerzas que actúan sobre ellos."
+        }
+      ]
+    },
+    "fisica/energia.json": {
+      "grados": [
+        5,
+        6,
+        7
+      ],
+      "objetivo": "Reconocer formas y fuentes de energía, sus transformaciones y el principio de conservación.",
+      "competencia": "Entorno físico: la energía y sus transformaciones.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 7,
+          "numero": 1,
+          "texto": "Comprende las formas y las transformaciones de energía en un sistema mecánico y la manera como, en los casos reales, la energía se disipa en el medio (calor, sonido)."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico y describo aparatos que generan energía luminosa, térmica y mecánica."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Relaciono energía y movimiento."
+        }
+      ]
+    },
+    "fisica/luz-sonido.json": {
+      "grados": [
+        3,
+        4
+      ],
+      "objetivo": "Explicar cómo se propagan la luz y el sonido, qué son la reflexión, la refracción y el eco, y cómo se forman las sombras.",
+      "competencia": "Entorno físico: luz y sonido.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 3,
+          "numero": 1,
+          "texto": "Comprende la forma en que se propaga la luz a través de diferentes materiales (opacos, transparentes como el aire, translúcidos como el papel y reflectivos como el espejo)."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 3,
+          "numero": 2,
+          "texto": "Comprende la forma en que se produce la sombra y la relación de su tamaño con las distancias entre la fuente de luz, el objeto interpuesto y el lugar donde se produce la sombra."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 3,
+          "numero": 3,
+          "texto": "Comprende la naturaleza (fenómeno de la vibración) y las características del sonido (altura, timbre, intensidad) y que este se propaga en distintos medios (sólidos, líquidos, gaseosos)."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "1.º a 3.º",
+          "texto": "Propongo experiencias para comprobar la propagación de la luz y del sonido."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "1.º a 3.º",
+          "texto": "Clasifico sonidos según tono, volumen y fuente."
+        }
+      ]
+    },
+    "fisica/unidades.json": {
+      "grados": [
+        8,
+        9,
+        10
+      ],
+      "objetivo": "Relacionar magnitudes físicas con su unidad en el Sistema Internacional.",
+      "competencia": "Entorno físico: medición y unidades.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "8.º y 9.º",
+          "texto": "Realizo mediciones con instrumentos adecuados a las características y magnitudes de los objetos de estudio y las expreso en las unidades correspondientes."
+        }
+      ]
+    },
+    "fisica/escalas.json": {
+      "grados": [
+        6,
+        7
+      ],
+      "objetivo": "Comparar y ordenar tamaños y velocidades en el universo, del átomo al Sol y del caracol a la luz.",
+      "competencia": "Entorno físico: magnitudes y escalas.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 7,
+          "numero": 1,
+          "texto": "Comprende las formas y las transformaciones de energía en un sistema mecánico y la manera como, en los casos reales, la energía se disipa en el medio (calor, sonido)."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Verifico relaciones entre distancia recorrida, velocidad y fuerza involucrada en diversos tipos de movimiento."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Explico el modelo planetario desde las fuerzas gravitacionales."
+        }
+      ]
+    },
+    "tecnologia/computadora.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Identificar las partes físicas y los programas de la computadora, los dispositivos de entrada y salida y la memoria.",
+      "competencia": "Apropiación y uso de la tecnología.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico la computadora como artefacto tecnológico para la información y la comunicación, y la utilizo en diferentes actividades."
+        },
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico y doy ejemplos de artefactos que involucran en su funcionamiento tecnologías de la información."
+        }
+      ]
+    },
+    "tecnologia/ordenar-tecnologia.json": {
+      "grados": [
+        3,
+        4,
+        5
+      ],
+      "objetivo": "Ordenar los pasos de un algoritmo, la evolución de la computación y las unidades de información.",
+      "competencia": "Naturaleza y evolución de la tecnología.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "1.º a 3.º",
+          "texto": "Identifico y describo artefactos que se utilizan hoy y que no se empleaban en épocas pasadas."
+        },
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "4.º y 5.º",
+          "texto": "Describo con esquemas, dibujos y textos, instrucciones de ensamble de artefactos."
+        }
+      ]
+    },
+    "tecnologia/internet-seguro.json": {
+      "grados": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "objetivo": "Reconocer riesgos en internet (engaños, ciberacoso, datos personales) y elegir conductas seguras y responsables.",
+      "competencia": "Tecnología y sociedad: uso seguro y responsable de las TIC.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "4.º y 5.º",
+          "texto": "Utilizo tecnologías de la información y la comunicación disponibles en mi entorno para el desarrollo de diversas actividades"
+        },
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "6.º y 7.º",
+          "texto": "Asumo y promuevo comportamientos legales relacionados con el uso de los recursos tecnológicos."
+        }
+      ]
+    },
+    "tecnologia/maquinas-simples.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Identificar palancas, poleas, planos inclinados, cuñas y tornillos en objetos cotidianos y explicar cómo reducen el esfuerzo.",
+      "competencia": "Naturaleza de la tecnología y entorno físico: máquinas simples.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 4,
+          "numero": 2,
+          "texto": "Comprende los efectos y las ventajas de utilizar máquinas simples en diferentes tareas que requieren la aplicación de una fuerza."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico máquinas simples en objetos cotidianos y describo su utilidad."
+        }
+      ]
+    },
+    "tecnologia/programacion.json": {
+      "grados": [
+        6,
+        7,
+        8
+      ],
+      "objetivo": "Comprender conceptos básicos de programación: algoritmo, variable, bucle, condicional y función.",
+      "competencia": "Solución de problemas con tecnología.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "6.º y 7.º",
+          "texto": "Identifico y formulo problemas propios del entorno que son susceptibles de ser resueltos a través de soluciones tecnológicas."
+        },
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "6.º y 7.º",
+          "texto": "Utilizo las tecnologías de la información y la comunicación, para apoyar mis procesos de aprendizaje"
+        }
+      ]
+    },
+    "tecnologia/problemas-tecnologicos.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Resolver problemas tecnológicos cotidianos: detectar fallas, comparar soluciones y elegir la más segura y eficiente.",
+      "competencia": "Solución de problemas con tecnología.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "4.º y 5.º",
+          "texto": "Frente a un problema, propongo varias soluciones posibles indicando cómo llegué a ellas y cuáles son las ventajas y desventajas de cada una."
+        },
+        {
+          "fuente": "G30",
+          "area": "Tecnología e Informática",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico fallas sencillas en un artefacto o proceso y actúo en forma segura frente a ellas."
+        }
+      ]
+    },
+    "ingles/colores-numeros.json": {
+      "grados": [
+        1,
+        2,
+        3
+      ],
+      "objetivo": "Reconocer y nombrar en inglés colores y números, y usarlos en operaciones y descripciones sencillas.",
+      "competencia": "Competencia lingüística: vocabulario básico.",
+      "dba": [
+        {
+          "fuente": "ING",
+          "area": "Inglés",
+          "grado": 1,
+          "numero": 1,
+          "texto": "Comprende y responde a instrucciones sobre tareas escolares básicas, de manera verbal y no verbal."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "G22",
+          "area": "Inglés",
+          "grupo": "1.º a 3.º",
+          "texto": "Participo activamente en juegos de palabras y rondas."
+        }
+      ]
+    },
+    "ingles/saludos.json": {
+      "grados": [
+        1,
+        2,
+        3
+      ],
+      "objetivo": "Saludar, despedirse, presentarse y usar fórmulas de cortesía en inglés.",
+      "competencia": "Competencia pragmática y sociolingüística: interacción social básica.",
+      "dba": [
+        {
+          "fuente": "ING",
+          "area": "Inglés",
+          "grado": 1,
+          "numero": 4,
+          "texto": "Responde preguntas sencillas sobre información personal básica, como su nombre, edad, familia y compañeros de clase"
+        },
+        {
+          "fuente": "ING",
+          "area": "Inglés",
+          "grado": 2,
+          "numero": 3,
+          "texto": "Intercambia información personal como su nombre, edad y procedencia con compañeros y profesores, usando frases sencillas, siguiendo modelos provistos por el docente."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "G22",
+          "area": "Inglés",
+          "grupo": "1.º a 3.º",
+          "texto": "Respondo a saludos y a despedidas."
+        }
+      ]
+    },
+    "ingles/ordenar-ingles.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Ordenar en inglés los días de la semana, los meses, animales por tamaño y las partes del día.",
+      "competencia": "Competencia lingüística: vocabulario y secuencias.",
+      "dba": [
+        {
+          "fuente": "ING",
+          "area": "Inglés",
+          "grado": 3,
+          "numero": 4,
+          "texto": "Describe, de manera oral y escrita, objetos, lugares, personas y comunidades, usando oraciones simples."
+        },
+        {
+          "fuente": "ING",
+          "area": "Inglés",
+          "grado": 4,
+          "numero": 4,
+          "texto": "Compara características básicas de personas, objetos y lugares de su escuela y comunidad, a través de oraciones simples."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "G22",
+          "area": "Inglés",
+          "grupo": "4.º y 5.º",
+          "texto": "Hablo de las actividades que realizo habitualmente."
+        }
+      ]
+    },
+    "ingles/verbos-irregulares.json": {
+      "grados": [
+        6,
+        7,
+        8
+      ],
+      "objetivo": "Relacionar verbos irregulares de uso frecuente con su forma en pasado simple para narrar hechos.",
+      "competencia": "Competencia lingüística: gramática del pasado simple.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "G22",
+          "area": "Inglés",
+          "grupo": "6.º y 7.º",
+          "texto": "Narro o describo de forma sencilla hechos y actividades que me son familiares."
+        },
+        {
+          "fuente": "G22",
+          "area": "Inglés",
+          "grupo": "8.º y 9.º",
+          "texto": "Converso con mis compañeros y mi profesor sobre experiencias pasadas y planes futuros."
+        }
+      ]
+    },
+    "artes/colores.json": {
+      "grados": [
+        1,
+        2,
+        3
+      ],
+      "objetivo": "Reconocer colores primarios, secundarios, cálidos y fríos, y predecir el resultado de mezclarlos.",
+      "competencia": "Apreciación estética y comunicación.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "D16",
+          "area": "Educación Artística",
+          "grupo": "Todos los grados",
+          "texto": "Esta facultad sensible-racional se denomina apreciación estética"
+        },
+        {
+          "fuente": "D16",
+          "area": "Educación Artística",
+          "grupo": "Todos los grados",
+          "texto": "La comunicación se refiere al hacer, es la disposición productiva que integra la sensibilidad y la apreciación estética en el acto creativo."
+        }
+      ]
+    },
+    "artes/artistas-obras.json": {
+      "grados": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "objetivo": "Relacionar artistas universales y latinoamericanos con sus obras, y ubicarlos en su época.",
+      "competencia": "Apreciación estética.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 7,
+          "numero": 5,
+          "texto": "Analiza el Renacimiento como una época que dio paso en Europa a una nueva configuración cultural en campos como las ciencias, la política, las artes y la literatura."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "D16",
+          "area": "Educación Artística",
+          "grupo": "Todos los grados",
+          "texto": "Esta facultad sensible-racional se denomina apreciación estética"
+        }
+      ]
+    },
+    "artes/musica.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Reconocer las notas musicales, las familias de instrumentos y elementos del lenguaje musical.",
+      "competencia": "Sensibilidad y apreciación estética.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "D16",
+          "area": "Educación Artística",
+          "grupo": "Todos los grados",
+          "texto": "la sensibilidad es una competencia que se sustenta en un tipo de disposición humana evidente al afectarse y afectar a otros"
+        },
+        {
+          "fuente": "D16",
+          "area": "Educación Artística",
+          "grupo": "Todos los grados",
+          "texto": "Esta facultad sensible-racional se denomina apreciación estética"
+        }
+      ]
+    },
+    "artes/musica-color.json": {
+      "grados": [
+        2,
+        3,
+        4
+      ],
+      "objetivo": "Ordenar notas, figuras musicales por duración, colores del arcoíris y tonos de gris.",
+      "competencia": "Sensibilidad y apreciación estética.",
+      "dba": [],
+      "estandares": [
+        {
+          "fuente": "D16",
+          "area": "Educación Artística",
+          "grupo": "Todos los grados",
+          "texto": "la sensibilidad es una competencia que se sustenta en un tipo de disposición humana evidente al afectarse y afectar a otros"
+        },
+        {
+          "fuente": "D16",
+          "area": "Educación Artística",
+          "grupo": "Todos los grados",
+          "texto": "Esta facultad sensible-racional se denomina apreciación estética"
+        }
+      ]
+    }
+  }
+}

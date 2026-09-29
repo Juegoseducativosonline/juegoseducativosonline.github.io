@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var CACHE = 'jeo-f6839d04afc1';
+var CACHE = 'jeo-ef7d96bcf788';
 var RECURSOS = [
   "/",
   "/404.html",
@@ -28,10 +28,11 @@ var RECURSOS = [
   "/assets/materias.css?v=9f1248c012",
   "/assets/quiz.css?v=ca763d9b25",
   "/assets/quiz.js?v=3ac616eefd",
-  "/assets/site.css?v=67e886133e",
+  "/assets/site.css?v=5ec877d915",
   "/assets/site.js?v=87e83ed258",
   "/descargar/",
   "/docentes/",
+  "/docentes/curriculo/",
   "/edades/de-11-a-12-anos/",
   "/edades/de-13-a-14-anos/",
   "/edades/de-15-a-16-anos/",
@@ -62,6 +63,8 @@ var RECURSOS = [
   "/espanol/silabas.html",
   "/espanol/sinonimos-ficha.html",
   "/espanol/sinonimos.html",
+  "/espanol/situaciones-comunicativas-ficha.html",
+  "/espanol/situaciones-comunicativas.html",
   "/espanol/vocales-ficha.html",
   "/espanol/vocales.html",
   "/familias/",
@@ -112,8 +115,18 @@ var RECURSOS = [
   "/matematicas/potencias.html",
   "/matematicas/primero-primaria-ficha.html",
   "/matematicas/primero-primaria.html",
+  "/matematicas/problemas-enteros-ficha.html",
+  "/matematicas/problemas-enteros.html",
+  "/matematicas/problemas-fracciones-ficha.html",
+  "/matematicas/problemas-fracciones.html",
+  "/matematicas/problemas-multiplicacion-division-ficha.html",
+  "/matematicas/problemas-multiplicacion-division.html",
+  "/matematicas/problemas-suma-resta-ficha.html",
+  "/matematicas/problemas-suma-resta.html",
   "/matematicas/resta_practice_html.html",
   "/matematicas/suma_practice.html",
+  "/matematicas/tienda-escolar-ficha.html",
+  "/matematicas/tienda-escolar.html",
   "/naturales/",
   "/naturales/animales-ficha.html",
   "/naturales/animales.html",
@@ -123,6 +136,8 @@ var RECURSOS = [
   "/naturales/cuerpo-humano.html",
   "/naturales/juego-plantas-ficha.html",
   "/naturales/juego-plantas.html",
+  "/naturales/pienso-cientifico-ficha.html",
+  "/naturales/pienso-cientifico.html",
   "/naturales/procesos-ficha.html",
   "/naturales/procesos.html",
   "/quimica/",
@@ -140,6 +155,8 @@ var RECURSOS = [
   "/sociales/",
   "/sociales/capitales-ficha.html",
   "/sociales/capitales.html",
+  "/sociales/convivencia-ciudadania-ficha.html",
+  "/sociales/convivencia-ciudadania.html",
   "/sociales/geografia-ficha.html",
   "/sociales/geografia.html",
   "/sociales/linea-tiempo-ficha.html",
@@ -159,6 +176,8 @@ var RECURSOS = [
   "/tecnologia/maquinas-simples.html",
   "/tecnologia/ordenar-tecnologia-ficha.html",
   "/tecnologia/ordenar-tecnologia.html",
+  "/tecnologia/problemas-tecnologicos-ficha.html",
+  "/tecnologia/problemas-tecnologicos.html",
   "/tecnologia/programacion-ficha.html",
   "/tecnologia/programacion.html"
 ];

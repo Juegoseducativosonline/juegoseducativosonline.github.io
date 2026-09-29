@@ -1,0 +1,142 @@
+{
+  "titulo": "Problemas de Multiplicación y División",
+  "icono": "📦",
+  "descripcion": "Grupos iguales, repartos, filas y comparaciones: elige la operación y resuelve.",
+  "tituloSeo": "Problemas de multiplicación y división para tercero y cuarto",
+  "descripcionSeo": "Juego de problemas de multiplicación y división para 3.º y 4.º de primaria: grupos iguales, repartos equitativos y comparación.",
+  "mezclarPreguntas": true,
+  "preguntas": [
+    {
+      "enunciado": "📦 En una caja hay 6 filas de 8 chocolates. ¿Cuántos chocolates hay en total?",
+      "opciones": [
+        "48",
+        "14",
+        "42",
+        "56"
+      ],
+      "correcta": 0,
+      "explicacion": "Son grupos iguales: 6 × 8 = 48."
+    },
+    {
+      "enunciado": "🍪 Se reparten 36 galletas entre 4 niños en partes iguales. ¿Cuántas recibe cada uno?",
+      "opciones": [
+        "9",
+        "32",
+        "8",
+        "12"
+      ],
+      "correcta": 0,
+      "explicacion": "Es un reparto: 36 ÷ 4 = 9."
+    },
+    {
+      "enunciado": "🚗 Un carro tiene 4 ruedas. ¿Cuántas ruedas tienen 9 carros?",
+      "opciones": [
+        "36",
+        "13",
+        "32",
+        "45"
+      ],
+      "correcta": 0,
+      "explicacion": "4 × 9 = 36."
+    },
+    {
+      "enunciado": "🪑 Hay 42 sillas y se ponen en filas de 7. ¿Cuántas filas se forman?",
+      "opciones": [
+        "6",
+        "35",
+        "7",
+        "5"
+      ],
+      "correcta": 0,
+      "explicacion": "42 ÷ 7 = 6 filas."
+    },
+    {
+      "enunciado": "🧵 Laura tiene 5 cintas y Carolina tiene el triple. ¿Cuántas cintas tiene Carolina?",
+      "opciones": [
+        "15",
+        "8",
+        "3",
+        "25"
+      ],
+      "correcta": 0,
+      "explicacion": "El triple es multiplicar por 3: 5 × 3 = 15."
+    },
+    {
+      "enunciado": "🚌 Un bus lleva 45 pasajeros. ¿Cuántos pasajeros llevan 3 buses llenos?",
+      "opciones": [
+        "135",
+        "48",
+        "125",
+        "145"
+      ],
+      "correcta": 0,
+      "explicacion": "45 × 3 = 135."
+    },
+    {
+      "enunciado": "🥚 Una cubeta tiene 30 huevos. ¿Cuántas cubetas se llenan con 150 huevos?",
+      "opciones": [
+        "5",
+        "120",
+        "6",
+        "50"
+      ],
+      "correcta": 0,
+      "explicacion": "150 ÷ 30 = 5 cubetas."
+    },
+    {
+      "enunciado": "🎒 Hay 25 cuadernos para repartir entre 4 estudiantes en partes iguales. ¿Qué pasa?",
+      "opciones": [
+        "Cada uno recibe 6 y sobra 1",
+        "Cada uno recibe 5 y sobran 5",
+        "Cada uno recibe 7",
+        "No se puede repartir"
+      ],
+      "correcta": 0,
+      "explicacion": "4 × 6 = 24, y de 25 sobra 1."
+    },
+    {
+      "enunciado": "🌳 En un parque se siembran 8 filas de 12 árboles. ¿Cuántos árboles se siembran?",
+      "opciones": [
+        "96",
+        "20",
+        "86",
+        "108"
+      ],
+      "correcta": 0,
+      "explicacion": "8 × 12 = 96."
+    },
+    {
+      "enunciado": "Para saber cuántos equipos de 5 jugadores se forman con 40 niños, ¿qué operación se hace?",
+      "opciones": [
+        "40 ÷ 5",
+        "40 × 5",
+        "40 + 5",
+        "40 − 5"
+      ],
+      "correcta": 0,
+      "explicacion": "Se reparte el total en grupos de 5: 40 ÷ 5 = 8 equipos."
+    },
+    {
+      "enunciado": "💧 Un tanque se llena con 6 baldes de 12 litros. ¿Cuántos litros caben en el tanque?",
+      "opciones": [
+        "72",
+        "18",
+        "62",
+        "84"
+      ],
+      "correcta": 0,
+      "explicacion": "6 × 12 = 72 litros."
+    },
+    {
+      "enunciado": "📖 Un libro tiene 96 páginas. Si lees 8 páginas cada día, ¿en cuántos días lo terminas?",
+      "opciones": [
+        "12",
+        "88",
+        "11",
+        "13"
+      ],
+      "correcta": 0,
+      "explicacion": "96 ÷ 8 = 12 días."
+    }
+  ]
+}
