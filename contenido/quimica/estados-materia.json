@@ -23,7 +23,8 @@
         "Grande, mediano y pequeño",
         "Duro, blando y elástico"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Sólido (forma fija), líquido (toma la forma del recipiente) y gas (ocupa todo el espacio)."
     },
     {
       "enunciado": "¿Cómo se llama el paso de sólido a líquido?",
@@ -65,7 +66,8 @@
         "Sólido",
         "Líquido"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En los gases las partículas están muy separadas y se mueven en todas las direcciones."
     },
     {
       "enunciado": "¿Qué estado de la materia tiene forma y volumen propios?",
@@ -96,7 +98,8 @@
         "10 °C",
         "−50 °C"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "A 0 °C el agua pasa de líquido a sólido: se congela y forma hielo."
     },
     {
       "enunciado": "¿Cómo se llama el paso de líquido a gas?",
@@ -128,7 +131,8 @@
         "La regla",
         "El reloj"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El termómetro indica la temperatura; «termo» significa calor y «metro», medida."
     }
   ]
 }

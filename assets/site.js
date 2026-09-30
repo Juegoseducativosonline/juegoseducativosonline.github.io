@@ -432,7 +432,66 @@ window.JEO = (function () {
     prepararBotonSonido();
   }
 
+  /* --- Explicaciones y repaso final, comunes a todos los juegos ------------------------ */
+  function nodo(etiqueta, clase, texto) {
+    var el = document.createElement(etiqueta);
+    if (clase) { el.className = clase; }
+    if (texto !== undefined) { el.textContent = texto; }
+    return el;
+  }
+
+  /* Pinta en `el` la explicación y, si hay, un dato curioso. Se muestra siempre,
+     se haya acertado o no: lo importante es entender el porqué. */
+  function explicar(el, explicacion, curioso) {
+    var hijos = [];
+    if (explicacion) {
+      var p = nodo('p', 'porque-texto');
+      p.appendChild(nodo('strong', null, '📘 ¿Por qué? '));
+      p.appendChild(document.createTextNode(explicacion));
+      hijos.push(p);
+    }
+    if (curioso) {
+      var c = nodo('p', 'porque-curioso');
+      c.appendChild(nodo('strong', null, '🤓 ¿Sabías que…? '));
+      c.appendChild(document.createTextNode(curioso));
+      hijos.push(c);
+    }
+    el.replaceChildren.apply(el, hijos);
+    el.classList.toggle('hidden', !hijos.length);
+  }
+
+  /* Repaso al final de la actividad: cada ítem con su respuesta y explicación,
+     marcado ✓ o ✗, y los datos curiosos del tema. */
+  function repaso(items, curiosos) {
+    var sec = nodo('section', 'repaso');
+    sec.appendChild(nodo('h3', null, '📘 Repaso: las respuestas y su porqué'));
+    var ol = nodo('ol', 'repaso-lista');
+    items.forEach(function (it) {
+      var li = nodo('li', it.bien === false ? 'repaso-mal' : 'repaso-bien');
+      li.appendChild(nodo('span', 'repaso-marca', it.bien === false ? '✗ ' : '✓ '));
+      li.appendChild(nodo('strong', null, it.titulo));
+      if (it.tuya) {
+        li.appendChild(nodo('span', 'repaso-tuya', ' Tu respuesta: ' + it.tuya + '.'));
+      }
+      li.appendChild(nodo('span', 'repaso-respuesta', ' Respuesta: ' + it.respuesta + '.'));
+      if (it.explicacion) {
+        li.appendChild(nodo('span', 'repaso-explicacion', ' ' + it.explicacion));
+      }
+      ol.appendChild(li);
+    });
+    sec.appendChild(ol);
+    if (curiosos && curiosos.length) {
+      sec.appendChild(nodo('h3', null, '🤓 Datos curiosos'));
+      var ul = nodo('ul', 'repaso-curiosos');
+      curiosos.forEach(function (t) { ul.appendChild(nodo('li', null, t)); });
+      sec.appendChild(ul);
+    }
+    return sec;
+  }
+
   return {
+    explicar: explicar,
+    repaso: repaso,
     EMOJIS: EMOJIS,
     ELOGIOS: ELOGIOS,
     enteroAleatorio: enteroAleatorio,

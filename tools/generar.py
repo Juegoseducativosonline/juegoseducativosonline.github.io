@@ -325,8 +325,10 @@ def cargar_quiz(ruta_json, donde_catalogo):
                                  % (d, len(opciones)))
 
         limpia = {'enunciado': enunciado, 'opciones': opciones, 'correcta': correcta}
-        if 'explicacion' in p:
-            limpia['explicacion'] = texto_obligatorio(p, 'explicacion', d)
+        # Toda pregunta explica su respuesta: se muestra siempre, se acierte o no.
+        limpia['explicacion'] = texto_obligatorio(p, 'explicacion', d)
+        if 'curioso' in p:
+            limpia['curioso'] = texto_obligatorio(p, 'curioso', d)
         if 'pasaje' in p:
             clave = texto_obligatorio(p, 'pasaje', d)
             if clave not in pasajes:
@@ -406,7 +408,8 @@ def cargar_parejas(ruta_json):
     return Juego(
         tipo='parejas', ruta=ruta_json.relative_to(CONTENIDO).with_suffix('.html').as_posix(),
         detalle=plural(len(pares), 'pareja', 'parejas'),
-        datos={'tipo': 'parejas', 'pares': [{'a': x['a'], 'b': x['b']} for x in pares],
+        datos={'tipo': 'parejas', 'pares': [dict({'a': x['a'], 'b': x['b']}, **({'dato': x['dato']} if x.get('dato') else {}))
+                                            for x in pares],
                'paresPorRonda': por_ronda,
                'etiquetaA': texto_opcional(datos, 'etiquetaA', donde) or 'Relaciona',
                'etiquetaB': texto_opcional(datos, 'etiquetaB', donde) or 'con su pareja'},
@@ -422,9 +425,10 @@ def cargar_ordenar(ruta_json):
         d = '%s, ronda %d' % (donde, n)
         ronda = {'instruccion': texto_obligatorio(r, 'instruccion', d),
                  'elementos': lista_de_textos(r.get('elementos'), d, 'elementos', MIN_ELEMENTOS_ORDENAR)}
-        explicacion = texto_opcional(r, 'explicacion', d)
-        if explicacion:
-            ronda['explicacion'] = explicacion
+        ronda['explicacion'] = texto_obligatorio(r, 'explicacion', d)
+        for opcional in ('curioso', 'pista'):
+            if opcional in r:
+                ronda[opcional] = texto_obligatorio(r, opcional, d)
         rondas.append(ronda)
     return Juego(
         tipo='ordenar', ruta=ruta_json.relative_to(CONTENIDO).with_suffix('.html').as_posix(),
@@ -594,6 +598,13 @@ def asignar_curriculo(materias):
                      'texto': texto_obligatorio(sit, 'texto', donde_p),
                      'preguntas': lista_de_textos(sit.get('preguntas'), donde_p, 'preguntas', 1)}
         j.curriculo = dict(c, fuentes_doc=fuentes, indicadores=indicadores, situacion=situacion)
+        # Datos curiosos del tema: van en el repaso final de la actividad.
+        curiosos = p.get('curiosos', [])
+        if curiosos:
+            curiosos = lista_de_textos(curiosos, donde_p, 'curiosos', 1)
+            if j.tipo in MOTORES:
+                j.datos['curiosos'] = curiosos
+        j.curiosos = curiosos
     sobran = set(alineacion) - set(juegos)
     if sobran:
         raise ErrorContenido('curriculo.json tiene juegos que no están en el catálogo: %s.' % ', '.join(sorted(sobran)))

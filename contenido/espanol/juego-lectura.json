@@ -44,7 +44,8 @@
         "A su vecino"
       ],
       "correcta": 0,
-      "pasaje": "huerto"
+      "pasaje": "huerto",
+      "explicacion": "El texto dice que Lucía visita a su abuelo Tomás todos los sábados."
     },
     {
       "enunciado": "¿Por qué estaban caídas las hojas de los tomates?",
@@ -79,7 +80,8 @@
         "Visitar a su abuelo todos los días"
       ],
       "correcta": 0,
-      "pasaje": "huerto"
+      "pasaje": "huerto",
+      "explicacion": "Lucía encontró una solución: recordarle al abuelo a mitad de semana que regara la huerta."
     },
     {
       "enunciado": "¿Qué enseñanza nos deja este cuento?",
@@ -114,7 +116,8 @@
         "Dormir mientras vuela"
       ],
       "correcta": 0,
-      "pasaje": "colibri"
+      "pasaje": "colibri",
+      "explicacion": "Sus alas baten tan rápido que puede quedarse suspendido e incluso retroceder."
     },
     {
       "enunciado": "¿Qué es el néctar?",
@@ -137,7 +140,8 @@
         "Riega la tierra"
       ],
       "correcta": 0,
-      "pasaje": "colibri"
+      "pasaje": "colibri",
+      "explicacion": "Al beber néctar, el polen se le pega y lo lleva a otra flor: así la poliniza."
     },
     {
       "enunciado": "¿Dónde viven los colibríes?",
@@ -148,7 +152,8 @@
         "Solo en Europa"
       ],
       "correcta": 0,
-      "pasaje": "colibri"
+      "pasaje": "colibri",
+      "explicacion": "El texto explica que los colibríes solo viven en el continente americano."
     },
     {
       "enunciado": "¿Qué le dio la mamá a Tomás antes de ir a la escuela?",
@@ -159,7 +164,8 @@
         "Una merienda"
       ],
       "correcta": 0,
-      "pasaje": "paraguas"
+      "pasaje": "paraguas",
+      "explicacion": "La mamá le dio un paraguas amarillo porque iba a llover."
     },
     {
       "enunciado": "¿Por qué se quedó Sofía sola bajo un árbol?",
@@ -170,7 +176,8 @@
         "Porque no quería jugar"
       ],
       "correcta": 0,
-      "pasaje": "paraguas"
+      "pasaje": "paraguas",
+      "explicacion": "Sofía volvió por su chaqueta y por eso se quedó atrás, sola bajo el árbol."
     },
     {
       "enunciado": "¿Qué palabra describe mejor lo que hizo Tomás en el recreo?",

@@ -23,7 +23,8 @@
         "Le digo solo el nombre de mi escuela",
         "Le mando una foto de mi casa"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Tu dirección es un dato personal: un desconocido podría usarla para hacerte daño."
     },
     {
       "enunciado": "¿Qué es el phishing?",
@@ -33,7 +34,8 @@
         "Un tipo de antivirus",
         "Una red social"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Phishing viene de «fishing» (pescar): el estafador «pesca» datos con mensajes falsos."
     },
     {
       "enunciado": "Recibes un mensaje: «¡Ganaste un celular! Haz clic aquí». ¿Qué haces?",
@@ -65,7 +67,8 @@
         "Con quien te la pida",
         "Con todo el mundo, publicándola para no olvidarla"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Tus padres o tutores te cuidan; nadie más debe conocer tus contraseñas."
     },
     {
       "enunciado": "Antes de publicar una foto en internet, ¿qué conviene pensar?",
@@ -75,7 +78,8 @@
         "Que nadie la va a ver",
         "Que da igual lo que muestre"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Lo que se publica puede copiarse y compartirse aunque luego lo borres."
     },
     {
       "enunciado": "¿Qué indica el candado junto a la dirección de una página web?",
@@ -96,7 +100,8 @@
         "Responder con insultos",
         "Compartirlo con todos"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Un adulto de confianza puede ayudarte a bloquear, denunciar y sentirte seguro."
     },
     {
       "enunciado": "¿Cuál de estos datos NO debes publicar en internet?",
@@ -106,7 +111,8 @@
         "Tu comida favorita",
         "Tu película favorita"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Dirección y teléfono permiten ubicarte: son datos privados."
     },
     {
       "enunciado": "¿Qué significa verificar una información de internet?",
@@ -116,7 +122,8 @@
         "Compartirla enseguida",
         "Darle «me gusta»"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Verificar evita creer y compartir noticias falsas."
     },
     {
       "enunciado": "¿Es buena idea usar la misma contraseña en todas tus cuentas?",
@@ -126,7 +133,8 @@
         "Sí, es más seguro",
         "Solo si es corta"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Con contraseñas distintas, si roban una, las demás cuentas siguen protegidas."
     }
   ]
 }

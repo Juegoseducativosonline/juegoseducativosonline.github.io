@@ -15,7 +15,8 @@
         "Sol",
         "La",
         "Si"
-      ]
+      ],
+      "explicacion": "La escala de do mayor sube nota a nota: do, re, mi, fa, sol, la, si, y vuelve a empezar en do."
     },
     {
       "instruccion": "Ordena las figuras musicales de mayor a menor duración",
@@ -38,7 +39,8 @@
         "Azul",
         "Añil",
         "Violeta"
-      ]
+      ],
+      "explicacion": "La luz blanca se separa siempre en ese orden (rojo arriba, violeta abajo) porque cada color se desvía distinto al atravesar las gotas."
     },
     {
       "instruccion": "Ordena del tono más claro al más oscuro",
@@ -48,7 +50,8 @@
         "Gris",
         "Gris oscuro",
         "Negro"
-      ]
+      ],
+      "explicacion": "Los grises van del blanco al negro: cuanto más negro llevan, más oscuros son."
     }
   ]
 }

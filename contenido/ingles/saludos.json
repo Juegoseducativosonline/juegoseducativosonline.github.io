@@ -12,7 +12,8 @@
         "Adiós",
         "Gracias"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Good morning se usa antes del mediodía, como «buenos días»."
     },
     {
       "enunciado": "¿Cómo se dice «gracias» en inglés?",
@@ -22,7 +23,8 @@
         "Sorry",
         "Hello"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Thank you = gracias; también se dice «thanks»."
     },
     {
       "enunciado": "¿Qué significa «What is your name?»?",
@@ -32,7 +34,8 @@
         "¿Dónde vives?",
         "¿Cómo estás?"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "What is your name? pregunta el nombre; se responde «My name is…»."
     },
     {
       "enunciado": "Si alguien te dice «How are you?», ¿qué puedes responder?",
@@ -42,7 +45,8 @@
         "My name is Ana",
         "Goodbye"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "A «How are you?» se responde cómo estás: «I'm fine, thank you»."
     },
     {
       "enunciado": "¿Qué significa «Please»?",
@@ -52,7 +56,8 @@
         "De nada",
         "Hola"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Please = por favor; es la palabra mágica para pedir algo con cortesía."
     },
     {
       "enunciado": "¿Cómo se pregunta «¿Cuántos años tienes?» en inglés?",
@@ -62,7 +67,8 @@
         "Where are you from?",
         "What time is it?"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Para la edad se usa «old»: How old are you? – I am eight years old."
     },
     {
       "enunciado": "¿Qué significa «See you later»?",
@@ -72,7 +78,8 @@
         "Buenas tardes",
         "Lo siento"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "See you later = hasta luego; «later» significa «más tarde»."
     },
     {
       "enunciado": "¿Qué significa «Nice to meet you»?",
@@ -82,7 +89,8 @@
         "¿Qué hora es?",
         "Buen provecho"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Nice to meet you se dice al conocer a alguien por primera vez."
     },
     {
       "enunciado": "¿Qué significa «Good night»?",
@@ -92,7 +100,8 @@
         "Buenas tardes",
         "Hola"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Good night se usa al despedirse por la noche o al ir a dormir."
     },
     {
       "enunciado": "¿Cómo se dice «lo siento» en inglés?",
@@ -102,7 +111,8 @@
         "Thanks",
         "Welcome"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Sorry = lo siento; se usa para disculparse."
     },
     {
       "enunciado": "¿Qué significa «Where are you from?»?",
@@ -112,7 +122,8 @@
         "¿Cómo te llamas?",
         "¿Qué hora es?"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Where are you from? pregunta el origen; se responde «I am from Colombia»."
     },
     {
       "enunciado": "Si alguien te dice «Thank you», ¿qué puedes responder?",

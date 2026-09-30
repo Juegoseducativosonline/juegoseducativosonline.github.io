@@ -13,7 +13,8 @@
         "casa",
         "dedo",
         "elefante"
-      ]
+      ],
+      "explicacion": "Se ordena por la primera letra según el abecedario: a, b, c, d, e."
     },
     {
       "instruccion": "Ordena alfabéticamente: todas empiezan por m, fíjate en la segunda letra",
@@ -33,7 +34,8 @@
         "ri",
         "po",
         "sa"
-      ]
+      ],
+      "explicacion": "Al decir «ma-ri-po-sa» con palmas, cada golpe es una sílaba en ese orden."
     },
     {
       "instruccion": "Ordena las partes de un cuento",
@@ -41,7 +43,8 @@
         "Inicio: se presentan los personajes",
         "Nudo: aparece un problema",
         "Desenlace: se resuelve el problema"
-      ]
+      ],
+      "explicacion": "Todo cuento presenta personajes, plantea un problema y lo resuelve al final."
     },
     {
       "instruccion": "Ordena las partes de una carta",
@@ -51,7 +54,8 @@
         "Cuerpo del mensaje",
         "Despedida",
         "Firma"
-      ]
+      ],
+      "explicacion": "La carta empieza con lugar y fecha, saluda, cuenta el mensaje, se despide y se firma."
     }
   ]
 }

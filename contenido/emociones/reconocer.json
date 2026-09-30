@@ -15,7 +15,8 @@
         "Enojo",
         "Miedo"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La sonrisa y los ojos alegres muestran alegría."
     },
     {
       "enunciado": "😢 ¿Qué emoción muestra esta cara?",
@@ -25,7 +26,8 @@
         "Sorpresa",
         "Enojo"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Las lágrimas y la boca hacia abajo muestran tristeza."
     },
     {
       "enunciado": "😠 ¿Qué emoción muestra esta cara?",
@@ -35,7 +37,8 @@
         "Calma",
         "Sorpresa"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Las cejas juntas y el ceño fruncido muestran enojo."
     },
     {
       "enunciado": "😨 ¿Qué emoción muestra esta cara?",
@@ -45,7 +48,8 @@
         "Enojo",
         "Aburrimiento"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Los ojos muy abiertos y la boca tensa muestran miedo."
     },
     {
       "enunciado": "😲 ¿Qué emoción muestra esta cara?",
@@ -55,7 +59,8 @@
         "Enojo",
         "Calma"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La boca abierta y las cejas levantadas muestran sorpresa."
     },
     {
       "enunciado": "🤢 ¿Qué emoción muestra esta cara?",
@@ -65,7 +70,8 @@
         "Miedo",
         "Tristeza"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La cara de asco aparece ante algo que huele o sabe mal."
     },
     {
       "enunciado": "😌 ¿Qué emoción muestra esta cara?",
@@ -75,7 +81,8 @@
         "Miedo",
         "Sorpresa"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Los ojos cerrados y la sonrisa suave muestran calma y tranquilidad."
     },
     {
       "enunciado": "Lucía abre su regalo de cumpleaños y es justo lo que quería. ¿Cómo se siente?",
@@ -85,7 +92,8 @@
         "Enojada",
         "Asustada"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Recibir lo que deseábamos nos produce alegría."
     },
     {
       "enunciado": "Pedro perdió su juguete favorito. ¿Cómo se siente?",
@@ -95,7 +103,8 @@
         "Sorprendido",
         "Tranquilo"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Perder algo que queremos nos pone tristes."
     },
     {
       "enunciado": "Un compañero rompe tu dibujo a propósito. ¿Qué emoción es normal sentir?",
@@ -116,7 +125,8 @@
         "Aburrimiento",
         "Orgullo"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Lo inesperado y la oscuridad pueden dar miedo; es una emoción que nos protege."
     },
     {
       "enunciado": "¿Hay emociones malas?",

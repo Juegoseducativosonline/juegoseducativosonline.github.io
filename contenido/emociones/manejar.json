@@ -15,7 +15,8 @@
         "Romper algo",
         "Empujar a alguien"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Respirar hondo y contar le da tiempo al cuerpo para bajar la rabia antes de actuar."
     },
     {
       "enunciado": "Un amigo está triste. ¿Qué puedes hacer?",
@@ -25,7 +26,8 @@
         "Ignorarlo",
         "Contárselo a todos para burlarse"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Escuchar sin juzgar hace que la otra persona se sienta acompañada y comprendida."
     },
     {
       "enunciado": "Tienes miedo antes de un examen. ¿Qué te ayuda?",
@@ -35,7 +37,8 @@
         "Esconderte",
         "Decir que estás enfermo"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Estudiar con tiempo reduce la incertidumbre, y hablarlo con alguien alivia la preocupación."
     },
     {
       "enunciado": "¿Qué es la empatía?",
@@ -45,7 +48,8 @@
         "Ganar todos los juegos",
         "No sentir nada"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La empatía es imaginar cómo se siente el otro; es la base para ayudar y convivir."
     },
     {
       "enunciado": "Te equivocaste en algo. ¿Cuál es una buena reacción?",
@@ -55,7 +59,8 @@
         "Echarle la culpa a otro",
         "Enfadarte contigo todo el día"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Equivocarse es parte de aprender: el error muestra qué cambiar la próxima vez."
     },
     {
       "enunciado": "¿Cómo puedes decir que algo te molestó sin pelear?",
@@ -65,7 +70,8 @@
         "Empujando",
         "No volviendo a hablar nunca"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Hablar en primera persona («me sentí…») expresa lo que sientes sin atacar al otro."
     },
     {
       "enunciado": "En el recreo ves que molestan a un compañero. ¿Qué haces?",
@@ -75,7 +81,8 @@
         "Lo grabo y lo comparto",
         "Miro y me río"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Avisar a un adulto y acompañar a la víctima detiene el acoso sin ponerte en peligro."
     },
     {
       "enunciado": "¿Qué ayuda a sentirse mejor cuando estás triste?",
@@ -85,7 +92,8 @@
         "Pelear con alguien",
         "Dejar de comer"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Compartir la tristeza con alguien de confianza la hace más llevadera."
     },
     {
       "enunciado": "¿Qué es la autoestima?",
@@ -95,7 +103,8 @@
         "Tener muchos juguetes",
         "Estar siempre contento"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La autoestima es cómo te valoras; una autoestima sana te ayuda a enfrentar retos."
     },
     {
       "enunciado": "Tu hermano rompió tu juguete sin querer y te pidió perdón. ¿Qué haces?",
@@ -105,7 +114,8 @@
         "No le hablo nunca más",
         "Le grito"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Si fue sin querer y pidió perdón, aceptar la disculpa cuida la relación."
     },
     {
       "enunciado": "¿Qué significa ser paciente?",
@@ -115,7 +125,8 @@
         "Enojarse al esperar",
         "No escuchar a nadie"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La paciencia es esperar sin enojarse, entendiendo que algunas cosas toman tiempo."
     },
     {
       "enunciado": "Estás nervioso. ¿Cuál es un buen ejercicio?",
@@ -125,7 +136,8 @@
         "Comer muchos dulces",
         "Gritar muy fuerte"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Respirar lento le avisa al cuerpo que no hay peligro, y el corazón se calma."
     }
   ]
 }

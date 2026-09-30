@@ -12,7 +12,8 @@
         "Solo la electricidad",
         "El calor del sol y nada más"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Sin energía nada cambia: la necesitamos para movernos, calentar o iluminar."
     },
     {
       "enunciado": "¿Qué tipo de energía tiene un objeto en movimiento?",
@@ -22,7 +23,8 @@
         "Química",
         "Nuclear"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Cinética viene del griego «movimiento»: todo cuerpo que se mueve la tiene."
     },
     {
       "enunciado": "¿Qué tipo de energía tiene una roca en lo alto de una montaña, por estar a esa altura?",
@@ -54,7 +56,8 @@
         "De calor a sonido",
         "De movimiento a luz"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Las celdas del panel transforman la luz del Sol en corriente eléctrica."
     },
     {
       "enunciado": "¿Qué dice el principio de conservación de la energía?",
@@ -64,7 +67,8 @@
         "Solo los seres vivos tienen energía",
         "La energía se crea en las centrales eléctricas"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La energía pasa de una forma a otra, pero la cantidad total se mantiene."
     },
     {
       "enunciado": "¿Qué tipo de energía guardan los alimentos y las pilas?",
@@ -96,7 +100,8 @@
         "Solar",
         "Geotérmica"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El agua que cae mueve turbinas que generan electricidad: energía hidráulica."
     },
     {
       "enunciado": "¿Qué transformación de energía ocurre en una bombilla encendida?",
@@ -106,7 +111,8 @@
         "De sonido a luz",
         "De movimiento a sonido"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La bombilla convierte electricidad en luz, y parte se pierde como calor."
     },
     {
       "enunciado": "¿Por qué conviene apagar la luz al salir de una habitación?",
@@ -116,7 +122,8 @@
         "Porque la luz se gasta sola",
         "Para que la habitación se enfríe"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Una luz encendida sin uso gasta energía y dinero y contamina más."
     },
     {
       "enunciado": "¿Cómo se llama la energía relacionada con el calor?",
@@ -126,7 +133,8 @@
         "Cinética",
         "Sonora"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La energía térmica está ligada al movimiento de las partículas: más movimiento, más calor."
     }
   ]
 }

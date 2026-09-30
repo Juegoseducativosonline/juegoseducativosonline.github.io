@@ -12,7 +12,8 @@
         "Un robot",
         "Una computadora pequeña"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Una máquina simple cambia la dirección o el tamaño de la fuerza para trabajar con menos esfuerzo."
     },
     {
       "enunciado": "Un subibaja es un ejemplo de…",
@@ -66,7 +67,8 @@
         "Plano inclinado",
         "Palanca"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La rueda gira alrededor del eje y reduce el rozamiento al avanzar."
     },
     {
       "enunciado": "Un tornillo es, en realidad…",
@@ -76,7 +78,8 @@
         "Una polea pequeña",
         "Una rueda aplastada"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Si desenrollas la rosca de un tornillo, obtienes una rampa: un plano inclinado."
     },
     {
       "enunciado": "¿Cuál de estos objetos funciona como una palanca?",
@@ -97,7 +100,8 @@
         "Cuña",
         "Plano inclinado"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La carretilla es una palanca: la rueda es el apoyo, la carga está en medio y la fuerza en las manijas."
     },
     {
       "enunciado": "¿Para qué usa una grúa un sistema de varias poleas?",
@@ -107,7 +111,8 @@
         "Para medir el peso",
         "Para enfriar su motor"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Con varias poleas el peso se reparte entre las cuerdas y se necesita menos fuerza."
     },
     {
       "enunciado": "¿Qué es una máquina compuesta?",
@@ -117,7 +122,8 @@
         "Una que funciona sin ninguna fuerza",
         "Una máquina rota"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La bicicleta combina ruedas y ejes, palancas (pedales, frenos) y engranajes."
     },
     {
       "enunciado": "¿Cómo se llama el punto sobre el que gira una palanca?",
@@ -127,7 +133,8 @@
         "Potencia",
         "Eje de la rueda"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El fulcro es el punto fijo sobre el que gira la palanca, como el centro de un balancín."
     }
   ]
 }

@@ -15,7 +15,8 @@
         "Friday",
         "Saturday",
         "Sunday"
-      ]
+      ],
+      "explicacion": "La semana escolar empieza el Monday y termina con el fin de semana: Saturday y Sunday."
     },
     {
       "instruccion": "Ordena los primeros seis meses del año",
@@ -26,7 +27,8 @@
         "April",
         "May",
         "June"
-      ]
+      ],
+      "explicacion": "Los meses en inglés se parecen al español: January (enero), February (febrero)…"
     },
     {
       "instruccion": "Ordena estos animales del más pequeño al más grande",

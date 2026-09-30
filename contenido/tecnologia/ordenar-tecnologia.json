@@ -25,7 +25,8 @@
         "Computadora de válvulas",
         "Computadora personal",
         "Teléfono inteligente"
-      ]
+      ],
+      "explicacion": "El ábaco tiene miles de años; el teléfono inteligente apareció a comienzos del siglo XXI."
     },
     {
       "instruccion": "Ordena las unidades de información de menor a mayor",
@@ -47,7 +48,8 @@
         "Escribir la dirección del destinatario",
         "Escribir el asunto y el mensaje",
         "Pulsar «Enviar»"
-      ]
+      ],
+      "explicacion": "Sin destinatario el correo no sale, y el asunto ayuda a quien lo recibe a saber de qué trata."
     }
   ]
 }

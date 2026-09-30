@@ -12,7 +12,8 @@
         "Jiraffa",
         "Hirafa"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "«Jirafa» se escribe con j: ante i y e, ge/gi y je/ji suenan igual y hay que memorizarlas."
     },
     {
       "enunciado": "¿Cuál de estas palabras lleva tilde?",
@@ -66,7 +67,8 @@
         "Solo al final de una oración",
         "En todos los verbos"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La mayúscula marca el comienzo de una oración y distingue los nombres propios."
     },
     {
       "enunciado": "¿Con qué signos se escribe una pregunta en español?",
@@ -98,7 +100,8 @@
         "Hormija",
         "Jormiga"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "«Hormiga» lleva h inicial aunque no suena; viene del latín «formica»."
     },
     {
       "enunciado": "¿Cuál de estas palabras es esdrújula y lleva tilde?",
@@ -119,7 +122,8 @@
         "Los dos puntos",
         "El guion"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La coma separa los elementos de una enumeración; antes del último va «y»."
     },
     {
       "enunciado": "Completa: «Mi hermano ya ha ___ la tarea».",

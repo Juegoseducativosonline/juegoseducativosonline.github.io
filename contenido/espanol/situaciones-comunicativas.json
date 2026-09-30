@@ -36,7 +36,8 @@
         "Expresar un sentimiento",
         "Describir un paisaje"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Un aviso de «prohibido» regula la conducta: su intención es normativa."
     },
     {
       "enunciado": "¿Qué tipo de texto usarías para explicar cómo preparar una limonada?",
@@ -57,7 +58,8 @@
         "Usar palabras difíciles",
         "Hablar primero siempre"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Comunicarse exige atención al que habla; mirar el celular rompe la escucha."
     },
     {
       "enunciado": "En un debate de clase, ¿qué es lo correcto?",
@@ -67,7 +69,8 @@
         "Gritar para ganar",
         "Burlarse de quien piensa distinto"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En un debate se respetan los turnos para que todas las ideas se escuchen."
     },
     {
       "enunciado": "Un titular dice: «Colegio de Pasto gana concurso nacional de ciencias». ¿Qué tipo de texto es?",
@@ -121,7 +124,8 @@
         "Escuchas la radio",
         "Escribes un mensaje"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Sonreír y levantar el pulgar comunica sin palabras: es comunicación no verbal."
     }
   ]
 }

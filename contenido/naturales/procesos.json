@@ -12,7 +12,8 @@
         "Experimentación",
         "Análisis de resultados",
         "Conclusión"
-      ]
+      ],
+      "explicacion": "Primero se observa y se pregunta; la hipótesis se pone a prueba y los resultados llevan a la conclusión."
     },
     {
       "instruccion": "Ordena las etapas del ciclo del agua, empezando en el mar",
@@ -32,7 +33,8 @@
         "Estómago",
         "Intestino delgado",
         "Intestino grueso"
-      ]
+      ],
+      "explicacion": "El alimento se mastica en la boca, baja por el esófago, se digiere en el estómago y los intestinos absorben lo útil."
     },
     {
       "instruccion": "Ordena los planetas del más cercano al más lejano del Sol",
@@ -45,7 +47,8 @@
         "Saturno",
         "Urano",
         "Neptuno"
-      ]
+      ],
+      "explicacion": "Mercurio es el más cercano al Sol y Neptuno el más lejano; la Tierra es el tercero."
     }
   ],
   "tituloSeo": "Juego interactivo de ciencias: método científico, ciclo del agua y planetas",

@@ -12,7 +12,8 @@
         "Una palabra que describe cómo es algo",
         "Una palabra que une dos oraciones"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Sustantivo viene de «sustancia»: nombra seres, objetos y lugares, como «perro» o «Bogotá»."
     },
     {
       "enunciado": "En «El perro corre rápido», ¿cuál es el verbo?",
@@ -98,7 +99,8 @@
         "los ratóns",
         "el ratones"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Las palabras terminadas en consonante forman el plural con «-es»: ratón → ratones."
     },
     {
       "enunciado": "En «Los niños cantan», ¿cuál es el artículo?",
@@ -107,7 +109,8 @@
         "niños",
         "cantan"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "«Los» acompaña al sustantivo «niños» y nos dice su género y número: es un artículo."
     },
     {
       "enunciado": "¿Cuál de estas palabras es un verbo?",
@@ -117,7 +120,8 @@
         "Azul",
         "Despacio"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "«Saltar» expresa una acción; los verbos en infinitivo terminan en -ar, -er o -ir."
     },
     {
       "enunciado": "¿Cuál de estas oraciones es una pregunta?",
@@ -127,7 +131,8 @@
         "Hoy llueve.",
         "Cierra la puerta."
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En español las preguntas llevan signo de apertura (¿) y de cierre (?)."
     }
   ]
 }

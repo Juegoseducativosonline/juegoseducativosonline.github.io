@@ -12,7 +12,8 @@
         "Og",
         "Oi"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El símbolo del oxígeno es su inicial en mayúscula: O."
     },
     {
       "enunciado": "¿Qué elemento tiene el símbolo Fe?",
@@ -76,7 +77,8 @@
         "Solo átomos de hidrógeno",
         "Hidrógeno y oro"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El subíndice 2 indica dos átomos de hidrógeno; la O sola indica un átomo de oxígeno."
     },
     {
       "enunciado": "¿Cuál de estos elementos es un gas noble?",
@@ -130,7 +132,8 @@
         "El oro",
         "El cobre"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El mercurio es el único metal líquido a temperatura ambiente; se funde a −39 °C."
     }
   ]
 }

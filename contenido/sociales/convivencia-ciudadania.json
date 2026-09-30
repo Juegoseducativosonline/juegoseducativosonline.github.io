@@ -36,7 +36,8 @@
         "No ir nunca al médico",
         "Mandar a los adultos"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La educación es un derecho fundamental de los niños en la Constitución de Colombia (artículo 44)."
     },
     {
       "enunciado": "¿Cuál de estos es un deber en el colegio?",
@@ -46,7 +47,8 @@
         "Dañar los pupitres",
         "No hacer las tareas"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Los deberes hacen posible que se cumplan los derechos de todos; el respeto es el primero."
     },
     {
       "enunciado": "Dos compañeros discuten por el balón en el descanso. ¿Qué es lo mejor?",
@@ -67,7 +69,8 @@
         "No volver nunca",
         "Culpar a otros y no hacer nada"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Actuar juntos por el bien común es participación ciudadana."
     },
     {
       "enunciado": "¿Para qué sirve el manual de convivencia del colegio?",
@@ -77,7 +80,8 @@
         "Para decorar el salón",
         "Solo para los profesores"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El manual reúne acuerdos, derechos y deberes para convivir en paz en el colegio."
     },
     {
       "enunciado": "Encuentras una billetera con dinero en el patio. ¿Qué haces?",
@@ -87,7 +91,8 @@
         "Botarla",
         "Repartir el dinero"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Devolver lo que no es tuyo es honestidad; el profesor puede encontrar al dueño."
     },
     {
       "enunciado": "Ves que a un compañero lo molestan todos los días. ¿A quién puedes acudir?",
@@ -108,7 +113,8 @@
         "Que decida uno solo sin preguntar",
         "Sortear sin opciones"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En democracia todos proponen y la mayoría decide votando."
     }
   ]
 }

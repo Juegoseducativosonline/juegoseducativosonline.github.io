@@ -12,7 +12,8 @@
         "Internet",
         "Los archivos guardados"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Hardware es todo lo físico: teclado, pantalla, cables, procesador."
     },
     {
       "enunciado": "¿Qué es el software?",
@@ -22,7 +23,8 @@
         "La pantalla",
         "Los cables"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El software son los programas: sin ellos el hardware no sabría qué hacer."
     },
     {
       "enunciado": "¿Cuál de estos es un dispositivo de entrada?",
@@ -43,7 +45,8 @@
         "El micrófono",
         "El escáner"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La impresora saca información de la computadora al papel: es de salida."
     },
     {
       "enunciado": "¿Qué parte se considera el «cerebro» de la computadora porque procesa la información?",
@@ -53,7 +56,8 @@
         "El teclado",
         "La memoria USB"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La CPU hace todos los cálculos y ejecuta las instrucciones de los programas."
     },
     {
       "enunciado": "¿Qué es un sistema operativo?",
@@ -96,7 +100,8 @@
         "Los altavoces",
         "El ratón"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La memoria USB guarda archivos y se conecta a cualquier computadora."
     },
     {
       "enunciado": "¿Qué es un navegador web?",
@@ -117,7 +122,8 @@
         "Para imprimir",
         "Para enfriar la computadora"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El antivirus detecta y elimina programas maliciosos que dañan o roban información."
     },
     {
       "enunciado": "En Windows, ¿qué combinación de teclas sirve para copiar?",

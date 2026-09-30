@@ -12,7 +12,8 @@
         "Anfibios",
         "Insectos"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Vertebrados tienen vértebras, huesos que forman la columna, como peces, aves y mamíferos."
     },
     {
       "enunciado": "¿Cuál de estos animales es un mamífero?",
@@ -44,7 +45,8 @@
         "Omnívoros",
         "Insectívoros"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Herbívoro viene de «hierba»: comen plantas, como la vaca o el conejo."
     },
     {
       "enunciado": "¿Qué animal cambia de forma al crecer, de renacuajo a adulto?",
@@ -87,7 +89,8 @@
         "Pelo",
         "Caparazón"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Las plumas son exclusivas de las aves y les sirven para volar y mantener el calor."
     },
     {
       "enunciado": "¿Cómo se llaman los animales que comen tanto plantas como carne?",
@@ -130,7 +133,8 @@
         "Uno que vive en la selva",
         "Uno que come carne"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Cuando una especie tiene muy pocos individuos puede desaparecer para siempre; por eso se protege."
     }
   ]
 }

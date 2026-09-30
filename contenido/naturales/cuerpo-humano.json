@@ -12,7 +12,8 @@
         "El estómago",
         "El hígado"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El corazón es un músculo que late unas 100.000 veces al día bombeando sangre."
     },
     {
       "enunciado": "¿Qué órganos se encargan de la respiración?",
@@ -22,7 +23,8 @@
         "El corazón",
         "Los intestinos"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En los pulmones el oxígeno del aire pasa a la sangre y sale el dióxido de carbono."
     },
     {
       "enunciado": "¿Con qué órgano pensamos y controlamos el cuerpo?",
@@ -32,7 +34,8 @@
         "El estómago",
         "Los pulmones"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El cerebro recibe la información de los sentidos y envía órdenes al cuerpo a través de los nervios."
     },
     {
       "enunciado": "¿Cuántos huesos tiene el cuerpo de una persona adulta?",
@@ -75,7 +78,8 @@
         "Correr, saltar, nadar, comer y dormir",
         "Boca, nariz, ojos, manos y pies"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Con los cinco sentidos percibimos el mundo: ojos, oídos, nariz, lengua y piel."
     },
     {
       "enunciado": "¿Cómo se llama el conjunto de huesos del cuerpo?",
@@ -85,7 +89,8 @@
         "El sistema digestivo",
         "La piel"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El esqueleto adulto tiene 206 huesos que sostienen y protegen el cuerpo."
     },
     {
       "enunciado": "¿Qué lleva la sangre a todas las partes del cuerpo?",
@@ -95,7 +100,8 @@
         "Pensamientos",
         "Trocitos de hueso"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La sangre reparte oxígeno y nutrientes y recoge los desechos de las células."
     },
     {
       "enunciado": "¿Qué órganos filtran la sangre y forman la orina?",
@@ -105,7 +111,8 @@
         "El corazón",
         "El cerebro"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Los riñones limpian la sangre y eliminan lo que sobra en la orina."
     },
     {
       "enunciado": "¿Qué hábito ayuda a tener los dientes sanos?",
@@ -115,7 +122,8 @@
         "Cepillarlos una vez al mes",
         "No beber agua"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El cepillado quita los restos de comida que usan las bacterias para producir caries."
     },
     {
       "enunciado": "¿Qué une los músculos con los huesos?",
@@ -125,7 +133,8 @@
         "Las uñas",
         "Las venas"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Los tendones son cordones fuertes que transmiten la fuerza del músculo al hueso."
     }
   ]
 }

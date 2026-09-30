@@ -63,6 +63,7 @@
       instruccion: crear('h2', 'quiz-enunciado'),
       zona: crear('div', 'juego-zona'),
       estado: crear('p', 'feedback hidden'),
+      porque: crear('div', 'quiz-porque hidden'),
       seguir: boton('btn hidden', 'Siguiente ➜'),
       juego: crear('div', 'quiz-juego'),
       final: crear('section', 'quiz-resultado hidden'),
@@ -83,7 +84,7 @@
 
     var acciones = crear('div', 'controls');
     acciones.appendChild(e.seguir);
-    [e.progreso, e.barra, e.instruccion, e.zona, e.estado, acciones].forEach(function (el) {
+    [e.progreso, e.barra, e.instruccion, e.zona, e.estado, e.porque, acciones].forEach(function (el) {
       e.juego.appendChild(el);
     });
     [e.finalTitulo, e.finalEstrellas, e.finalCifras, e.finalMensaje, e.reiniciar].forEach(function (el) {
@@ -105,8 +106,13 @@
     e.barra.setAttribute('aria-valuenow', String(hechas));
   }
 
-  function mostrarFinal(e, fallos, tiempoMs, resumen) {
+  function mostrarFinal(e, fallos, tiempoMs, resumen, items, curiosos) {
     var nota = estrellas(fallos);
+    var viejo = e.final.querySelector('.repaso');
+    if (viejo) {
+      viejo.remove();
+    }
+    e.final.insertBefore(JEO.repaso(items || [], curiosos), e.reiniciar);
     e.finalEstrellas.textContent = '⭐⭐⭐'.slice(0, nota.cuantas);
     e.finalEstrellas.setAttribute('aria-label', nota.cuantas + ' de 3 estrellas');
     e.finalCifras.textContent = '⏱️ ' + formatoTiempo(tiempoMs) + ' · ' + fallos + (fallos === 1 ? ' fallo' : ' fallos');
@@ -186,6 +192,7 @@
       tablero.appendChild(columna(datos.etiquetaB, pares, 'b'));
       e.zona.replaceChildren(tablero);
       e.estado.className = 'feedback hidden';
+      e.porque.classList.add('hidden');
       e.seguir.classList.add('hidden');
       actualizarProgreso();
     }
@@ -235,6 +242,7 @@
         seleccion = { a: null, b: null };
         aciertosRonda++;
         actualizarProgreso();
+        JEO.explicar(e.porque, ba.par.dato || '', '');
         if (aciertosRonda === rondas[indiceRonda].length) {
           terminarRonda();
         } else {
@@ -275,7 +283,10 @@
         return;
       }
       mostrarFinal(e, fallos, Date.now() - inicio,
-                   'Has relacionado las ' + datos.pares.length + ' parejas.');
+                   'Has relacionado las ' + datos.pares.length + ' parejas.',
+                   datos.pares.map(function (p) {
+                     return { titulo: p.a, respuesta: p.b, explicacion: p.dato || '' };
+                   }), datos.curiosos);
     });
     e.reiniciar.addEventListener('click', empezar);
 
@@ -292,7 +303,12 @@
     var e = montarEstructura(contenedor);
     var indiceRonda, fallos, inicio, actual, resuelta;
     var comprobar = boton('btn', '✓ Comprobar');
+    var btnPista = boton('btn btn-secundario', '💡 Pista');
+    var btnSolucion = boton('btn btn-secundario hidden', '👀 Ver la solución');
+    var fallosRonda, pistasRonda, resultados;
     e.seguir.parentNode.insertBefore(comprobar, e.seguir);
+    e.seguir.parentNode.insertBefore(btnPista, e.seguir);
+    e.seguir.parentNode.insertBefore(btnSolucion, e.seguir);
 
     function desordenar(elementos) {
       /* Nunca se presenta una ronda ya resuelta. */
@@ -306,6 +322,7 @@
     function empezar() {
       indiceRonda = 0;
       fallos = 0;
+      resultados = [];
       inicio = Date.now();
       e.final.classList.add('hidden');
       e.juego.classList.remove('hidden');
@@ -316,10 +333,15 @@
       var ronda = datos.rondas[indiceRonda];
       actual = desordenar(ronda.elementos);
       resuelta = false;
+      fallosRonda = 0;
+      pistasRonda = 0;
       e.instruccion.textContent = ronda.instruccion;
       e.estado.className = 'feedback hidden';
+      e.porque.classList.add('hidden');
       e.seguir.classList.add('hidden');
       comprobar.classList.remove('hidden');
+      btnPista.classList.remove('hidden');
+      btnSolucion.classList.add('hidden');
       progreso(e, 'Ronda ' + (indiceRonda + 1) + ' de ' + datos.rondas.length + ' · Fallos: ' + fallos,
                indiceRonda, datos.rondas.length);
       dibujar(null);
@@ -385,8 +407,8 @@
       if (bien === marcas.length) {
         resuelta = true;
         dibujar(marcas);
-        avisar(e, '🎉 ¡Orden correcto!' + (ronda.explicacion ? ' ' + ronda.explicacion : ''), 'correct');
-        comprobar.classList.add('hidden');
+        avisar(e, '🎉 ¡Orden correcto!', 'correct');
+        cerrarRonda(true);
         var ultima = indiceRonda + 1 === datos.rondas.length;
         e.seguir.textContent = ultima ? 'Ver resultado 🏁' : 'Siguiente ronda ➜';
         e.seguir.classList.remove('hidden');
@@ -397,11 +419,60 @@
       }
 
       fallos++;
+      fallosRonda++;
       dibujar(marcas);
+      /* Tras dos intentos se ofrece ver la solución, para no quedarse atascado. */
+      if (fallosRonda >= 2) {
+        btnSolucion.classList.remove('hidden');
+      }
       progreso(e, 'Ronda ' + (indiceRonda + 1) + ' de ' + datos.rondas.length + ' · Fallos: ' + fallos,
                indiceRonda, datos.rondas.length);
       avisar(e, bien + ' de ' + marcas.length + ' en su sitio. Mueve los marcados en rojo y vuelve a comprobar.',
              'incorrect');
+    });
+
+    /* Común al acierto y a «ver la solución»: explicación, repaso y botón de seguir. */
+    function cerrarRonda(bien) {
+      var ronda = datos.rondas[indiceRonda];
+      comprobar.classList.add('hidden');
+      btnPista.classList.add('hidden');
+      btnSolucion.classList.add('hidden');
+      JEO.explicar(e.porque, ronda.explicacion, ronda.curioso);
+      resultados.push({ titulo: ronda.instruccion, respuesta: ronda.elementos.join(' → '),
+                        explicacion: ronda.explicacion, bien: bien && fallosRonda === 0 });
+      var ultima = indiceRonda + 1 === datos.rondas.length;
+      e.seguir.textContent = ultima ? 'Ver resultado 🏁' : 'Siguiente ronda ➜';
+      e.seguir.classList.remove('hidden');
+      progreso(e, 'Ronda ' + (indiceRonda + 1) + ' de ' + datos.rondas.length + ' · Fallos: ' + fallos,
+               indiceRonda + 1, datos.rondas.length);
+      e.seguir.focus();
+    }
+
+    /* Pista: primero la del contenido, si la hay; luego, cada vez, dónde va uno de
+       los elementos que aún están fuera de sitio. */
+    btnPista.addEventListener('click', function () {
+      var ronda = datos.rondas[indiceRonda];
+      pistasRonda++;
+      if (ronda.pista && pistasRonda === 1) {
+        avisar(e, '💡 ' + ronda.pista, 'pista');
+        return;
+      }
+      for (var i = 0; i < ronda.elementos.length; i++) {
+        if (actual[i] !== ronda.elementos[i]) {
+          avisar(e, '💡 En el puesto ' + (i + 1) + ' va «' + ronda.elementos[i] + '».', 'pista');
+          return;
+        }
+      }
+      avisar(e, '💡 ¡Ya está todo en su sitio! Pulsa «Comprobar».', 'pista');
+    });
+
+    btnSolucion.addEventListener('click', function () {
+      var ronda = datos.rondas[indiceRonda];
+      actual = ronda.elementos.slice();
+      resuelta = true;
+      dibujar(actual.map(function () { return true; }));
+      avisar(e, 'Así es el orden correcto. Léelo con calma y fíjate en el porqué.', 'pista');
+      cerrarRonda(false);
     });
 
     e.seguir.addEventListener('click', function () {
@@ -412,7 +483,7 @@
         return;
       }
       mostrarFinal(e, fallos, Date.now() - inicio,
-                   'Has ordenado las ' + datos.rondas.length + ' rondas.');
+                   'Has ordenado las ' + datos.rondas.length + ' rondas.', resultados, datos.curiosos);
     });
     e.reiniciar.addEventListener('click', empezar);
 

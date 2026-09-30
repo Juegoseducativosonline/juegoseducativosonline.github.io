@@ -13,7 +13,8 @@
         "Montaña",
         "Tierra",
         "Sol"
-      ]
+      ],
+      "explicacion": "Cada objeto contiene muchísimos del anterior: el Sol es tan grande que cabrían en él más de un millón de Tierras."
     },
     {
       "instruccion": "Ordena por velocidad, de más lento a más rápido",

@@ -32,7 +32,8 @@
         "Absorción",
         "Evaporación"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En un espejo la luz rebota con el mismo ángulo con que llega: eso es reflexión."
     },
     {
       "enunciado": "¿Por qué un lápiz dentro de un vaso de agua parece quebrado?",
@@ -42,7 +43,8 @@
         "Por el eco",
         "Porque el vaso refleja la luz"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La luz cambia de velocidad al pasar de un medio a otro y se desvía: refracción."
     },
     {
       "enunciado": "¿Qué se forma cuando la luz del sol atraviesa gotas de lluvia?",
@@ -63,7 +65,8 @@
         "Tono",
         "Volumen"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El sonido rebota en una pared lejana y vuelve a nuestros oídos un poco después."
     },
     {
       "enunciado": "¿En qué unidad se mide la intensidad del sonido?",
@@ -95,7 +98,8 @@
         "Oscuro",
         "Sonoro"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Los cuerpos transparentes dejan pasar casi toda la luz y se ve a través de ellos."
     },
     {
       "enunciado": "¿Cuál de estos produce luz propia?",
@@ -126,7 +130,8 @@
         "Un tipo de luz",
         "Un sonido muy bajo"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La luz viaja en línea recta; si un objeto opaco la bloquea, detrás queda la sombra."
     }
   ]
 }

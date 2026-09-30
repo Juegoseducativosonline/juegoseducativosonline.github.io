@@ -25,7 +25,8 @@
         "Tirarla hacia arriba",
         "Esperar a que suba sola"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La rampa alarga el camino pero reduce la fuerza necesaria: es un plano inclinado."
     },
     {
       "enunciado": "El computador está muy lento. ¿Qué solución es razonable?",
@@ -35,7 +36,8 @@
         "Echarle agua",
         "Apagarlo desenchufándolo mientras trabaja"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Cada programa abierto usa memoria; cerrar los que no se usan libera recursos."
     },
     {
       "enunciado": "Para llevar agua a una huerta lejos del grifo, ¿qué solución es la más adecuada?",
@@ -45,7 +47,8 @@
         "Esperar a que llueva siempre",
         "Mover la huerta al grifo"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Tubos o mangueras llevan el agua sin cargarla a mano y sin desperdiciarla."
     },
     {
       "enunciado": "Dos soluciones para iluminar un salón: bombillos LED o incandescentes. ¿Cuál gasta menos energía?",
@@ -55,7 +58,8 @@
         "Gastan lo mismo",
         "Ninguno gasta energía"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Un LED gasta hasta 80 % menos energía que un bombillo incandescente para dar la misma luz."
     },
     {
       "enunciado": "Un cable de un aparato está pelado. ¿Qué haces?",
@@ -65,7 +69,8 @@
         "Seguir usándolo",
         "Envolverlo en papel mojado"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Un cable pelado puede dar una descarga eléctrica o causar un incendio."
     },
     {
       "enunciado": "Quieres construir una maqueta de un puente. ¿Cuál es el primer paso?",
@@ -75,7 +80,8 @@
         "Pintarlo",
         "Mostrarlo a todos"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Diseñar primero permite prever medidas y materiales antes de construir."
     },
     {
       "enunciado": "Tienes muchas botellas plásticas vacías. ¿Qué solución tecnológica ayuda al ambiente?",
@@ -85,7 +91,8 @@
         "Tirarlas al río",
         "Enterrarlas en el patio"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Reutilizar y reciclar evita que el plástico termine en ríos y mares."
     },
     {
       "enunciado": "Para abrir una lata de pintura sin dañarla, ¿qué herramienta funciona como palanca?",
@@ -95,7 +102,8 @@
         "Una tijera",
         "Los dientes"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Apoyado en el borde, el destornillador multiplica la fuerza como una palanca."
     },
     {
       "enunciado": "Comparas dos mochilas: una más barata que se rompe rápido y otra resistente y algo más cara. ¿Qué criterio usar?",

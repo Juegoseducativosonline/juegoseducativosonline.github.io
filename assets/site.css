@@ -2286,3 +2286,21 @@ details.curriculo[open] > summary::after {
 .progreso-actividad { margin: 0 0 1rem; }
 .boton-sonido { float: right; margin: 0 0 .5rem .5rem; padding: .35rem .8rem; font-size: .9rem; }
 @media print { .capa-confeti, .boton-sonido, .progreso-actividad { display: none !important; } }
+
+/* --- ¿Por qué?, pistas y repaso final ------------------------------------------------------- */
+.quiz-porque { margin: .6rem 0 0; padding: .7rem .9rem; border-radius: 12px; background: #eef4ff;
+  border-left: 5px solid var(--marca, #3b5bdb); font-size: 1rem; line-height: 1.45; }
+.quiz-porque p { margin: .2rem 0; }
+.porque-curioso { color: #5c3d00; }
+.feedback.pista { background: #fff9db; color: #5c3d00; border-color: #f59f00; }
+.repaso { text-align: left; margin: 1.2rem 0; padding: 1rem; border-radius: 14px; background: #f8f9fc; border: 1px solid #e1e5ee; }
+.repaso h3 { margin: .2rem 0 .6rem; font-size: 1.1rem; }
+.repaso-lista { margin: 0 0 .8rem 1.2rem; padding: 0; }
+.repaso-lista li { margin: 0 0 .6rem; line-height: 1.4; }
+.repaso-mal .repaso-marca { color: #c92a2a; font-weight: 800; }
+.repaso-bien .repaso-marca { color: #2b8a3e; font-weight: 800; }
+.repaso-respuesta { color: #1c5d2e; font-weight: 700; }
+.repaso-tuya { color: #a61e1e; }
+.repaso-explicacion { display: block; color: #444; }
+.repaso-curiosos { margin: 0 0 0 1.2rem; padding: 0; }
+.repaso-curiosos li { margin: 0 0 .4rem; }

@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var CACHE = 'jeo-ef017b7886f9';
+var CACHE = 'jeo-d4df3b548f17';
 var RECURSOS = [
   "/",
   "/404.html",
@@ -26,12 +26,12 @@ var RECURSOS = [
   "/assets/icono-192.png",
   "/assets/icono-512.png",
   "/assets/interactivos.css?v=12bedd8ea5",
-  "/assets/interactivos.js?v=737fc6c42d",
+  "/assets/interactivos.js?v=631825e705",
   "/assets/materias.css?v=9f1248c012",
   "/assets/quiz.css?v=ca763d9b25",
-  "/assets/quiz.js?v=54c28717ee",
-  "/assets/site.css?v=6bc48d7668",
-  "/assets/site.js?v=d13fb9f4f4",
+  "/assets/quiz.js?v=97d8abad70",
+  "/assets/site.css?v=c7956a635d",
+  "/assets/site.js?v=4df68bbfd0",
   "/descargar/",
   "/docentes/",
   "/docentes/curriculo/",

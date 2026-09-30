@@ -16,7 +16,8 @@
         "o",
         "u"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "A-be-ja empieza con el sonido /a/."
     },
     {
       "enunciado": "🐘 ¿Con qué vocal empieza «elefante»?",
@@ -27,7 +28,8 @@
         "o",
         "u"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "E-le-fan-te empieza con el sonido /e/."
     },
     {
       "enunciado": "🏝️ ¿Con qué vocal empieza «isla»?",
@@ -38,7 +40,8 @@
         "o",
         "u"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Is-la empieza con el sonido /i/."
     },
     {
       "enunciado": "🐻 ¿Con qué vocal empieza «oso»?",
@@ -49,7 +52,8 @@
         "i",
         "u"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "O-so empieza y termina con /o/."
     },
     {
       "enunciado": "🍇 ¿Con qué vocal empieza «uva»?",
@@ -60,7 +64,8 @@
         "i",
         "o"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "U-va empieza con el sonido /u/."
     },
     {
       "enunciado": "🐱 ¿Con qué vocal termina «gato»?",
@@ -71,7 +76,8 @@
         "i",
         "u"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Ga-to termina con el sonido /o/."
     },
     {
       "enunciado": "🌙 ¿Con qué vocal termina «luna»?",
@@ -82,7 +88,8 @@
         "o",
         "u"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Lu-na termina con el sonido /a/."
     },
     {
       "enunciado": "☕ ¿Con qué vocal termina «café»?",
@@ -93,7 +100,8 @@
         "o",
         "u"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Ca-fé termina en /e/ y esa e lleva tilde."
     },
     {
       "enunciado": "🐶 ¿Qué vocal falta en «p_rro»?",
@@ -127,7 +135,8 @@
         "Siete",
         "Diez"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El español tiene cinco vocales: a, e, i, o, u; con ellas se forman todas las sílabas."
     },
     {
       "enunciado": "¿Cuál de estas letras es una vocal?",

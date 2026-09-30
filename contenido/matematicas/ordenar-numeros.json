@@ -12,7 +12,8 @@
         "1/2",
         "0,75",
         "3"
-      ]
+      ],
+      "explicacion": "Los negativos van antes del 0 (−5 es menor que −2); 1/2 = 0,5 es menor que 0,75."
     },
     {
       "instruccion": "Ordena estas fracciones de menor a mayor",

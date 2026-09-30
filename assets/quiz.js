@@ -112,6 +112,7 @@
 
     var elOpciones = crear('ul', 'quiz-opciones');
     var elFeedback = crear('p', 'feedback hidden');
+    var elPorque = crear('div', 'quiz-porque hidden');
     elFeedback.setAttribute('role', 'status');
     elFeedback.setAttribute('aria-live', 'polite');
 
@@ -121,9 +122,11 @@
     elAcciones.appendChild(btnSiguiente);
 
     var elJuego = crear('div', 'quiz-juego');
-    [elProgresoTexto, elBarra, elPasaje, elEnunciado, elFigura, btnEscuchar, elOpciones, elFeedback, elAcciones]
+    [elProgresoTexto, elBarra, elPasaje, elEnunciado, elFigura, btnEscuchar, elOpciones, elFeedback, elPorque, elAcciones]
       .forEach(function (el) { elJuego.appendChild(el); });
 
+    var elRepaso = null;
+    var historial = [];
     var elResultado = crear('section', 'quiz-resultado hidden');
     var elResultadoTitulo = crear('h2', null, 'Resultado');
     elResultadoTitulo.tabIndex = -1;
@@ -149,6 +152,7 @@
           figura: p.figura || null,
           dibujo: p.dibujo || '',
           explicacion: p.explicacion || '',
+          curioso: p.curioso || '',
           opciones: JEO.mezclar(p.opciones.map(function (texto, i) {
             return { texto: texto, esCorrecta: i === p.correcta };
           }))
@@ -156,6 +160,7 @@
       });
       indice = 0;
       aciertos = 0;
+      historial = [];
       pasajeActual = null;
 
       elResultado.classList.add('hidden');
@@ -274,6 +279,7 @@
       }));
 
       elFeedback.className = 'feedback hidden';
+      elPorque.classList.add('hidden');
       elFeedback.textContent = '';
       btnSiguiente.classList.add('hidden');
     }
@@ -308,11 +314,11 @@
       var mensaje = acierto
         ? JEO.felicitacion()
         : 'No es correcto. La respuesta es: ' + textoCorrecta + '.';
-      if (pregunta.explicacion) {
-        mensaje += ' ' + pregunta.explicacion;
-      }
+      historial.push({ titulo: pregunta.enunciado, respuesta: textoCorrecta, bien: acierto,
+                       tuya: acierto ? '' : opcionElegida.texto, explicacion: pregunta.explicacion });
 
       elFeedback.textContent = mensaje;
+      JEO.explicar(elPorque, pregunta.explicacion, pregunta.curioso);
       elFeedback.className = 'feedback ' + (acierto ? 'correct' : 'incorrect');
 
       actualizarProgreso();
@@ -337,6 +343,11 @@
 
       elResultadoCifra.textContent = aciertos + ' de ' + total + ' (' + porcentaje + '%)';
       elResultadoMensaje.textContent = mensajeFinal(porcentaje);
+      if (elRepaso) {
+        elRepaso.remove();
+      }
+      elRepaso = JEO.repaso(historial, config.curiosos);
+      elResultado.insertBefore(elRepaso, btnReiniciar);
 
       elJuego.classList.add('hidden');
       elResultado.classList.remove('hidden');
@@ -365,6 +376,7 @@
       contenedor: contenedor,
       mezclarPreguntas: datos.mezclarPreguntas,
       leerEnVozAlta: datos.leerEnVozAlta,
+      curiosos: datos.curiosos || [],
       preguntas: datos.preguntas.map(function (p) {
         if (p.pasaje && !pasajes[p.pasaje]) {
           throw new Error('cargarQuiz: la pregunta «' + p.enunciado + '» usa un pasaje que no existe.');
@@ -378,6 +390,7 @@
           opciones: p.opciones,
           correcta: p.correcta,
           explicacion: p.explicacion,
+          curioso: p.curioso,
           pasaje: p.pasaje ? pasajes[p.pasaje] : null
         };
       })

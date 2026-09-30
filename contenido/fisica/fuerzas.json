@@ -12,7 +12,8 @@
         "La cantidad de materia de un cuerpo",
         "Un tipo de energía que solo tienen los seres vivos"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Una fuerza puede iniciar un movimiento, detenerlo o cambiar la forma de un objeto."
     },
     {
       "enunciado": "¿Qué fuerza hace que los objetos caigan hacia el suelo?",
@@ -22,7 +23,8 @@
         "El rozamiento",
         "La electricidad"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La Tierra atrae todos los cuerpos hacia su centro: esa atracción es la gravedad."
     },
     {
       "enunciado": "¿Cómo se llama la fuerza que se opone al movimiento cuando dos superficies se rozan?",
@@ -98,7 +100,8 @@
         "El cronómetro",
         "El barómetro"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El dinamómetro tiene un resorte que se estira más cuanto mayor es la fuerza."
     },
     {
       "enunciado": "Sin aire, en el vacío, se sueltan a la vez una pluma y un martillo. ¿Qué pasa?",
@@ -119,7 +122,8 @@
         "El magnetismo",
         "El viento"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La gravedad de la Tierra curva el movimiento de la Luna y la mantiene en órbita."
     },
     {
       "enunciado": "Un ciclista recorre 30 km en hora y media. ¿Cuál es su velocidad media?",

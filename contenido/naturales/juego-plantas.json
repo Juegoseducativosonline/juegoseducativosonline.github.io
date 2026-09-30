@@ -23,7 +23,8 @@
         "La semilla",
         "La flor"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El tallo sostiene la planta y tiene conductos por donde sube el agua desde la raíz."
     },
     {
       "enunciado": "¿En qué parte de la planta ocurre principalmente la fotosíntesis?",
@@ -44,7 +45,8 @@
         "El momento en que la planta pierde sus hojas",
         "La manera en que la planta se mueve"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Foto = luz y síntesis = fabricar: con luz, agua y CO₂ la planta hace su alimento."
     },
     {
       "enunciado": "¿Qué gas toman las plantas del aire para hacer la fotosíntesis?",
@@ -64,7 +66,8 @@
         "Humo",
         "Helio"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En la fotosíntesis las plantas liberan oxígeno, el gas que respiramos."
     },
     {
       "enunciado": "¿Cómo se llama la sustancia que da el color verde a las hojas?",

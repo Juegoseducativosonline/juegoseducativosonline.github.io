@@ -15,7 +15,8 @@
         "4",
         "5"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Contando una por una: 1, 2, 3 manzanas."
     },
     {
       "enunciado": "⭐⭐⭐⭐⭐ ¿Cuántas estrellas hay?",
@@ -25,7 +26,8 @@
         "6",
         "3"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Contando: 1, 2, 3, 4, 5 estrellas."
     },
     {
       "enunciado": "¿Cuánto es 2 + 3?",
@@ -35,7 +37,8 @@
         "6",
         "23"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Si a 2 le sumas 3, cuentas desde 2: 3, 4, 5."
     },
     {
       "enunciado": "¿Cuánto es 4 + 4?",
@@ -45,7 +48,8 @@
         "9",
         "44"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "4 + 4 = 8: son los dobles, como 4 dedos de cada mano."
     },
     {
       "enunciado": "¿Cuánto es 7 − 2?",
@@ -55,7 +59,8 @@
         "9",
         "6"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Si tienes 7 y quitas 2, cuentas hacia atrás: 6, 5."
     },
     {
       "enunciado": "¿Cuál es el número mayor?",
@@ -65,7 +70,8 @@
         "3",
         "1"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El 9 es el más grande: en la recta numérica está más a la derecha."
     },
     {
       "enunciado": "¿Qué número va después del 7?",
@@ -75,7 +81,8 @@
         "9",
         "17"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Contando hacia adelante: 7, 8."
     },
     {
       "enunciado": "¿Qué número va antes del 10?",
@@ -85,7 +92,8 @@
         "8",
         "1"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Contando hacia atrás desde 10: el anterior es 9."
     },
     {
       "enunciado": "🍬🍬🍬 Tienes 3 caramelos y te dan 2 más. ¿Cuántos tienes ahora?",
@@ -117,7 +125,8 @@
         "8",
         "20"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Cada mano tiene 5 dedos: 5 + 5 = 10."
     },
     {
       "enunciado": "¿Qué número se escribe «ocho»?",
@@ -127,7 +136,8 @@
         "3",
         "18"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La palabra «ocho» se escribe con el número 8."
     }
   ]
 }

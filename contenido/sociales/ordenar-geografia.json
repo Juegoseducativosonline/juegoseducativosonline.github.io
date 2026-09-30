@@ -14,7 +14,8 @@
         "Antártida",
         "Europa",
         "Oceanía"
-      ]
+      ],
+      "explicacion": "Asia mide unos 44 millones de km²; Oceanía, el más pequeño, unos 9 millones."
     },
     {
       "instruccion": "Ordena los océanos de mayor a menor",
@@ -24,7 +25,8 @@
         "Índico",
         "Antártico",
         "Ártico"
-      ]
+      ],
+      "explicacion": "El Pacífico es tan grande que cabrían en él todos los continentes juntos; el Ártico es el más pequeño."
     },
     {
       "instruccion": "Ordena estas montañas de la más alta a la más baja",
@@ -45,7 +47,8 @@
         "País",
         "Continente",
         "Planeta Tierra"
-      ]
+      ],
+      "explicacion": "Cada lugar contiene al anterior: el barrio está en la ciudad, la ciudad en el departamento…"
     }
   ]
 }

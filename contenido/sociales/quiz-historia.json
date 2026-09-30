@@ -110,7 +110,8 @@
         "La muralla de Ávila",
         "El Muro de Adriano"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La Gran Muralla se construyó durante siglos para frenar invasiones del norte; mide miles de kilómetros."
     },
     {
       "enunciado": "¿Qué hecho de 1969 vieron millones de personas por televisión?",
@@ -131,7 +132,8 @@
         "Roma",
         "Lima"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Cusco, en Perú, fue la capital inca; su nombre significaría «ombligo del mundo» en quechua."
     }
   ]
 }

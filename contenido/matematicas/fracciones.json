@@ -121,7 +121,8 @@
         "36",
         "6"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La mitad es dividir entre 2: 18 ÷ 2 = 9, porque 9 + 9 = 18."
     },
     {
       "enunciado": "¿Cuál de estas fracciones es la más pequeña?",

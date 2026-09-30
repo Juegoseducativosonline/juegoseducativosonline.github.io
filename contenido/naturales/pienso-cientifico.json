@@ -25,7 +25,8 @@
         "El nombre del experimento",
         "El resultado esperado"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La variable es lo que el científico cambia a propósito para medir su efecto."
     },
     {
       "enunciado": "¿Qué es una hipótesis?",
@@ -35,7 +36,8 @@
         "Una opinión sin razones",
         "El material del experimento"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Una hipótesis es una respuesta tentativa que el experimento confirma o descarta."
     },
     {
       "enunciado": "Tu hipótesis era que el hielo se derrite más rápido en agua salada, pero el resultado fue otro. ¿Qué haces?",
@@ -56,7 +58,8 @@
         "Agitar con fuerza",
         "Añadir más arena"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El filtro deja pasar el agua y retiene los granos de arena, que son más grandes."
     },
     {
       "enunciado": "¿Por qué es importante repetir un experimento varias veces?",
@@ -66,7 +69,8 @@
         "Porque es aburrido una sola vez",
         "No es importante"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Si el resultado se repite, es confiable; uno solo podría ser un error o azar."
     },
     {
       "enunciado": "Observas que tu sombra es larga por la mañana y corta al mediodía. ¿Qué pregunta científica puedes formular?",
@@ -76,7 +80,8 @@
         "¿Mi sombra es bonita?",
         "¿Qué desayuné hoy?"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Relacionar el cambio de la sombra con la posición del Sol permite investigarlo."
     },
     {
       "enunciado": "Para registrar la temperatura del agua cada 5 minutos, ¿qué instrumentos necesitas?",
@@ -86,7 +91,8 @@
         "Una lupa y una balanza",
         "Un espejo y una linterna"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El termómetro mide la temperatura y el reloj marca cada 5 minutos."
     },
     {
       "enunciado": "Quieres saber qué material conduce mejor el calor. ¿Qué debes mantener igual en todas las pruebas?",

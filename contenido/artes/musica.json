@@ -23,7 +23,8 @@
         "La",
         "Re"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La escala es do, re, mi, fa, sol, la, si: después de fa viene sol."
     },
     {
       "enunciado": "¿A qué familia de instrumentos pertenece el violín?",
@@ -74,7 +75,8 @@
         "El nombre de una canción",
         "Un instrumento"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El ritmo organiza la duración de los sonidos y los silencios: por eso podemos marcar el pulso con palmas."
     },
     {
       "enunciado": "¿Qué compositor escribió la Novena Sinfonía, con el famoso «Himno a la alegría»?",
@@ -95,7 +97,8 @@
         "El tambor",
         "La trompeta"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El piano tiene 88 teclas: 52 blancas y 36 negras; las negras son los sostenidos y bemoles."
     },
     {
       "enunciado": "¿A qué familia de instrumentos pertenece la trompeta?",

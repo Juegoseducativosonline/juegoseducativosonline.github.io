@@ -15,7 +15,8 @@
         "pato",
         "pera"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El dibujo es un perro: p-e-rr-o."
     },
     {
       "enunciado": "🍎 ¿Qué palabra corresponde a este dibujo?",
@@ -25,7 +26,8 @@
         "melón",
         "mesa"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El dibujo es una manzana: ma-n-za-na."
     },
     {
       "enunciado": "🐟 ¿Qué palabra corresponde a este dibujo?",
@@ -35,7 +37,8 @@
         "paz",
         "pan"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El dibujo es un pez; se escribe con z al final."
     },
     {
       "enunciado": "¿Qué dibujo corresponde a la palabra «sol»?",
@@ -45,7 +48,8 @@
         "⭐",
         "☁️"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La palabra «sol» nombra la estrella que nos da luz: ☀️."
     },
     {
       "enunciado": "¿Qué palabra está bien escrita?",
@@ -55,7 +59,8 @@
         "cassa",
         "cása"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "«Casa» se escribe con c porque suena /ka/ ante la a."
     },
     {
       "enunciado": "¿Qué palabra se forma con las letras m, a, n, o, en ese orden?",
@@ -65,7 +70,8 @@
         "nomá",
         "amon"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Unidas en orden, m-a-n-o forman «mano»."
     },
     {
       "enunciado": "🐱 ¿Qué letra falta en «_ato»?",
@@ -86,7 +92,8 @@
         "El perro",
         "Nadie"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Quien hace la acción de mimar es «mi mamá»."
     },
     {
       "enunciado": "«El sapo salta». ¿Qué hace el sapo?",
@@ -96,7 +103,8 @@
         "Duerme",
         "Canta"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "La acción del sapo es saltar: «salta»."
     },
     {
       "enunciado": "¿Cuál de estas palabras es la más larga?",
@@ -106,7 +114,8 @@
         "pan",
         "mar"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "«Mariposa» tiene 8 letras, más que las otras palabras."
     },
     {
       "enunciado": "¿Qué letra no suena al leer «helado»?",

@@ -12,7 +12,8 @@
         "Un cambio que siempre crea sustancias nuevas",
         "Un estado de la materia"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En una mezcla las sustancias se juntan sin transformarse y pueden volver a separarse."
     },
     {
       "enunciado": "¿Cuál de estas es una mezcla heterogénea, en la que se distinguen sus partes a simple vista?",
@@ -22,7 +23,8 @@
         "Agua con azúcar disuelta",
         "El aire"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En el agua con arena se ven los granos separados: es heterogénea."
     },
     {
       "enunciado": "¿Qué método sirve para separar la arena del agua?",
@@ -98,7 +100,8 @@
         "Elemento",
         "Átomo"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En una disolución la sal se reparte por igual y no se distingue: es homogénea."
     },
     {
       "enunciado": "¿Qué método separa sólidos de distinto tamaño, como piedritas y arena?",
@@ -130,7 +133,8 @@
         "Que se rompa en trozos",
         "Que se mueva de lugar"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "En un cambio químico se forman sustancias nuevas; el color, el olor o un gas lo delatan."
     }
   ]
 }

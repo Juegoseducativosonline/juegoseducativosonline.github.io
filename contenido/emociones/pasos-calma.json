@@ -21,7 +21,8 @@
         "Tomo aire despacio por la nariz",
         "Aguanto el aire un momento",
         "Suelto el aire poco a poco por la boca"
-      ]
+      ],
+      "explicacion": "Primero se prepara el cuerpo; luego se inhala, se retiene y se exhala despacio."
     },
     {
       "instruccion": "Ordena los pasos para resolver un conflicto con alguien",
@@ -31,7 +32,8 @@
         "Decir cómo me siento",
         "Buscar juntos una solución",
         "Cumplir lo que acordamos"
-      ]
+      ],
+      "explicacion": "Solo con calma se puede escuchar; después se expresa lo que se siente y se busca un acuerdo que se cumpla."
     },
     {
       "instruccion": "Ordena de menos intenso a más intenso",

@@ -23,7 +23,8 @@
         "Morado",
         "Café"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El azul y el amarillo son primarios; juntos forman el verde, un color secundario."
     },
     {
       "enunciado": "¿Qué color se obtiene al mezclar rojo y amarillo?",
@@ -33,7 +34,8 @@
         "Violeta",
         "Rosa"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Rojo y amarillo son primarios; al mezclarse dan naranja, un color secundario y cálido."
     },
     {
       "enunciado": "¿Qué color se obtiene al mezclar rojo y azul?",
@@ -65,7 +67,8 @@
         "Siempre sale negro",
         "Se obtiene un color primario"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El blanco aclara: cuanto más blanco se añade, más claro y suave queda el color."
     },
     {
       "enunciado": "¿Cómo se llaman los colores que están enfrentados en el círculo cromático, como el rojo y el verde?",
@@ -108,7 +111,8 @@
         "Claude Monet",
         "Pablo Picasso"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "Frida Kahlo pintó más de 50 autorretratos, muchos mientras se recuperaba de un accidente."
     },
     {
       "enunciado": "¿Qué pasa al mezclar un color con negro?",
@@ -118,7 +122,8 @@
         "Sale blanco",
         "Se obtiene un color primario"
       ],
-      "correcta": 0
+      "correcta": 0,
+      "explicacion": "El negro oscurece: el color conserva su tono, pero se vuelve más sombrío."
     },
     {
       "enunciado": "¿Cómo se llama la tabla donde el pintor coloca y mezcla sus pinturas?",
