@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var CACHE = 'jeo-83b4c408487e';
+var CACHE = 'jeo-e1f08e9fb095';
 var RECURSOS = [
   "/",
   "/404.html",
@@ -30,8 +30,8 @@ var RECURSOS = [
   "/assets/materias.css?v=9f1248c012",
   "/assets/quiz.css?v=ca763d9b25",
   "/assets/quiz.js?v=54c28717ee",
-  "/assets/site.css?v=d5c87168a9",
-  "/assets/site.js?v=fa37ad33b5",
+  "/assets/site.css?v=6bc48d7668",
+  "/assets/site.js?v=d13fb9f4f4",
   "/descargar/",
   "/docentes/",
   "/docentes/curriculo/",

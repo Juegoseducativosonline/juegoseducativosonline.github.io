@@ -2275,3 +2275,14 @@ details.curriculo[open] > summary::after {
   .figura-grupo { border-width: 1px; padding: 0 1.5mm; }
   .figura-op { font-size: 13pt; }
 }
+
+/* --- Confeti, barra de progreso de las prácticas y botón de sonido ---------------------------- */
+.capa-confeti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 9999; }
+.capa-confeti span { position: absolute; top: -12px; width: 9px; height: 14px; border-radius: 2px;
+  animation: jeo-confeti 2.5s ease-in forwards; }
+@keyframes jeo-confeti {
+  to { transform: translate(var(--deriva, 0), 105vh) rotate(var(--giro, 360deg)); opacity: .9; }
+}
+.progreso-actividad { margin: 0 0 1rem; }
+.boton-sonido { float: right; margin: 0 0 .5rem .5rem; padding: .35rem .8rem; font-size: .9rem; }
+@media print { .capa-confeti, .boton-sonido, .progreso-actividad { display: none !important; } }

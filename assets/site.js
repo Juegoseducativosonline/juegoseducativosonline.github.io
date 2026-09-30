@@ -183,6 +183,255 @@ window.JEO = (function () {
     });
   });
 
+  /* --- Efectos de juego: sonido de acierto y de error, confeti y barra de progreso ---------
+     Funcionan en todos los juegos sin tocar cada motor: se observa cuándo una
+     respuesta queda marcada como correcta o incorrecta (clases correct/correcta/
+     correcto e incorrect/incorrecta/incorrecto) y cuándo aparece el resultado final. */
+  var CLAVE_SONIDO = 'jeo-sonido';
+  var audio = null;
+
+  function sonidoActivo() {
+    try { return localStorage.getItem(CLAVE_SONIDO) !== 'no'; } catch (e) { return true; }
+  }
+
+  function tono(frecuencia, inicio, duracion, tipo, volumen) {
+    var t = audio.currentTime + inicio;
+    var osc = audio.createOscillator();
+    var gan = audio.createGain();
+    osc.type = tipo;
+    osc.frequency.setValueAtTime(frecuencia, t);
+    gan.gain.setValueAtTime(0.0001, t);
+    gan.gain.exponentialRampToValueAtTime(volumen, t + 0.02);
+    gan.gain.exponentialRampToValueAtTime(0.0001, t + duracion);
+    osc.connect(gan).connect(audio.destination);
+    osc.start(t);
+    osc.stop(t + duracion + 0.05);
+  }
+
+  function sonar(cual) {
+    if (!sonidoActivo()) {
+      return;
+    }
+    try {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      if (audio.state === 'suspended') {
+        audio.resume();
+      }
+      if (cual === 'bien') {          // do–mi–sol hacia arriba
+        tono(523, 0, 0.15, 'triangle', 0.25);
+        tono(659, 0.1, 0.15, 'triangle', 0.25);
+        tono(784, 0.2, 0.25, 'triangle', 0.25);
+      } else if (cual === 'mal') {    // dos notas graves que bajan
+        tono(220, 0, 0.2, 'sawtooth', 0.08);
+        tono(165, 0.18, 0.3, 'sawtooth', 0.08);
+      } else if (cual === 'fin') {    // pequeña fanfarria
+        [523, 659, 784, 1047].forEach(function (f, i) { tono(f, i * 0.12, 0.25, 'triangle', 0.22); });
+        tono(1047, 0.5, 0.5, 'triangle', 0.2);
+      }
+    } catch (e) { /* sin audio: el juego sigue igual */ }
+  }
+
+  var movimientoReducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var COLORES_CONFETI = ['#f03e3e', '#fab005', '#40c057', '#228be6', '#be4bdb', '#fd7e14'];
+
+  function confeti(cantidad) {
+    if (movimientoReducido) {
+      return;
+    }
+    var capa = document.createElement('div');
+    capa.className = 'capa-confeti';
+    capa.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < cantidad; i++) {
+      var trozo = document.createElement('span');
+      trozo.style.left = Math.random() * 100 + 'vw';
+      trozo.style.background = COLORES_CONFETI[i % COLORES_CONFETI.length];
+      trozo.style.animationDelay = Math.random() * 0.6 + 's';
+      trozo.style.animationDuration = 1.8 + Math.random() * 1.4 + 's';
+      trozo.style.setProperty('--giro', (Math.random() * 720 - 360) + 'deg');
+      trozo.style.setProperty('--deriva', (Math.random() * 30 - 15) + 'vw');
+      capa.appendChild(trozo);
+    }
+    document.body.appendChild(capa);
+    setTimeout(function () { capa.remove(); }, 3800);
+  }
+
+  /* Varias marcas a la vez (una hoja de ejercicios revisada de una vez, o la
+     correcta que se resalta tras un error) cuentan como una sola respuesta. */
+  var pendiente = null;
+  var ultimoFinal = 0;
+  function registrar(tipo) {
+    if (!pendiente) {
+      pendiente = { bien: 0, mal: 0 };
+      setTimeout(function () {
+        var p = pendiente;
+        pendiente = null;
+        if (p.mal) {
+          sonar('mal');
+        } else if (p.bien) {
+          sonar('bien');
+          confeti(25);
+          avanzarMeta();
+        }
+      }, 120);
+    }
+    pendiente[tipo]++;
+  }
+
+  function celebrarFinal() {
+    var ahora = Date.now();
+    if (ahora - ultimoFinal < 2000) {
+      return;
+    }
+    ultimoFinal = ahora;
+    setTimeout(function () { sonar('fin'); confeti(140); }, 150);
+  }
+
+  var CLASES_BIEN = /(^|\s)(correct|correcta|correcto)(\s|$)/;
+  var CLASES_MAL = /(^|\s)(incorrect|incorrecta|incorrecto)(\s|$)/;
+  var FINALES = '.quiz-resultado, .resultado';
+
+  var observador = new MutationObserver(function (cambios) {
+    cambios.forEach(function (c) {
+      var el = c.target;
+      if (c.type !== 'attributes' || !(el instanceof Element)) {
+        return;
+      }
+      var antes = c.oldValue || '';
+      var ahora = el.className && el.className.baseVal === undefined ? el.className : '';
+      if (el.matches(FINALES) && !el.classList.contains('hidden') && /(^|\s)hidden(\s|$)/.test(antes)) {
+        celebrarFinal();
+        return;
+      }
+      /* Un mensaje de estado se reescribe con la misma clase en cada acierto: cuenta siempre. */
+      var nuevo = el.classList.contains('feedback') ? '' : antes;
+      if (CLASES_MAL.test(ahora) && !CLASES_MAL.test(nuevo)) {
+        registrar('mal');
+      } else if (CLASES_BIEN.test(ahora) && !CLASES_BIEN.test(nuevo)) {
+        registrar('bien');
+        if (/🎉/.test(el.textContent)) {
+          celebrarFinal();
+        }
+      }
+    });
+  });
+
+  /* Barra de progreso para las prácticas de operaciones, que no tienen una propia:
+     en una hoja de ejercicios, cuántos van respondidos; en las de una pregunta a la
+     vez, cuántos aciertos lleva hacia la meta de 10. */
+  var META_ACIERTOS = 10;
+  var metaRelleno = null;
+  var metaTexto = null;
+  var aciertosMeta = 0;
+
+  function crearBarra(antesDe) {
+    var caja = document.createElement('div');
+    caja.className = 'progreso-actividad';
+    metaTexto = document.createElement('p');
+    metaTexto.className = 'quiz-progreso';
+    var barra = document.createElement('div');
+    barra.className = 'progress-bar';
+    barra.setAttribute('role', 'progressbar');
+    barra.setAttribute('aria-valuemin', '0');
+    metaRelleno = document.createElement('div');
+    metaRelleno.className = 'progress-fill';
+    barra.appendChild(metaRelleno);
+    caja.appendChild(metaTexto);
+    caja.appendChild(barra);
+    antesDe.parentNode.insertBefore(caja, antesDe);
+    return barra;
+  }
+
+  function pintarBarra(barra, hechas, total, texto) {
+    metaRelleno.style.width = Math.min(100, (hechas / total) * 100) + '%';
+    barra.setAttribute('aria-valuemax', String(total));
+    barra.setAttribute('aria-valuenow', String(Math.min(hechas, total)));
+    metaTexto.textContent = texto;
+  }
+
+  var barraMeta = null;
+  function avanzarMeta() {
+    if (!barraMeta) {
+      return;
+    }
+    aciertosMeta++;
+    pintarBarra(barraMeta, aciertosMeta, META_ACIERTOS, aciertosMeta >= META_ACIERTOS
+      ? '🏆 ¡Meta cumplida! ' + aciertosMeta + ' aciertos'
+      : 'Meta: ' + aciertosMeta + ' de ' + META_ACIERTOS + ' aciertos');
+    if (aciertosMeta === META_ACIERTOS) {
+      celebrarFinal();
+    }
+  }
+
+  function prepararPractica() {
+    var campos = document.querySelectorAll('.answer-input');
+    if (document.querySelector('#quiz')) {
+      return;
+    }
+    if (!campos.length) {
+      /* Hojas que se arman al elegir el nivel: se espera a que aparezcan los ejercicios. */
+      var espera = new MutationObserver(function () {
+        if (document.querySelector('.answer-input')) {
+          espera.disconnect();
+          prepararPractica();
+        }
+      });
+      espera.observe(document.body, { childList: true, subtree: true });
+      return;
+    }
+    var principal = document.querySelector('main') || document.body;
+    var ancla = principal.querySelector('.game-area, .exercise-area, .content > *') || principal.firstElementChild;
+    if (!ancla) {
+      return;
+    }
+    if (campos.length > 1) {
+      var barra = crearBarra(ancla);
+      var contar = function () {
+        var todos = document.querySelectorAll('.answer-input');
+        var hechos = Array.prototype.filter.call(todos, function (c) { return c.value.trim() !== ''; }).length;
+        pintarBarra(barra, hechos, todos.length, 'Respondidas: ' + hechos + ' de ' + todos.length);
+      };
+      document.addEventListener('input', function (e) {
+        if (e.target.classList && e.target.classList.contains('answer-input')) { contar(); }
+      });
+      /* La hoja cambia al elegir otro nivel: se recuenta. */
+      new MutationObserver(function (cambios) {
+        /* Los cambios de la propia barra no cuentan: evitaría un ciclo sin fin. */
+        if (cambios.some(function (c) { return !c.target.closest('.progreso-actividad'); })) {
+          contar();
+        }
+      }).observe(principal, { childList: true, subtree: true });
+      contar();
+    } else {
+      barraMeta = crearBarra(ancla);
+      pintarBarra(barraMeta, 0, META_ACIERTOS, 'Meta: 0 de ' + META_ACIERTOS + ' aciertos');
+    }
+  }
+
+  /* Botón para silenciar, junto a cada juego. */
+  function prepararBotonSonido() {
+
+    var boton = document.createElement('button');
+    boton.type = 'button';
+    boton.className = 'btn btn-secundario boton-sonido';
+    var pintar = function () {
+      boton.textContent = sonidoActivo() ? '🔊 Sonido: sí' : '🔇 Sonido: no';
+      boton.setAttribute('aria-pressed', String(sonidoActivo()));
+    };
+    boton.addEventListener('click', function () {
+      try { localStorage.setItem(CLAVE_SONIDO, sonidoActivo() ? 'no' : 'si'); } catch (e) { /* sin almacenamiento */ }
+      pintar();
+    });
+    pintar();
+    var contenido = document.querySelector('main.content, main') || document.body;
+    contenido.insertBefore(boton, contenido.firstChild);
+  }
+
+  if (document.querySelector('#quiz, .answer-input') || /_practice/.test(location.pathname)) {
+    observador.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class'], attributeOldValue: true });
+    prepararPractica();
+    prepararBotonSonido();
+  }
+
   return {
     EMOJIS: EMOJIS,
     ELOGIOS: ELOGIOS,
