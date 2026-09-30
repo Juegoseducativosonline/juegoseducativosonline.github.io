@@ -1414,6 +1414,8 @@ def pagina_docentes(materias, v):
     cuerpo = """%s
 %s
 <main id="contenido" class="pagina">
+%s
+
   <section class="tema" aria-labelledby="por-grado">
     <div class="tema-cabeza">
       <h2 id="por-grado">Recursos por grado</h2>
@@ -1421,8 +1423,6 @@ def pagina_docentes(materias, v):
     </div>
 %s
   </section>
-
-%s
 
   <section class="tema" aria-labelledby="en-clase">
     <div class="tema-cabeza">
@@ -1448,12 +1448,15 @@ def pagina_docentes(materias, v):
       <li><a href="https://github.com/Juegoseducativosonline/juegoseducativosonline.github.io/tree/main/contenido">📂 Todas las preguntas en datos abiertos, para adaptarlas</a></li>
     </ul>
   </section>
+
+%s
 </main>
 %s""" % (bloque_navegacion(materias),
          cabecera_banda([('Inicio', '/'), ('Docentes', None)], '🍎', 'Recursos para docentes',
                         'Juegos educativos, fichas imprimibles con respuestas y actividades por grado. Gratis y sin registro.',
                         '%s · de Transición a %s' % (plural(sum(len(m.juegos) for m in materias), 'recurso', 'recursos'),
                                                      grados[-1][0][2])),
+         indentar(juegos_por_materia(materias, [j for m in materias for j in m.juegos]), '  '),
          indentar(tarjetas, '    '), indentar(seccion_packs(materias), '  '), bloque_pie(materias, v))
     head = cabeza(v, 'Recursos educativos gratis para docentes: juegos y fichas por grado — %s' % NOMBRE_SITIO,
                   'Recursos educativos gratuitos para docentes: juegos interactivos y fichas imprimibles con '
