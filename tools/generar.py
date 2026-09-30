@@ -1274,7 +1274,7 @@ def ilustrar(texto):
     t = ' ' + texto.lower() + ' '
     hallados = []
     for palabra, dibujo in ILUSTRACIONES:
-        m = re.search(r'(?<!\w)' + re.escape(palabra) + ('' if len(palabra) > 3 else r''), t)
+        m = re.search(r'(?<!\w)' + re.escape(palabra) + ('' if len(palabra) > 3 else r'\b'), t)
         i = m.start() if m else -1
         if i >= 0 and dibujo not in [d for _, d in hallados]:
             hallados.append((i, dibujo))
