@@ -1414,8 +1414,6 @@ def pagina_docentes(materias, v):
     cuerpo = """%s
 %s
 <main id="contenido" class="pagina">
-%s
-
   <section class="tema" aria-labelledby="por-grado">
     <div class="tema-cabeza">
       <h2 id="por-grado">Recursos por grado</h2>
@@ -1423,6 +1421,8 @@ def pagina_docentes(materias, v):
     </div>
 %s
   </section>
+
+%s
 
   <section class="tema" aria-labelledby="en-clase">
     <div class="tema-cabeza">
@@ -1454,7 +1454,7 @@ def pagina_docentes(materias, v):
                         'Juegos educativos, fichas imprimibles con respuestas y actividades por grado. Gratis y sin registro.',
                         '%s · de Transición a %s' % (plural(sum(len(m.juegos) for m in materias), 'recurso', 'recursos'),
                                                      grados[-1][0][2])),
-         indentar(seccion_packs(materias), '  '), indentar(tarjetas, '    '), bloque_pie(materias, v))
+         indentar(tarjetas, '    '), indentar(seccion_packs(materias), '  '), bloque_pie(materias, v))
     head = cabeza(v, 'Recursos educativos gratis para docentes: juegos y fichas por grado — %s' % NOMBRE_SITIO,
                   'Recursos educativos gratuitos para docentes: juegos interactivos y fichas imprimibles con '
                   'respuestas, organizados por grado de Transición a secundaria.', RUTA_DOCENTES)
@@ -1535,9 +1535,11 @@ def pagina_grado(grado, juegos, materias, v):
                         '🎒' if grado[0] < PRIMER_GRADO_SECUNDARIA else '🎓', titulo,
                         'Juegos y fichas imprimibles para %s (unos %d años), de todas las materias.' % (grado[3], edad),
                         plural(len(juegos), 'juego', 'juegos'),
-                        '\n    <p class="descargas">%s</p>\n' % enlace_pdf(ruta_pack_grado(grado), '📦 Descargar todas las fichas en PDF', 'btn btn-blanco')
-                        + indentar(hermanas, '    ')),
-         indentar(juegos_por_materia(materias, juegos), '  '), indentar(enlaces_fichas(juegos), '  '),
+                        '\n' + indentar(hermanas, '    ')),
+         indentar(juegos_por_materia(materias, juegos), '  '),
+         # Primero las actividades; al final, las descargas.
+         '  <p class="descargas">%s</p>\n%s' % (enlace_pdf(ruta_pack_grado(grado), '📦 Descargar todas las fichas en PDF',
+                                                           'btn btn-acento'), indentar(enlaces_fichas(juegos), '  ')),
          bloque_pie(materias, v))
     head = cabeza(v, '%s — %s' % (titulo, NOMBRE_SITIO),
                   '%s: juegos interactivos y fichas imprimibles gratis de matemáticas, lectura, ciencias y más, '
