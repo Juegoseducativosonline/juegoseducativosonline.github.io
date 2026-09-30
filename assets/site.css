@@ -2304,3 +2304,17 @@ details.curriculo[open] > summary::after {
 .repaso-explicacion { display: block; color: #444; }
 .repaso-curiosos { margin: 0 0 0 1.2rem; padding: 0; }
 .repaso-curiosos li { margin: 0 0 .4rem; }
+
+/* --- Guía didáctica y modo clase ----------------------------------------------------------- */
+.guia-didactica { margin: .3rem 0 1rem; }
+.guia-didactica dt { font-weight: 800; margin-top: .5rem; }
+.guia-didactica dd { margin: .1rem 0 0 1rem; line-height: 1.45; }
+.modo-clase body { background: #fff; }
+.modo-clase .barra-sitio, .modo-clase nav, .modo-clase .migas, .modo-clase .header, .modo-clase footer,
+.modo-clase .bloque-docente-superior, .modo-clase .curriculo, .modo-clase .relacionados,
+.modo-clase .pie-sitio { display: none !important; }
+.modo-clase .container { max-width: 1200px; margin: 0 auto; box-shadow: none; }
+.modo-clase main.content { font-size: 1.45rem; padding-top: 1rem; }
+.modo-clase .quiz-enunciado { font-size: 2.3rem; line-height: 1.25; }
+.modo-clase .quiz-opcion, .modo-clase .ordenar-texto, .modo-clase .pareja { font-size: 1.6rem; }
+.modo-clase .quiz-figura, .modo-clase .figura-cantidades { font-size: 3rem; }

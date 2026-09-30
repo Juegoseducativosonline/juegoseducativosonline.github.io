@@ -741,6 +741,55 @@ def enlace_pdf(ruta_html, texto, clase='btn'):
     return '<a class="%s" href="/%s" download>%s%s</a>' % (clase, pdf_de(ruta_html), texto, esc(peso_pdf(ruta_html)))
 
 
+def duracion_minutos(juego):
+    """Tiempo orientativo de la actividad en clase, según su tipo y tamaño."""
+    d = juego.datos or {}
+    if juego.tipo == 'quiz':
+        return max(10, round(len(d['preguntas']) * 1.2 / 5) * 5)
+    if juego.tipo == 'parejas':
+        return max(10, round(len(d['pares']) * 0.8 / 5) * 5)
+    if juego.tipo == 'ordenar':
+        return max(10, len(d['rondas']) * 3)
+    if juego.tipo == 'imprimible':
+        return 10 * len(d['actividades'])
+    return 20
+
+
+# Cómo desarrollar la actividad en clase, según el tipo de juego.
+DESARROLLO = {
+    'quiz': 'Proyecta el juego y lee cada pregunta en voz alta. Los estudiantes votan (mano alzada o tarjetas a-b-c-d) '
+            'antes de marcar; después lean juntos el «¿Por qué?». En sala de informática, en parejas.',
+    'parejas': 'En parejas o por equipos, relacionan los elementos. Cada vez que aparezca un dato, que un estudiante '
+               'lo lea en voz alta y lo comente.',
+    'ordenar': 'Por equipos, deciden el orden antes de comprobar y justifican su decisión. Usen «Pista» solo tras '
+               'discutirlo; al terminar, lean la explicación de cada ronda.',
+    'interactivo': 'Cada estudiante resuelve a su ritmo en el computador o se proyecta y se resuelve en el tablero, '
+                   'explicando el procedimiento de cada ejercicio.',
+    'imprimible': 'Entrega la ficha impresa. Un adulto lee cada consigna en voz alta y modela el primer ejemplo; '
+                  'los niños trabajan con lápiz y colores.',
+}
+
+
+def guia_didactica(juego):
+    """Secuencia sugerida para el docente: duración, inicio, desarrollo, cierre y ampliación."""
+    c = juego.curriculo
+    sit = c['situacion']
+    ficha = ('<a href="%s">la ficha para imprimir</a>' % url_de(ruta_ficha(juego))) if tiene_ficha(juego) else ''
+    filas = [
+        ('⏱️ Duración', '%d minutos aproximadamente · %s' % (duracion_minutos(juego), esc(etiqueta_grados(juego.grados)))),
+        ('1. Inicio', 'Plantea la situación problema: «%s» Pregunta: «%s» Escucha ideas sin corregir; la retomarán al final.'
+         % (esc(sit['texto']), esc(sit['preguntas'][0]))),
+        ('2. Desarrollo', esc(DESARROLLO.get(juego.tipo, DESARROLLO['interactivo']))),
+        ('3. Cierre', 'Revisen el repaso final del juego y vuelvan a la situación problema: ahora resuélvanla '
+         'y comparen con las ideas del inicio.'),
+        ('4. Ampliación', ('Refuercen con %s; la situación problema está incluida como última pregunta.' % ficha)
+         if tiene_ficha(juego) else 'Resuelvan la situación problema en el cuaderno y compartan sus procedimientos.'),
+    ]
+    return ('<h3>Guía didáctica</h3>'
+            '<dl class="guia-didactica">%s</dl>'
+            % ''.join('<dt>%s</dt><dd>%s</dd>' % f for f in filas))
+
+
 def contenido_curriculo(juego):
     """Lineamientos primero (objetivo, DBA, estándares) y, después, las descargas."""
     c = juego.curriculo
@@ -761,6 +810,7 @@ def contenido_curriculo(juego):
         partes.append('</ul>')
     partes.append('<h3>Indicadores de desempeño</h3>')
     partes.append('<ul class="lista-curriculo">%s</ul>' % ''.join('<li>%s</li>' % esc(i) for i in c['indicadores']))
+    partes.append(guia_didactica(juego))
     usadas = []
     for r in c['dba'] + c['estandares']:
         if r['fuente'] not in usadas:

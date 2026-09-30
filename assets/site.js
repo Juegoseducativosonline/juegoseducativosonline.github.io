@@ -424,6 +424,31 @@ window.JEO = (function () {
     pintar();
     var contenido = document.querySelector('main.content, main') || document.body;
     contenido.insertBefore(boton, contenido.firstChild);
+
+    /* Modo clase: para proyectar. Pantalla completa, solo el juego y letra grande. */
+    var clase = document.createElement('button');
+    clase.type = 'button';
+    clase.className = 'btn btn-secundario boton-sonido boton-clase';
+    clase.textContent = '📽️ Modo clase';
+    var raiz = document.documentElement;
+    function salir() {
+      raiz.classList.remove('modo-clase');
+      clase.textContent = '📽️ Modo clase';
+    }
+    clase.addEventListener('click', function () {
+      if (raiz.classList.contains('modo-clase')) {
+        if (document.fullscreenElement && document.exitFullscreen) { document.exitFullscreen(); }
+        salir();
+        return;
+      }
+      raiz.classList.add('modo-clase');
+      clase.textContent = '✖ Salir del modo clase';
+      if (raiz.requestFullscreen) { raiz.requestFullscreen().catch(function () { /* sin pantalla completa: sigue con letra grande */ }); }
+    });
+    document.addEventListener('fullscreenchange', function () {
+      if (!document.fullscreenElement) { salir(); }
+    });
+    contenido.insertBefore(clase, contenido.firstChild);
   }
 
   if (document.querySelector('#quiz, .answer-input') || /_practice/.test(location.pathname)) {
