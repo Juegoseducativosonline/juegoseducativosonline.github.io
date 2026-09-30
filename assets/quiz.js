@@ -96,6 +96,9 @@
     /* Permite mover el foco aquí al cambiar de pregunta, para que un lector
        de pantalla la anuncie. */
     elEnunciado.tabIndex = -1;
+    /* Dibujo de la pregunta: cantidades para contar o una imagen que la acompaña. */
+    var elFigura = crear('div', 'quiz-figura hidden');
+    elFigura.setAttribute('aria-hidden', 'true');
 
     /* Botón para oír la pregunta: imprescindible para quien aún está
        aprendiendo a leer. Solo aparece si el juego lo pide y el navegador
@@ -118,7 +121,7 @@
     elAcciones.appendChild(btnSiguiente);
 
     var elJuego = crear('div', 'quiz-juego');
-    [elProgresoTexto, elBarra, elPasaje, elEnunciado, btnEscuchar, elOpciones, elFeedback, elAcciones]
+    [elProgresoTexto, elBarra, elPasaje, elEnunciado, elFigura, btnEscuchar, elOpciones, elFeedback, elAcciones]
       .forEach(function (el) { elJuego.appendChild(el); });
 
     var elResultado = crear('section', 'quiz-resultado hidden');
@@ -143,6 +146,8 @@
         return {
           pasaje: p.pasaje || null,
           enunciado: p.enunciado,
+          figura: p.figura || null,
+          dibujo: p.dibujo || '',
           explicacion: p.explicacion || '',
           opciones: JEO.mezclar(p.opciones.map(function (texto, i) {
             return { texto: texto, esCorrecta: i === p.correcta };
@@ -225,6 +230,24 @@
       window.speechSynthesis.speak(locucion);
     }
 
+    function mostrarFigura(pregunta) {
+      var hijos = [];
+      if (pregunta.figura) {
+        pregunta.figura.grupos.forEach(function (g, i) {
+          var op = pregunta.figura.op;
+          if (i && (op === '+' || op === '−')) {
+            hijos.push(crear('span', 'figura-op', op));
+          }
+          hijos.push(crear('span', 'figura-grupo', new Array(g[1] + 1).join(g[0])));
+        });
+      } else if (pregunta.dibujo) {
+        hijos.push(crear('span', 'figura-dibujo', pregunta.dibujo));
+      }
+      elFigura.replaceChildren.apply(elFigura, hijos);
+      elFigura.classList.toggle('hidden', !hijos.length);
+      elFigura.classList.toggle('figura-cantidades', !!pregunta.figura);
+    }
+
     function mostrarPregunta() {
       var pregunta = ronda[indice];
       callar();
@@ -232,6 +255,7 @@
       mostrarPasaje(pregunta.pasaje);
       actualizarProgreso();
       elEnunciado.textContent = pregunta.enunciado;
+      mostrarFigura(pregunta);
 
       elOpciones.replaceChildren.apply(elOpciones, pregunta.opciones.map(function (opcion) {
         var li = crear('li');
@@ -349,6 +373,8 @@
            motor sabe que el texto no cambia y no lo vuelve a dibujar. */
         return {
           enunciado: p.enunciado,
+          figura: p.figura,
+          dibujo: p.dibujo,
           opciones: p.opciones,
           correcta: p.correcta,
           explicacion: p.explicacion,

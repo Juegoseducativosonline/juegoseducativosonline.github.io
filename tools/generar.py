@@ -333,6 +333,13 @@ def cargar_quiz(ruta_json, donde_catalogo):
                 raise ErrorContenido('%s: el pasaje "%s" no está definido en "pasajes".' % (d, clave))
             pasajes_usados.add(clave)
             limpia['pasaje'] = clave
+        figura = figura_de(limpia['enunciado'])
+        if figura:
+            limpia['figura'] = figura
+        else:
+            emojis, resto = separar_ilustracion(limpia['enunciado'])
+            if not emojis and ilustrar(resto):
+                limpia['dibujo'] = ilustrar(resto)
         preguntas.append(limpia)
 
     sobrantes = set(pasajes) - pasajes_usados
@@ -804,13 +811,24 @@ def cabecera_academica(juego):
     return '<section class="ficha-academica" aria-label="Aspectos académicos">\n  %s\n</section>' % '\n  '.join(filas)
 
 
-def situacion_problema(juego):
-    """Situación problema ilustrada al inicio de la ficha, con renglones para responder."""
+def situacion_problema(juego, numero=None):
+    """Situación problema ilustrada, con renglones para responder. En la ficha es
+    una pregunta más (lleva número); en la vista docente va sin número."""
     sit = juego.curriculo['situacion']
     preguntas = ''.join('<li>%s<span class="renglon"></span></li>' % esc(q) for q in sit['preguntas'])
-    return ('<section class="situacion-problema">\n  <p class="situacion-arte" aria-hidden="true">%s</p>\n'
-            '  <h3>🧩 Situación problema</h3>\n  <p>%s</p>\n  <ol>%s</ol>\n</section>'
-            % (esc(sit['ilustracion']), esc(sit['texto']), preguntas))
+    numero_html = ('<span class="ficha-numero">%d.</span> ' % numero) if numero else ''
+    return ('<section class="situacion-problema ficha-pregunta">\n  <p class="situacion-arte" aria-hidden="true">%s</p>\n'
+            '  <h3>%s🧩 Situación problema</h3>\n  <p>%s</p>\n  <ol type="a">%s</ol>\n</section>'
+            % (esc(sit['ilustracion']), numero_html, esc(sit['texto']), preguntas))
+
+
+def numero_situacion(juego):
+    """La situación va después de la última pregunta de la ficha."""
+    d = juego.datos
+    for clave in ('preguntas', 'pares', 'rondas', 'actividades'):
+        if d.get(clave):
+            return len(d[clave]) + 1
+    return 1
 
 
 def resumen_curriculo(juego):
@@ -1221,7 +1239,7 @@ ILUSTRACIONES = [
     ('limón', '🍋'), ('sandía', '🍉'), ('pizza', '🍕'), ('torta', '🎂'), ('pastel', '🎂'), ('chocolat', '🍫'),
     ('galleta', '🍪'), ('dulce', '🍬'), ('caramelo', '🍬'), ('helado', '🍦'), ('pan', '🍞'), ('empanada', '🥟'),
     ('jugo', '🧃'), ('leche', '🥛'), ('huevo', '🥚'), ('arepa', '🫓'), ('receta', '🥣'),
-    ('globo', '🎈'), ('balón', '⚽'), ('pelota', '⚽'), ('gol', '⚽'), ('partido', '⚽'), ('lápi', '✏️'),
+    ('globo', '🎈'), ('canica', '🔵'), ('balón', '⚽'), ('pelota', '⚽'), ('gol', '⚽'), ('partido', '⚽'), ('lápi', '✏️'),
     ('cuaderno', '📓'), ('libro', '📚'), ('cuento', '📖'), ('biblioteca', '📚'), ('colegio', '🏫'),
     ('escuela', '🏫'), ('salón', '🏫'), ('profesor', '👩‍🏫'), ('estudiante', '🧒🏽'), ('niñ', '🧒🏽'),
     ('bus', '🚌'), ('carro', '🚗'), ('bicicleta', '🚲'), ('avión', '✈️'), ('tren', '🚆'), ('barco', '⛵'),
@@ -1256,10 +1274,60 @@ def ilustrar(texto):
     t = ' ' + texto.lower() + ' '
     hallados = []
     for palabra, dibujo in ILUSTRACIONES:
-        i = t.find(palabra if len(palabra) > 3 else ' ' + palabra)
+        m = re.search(r'(?<!\w)' + re.escape(palabra) + ('' if len(palabra) > 3 else r''), t)
+        i = m.start() if m else -1
         if i >= 0 and dibujo not in [d for _, d in hallados]:
             hallados.append((i, dibujo))
     return ''.join(d for _, d in sorted(hallados)[:2])
+
+
+OPERACION = re.compile(r'(?<![\d.,/])(\d{1,2})\s*([+\-−×x])\s*(\d{1,2})(?![\d.,/])')
+NUMERO_SUELTO = re.compile(r'(?<![\d.,/])(\d{1,2})(?!\d|[.,]\d|[/°%])')
+MAX_EN_GRUPO = 20
+NO_CONTABLE = re.compile(r'/|[−-]\s*\d|°|\$|\d\s*(?:cm|m|km|kg|g|l|litros|metros)\b|fracci|área|perímetro|'
+                         r'\bde\s+\d|\btienen\s+\d|\bcada\b|\bveces\b|\bporciones\b|\d+\s+\w+\s+de\s+\d', re.I)
+
+
+def figura_de(texto):
+    """Dibujo de las cantidades de un enunciado, para contar: {'grupos': [[dibujo, n], ...], 'op': '+'}.
+    Con una operación escrita se muestra el signo; en un problema de palabras solo los
+    dos grupos, sin el signo, para no darle la operación a quien lo resuelve."""
+    emojis, resto = separar_ilustracion(texto)
+    # Lo que se cuenta suele nombrarse justo después del primer número («8 huevos»).
+    primero = re.search(r'\d', resto)
+    dibujo = ((ilustrar(resto[primero.start():]) if primero else '') or emojis or ilustrar(resto) or '🔵')[:2]
+    dibujo = dibujo if len(dibujo) == 1 or dibujo[1] in '️‍' else dibujo[0]
+    m = OPERACION.search(resto)
+    if m:
+        a, op, b = int(m.group(1)), m.group(2), int(m.group(3))
+        op = {'-': '−', 'x': '×'}.get(op, op)
+        if op == '×':
+            if 1 < a <= 6 and 1 < b <= 6:
+                return {'grupos': [[dibujo, b]] * a, 'op': '×'}
+            return None
+        if a <= MAX_EN_GRUPO and b <= MAX_EN_GRUPO:
+            return {'grupos': [[dibujo, a], [dibujo, b]], 'op': op}
+        return None
+    # Solo problemas de juntar, quitar y comparar: sin negativos, medidas, dinero,
+    # fracciones ni «filas de 8» (eso es multiplicar y los grupos lo contarían mal).
+    if NO_CONTABLE.search(resto):
+        return None
+    numeros = [int(n) for n in NUMERO_SUELTO.findall(resto)]
+    if len(numeros) == 2 and all(1 <= n <= MAX_EN_GRUPO for n in numeros) and (emojis or ilustrar(resto)):
+        return {'grupos': [[dibujo, numeros[0]], [dibujo, numeros[1]]], 'op': ''}
+    return None
+
+
+def figura_html(figura):
+    if not figura:
+        return ''
+    partes = []
+    for i, (dibujo, n) in enumerate(figura['grupos']):
+        if i:
+            if figura['op'] in ('+', '−'):
+                partes.append('<span class="figura-op">%s</span>' % esc(figura['op']))
+        partes.append('<span class="figura-grupo">%s</span>' % esc(dibujo * n))
+    return '<div class="figura-cantidades" aria-hidden="true">%s</div>' % ''.join(partes)
 
 
 def separar_ilustracion(texto):
@@ -1276,9 +1344,11 @@ def separar_ilustracion(texto):
 
 def enunciado_ficha(n, texto):
     emojis, resto = separar_ilustracion(texto)
-    emojis = emojis or ilustrar(resto)
+    figura = figura_de(texto)
+    emojis = '' if figura else (emojis or ilustrar(resto))
     ilustracion = ('<span class="ficha-ilustracion" aria-hidden="true">%s</span>' % esc(emojis)) if emojis else ''
-    return '  %s<p class="ficha-enunciado"><span class="ficha-numero">%d.</span> %s</p>' % (ilustracion, n, esc(resto))
+    return '  %s<p class="ficha-enunciado"><span class="ficha-numero">%d.</span> %s</p>%s' % (
+        ilustracion, n, esc(resto), figura_html(figura))
 
 
 def pasaje_ficha(pasaje):
@@ -1399,7 +1469,7 @@ def pagina_ficha(juego, materias, v):
          enlace_pdf(ruta_ficha(juego), '📄 Descargar PDF', 'btn btn-acento'), url_de(juego.ruta),
          'Ver en pantalla' if juego.tipo == 'imprimible' else 'Jugar en pantalla',
          indentar(cabecera_academica(juego), '    '), instrucciones, clase_cuerpo(juego),
-         indentar(situacion_problema(juego), '      '), indentar('\n'.join(bloques), '      '), titulo_respuestas(respuestas), esc(juego.titulo),
+         indentar('\n'.join(bloques), '      '), indentar(situacion_problema(juego, numero_situacion(juego)), '      '), titulo_respuestas(respuestas), esc(juego.titulo),
          indentar('\n'.join(respuestas), '        '), '', bloque_pie(materias, v))
 
     head = cabeza(v, 'Ficha: %s — %s' % (juego.titulo, NOMBRE_SITIO),
@@ -1744,7 +1814,7 @@ def pagina_pack(titulo, subtitulo, juegos, v, ruta):
   </div>
 </article>""" % (n, esc(j.materia.nombre), esc(etiqueta_grados(j.grados)), esc(j.icono), esc(j.titulo),
                  esc(j.descripcion), indentar(cabecera_academica(j), '  '), instrucciones, clase_cuerpo(j),
-                 indentar(situacion_problema(j), '    '), indentar('\n'.join(bloques), '    ')))
+                 indentar('\n'.join(bloques), '    '), indentar(situacion_problema(j, numero_situacion(j)), '    ')))
         if respuestas:
             solucionario.append('<section class="sol-ficha"><h3>Ficha %d · %s %s</h3><ol>%s</ol></section>'
                                 % (n, esc(j.icono), esc(j.titulo), ''.join(respuestas)))
