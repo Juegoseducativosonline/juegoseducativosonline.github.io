@@ -750,7 +750,6 @@ def contenido_curriculo(juego):
         partes.append('</ul>')
     partes.append('<h3>Indicadores de desempeño</h3>')
     partes.append('<ul class="lista-curriculo">%s</ul>' % ''.join('<li>%s</li>' % esc(i) for i in c['indicadores']))
-    partes.append(situacion_problema(juego))
     usadas = []
     for r in c['dba'] + c['estandares']:
         if r['fuente'] not in usadas:
