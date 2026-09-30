@@ -1455,7 +1455,8 @@ def pagina_docentes(materias, v):
          cabecera_banda([('Inicio', '/'), ('Docentes', None)], '🍎', 'Recursos para docentes',
                         'Juegos educativos, fichas imprimibles con respuestas y actividades por grado. Gratis y sin registro.',
                         '%s · de Transición a %s' % (plural(sum(len(m.juegos) for m in materias), 'recurso', 'recursos'),
-                                                     grados[-1][0][2])),
+                                                     grados[-1][0][2]),
+                        '\n    <p class="descargas"><a class="btn btn-blanco" href="#packs-titulo">🖨️ Ver PDF para imprimir</a></p>'),
          indentar(juegos_por_materia(materias, [j for m in materias for j in m.juegos]), '  '),
          indentar(tarjetas, '    '), indentar(seccion_packs(materias), '  '), bloque_pie(materias, v))
     head = cabeza(v, 'Recursos educativos gratis para docentes: juegos y fichas por grado — %s' % NOMBRE_SITIO,
