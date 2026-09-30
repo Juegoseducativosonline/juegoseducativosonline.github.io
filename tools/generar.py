@@ -1879,7 +1879,7 @@ self.addEventListener('fetch', function (evento) {
 
   /* Páginas: primero la red, para ver siempre lo último; sin conexión, la copia guardada. */
   if (peticion.mode === 'navigate') {
-    evento.respondWith(fetch(peticion).catch(function () {
+    evento.respondWith(fetch(peticion.url, { cache: 'no-cache' }).catch(function () {
       return caches.match(peticion, { ignoreSearch: true }).then(function (guardada) {
         return guardada || caches.match('/404.html');
       });
