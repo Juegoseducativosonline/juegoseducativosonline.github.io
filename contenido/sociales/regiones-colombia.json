@@ -1,0 +1,144 @@
+{
+  "titulo": "Regiones naturales de Colombia",
+  "icono": "🗺️",
+  "descripcion": "Andina, Caribe, Pacífica, Orinoquía, Amazonía e insular: relieve, clima, ríos y actividades de cada región.",
+  "tituloSeo": "Juego de las regiones naturales de Colombia para primaria",
+  "descripcionSeo": "Preguntas sobre las seis regiones naturales de Colombia, sus ríos, cordilleras y actividades económicas, con explicaciones.",
+  "preguntas": [
+    {
+      "enunciado": "¿Cuántas regiones naturales tiene Colombia?",
+      "opciones": [
+        "Seis",
+        "Tres",
+        "Diez",
+        "Cuatro"
+      ],
+      "correcta": 0,
+      "explicacion": "Andina, Caribe, Pacífica, Orinoquía, Amazonía e insular: se distinguen por su relieve, clima y vegetación."
+    },
+    {
+      "enunciado": "¿En qué región viven la mayoría de los colombianos?",
+      "opciones": [
+        "Andina",
+        "Amazonía",
+        "Orinoquía",
+        "Insular"
+      ],
+      "correcta": 0,
+      "explicacion": "En la región Andina están Bogotá, Medellín y Cali; su clima templado y fértil atrajo la población.",
+      "curioso": "Casi 7 de cada 10 colombianos viven en la región Andina."
+    },
+    {
+      "enunciado": "¿En cuántas cordilleras se divide la cordillera de los Andes en Colombia?",
+      "opciones": [
+        "Tres",
+        "Dos",
+        "Una",
+        "Cinco"
+      ],
+      "correcta": 0,
+      "explicacion": "Occidental, Central y Oriental se separan en el Macizo Colombiano, en el sur del país."
+    },
+    {
+      "enunciado": "¿Cuál es el río más importante de Colombia?",
+      "opciones": [
+        "El Magdalena",
+        "El Amazonas",
+        "El Nilo",
+        "El Orinoco"
+      ],
+      "correcta": 0,
+      "explicacion": "El Magdalena recorre unos 1.500 km de sur a norte y desemboca en el mar Caribe.",
+      "curioso": "Por el Magdalena se transportaron personas y mercancías durante siglos: era la «autopista» del país."
+    },
+    {
+      "enunciado": "¿Qué región es una de las más lluviosas del mundo?",
+      "opciones": [
+        "Pacífica",
+        "Caribe",
+        "Orinoquía",
+        "Andina"
+      ],
+      "correcta": 0,
+      "explicacion": "Los vientos húmedos del océano chocan con la cordillera Occidental y descargan lluvia casi todos los días.",
+      "curioso": "En Lloró (Chocó) llueve más de 12.000 mm al año."
+    },
+    {
+      "enunciado": "¿Qué región está formada por grandes llanuras y es famosa por la ganadería y el joropo?",
+      "opciones": [
+        "Orinoquía",
+        "Amazonía",
+        "Pacífica",
+        "Insular"
+      ],
+      "correcta": 0,
+      "explicacion": "La Orinoquía o Llanos Orientales es plana, con sabanas ideales para el ganado."
+    },
+    {
+      "enunciado": "¿Qué región tiene la selva tropical más grande del planeta?",
+      "opciones": [
+        "Amazonía",
+        "Andina",
+        "Caribe",
+        "Orinoquía"
+      ],
+      "correcta": 0,
+      "explicacion": "La Amazonía cubre más del 40 % del territorio colombiano y es compartida con otros ocho países."
+    },
+    {
+      "enunciado": "¿Qué islas forman parte de la región insular?",
+      "opciones": [
+        "San Andrés, Providencia y Santa Catalina",
+        "Las Galápagos",
+        "Las Canarias",
+        "Cuba y Jamaica"
+      ],
+      "correcta": 0,
+      "explicacion": "El archipiélago está en el mar Caribe; también son insulares Gorgona y Malpelo en el Pacífico."
+    },
+    {
+      "enunciado": "¿Qué montaña de Colombia está a la orilla del mar y tiene picos nevados?",
+      "opciones": [
+        "La Sierra Nevada de Santa Marta",
+        "El nevado del Ruiz",
+        "El volcán Galeras",
+        "El cerro de Monserrate"
+      ],
+      "correcta": 0,
+      "explicacion": "Es la montaña costera más alta del mundo: pasa del mar Caribe a más de 5.700 m."
+    },
+    {
+      "enunciado": "¿Por qué Colombia tiene tantos climas distintos si está en la zona tropical?",
+      "opciones": [
+        "Por la altura de sus montañas",
+        "Porque tiene cuatro estaciones",
+        "Porque está cerca del polo",
+        "Por los volcanes"
+      ],
+      "correcta": 0,
+      "explicacion": "A más altura, más frío: en un mismo día se puede pasar del calor del valle al frío del páramo. Son los pisos térmicos."
+    },
+    {
+      "enunciado": "¿Qué ventaja tiene Colombia por su posición geográfica?",
+      "opciones": [
+        "Tiene costas en dos océanos",
+        "No tiene fronteras",
+        "Está en Europa",
+        "No tiene ríos"
+      ],
+      "correcta": 0,
+      "explicacion": "Colombia es el único país de Sudamérica con costas en el Pacífico y en el Caribe (Atlántico), lo que facilita el comercio."
+    },
+    {
+      "enunciado": "¿Qué actividad económica es típica de la región Caribe?",
+      "opciones": [
+        "La pesca y el turismo de playa",
+        "La minería de sal en el páramo",
+        "El cultivo de trigo en la nieve",
+        "La caza de osos polares"
+      ],
+      "correcta": 0,
+      "explicacion": "Con sus costas y puertos (Cartagena, Barranquilla, Santa Marta), el Caribe vive del mar, el comercio y el turismo."
+    }
+  ]
+}

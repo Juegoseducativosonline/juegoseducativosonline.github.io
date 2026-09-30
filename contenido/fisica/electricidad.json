@@ -1,0 +1,142 @@
+{
+  "titulo": "Electricidad: circuitos, conductores e imanes",
+  "icono": "💡",
+  "descripcion": "Cómo funciona un circuito, qué materiales conducen la electricidad y por qué se atraen o repelen las cargas y los imanes.",
+  "tituloSeo": "Juego de electricidad y circuitos para 5.º y 6.º",
+  "descripcionSeo": "Preguntas sobre circuitos eléctricos, conductores y aislantes, cargas e imanes, con situaciones reales y explicaciones.",
+  "preguntas": [
+    {
+      "enunciado": "¿Qué necesita como mínimo un circuito para encender un bombillo?",
+      "opciones": [
+        "Una pila, cables y el bombillo",
+        "Solo el bombillo",
+        "Un imán",
+        "Agua y sal"
+      ],
+      "correcta": 0,
+      "explicacion": "La pila da la energía, los cables la llevan y el bombillo la usa; el camino debe estar cerrado."
+    },
+    {
+      "enunciado": "Si un cable del circuito se suelta, ¿qué pasa con el bombillo?",
+      "opciones": [
+        "Se apaga porque el circuito queda abierto",
+        "Brilla más",
+        "Cambia de color",
+        "Sigue igual"
+      ],
+      "correcta": 0,
+      "explicacion": "La corriente solo circula si el camino está completo; al abrirlo, se detiene."
+    },
+    {
+      "enunciado": "¿Para qué sirve un interruptor?",
+      "opciones": [
+        "Para abrir o cerrar el circuito",
+        "Para guardar electricidad",
+        "Para producir luz",
+        "Para medir la temperatura"
+      ],
+      "correcta": 0,
+      "explicacion": "Al subir o bajar el interruptor se corta o se permite el paso de la corriente."
+    },
+    {
+      "enunciado": "¿Cuál de estos materiales es buen conductor de la electricidad?",
+      "opciones": [
+        "El cobre",
+        "El plástico",
+        "La madera seca",
+        "El vidrio"
+      ],
+      "correcta": 0,
+      "explicacion": "Los metales como el cobre dejan pasar la corriente; por eso los cables son de cobre."
+    },
+    {
+      "enunciado": "¿Por qué los cables están cubiertos de plástico?",
+      "opciones": [
+        "Porque el plástico es aislante y nos protege",
+        "Para que brillen",
+        "Para que conduzcan mejor",
+        "Para que pesen más"
+      ],
+      "correcta": 0,
+      "explicacion": "El plástico no deja pasar la corriente: evita descargas y cortocircuitos."
+    },
+    {
+      "enunciado": "¿Por qué un cargador de celular se calienta?",
+      "opciones": [
+        "Porque el paso de la corriente siempre genera calor",
+        "Porque tiene fuego adentro",
+        "Porque está hecho de hielo",
+        "Porque tiene un imán"
+      ],
+      "correcta": 0,
+      "explicacion": "Parte de la energía eléctrica se transforma en calor al atravesar los materiales."
+    },
+    {
+      "enunciado": "Si frotas un globo en tu cabello y lo acercas a papelitos, ¿qué pasa?",
+      "opciones": [
+        "Los atrae",
+        "Los quema",
+        "Los moja",
+        "No pasa nada"
+      ],
+      "correcta": 0,
+      "explicacion": "Al frotarlo el globo se carga eléctricamente y atrae los papelitos: es electricidad estática."
+    },
+    {
+      "enunciado": "¿Qué pasa si acercas dos cargas del mismo signo?",
+      "opciones": [
+        "Se repelen",
+        "Se atraen",
+        "Se funden",
+        "Desaparecen"
+      ],
+      "correcta": 0,
+      "explicacion": "Cargas iguales se repelen y cargas opuestas se atraen."
+    },
+    {
+      "enunciado": "¿Qué pasa al acercar el polo norte de un imán al polo norte de otro?",
+      "opciones": [
+        "Se repelen",
+        "Se atraen",
+        "Se apagan",
+        "Cambian de color"
+      ],
+      "correcta": 0,
+      "explicacion": "Polos iguales se repelen; polos distintos (norte y sur) se atraen."
+    },
+    {
+      "enunciado": "¿Por qué una brújula apunta al norte?",
+      "opciones": [
+        "Porque la Tierra se comporta como un gran imán",
+        "Porque tiene pilas",
+        "Por el viento",
+        "Porque el norte es más frío"
+      ],
+      "correcta": 0,
+      "explicacion": "La aguja es un imán que se alinea con el campo magnético de la Tierra.",
+      "curioso": "Las auroras polares se producen cuando partículas del Sol chocan con el campo magnético de la Tierra."
+    },
+    {
+      "enunciado": "En una casa hay dos bombillos en serie y uno se funde. ¿Qué pasa con el otro?",
+      "opciones": [
+        "También se apaga",
+        "Brilla el doble",
+        "Sigue igual",
+        "Cambia de color"
+      ],
+      "correcta": 0,
+      "explicacion": "En serie hay un solo camino: si se interrumpe en un punto, se apaga todo. Por eso las casas usan circuitos en paralelo."
+    },
+    {
+      "enunciado": "¿Qué hacer si ves un cable eléctrico caído en la calle?",
+      "opciones": [
+        "Alejarse y avisar a un adulto o a la empresa de energía",
+        "Tocarlo para ver si funciona",
+        "Moverlo con la mano",
+        "Echarle agua"
+      ],
+      "correcta": 0,
+      "explicacion": "Un cable caído puede estar energizado y causar una descarga mortal; el agua conduce la electricidad."
+    }
+  ]
+}

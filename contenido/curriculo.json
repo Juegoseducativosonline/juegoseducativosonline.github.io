@@ -2427,6 +2427,353 @@
         }
       ],
       "estandares": []
+    },
+    "sociales/historia-colombia.json": {
+      "grados": [
+        5
+      ],
+      "objetivo": "Analizar la Colonia en la Nueva Granada y el proceso de independencia y formación de la República de Colombia.",
+      "competencia": "Relaciones con la historia y las culturas: periodos históricos de Colombia.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 4,
+          "texto": "Analiza el periodo colonial en la Nueva Granada a partir de sus organizaciones políticas, económicas y sociales."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 5,
+          "texto": "Analiza el origen y consolidación de Colombia como república y sus cambios políticos, económicos y sociales."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico y comparo algunas causas que dieron lugar a los diferentes períodos históricos en Colombia (Descubrimiento, Colonia, Independencia...)."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico los propósitos de las organizaciones coloniales españolas y describo aspectos básicos de su funcionamiento."
+        }
+      ]
+    },
+    "sociales/culturas-indigenas.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Reconocer las características y aportes de las culturas indígenas que habitaban y habitan el territorio colombiano.",
+      "competencia": "Relaciones con la historia y las culturas: comunidades prehispánicas.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 4,
+          "numero": 4,
+          "texto": "Analiza las características de las culturas ancestrales que a la llegada de los españoles, habitaban el territorio nacional."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 4,
+          "texto": "Analiza el periodo colonial en la Nueva Granada a partir de sus organizaciones políticas, económicas y sociales."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico, describo y comparo algunas características sociales, políticas, económicas y culturales de las comunidades prehispánicas de Colombia y América."
+        }
+      ]
+    },
+    "sociales/regiones-colombia.json": {
+      "grados": [
+        5
+      ],
+      "objetivo": "Comprender la organización territorial de Colombia, las particularidades de sus regiones naturales y las ventajas de su posición geográfica.",
+      "competencia": "Relaciones espaciales y ambientales: regiones de Colombia.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 1,
+          "texto": "Comprende la organización territorial existente en Colombia y las particularidades geográficas de las regiones."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 2,
+          "texto": "Comprende las ventajas que tiene para Colombia su posición geográfica y astronómica en relación con la economía nacional."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico y describo características de las diferentes regiones naturales del mundo (desiertos, polos, selva húmeda tropical, océanos…)."
+        }
+      ]
+    },
+    "sociales/departamentos-capitales.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Ubicar los departamentos de Colombia y sus capitales como parte de la organización político-administrativa del país.",
+      "competencia": "Relaciones espaciales: organización territorial.",
+      "dba": [
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 4,
+          "numero": 1,
+          "texto": "Comprende la importancia de los límites geográficos y el establecimiento de las fronteras en la organización de los territorios."
+        },
+        {
+          "fuente": "SOC",
+          "area": "Ciencias Sociales",
+          "grado": 5,
+          "numero": 1,
+          "texto": "Comprende la organización territorial existente en Colombia y las particularidades geográficas de las regiones."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Sociales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico y describo algunas características de las organizaciones político-administrativas colombianas en diferentes épocas (Real Audiencia, Congreso, Concejo Municipal…)."
+        }
+      ]
+    },
+    "espanol/tipos-texto.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Reconocer la tipología de un texto (narrativo, informativo, descriptivo, instructivo, argumentativo, poético) y su intención comunicativa.",
+      "competencia": "Comprensión e interpretación textual: tipologías e intención.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 5,
+          "numero": 6,
+          "texto": "Identifica la intención comunicativa de los textos con los que interactúa a partir del análisis de su contenido y estructura."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 4,
+          "numero": 6,
+          "texto": "Organiza la información que encuentra en los textos que lee, utilizando técnicas para el procesamiento de la información que le facilitan el proceso de compresión e interpretación textual."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "4.º y 5.º",
+          "texto": "Leo diversos tipos de texto: descriptivo, informativo, narrativo, explicativo y argumentativo."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico la intención comunicativa de cada uno de los textos leídos."
+        }
+      ]
+    },
+    "espanol/lectura-informativa.json": {
+      "grados": [
+        4,
+        5
+      ],
+      "objetivo": "Comprender textos informativos: localizar datos, inferir significados por contexto e identificar la idea principal.",
+      "competencia": "Comprensión lectora literal e inferencial.",
+      "dba": [
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 5,
+          "numero": 5,
+          "texto": "Comprende el sentido global de los mensajes, a partir de la relación entre la información explícita e implícita."
+        },
+        {
+          "fuente": "LEN",
+          "area": "Lenguaje",
+          "grado": 4,
+          "numero": 6,
+          "texto": "Organiza la información que encuentra en los textos que lee, utilizando técnicas para el procesamiento de la información que le facilitan el proceso de compresión e interpretación textual."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Lenguaje",
+          "grupo": "4.º y 5.º",
+          "texto": "Comprendo los aspectos formales y conceptuales (en especial: características de las oraciones y formas de relación entre ellas), al interior de cada texto leído."
+        }
+      ]
+    },
+    "quimica/sustancias-mezclas.json": {
+      "grados": [
+        6,
+        7
+      ],
+      "objetivo": "Clasificar materiales en elementos, compuestos y mezclas, comparar su densidad y elegir métodos de separación.",
+      "competencia": "Entorno físico: procesos químicos y propiedades de la materia.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 6,
+          "numero": 3,
+          "texto": "Comprende la clasificación de los materiales a partir de grupos de sustancias (elementos y compuestos) y mezclas (homogéneas y heterogéneas)."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 6,
+          "numero": 2,
+          "texto": "Comprende que la temperatura (T) y la presión (P) influyen en algunas propiedades fisicoquímicas (solubilidad, viscosidad, densidad, puntos de ebullición y fusión) de las sustancias, y que estas pueden ser aprovechadas en las técnicas de separación de mezclas."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Clasifico materiales en sustancias puras o mezclas."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Comparo masa, peso y densidad de diferentes materiales mediante experimentos."
+        }
+      ]
+    },
+    "quimica/tabla-periodica-ordenar.json": {
+      "grados": [
+        7,
+        8
+      ],
+      "objetivo": "Relacionar la organización de la tabla periódica con el número atómico y reconocer la evolución de los modelos atómicos.",
+      "competencia": "Entorno físico: estructura de la materia.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 7,
+          "numero": 2,
+          "texto": "Explica cómo las sustancias se forman a partir de la interacción de los elementos y que estos se encuentran agrupados en un sistema periódico."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Explico el desarrollo de modelos de organización de los elementos químicos."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Explico y utilizo la tabla periódica como herramienta para predecir procesos químicos."
+        }
+      ]
+    },
+    "fisica/movimiento.json": {
+      "grados": [
+        6,
+        7
+      ],
+      "objetivo": "Resolver situaciones problema de velocidad, distancia y tiempo, y relacionar el movimiento con la energía cinética y potencial.",
+      "competencia": "Entorno físico: movimiento y energía; resolución de problemas.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 7,
+          "numero": 1,
+          "texto": "Comprende las formas y las transformaciones de energía en un sistema mecánico y la manera como, en los casos reales, la energía se disipa en el medio (calor, sonido)."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Verifico relaciones entre distancia recorrida, velocidad y fuerza involucrada en diversos tipos de movimiento."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "6.º y 7.º",
+          "texto": "Relaciono energía y movimiento."
+        }
+      ]
+    },
+    "fisica/electricidad.json": {
+      "grados": [
+        5,
+        6
+      ],
+      "objetivo": "Explicar cómo funciona un circuito eléctrico, diferenciar conductores y aislantes, y reconocer la atracción y repulsión de cargas e imanes.",
+      "competencia": "Entorno físico: electricidad y magnetismo.",
+      "dba": [
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 5,
+          "numero": 1,
+          "texto": "Comprende que un circuito eléctrico básico está formado por un generador o fuente (pila), conductores (cables) y uno o más dispositivos (bombillos, motores, timbres), que deben estar conectados apropiadamente (por sus dos polos) para que funcionen y produzcan diferentes efectos."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 5,
+          "numero": 2,
+          "texto": "Comprende que algunos materiales son buenos conductores de la corriente eléctrica y otros no (denominados aislantes) y que el paso de la corriente siempre genera calor."
+        },
+        {
+          "fuente": "NAT",
+          "area": "Ciencias Naturales",
+          "grado": 6,
+          "numero": 1,
+          "texto": "Comprende cómo los cuerpos pueden ser cargados eléctricamente asociando esta carga a efectos de atracción y repulsión."
+        }
+      ],
+      "estandares": [
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Identifico las funciones de los componentes de un circuito eléctrico."
+        },
+        {
+          "fuente": "EBC",
+          "area": "Ciencias Naturales",
+          "grupo": "4.º y 5.º",
+          "texto": "Verifico la conducción de electricidad o calor en materiales."
+        }
+      ]
     }
   }
 }

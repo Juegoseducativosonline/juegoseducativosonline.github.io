@@ -1,0 +1,51 @@
+{
+  "titulo": "Parejas: culturas indígenas de Colombia",
+  "icono": "🏺",
+  "descripcion": "Relaciona cada pueblo indígena de Colombia con uno de sus aportes o características.",
+  "tituloSeo": "Juego de culturas indígenas de Colombia para 4.º y 5.º",
+  "descripcionSeo": "Relaciona muiscas, taironas, zenúes, San Agustín y otros pueblos con sus aportes. Juego de parejas para primaria.",
+  "etiquetaA": "Pueblo",
+  "etiquetaB": "Aporte o característica",
+  "pares": [
+    {
+      "a": "Muiscas",
+      "b": "La balsa de oro y la leyenda de El Dorado",
+      "dato": "La ceremonia de El Dorado se hacía en la laguna de Guatavita."
+    },
+    {
+      "a": "Taironas",
+      "b": "Ciudad Perdida en la Sierra Nevada",
+      "dato": "Ciudad Perdida (Teyuna) es unos 650 años más antigua que Machu Picchu."
+    },
+    {
+      "a": "Zenúes",
+      "b": "Canales para controlar las inundaciones",
+      "dato": "Sus canales en el río San Jorge cubrían unas 500.000 hectáreas."
+    },
+    {
+      "a": "Cultura San Agustín",
+      "b": "Grandes estatuas de piedra",
+      "dato": "El Parque Arqueológico de San Agustín tiene más de 500 estatuas."
+    },
+    {
+      "a": "Wayuu",
+      "b": "Mochilas tejidas en La Guajira",
+      "dato": "Una mochila wayuu puede tardar un mes en tejerse."
+    },
+    {
+      "a": "Arhuacos",
+      "b": "Guardianes de la Sierra Nevada de Santa Marta",
+      "dato": "Llaman a la Sierra «el corazón del mundo»."
+    },
+    {
+      "a": "Quimbayas",
+      "b": "Orfebrería como el Tesoro Quimbaya",
+      "dato": "El Tesoro Quimbaya tiene 122 piezas de oro."
+    },
+    {
+      "a": "Tierradentro",
+      "b": "Tumbas pintadas bajo tierra (hipogeos)",
+      "dato": "Algunos hipogeos tienen más de 7 metros de profundidad."
+    }
+  ]
+}

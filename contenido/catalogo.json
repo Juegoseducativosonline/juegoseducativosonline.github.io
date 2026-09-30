@@ -270,6 +270,14 @@
                 3,
                 4
               ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "espanol/lectura-informativa.json",
+              "grados": [
+                4,
+                5
+              ]
             }
           ]
         },
@@ -283,6 +291,14 @@
               "datos": "espanol/situaciones-comunicativas.json",
               "grados": [
                 3,
+                4,
+                5
+              ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "espanol/tipos-texto.json",
+              "grados": [
                 4,
                 5
               ]
@@ -372,6 +388,21 @@
                 8,
                 9
               ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "sociales/historia-colombia.json",
+              "grados": [
+                5
+              ]
+            },
+            {
+              "tipo": "parejas",
+              "datos": "sociales/culturas-indigenas.json",
+              "grados": [
+                4,
+                5
+              ]
             }
           ]
         },
@@ -404,6 +435,21 @@
               "datos": "sociales/ordenar-geografia.json",
               "grados": [
                 3,
+                4,
+                5
+              ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "sociales/regiones-colombia.json",
+              "grados": [
+                5
+              ]
+            },
+            {
+              "tipo": "parejas",
+              "datos": "sociales/departamentos-capitales.json",
+              "grados": [
                 4,
                 5
               ]
@@ -638,6 +684,14 @@
                 4,
                 5
               ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "quimica/sustancias-mezclas.json",
+              "grados": [
+                6,
+                7
+              ]
             }
           ]
         },
@@ -658,6 +712,14 @@
             {
               "tipo": "parejas",
               "datos": "quimica/simbolos-quimicos.json",
+              "grados": [
+                7,
+                8
+              ]
+            },
+            {
+              "tipo": "ordenar",
+              "datos": "quimica/tabla-periodica-ordenar.json",
               "grados": [
                 7,
                 8
@@ -687,6 +749,14 @@
                 9,
                 10
               ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "fisica/movimiento.json",
+              "grados": [
+                6,
+                7
+              ]
             }
           ]
         },
@@ -702,6 +772,14 @@
                 5,
                 6,
                 7
+              ]
+            },
+            {
+              "tipo": "quiz",
+              "datos": "fisica/electricidad.json",
+              "grados": [
+                5,
+                6
               ]
             }
           ]

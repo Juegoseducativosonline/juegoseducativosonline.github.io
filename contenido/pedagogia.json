@@ -239,6 +239,11 @@
       "Reconoce el sonido de las vocales en palabras.",
       "Asocia cada vocal con imágenes.",
       "Identifica vocales al inicio de palabras que escucha."
+    ],
+    "curiosos": [
+      "«Murciélago» tiene las cinco vocales.",
+      "En español hay palabras de una sola vocal: «a», «e», «o», «u», «y».",
+      "La vocal más usada en español es la «e»."
     ]
   },
   "espanol/silabas.json": {
@@ -254,6 +259,11 @@
       "Divide palabras en sílabas.",
       "Une sílabas para formar palabras.",
       "Reconoce palabras que riman."
+    ],
+    "curiosos": [
+      "«Otorrinolaringólogo» tiene 9 sílabas.",
+      "Las palabras de una sola sílaba se llaman monosílabas, como «sol» y «pan».",
+      "Los poetas cuentan sílabas para que sus versos tengan ritmo."
     ]
   },
   "espanol/primeras-palabras.json": {
@@ -269,6 +279,11 @@
       "Lee palabras y frases cortas con apoyo de imágenes.",
       "Escribe palabras con la ortografía adecuada.",
       "Usa la escritura para comunicar mensajes sencillos."
+    ],
+    "curiosos": [
+      "El español tiene 27 letras.",
+      "La «ñ» es una letra casi exclusiva del español.",
+      "Más de 480 millones de personas tienen el español como lengua materna."
     ]
   },
   "espanol/juego-lectura.json": {
@@ -284,6 +299,11 @@
       "Identifica personajes, lugares y acciones de un texto.",
       "Hace inferencias a partir de pistas del texto.",
       "Relaciona lo que lee con su propia experiencia."
+    ],
+    "curiosos": [
+      "El colibrí es el único pájaro que puede volar hacia atrás.",
+      "Los libros más antiguos se escribían a mano y tardaban años en copiarse.",
+      "Leer 20 minutos al día expone a un niño a casi 2 millones de palabras al año."
     ]
   },
   "espanol/ordenar-textos.json": {
@@ -299,6 +319,11 @@
       "Ordena palabras alfabéticamente.",
       "Reconoce inicio, nudo y desenlace del cuento.",
       "Identifica la estructura de la carta."
+    ],
+    "curiosos": [
+      "El diccionario ordena las palabras alfabéticamente desde hace siglos.",
+      "La carta más antigua conocida tiene unos 4.000 años.",
+      "Un cuento puede ser tan corto como una línea: «Cuando despertó, el dinosaurio todavía estaba allí»."
     ]
   },
   "espanol/ortografia.json": {
@@ -314,6 +339,11 @@
       "Aplica las reglas de acentuación.",
       "Usa mayúsculas y signos de puntuación.",
       "Corrige palabras que se confunden al escribir."
+    ],
+    "curiosos": [
+      "La tilde en español se usa desde el siglo XVIII.",
+      "Los signos de apertura ¿ y ¡ son exclusivos del español.",
+      "«Hola» lleva h aunque no suena, como muchas palabras que venían con f."
     ]
   },
   "espanol/gramatica.json": {
@@ -330,6 +360,11 @@
       "Reconoce sustantivos, verbos, adjetivos y artículos.",
       "Identifica el sujeto y el predicado.",
       "Usa la concordancia de género y número."
+    ],
+    "curiosos": [
+      "El verbo más usado en español es «ser».",
+      "Una oración puede tener un solo verbo: «Llueve».",
+      "Hay sustantivos que solo existen en plural, como «gafas»."
     ]
   },
   "espanol/sinonimos.json": {
@@ -345,6 +380,11 @@
       "Relaciona palabras con significado parecido.",
       "Amplía su vocabulario.",
       "Evita repeticiones al escribir."
+    ],
+    "curiosos": [
+      "El español tiene más de 90.000 palabras en el diccionario.",
+      "Los antónimos son palabras de significado opuesto.",
+      "Usar sinónimos hace los textos más agradables de leer."
     ]
   },
   "espanol/situaciones-comunicativas.json": {
@@ -360,6 +400,11 @@
       "Identifica emisor, receptor y propósito.",
       "Adecúa su lenguaje a la situación.",
       "Elige el medio de comunicación adecuado."
+    ],
+    "curiosos": [
+      "Más de la mitad de lo que comunicamos va en gestos y tono de voz.",
+      "El lenguaje de señas colombiano es reconocido por la ley desde 1996.",
+      "Los emojis se inventaron en Japón en 1999."
     ]
   },
   "sociales/quiz-historia.json": {
@@ -375,6 +420,11 @@
       "Reconoce civilizaciones antiguas y prehispánicas.",
       "Ubica hechos en el tiempo.",
       "Compara formas de vida de distintas culturas."
+    ],
+    "curiosos": [
+      "Las pirámides de Egipto se construyeron hace unos 4.500 años.",
+      "Los mayas usaban el cero antes que los europeos.",
+      "Machu Picchu fue redescubierto para el mundo en 1911."
     ]
   },
   "sociales/personajes.json": {
@@ -390,6 +440,11 @@
       "Relaciona personajes con sus aportes.",
       "Ubica personajes en su época.",
       "Valora aportes científicos y culturales."
+    ],
+    "curiosos": [
+      "Marie Curie es la única persona que ha ganado Premios Nobel en dos ciencias distintas.",
+      "Leonardo da Vinci dibujó máquinas voladoras 400 años antes de los aviones.",
+      "Manuel Elkin Patarroyo, colombiano, desarrolló una vacuna sintética contra la malaria."
     ]
   },
   "sociales/linea-tiempo.json": {
@@ -405,6 +460,11 @@
       "Ordena hechos cronológicamente.",
       "Usa líneas de tiempo.",
       "Explica cambios y permanencias en la historia."
+    ],
+    "curiosos": [
+      "La rueda se inventó hace unos 5.500 años en Mesopotamia.",
+      "La imprenta de Gutenberg (1450) hizo posible que los libros fueran para todos.",
+      "El ser humano llegó a la Luna en 1969."
     ]
   },
   "sociales/geografia.json": {
@@ -420,6 +480,11 @@
       "Reconoce continentes, océanos y relieve.",
       "Usa los puntos cardinales para orientarse.",
       "Lee mapas sencillos."
+    ],
+    "curiosos": [
+      "El océano Pacífico es más grande que todos los continentes juntos.",
+      "El punto más alto de Colombia son los picos Cristóbal Colón y Simón Bolívar, de unos 5.700 m.",
+      "La Antártida es el desierto más grande del mundo: casi no llueve."
     ]
   },
   "sociales/capitales.json": {
@@ -435,6 +500,11 @@
       "Relaciona países con sus capitales.",
       "Ubica países en el mapa de América.",
       "Reconoce la diversidad de países vecinos."
+    ],
+    "curiosos": [
+      "La Paz (Bolivia) es la sede de gobierno más alta del mundo.",
+      "Brasilia se construyó en menos de 4 años y se inauguró en 1960.",
+      "Bogotá está a unos 2.600 metros sobre el nivel del mar."
     ]
   },
   "sociales/ordenar-geografia.json": {
@@ -450,6 +520,11 @@
       "Compara y ordena accidentes geográficos por tamaño.",
       "Reconoce escalas del territorio.",
       "Usa datos para argumentar."
+    ],
+    "curiosos": [
+      "Asia tiene más de la mitad de la población del mundo.",
+      "El Everest crece unos milímetros cada año por el choque de placas.",
+      "La fosa de las Marianas, en el Pacífico, tiene casi 11 km de profundidad."
     ]
   },
   "sociales/convivencia-ciudadania.json": {
@@ -465,6 +540,11 @@
       "Reconoce derechos y deberes.",
       "Participa en la construcción de normas.",
       "Propone soluciones pacíficas a conflictos."
+    ],
+    "curiosos": [
+      "La Constitución de Colombia es de 1991 y tiene 380 artículos.",
+      "El personero estudiantil se elige cada año en todos los colegios de Colombia.",
+      "La Convención sobre los Derechos del Niño es el tratado más firmado del mundo."
     ]
   },
   "naturales/juego-plantas.json": {
@@ -630,6 +710,11 @@
       "Reconoce los estados de la materia.",
       "Explica los cambios de estado por temperatura.",
       "Relaciona cambios de estado con la vida diaria."
+    ],
+    "curiosos": [
+      "El agua es la única sustancia común que se encuentra en la naturaleza en los tres estados.",
+      "El hielo flota porque es menos denso que el agua líquida.",
+      "Existe un cuarto estado, el plasma, que forma las estrellas y los rayos."
     ]
   },
   "quimica/mezclas.json": {
@@ -645,6 +730,11 @@
       "Diferencia mezclas homogéneas y heterogéneas.",
       "Elige métodos de separación.",
       "Distingue cambios físicos y químicos."
+    ],
+    "curiosos": [
+      "El agua de mar es una mezcla con unos 35 gramos de sal por litro.",
+      "La leche es una mezcla que parece homogénea, pero tiene gotitas de grasa.",
+      "Cocinar un huevo es un cambio químico: no se puede volver atrás."
     ]
   },
   "quimica/elementos.json": {
@@ -660,6 +750,11 @@
       "Reconoce elementos y sus símbolos.",
       "Explica la organización de la tabla periódica.",
       "Describe las partículas del átomo."
+    ],
+    "curiosos": [
+      "El cuerpo humano es sobre todo oxígeno, carbono, hidrógeno y nitrógeno.",
+      "El oro no se oxida: por eso las joyas antiguas siguen brillando.",
+      "El helio se descubrió primero en el Sol que en la Tierra."
     ]
   },
   "quimica/simbolos-quimicos.json": {
@@ -675,6 +770,11 @@
       "Relaciona elementos con sus símbolos.",
       "Reconoce metales y no metales.",
       "Usa el lenguaje químico."
+    ],
+    "curiosos": [
+      "El símbolo del hierro, Fe, viene del latín «ferrum».",
+      "El símbolo del oro, Au, viene de «aurum».",
+      "El sodio se escribe Na por su nombre latino, «natrium»."
     ]
   },
   "quimica/ordenar-materia.json": {
@@ -690,6 +790,11 @@
       "Ordena sustancias por su pH.",
       "Compara escalas de tamaño y temperatura.",
       "Diseña pruebas sencillas."
+    ],
+    "curiosos": [
+      "El jugo gástrico del estómago es muy ácido: pH cercano a 2.",
+      "El repollo morado cambia de color según el pH.",
+      "Un virus es unas 100 veces más pequeño que una bacteria."
     ]
   },
   "fisica/fuerzas.json": {
@@ -705,6 +810,11 @@
       "Explica el efecto de las fuerzas en el movimiento.",
       "Aplica las leyes de Newton.",
       "Calcula la velocidad media."
+    ],
+    "curiosos": [
+      "En la Luna pesarías 6 veces menos, pero tu masa sería la misma.",
+      "Isaac Newton publicó sus leyes del movimiento en 1687.",
+      "Sin fricción no podríamos caminar: los pies resbalarían."
     ]
   },
   "fisica/energia.json": {
@@ -720,6 +830,11 @@
       "Reconoce formas y fuentes de energía.",
       "Describe transformaciones de energía.",
       "Valora el uso responsable de la energía."
+    ],
+    "curiosos": [
+      "El Sol envía a la Tierra en una hora más energía de la que la humanidad usa en un año.",
+      "Hidroituango es una de las centrales hidroeléctricas más grandes de Colombia.",
+      "Un rayo tiene energía suficiente para encender un bombillo durante meses."
     ]
   },
   "fisica/luz-sonido.json": {
@@ -735,6 +850,11 @@
       "Explica cómo se propagan la luz y el sonido.",
       "Reconoce reflexión, refracción y eco.",
       "Explica la formación de sombras."
+    ],
+    "curiosos": [
+      "El sonido no viaja en el espacio porque no hay aire.",
+      "La luz del Sol tarda unos 8 minutos en llegar a la Tierra.",
+      "Los murciélagos se orientan con el eco de sus propios chillidos."
     ]
   },
   "fisica/unidades.json": {
@@ -750,6 +870,11 @@
       "Relaciona magnitudes con sus unidades del SI.",
       "Selecciona instrumentos de medida.",
       "Convierte unidades sencillas."
+    ],
+    "curiosos": [
+      "El metro se definió al principio como una parte de la distancia del polo al ecuador.",
+      "El kilogramo patrón fue un cilindro de metal guardado en París hasta 2019.",
+      "Un segundo se mide hoy con relojes atómicos que casi no se atrasan."
     ]
   },
   "fisica/escalas.json": {
@@ -765,6 +890,11 @@
       "Compara tamaños y velocidades en distintas escalas.",
       "Usa notación y órdenes de magnitud.",
       "Interpreta datos del universo."
+    ],
+    "curiosos": [
+      "Si el Sol fuera un balón de fútbol, la Tierra sería del tamaño de una cabeza de alfiler.",
+      "Un átomo es unas 100.000 veces más pequeño que el grosor de un cabello.",
+      "La luz de algunas estrellas que vemos salió hace miles de años."
     ]
   },
   "tecnologia/computadora.json": {
@@ -1050,6 +1180,206 @@
       "Relaciona animales con su alimento.",
       "Clasifica animales según dónde viven.",
       "Describe características de los animales."
+    ]
+  },
+  "sociales/historia-colombia.json": {
+    "situacion": {
+      "ilustracion": "📜🪶🇨🇴",
+      "texto": "Tu curso prepara el acto del 20 de julio y debe explicar a los de primero por qué se celebra.",
+      "preguntas": [
+        "¿Qué pasó el 20 de julio de 1810?",
+        "¿Por qué también es importante el 7 de agosto?"
+      ]
+    },
+    "indicadores": [
+      "Describe la organización de la Colonia en la Nueva Granada.",
+      "Explica causas y hechos de la independencia.",
+      "Ubica en el tiempo hechos de la formación de la República."
+    ],
+    "curiosos": [
+      "Antes de 1810, en la Nueva Granada ya había habido rebeliones, como la de los Comuneros en 1781.",
+      "El nombre «Colombia» lo propuso Francisco de Miranda en honor a Cristóbal Colón.",
+      "La bandera de Colombia se adoptó en 1861 con sus franjas amarilla, azul y roja."
+    ]
+  },
+  "sociales/culturas-indigenas.json": {
+    "situacion": {
+      "ilustracion": "🏺🌽",
+      "texto": "En una visita al Museo del Oro encuentras una balsa de oro diminuta con personas encima.",
+      "preguntas": [
+        "¿Qué pueblo la hizo y qué ceremonia representa?",
+        "¿Qué nos enseñan hoy las culturas indígenas?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce pueblos indígenas de Colombia y su ubicación.",
+      "Relaciona cada cultura con sus aportes.",
+      "Valora la diversidad étnica del país."
+    ],
+    "curiosos": [
+      "En Colombia viven hoy más de 100 pueblos indígenas que hablan unas 65 lenguas.",
+      "La balsa muisca de El Dorado mide solo unos 20 cm y se encontró en 1969.",
+      "Los zenúes hacían el sombrero vueltiao, hoy símbolo cultural de Colombia."
+    ]
+  },
+  "sociales/regiones-colombia.json": {
+    "situacion": {
+      "ilustracion": "🏔️🌴🌊",
+      "texto": "Una familia de Bogotá quiere ir de vacaciones a un lugar con playa y otro con selva.",
+      "preguntas": [
+        "¿Qué regiones deben visitar?",
+        "¿Qué ropa llevarían a cada una y por qué?"
+      ]
+    },
+    "indicadores": [
+      "Identifica las regiones naturales de Colombia.",
+      "Relaciona relieve y clima con las actividades humanas.",
+      "Explica las ventajas de la posición geográfica del país."
+    ],
+    "curiosos": [
+      "Colombia es el segundo país con más biodiversidad del mundo, después de Brasil.",
+      "Colombia tiene más especies de aves que cualquier otro país: más de 1.900.",
+      "El río Amazonas es el más caudaloso del planeta."
+    ]
+  },
+  "sociales/departamentos-capitales.json": {
+    "situacion": {
+      "ilustracion": "🗺️📍",
+      "texto": "Un camionero debe llevar mercancía de Medellín a Cartagena y luego a Santa Marta.",
+      "preguntas": [
+        "¿Por qué departamentos pasa?",
+        "¿Cuál es la capital de cada departamento de destino?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona departamentos con sus capitales.",
+      "Ubica departamentos en el mapa de Colombia.",
+      "Reconoce la organización territorial del país."
+    ],
+    "curiosos": [
+      "Colombia tiene 32 departamentos y un distrito capital: Bogotá.",
+      "El departamento más grande es Amazonas y el más pequeño, San Andrés y Providencia.",
+      "Leticia está tan lejos que desde Bogotá solo se llega en avión o por río."
+    ]
+  },
+  "espanol/tipos-texto.json": {
+    "situacion": {
+      "ilustracion": "📰📖✉️",
+      "texto": "La profesora pide traer al salón una receta, una noticia, un poema y un afiche.",
+      "preguntas": [
+        "¿Para qué sirve cada uno?",
+        "¿Cuál usarías para convencer a tus compañeros de reciclar?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce distintos tipos de texto.",
+      "Identifica la intención comunicativa.",
+      "Elige el tipo de texto adecuado para un propósito."
+    ],
+    "curiosos": [
+      "La primera noticia impresa en Colombia fue el «Aviso del terremoto», en 1785.",
+      "Gabriel García Márquez empezó como periodista antes de ganar el Premio Nobel de Literatura en 1982.",
+      "Las adivinanzas son uno de los textos más antiguos: aparecen en tablas de barro de Babilonia."
+    ]
+  },
+  "espanol/lectura-informativa.json": {
+    "situacion": {
+      "ilustracion": "🌿💧🏞️",
+      "texto": "Tu colegio quiere hacer una campaña para cuidar el agua del municipio.",
+      "preguntas": [
+        "¿Qué datos de los textos usarías?",
+        "Escribe un eslogan para la campaña."
+      ]
+    },
+    "indicadores": [
+      "Localiza información explícita en un texto.",
+      "Infiere significados por el contexto.",
+      "Identifica la idea principal de un texto."
+    ],
+    "curiosos": [
+      "El páramo de Sumapaz, cerca de Bogotá, es el más grande del mundo.",
+      "Colombia tiene cerca de la mitad de los páramos del planeta.",
+      "El río Atrato fue reconocido en 2016 por la Corte Constitucional como «sujeto de derechos»."
+    ]
+  },
+  "quimica/sustancias-mezclas.json": {
+    "situacion": {
+      "ilustracion": "🧪⚖️",
+      "texto": "Encuentras un anillo y no sabes si es de oro puro: mide 2 cm³ y tiene una masa de 38,6 g.",
+      "preguntas": [
+        "¿Cuál es su densidad?",
+        "Si el oro tiene 19,3 g/cm³, ¿podría ser de oro? ¿Por qué?"
+      ]
+    },
+    "indicadores": [
+      "Clasifica materiales en elementos, compuestos y mezclas.",
+      "Calcula y compara densidades.",
+      "Selecciona métodos de separación de mezclas."
+    ],
+    "curiosos": [
+      "El osmio es el elemento más denso: un litro pesaría más de 22 kg.",
+      "Arquímedes descubrió cómo medir el volumen de una corona al meterse en la bañera: ¡Eureka!",
+      "La sal marina de Manaure se obtiene dejando que el sol evapore el agua del mar."
+    ]
+  },
+  "quimica/tabla-periodica-ordenar.json": {
+    "situacion": {
+      "ilustracion": "⚛️🔬",
+      "texto": "Un científico descubre un elemento con 119 protones.",
+      "preguntas": [
+        "¿Dónde lo ubicaría en la tabla periódica?",
+        "¿Qué dato usarías para ordenarlo?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona el número atómico con la posición en la tabla.",
+      "Describe la evolución de los modelos atómicos.",
+      "Reconoce grupos y periodos."
+    ],
+    "curiosos": [
+      "Mendeléiev dejó huecos en su tabla para elementos que aún no se conocían, y acertó.",
+      "La tabla periódica tiene hoy 118 elementos confirmados.",
+      "Los europeos conocieron el platino en el siglo XVIII a partir de muestras de los ríos del Chocó."
+    ]
+  },
+  "fisica/movimiento.json": {
+    "situacion": {
+      "ilustracion": "🚌⏱️",
+      "texto": "El bus del colegio sale a las 6:00 y debe recorrer 30 km a 40 km/h.",
+      "preguntas": [
+        "¿A qué hora llega?",
+        "Si hay trancón y va a 20 km/h, ¿cuánto se demora?"
+      ]
+    },
+    "indicadores": [
+      "Calcula velocidad, distancia y tiempo.",
+      "Relaciona energía cinética y potencial.",
+      "Resuelve situaciones problema de movimiento."
+    ],
+    "curiosos": [
+      "Usain Bolt corrió 100 m en 9,58 s: casi 38 km/h.",
+      "La luz viaja a 300.000 km por segundo: daría 7 vueltas a la Tierra en un segundo.",
+      "Un guepardo puede pasar de 0 a 100 km/h en unos 3 segundos."
+    ]
+  },
+  "fisica/electricidad.json": {
+    "situacion": {
+      "ilustracion": "💡🔋",
+      "texto": "En el salón, al encender el ventilador se apagan las luces.",
+      "preguntas": [
+        "¿Qué podría estar pasando en el circuito?",
+        "¿Qué harías con seguridad?"
+      ]
+    },
+    "indicadores": [
+      "Identifica los componentes de un circuito.",
+      "Diferencia conductores y aislantes.",
+      "Explica la atracción y repulsión de cargas e imanes."
+    ],
+    "curiosos": [
+      "Una anguila eléctrica puede producir descargas de más de 600 voltios.",
+      "Benjamin Franklin demostró con una cometa que los rayos son electricidad.",
+      "Más del 60 % de la electricidad de Colombia viene de hidroeléctricas."
     ]
   }
 }

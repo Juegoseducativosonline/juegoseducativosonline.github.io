@@ -242,7 +242,7 @@
         seleccion = { a: null, b: null };
         aciertosRonda++;
         actualizarProgreso();
-        JEO.explicar(e.porque, ba.par.dato || '', '');
+        JEO.explicar(e.porque, '', ba.par.dato || '');
         if (aciertosRonda === rondas[indiceRonda].length) {
           terminarRonda();
         } else {

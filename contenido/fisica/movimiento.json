@@ -1,0 +1,143 @@
+{
+  "titulo": "Movimiento: distancia, tiempo y velocidad",
+  "icono": "🏃",
+  "descripcion": "Problemas de velocidad, distancia y tiempo con situaciones reales, y la relación entre energía y movimiento.",
+  "tituloSeo": "Problemas de velocidad, distancia y tiempo para 6.º y 7.º",
+  "descripcionSeo": "Juego de física con situaciones problema de velocidad media, distancia y tiempo, energía cinética y potencial, con explicaciones.",
+  "preguntas": [
+    {
+      "enunciado": "Un bus recorre 120 km en 2 horas. ¿Cuál es su velocidad media?",
+      "opciones": [
+        "60 km/h",
+        "240 km/h",
+        "122 km/h",
+        "30 km/h"
+      ],
+      "correcta": 0,
+      "explicacion": "Velocidad = distancia ÷ tiempo = 120 km ÷ 2 h = 60 km/h."
+    },
+    {
+      "enunciado": "Una ciclista va a 20 km/h durante 3 horas. ¿Qué distancia recorre?",
+      "opciones": [
+        "60 km",
+        "23 km",
+        "6,6 km",
+        "17 km"
+      ],
+      "correcta": 0,
+      "explicacion": "Distancia = velocidad × tiempo = 20 km/h × 3 h = 60 km.",
+      "curioso": "En el Tour de Francia los ciclistas promedian más de 40 km/h; Egan Bernal lo ganó en 2019."
+    },
+    {
+      "enunciado": "Un carro va a 80 km/h. ¿Cuánto tarda en recorrer 240 km?",
+      "opciones": [
+        "3 horas",
+        "2 horas",
+        "320 horas",
+        "4 horas"
+      ],
+      "correcta": 0,
+      "explicacion": "Tiempo = distancia ÷ velocidad = 240 ÷ 80 = 3 horas."
+    },
+    {
+      "enunciado": "Si dos corredores recorren 100 m, ¿quién tiene mayor velocidad?",
+      "opciones": [
+        "El que tarda menos tiempo",
+        "El que tarda más tiempo",
+        "El más alto",
+        "El que usa zapatos rojos"
+      ],
+      "correcta": 0,
+      "explicacion": "Con la misma distancia, a menor tiempo, mayor velocidad."
+    },
+    {
+      "enunciado": "¿Qué energía tiene una piedra quieta en lo alto de una montaña?",
+      "opciones": [
+        "Potencial gravitatoria",
+        "Cinética",
+        "Eléctrica",
+        "Sonora"
+      ],
+      "correcta": 0,
+      "explicacion": "Por estar a una altura, puede caer y moverse: tiene energía potencial. Al caer, se transforma en cinética."
+    },
+    {
+      "enunciado": "En una montaña rusa, ¿dónde va más rápido el carrito?",
+      "opciones": [
+        "En la parte más baja",
+        "En la cima",
+        "Siempre igual",
+        "Cuando está detenido"
+      ],
+      "correcta": 0,
+      "explicacion": "Al bajar, la energía potencial se convierte en cinética: en el punto más bajo tiene más velocidad."
+    },
+    {
+      "enunciado": "¿Qué significa que un cuerpo tenga movimiento uniforme?",
+      "opciones": [
+        "Que recorre distancias iguales en tiempos iguales",
+        "Que siempre acelera",
+        "Que está quieto",
+        "Que gira en círculos"
+      ],
+      "correcta": 0,
+      "explicacion": "En el movimiento rectilíneo uniforme la velocidad no cambia."
+    },
+    {
+      "enunciado": "Una tortuga va a 0,5 m/s. ¿Cuánto avanza en 1 minuto?",
+      "opciones": [
+        "30 m",
+        "0,5 m",
+        "60 m",
+        "5 m"
+      ],
+      "correcta": 0,
+      "explicacion": "Un minuto tiene 60 s: 0,5 m/s × 60 s = 30 m."
+    },
+    {
+      "enunciado": "¿Por qué una pelota que rueda en el pasto termina deteniéndose?",
+      "opciones": [
+        "Por la fricción con el suelo",
+        "Porque se cansa",
+        "Porque la gravedad la empuja hacia adelante",
+        "Porque pierde masa"
+      ],
+      "correcta": 0,
+      "explicacion": "La fricción es una fuerza que se opone al movimiento y transforma la energía cinética en calor."
+    },
+    {
+      "enunciado": "¿Qué pasa con la velocidad de un carro si la distancia es la misma y el tiempo se reduce a la mitad?",
+      "opciones": [
+        "Se duplica",
+        "Se reduce a la mitad",
+        "No cambia",
+        "Se vuelve cero"
+      ],
+      "correcta": 0,
+      "explicacion": "Si v = d ÷ t y t se hace la mitad, la velocidad se hace el doble."
+    },
+    {
+      "enunciado": "El sonido viaja a unos 340 m/s. Si oyes un trueno 3 s después del relámpago, ¿a qué distancia cayó el rayo?",
+      "opciones": [
+        "A unos 1.020 m",
+        "A 340 m",
+        "A 3 m",
+        "A 113 m"
+      ],
+      "correcta": 0,
+      "explicacion": "Distancia = 340 m/s × 3 s = 1.020 m. La luz llega casi al instante; el sonido tarda.",
+      "curioso": "El Catatumbo, en Venezuela, cerca de Colombia, es el lugar con más relámpagos del mundo."
+    },
+    {
+      "enunciado": "¿Cuál es la unidad de velocidad en el Sistema Internacional?",
+      "opciones": [
+        "Metro por segundo (m/s)",
+        "Kilogramo (kg)",
+        "Newton (N)",
+        "Litro (L)"
+      ],
+      "correcta": 0,
+      "explicacion": "La velocidad relaciona distancia (metros) y tiempo (segundos): m/s."
+    }
+  ]
+}

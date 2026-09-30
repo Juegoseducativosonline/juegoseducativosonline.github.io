@@ -1,0 +1,72 @@
+{
+  "titulo": "Parejas: departamentos y capitales de Colombia",
+  "icono": "🏙️",
+  "descripcion": "Relaciona cada departamento de Colombia con su ciudad capital.",
+  "tituloSeo": "Juego de departamentos y capitales de Colombia",
+  "descripcionSeo": "Juego de parejas para aprender los departamentos de Colombia y sus capitales, con datos de cada región.",
+  "etiquetaA": "Departamento",
+  "etiquetaB": "Capital",
+  "paresPorRonda": 6,
+  "pares": [
+    {
+      "a": "Antioquia",
+      "b": "Medellín",
+      "dato": "Medellín es llamada «la ciudad de la eterna primavera»."
+    },
+    {
+      "a": "Valle del Cauca",
+      "b": "Cali",
+      "dato": "Cali es conocida como la capital mundial de la salsa."
+    },
+    {
+      "a": "Atlántico",
+      "b": "Barranquilla",
+      "dato": "Su carnaval es Patrimonio de la Humanidad."
+    },
+    {
+      "a": "Bolívar",
+      "b": "Cartagena",
+      "dato": "Su ciudad amurallada fue construida para defenderse de los piratas."
+    },
+    {
+      "a": "Santander",
+      "b": "Bucaramanga",
+      "dato": "Le dicen «la ciudad bonita» por sus parques."
+    },
+    {
+      "a": "Nariño",
+      "b": "Pasto",
+      "dato": "El Carnaval de Negros y Blancos se celebra en enero."
+    },
+    {
+      "a": "Boyacá",
+      "b": "Tunja",
+      "dato": "Cerca de Tunja se libró la batalla de Boyacá."
+    },
+    {
+      "a": "Magdalena",
+      "b": "Santa Marta",
+      "dato": "Fundada en 1525, es la ciudad más antigua de Colombia que sigue en pie."
+    },
+    {
+      "a": "Meta",
+      "b": "Villavicencio",
+      "dato": "Es la puerta de entrada a los Llanos Orientales."
+    },
+    {
+      "a": "Chocó",
+      "b": "Quibdó",
+      "dato": "Quibdó está a orillas del río Atrato, uno de los más caudalosos del mundo."
+    },
+    {
+      "a": "Amazonas",
+      "b": "Leticia",
+      "dato": "Leticia es frontera con Brasil y Perú."
+    },
+    {
+      "a": "Quindío",
+      "b": "Armenia",
+      "dato": "Es parte del Paisaje Cultural Cafetero."
+    }
+  ]
+}

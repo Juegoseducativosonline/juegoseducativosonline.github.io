@@ -1,0 +1,153 @@
+{
+  "titulo": "Lectura: textos informativos de Colombia",
+  "icono": "🔎",
+  "descripcion": "Lee dos textos sobre el frailejón y los ríos de Colombia, encuentra datos y haz inferencias.",
+  "tituloSeo": "Comprensión lectora de textos informativos para 4.º y 5.º",
+  "descripcionSeo": "Lecturas informativas sobre el frailejón y los ríos de Colombia con preguntas literales e inferenciales y explicaciones.",
+  "mezclarPreguntas": false,
+  "leerEnVozAlta": true,
+  "pasajes": {
+    "frailejon": {
+      "titulo": "El frailejón, guardián del agua",
+      "ilustracion": "🌿⛰️💧",
+      "parrafos": [
+        "En los páramos de Colombia, a más de 3.000 metros de altura, crece una planta de hojas peludas y plateadas: el frailejón. Sus pelitos lo protegen del frío intenso de la noche y del sol fuerte del día.",
+        "El frailejón atrapa el agua de la niebla con sus hojas y la deja caer poco a poco al suelo. Así, el páramo funciona como una esponja gigante que alimenta los ríos que llegan a las ciudades.",
+        "Esta planta crece muy despacio: apenas un centímetro por año. Por eso, un frailejón de un metro puede tener cien años. Cuidar los páramos es cuidar el agua que bebemos."
+      ]
+    },
+    "rios": {
+      "titulo": "Los ríos, caminos de agua",
+      "ilustracion": "🏞️🛶🐟",
+      "parrafos": [
+        "Colombia es uno de los países con más agua del mundo. Sus ríos nacen en las montañas y bajan hacia el mar Caribe, el océano Pacífico o las grandes selvas y llanuras del oriente.",
+        "Durante siglos, los ríos fueron los caminos del país. Por el río Magdalena viajaban champanes y barcos de vapor cargados de café y personas. Aún hoy, en el Chocó y la Amazonía, muchas comunidades se transportan en lancha o en canoa.",
+        "Sin embargo, la basura y los químicos de la minería ilegal contaminan muchos ríos. Cuando un río se enferma, se enferman también los peces, los animales y las personas que dependen de él."
+      ]
+    }
+  },
+  "preguntas": [
+    {
+      "enunciado": "¿Dónde crece el frailejón?",
+      "opciones": [
+        "En los páramos, a más de 3.000 metros",
+        "En las playas del Caribe",
+        "En el desierto de La Guajira",
+        "En el fondo de los ríos"
+      ],
+      "correcta": 0,
+      "explicacion": "El primer párrafo dice que crece en los páramos, a más de 3.000 metros de altura.",
+      "pasaje": "frailejon"
+    },
+    {
+      "enunciado": "¿Para qué le sirven los pelitos de sus hojas?",
+      "opciones": [
+        "Para protegerse del frío y del sol",
+        "Para atrapar insectos",
+        "Para nadar",
+        "Para asustar a los animales"
+      ],
+      "correcta": 0,
+      "explicacion": "El texto explica que los pelitos lo protegen del frío de la noche y del sol del día.",
+      "pasaje": "frailejon"
+    },
+    {
+      "enunciado": "¿Por qué el texto compara el páramo con una esponja?",
+      "opciones": [
+        "Porque guarda el agua y la suelta poco a poco",
+        "Porque es suave",
+        "Porque es amarillo",
+        "Porque se puede exprimir con la mano"
+      ],
+      "correcta": 0,
+      "explicacion": "Como una esponja, el páramo absorbe el agua de la niebla y la entrega despacio a los ríos. Es una comparación.",
+      "pasaje": "frailejon"
+    },
+    {
+      "enunciado": "Si un frailejón mide 50 centímetros, ¿cuántos años tiene aproximadamente?",
+      "opciones": [
+        "Unos 50 años",
+        "Unos 5 años",
+        "Un año",
+        "Unos 500 años"
+      ],
+      "correcta": 0,
+      "explicacion": "Crece un centímetro por año: 50 centímetros son unos 50 años. Es una inferencia a partir de un dato del texto.",
+      "curioso": "En Colombia hay más de 80 especies de frailejones; muchas solo existen aquí.",
+      "pasaje": "frailejon"
+    },
+    {
+      "enunciado": "¿Cuál es la idea principal del texto sobre el frailejón?",
+      "opciones": [
+        "El frailejón es clave para el agua y hay que cuidarlo",
+        "Los páramos son calientes",
+        "El frailejón crece muy rápido",
+        "Las ciudades no necesitan agua"
+      ],
+      "correcta": 0,
+      "explicacion": "Todo el texto explica cómo el frailejón ayuda a producir agua y termina pidiendo cuidar los páramos.",
+      "pasaje": "frailejon"
+    },
+    {
+      "enunciado": "Según el texto, ¿por qué los ríos fueron «los caminos del país»?",
+      "opciones": [
+        "Porque por ellos viajaban personas y mercancías",
+        "Porque estaban pavimentados",
+        "Porque no había montañas",
+        "Porque eran rectos"
+      ],
+      "correcta": 0,
+      "explicacion": "El segundo párrafo cuenta que por el Magdalena viajaban barcos con café y personas.",
+      "pasaje": "rios"
+    },
+    {
+      "enunciado": "¿Qué es un «champán», según el contexto?",
+      "opciones": [
+        "Un tipo de embarcación",
+        "Una bebida",
+        "Un pez",
+        "Una montaña"
+      ],
+      "correcta": 0,
+      "explicacion": "El texto lo nombra junto a los barcos de vapor que viajaban por el río: por el contexto, es una embarcación.",
+      "curioso": "Los champanes eran barcas largas con techo de palma que se impulsaban con varas, a fuerza de brazos.",
+      "pasaje": "rios"
+    },
+    {
+      "enunciado": "¿Qué problema de los ríos menciona el texto?",
+      "opciones": [
+        "La contaminación con basura y químicos",
+        "Que tienen demasiados peces",
+        "Que son muy fríos",
+        "Que no tienen nombre"
+      ],
+      "correcta": 0,
+      "explicacion": "El último párrafo habla de la basura y los químicos de la minería ilegal.",
+      "pasaje": "rios"
+    },
+    {
+      "enunciado": "¿Qué quiere decir «cuando un río se enferma»?",
+      "opciones": [
+        "Cuando está contaminado",
+        "Cuando tiene fiebre",
+        "Cuando se seca de risa",
+        "Cuando crece"
+      ],
+      "correcta": 0,
+      "explicacion": "Es un lenguaje figurado: el río no se enferma como una persona, pero la contaminación lo daña.",
+      "pasaje": "rios"
+    },
+    {
+      "enunciado": "¿Qué tienen en común los dos textos?",
+      "opciones": [
+        "Los dos hablan del agua de Colombia y de cuidarla",
+        "Los dos son cuentos",
+        "Los dos dan una receta",
+        "Los dos hablan del espacio"
+      ],
+      "correcta": 0,
+      "explicacion": "Ambos informan sobre el agua (páramos y ríos) y terminan con un llamado a protegerla.",
+      "pasaje": "rios"
+    }
+  ]
+}

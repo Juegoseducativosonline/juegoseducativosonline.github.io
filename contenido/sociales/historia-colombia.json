@@ -1,0 +1,146 @@
+{
+  "titulo": "Historia de Colombia: Colonia e Independencia",
+  "icono": "🇨🇴",
+  "descripcion": "Del Nuevo Reino de Granada a la República: la Colonia, el grito de independencia, Bolívar y la Gran Colombia.",
+  "tituloSeo": "Juego de historia de Colombia: Colonia e Independencia para primaria",
+  "descripcionSeo": "Preguntas de historia de Colombia para 5.º: la Colonia, el 20 de julio, la batalla de Boyacá, Bolívar y la Gran Colombia, con explicaciones.",
+  "preguntas": [
+    {
+      "enunciado": "¿Qué fecha se celebra en Colombia como el día de la Independencia?",
+      "opciones": [
+        "20 de julio de 1810",
+        "7 de agosto de 1819",
+        "12 de octubre de 1492",
+        "4 de julio de 1776"
+      ],
+      "correcta": 0,
+      "explicacion": "El 20 de julio de 1810, en Santa Fe, se firmó el Acta de Independencia tras el «florero de Llorente».",
+      "curioso": "El florero de Llorente se conserva en el Museo de la Independencia, en Bogotá."
+    },
+    {
+      "enunciado": "¿Qué batalla de 1819 selló la independencia de la Nueva Granada?",
+      "opciones": [
+        "La batalla de Boyacá",
+        "La batalla de Ayacucho",
+        "La batalla de Waterloo",
+        "La batalla de Carabobo"
+      ],
+      "correcta": 0,
+      "explicacion": "El 7 de agosto de 1819 el ejército patriota venció a los realistas en el puente de Boyacá.",
+      "curioso": "La batalla duró unas dos horas y tuvo menos de 3.000 soldados por bando."
+    },
+    {
+      "enunciado": "¿Quién es conocido como «el Libertador»?",
+      "opciones": [
+        "Simón Bolívar",
+        "Francisco de Paula Santander",
+        "Antonio Nariño",
+        "Cristóbal Colón"
+      ],
+      "correcta": 0,
+      "explicacion": "Simón Bolívar lideró la independencia de Venezuela, Colombia, Ecuador, Perú y Bolivia.",
+      "curioso": "Bolivia lleva ese nombre en honor a Bolívar."
+    },
+    {
+      "enunciado": "¿Cómo se llamaba el territorio de la actual Colombia durante la Colonia?",
+      "opciones": [
+        "Nuevo Reino de Granada",
+        "Gran Colombia",
+        "Imperio inca",
+        "Provincias Unidas del Río de la Plata"
+      ],
+      "correcta": 0,
+      "explicacion": "Los españoles lo llamaron Nuevo Reino de Granada; en 1739 pasó a ser Virreinato de la Nueva Granada."
+    },
+    {
+      "enunciado": "¿Qué países formaron la Gran Colombia?",
+      "opciones": [
+        "Colombia (con Panamá), Venezuela y Ecuador",
+        "Colombia, Perú y Bolivia",
+        "Colombia y Brasil",
+        "Solo Colombia y Panamá"
+      ],
+      "correcta": 0,
+      "explicacion": "La Gran Colombia (1819–1831) unió a la actual Colombia —que incluía Panamá—, Venezuela y Ecuador."
+    },
+    {
+      "enunciado": "¿Quién fue llamado «el Hombre de las Leyes»?",
+      "opciones": [
+        "Francisco de Paula Santander",
+        "Simón Bolívar",
+        "José Antonio Galán",
+        "Policarpa Salavarrieta"
+      ],
+      "correcta": 0,
+      "explicacion": "Santander organizó el Estado con leyes y escuelas públicas cuando Bolívar estaba en campaña."
+    },
+    {
+      "enunciado": "¿Quién tradujo al español los Derechos del Hombre y del Ciudadano y fue perseguido por ello?",
+      "opciones": [
+        "Antonio Nariño",
+        "Camilo Torres",
+        "José Celestino Mutis",
+        "Rafael Núñez"
+      ],
+      "correcta": 0,
+      "explicacion": "Antonio Nariño imprimió en 1793 esa traducción, que difundía ideas de libertad; fue encarcelado."
+    },
+    {
+      "enunciado": "¿Qué heroína de la independencia fue fusilada en 1817 en Bogotá?",
+      "opciones": [
+        "Policarpa Salavarrieta, «La Pola»",
+        "Manuela Beltrán",
+        "Antonia Santos",
+        "Manuelita Sáenz"
+      ],
+      "correcta": 0,
+      "explicacion": "La Pola era espía de los patriotas; su imagen aparece en el billete de 10.000 pesos."
+    },
+    {
+      "enunciado": "¿Qué organizó José Celestino Mutis en la Nueva Granada?",
+      "opciones": [
+        "La Expedición Botánica",
+        "El primer periódico",
+        "La Gran Colombia",
+        "La batalla de Boyacá"
+      ],
+      "correcta": 0,
+      "explicacion": "La Expedición Botánica (1783) estudió y dibujó miles de plantas del territorio.",
+      "curioso": "Sus artistas pintaron más de 6.000 láminas de plantas."
+    },
+    {
+      "enunciado": "En la Colonia, ¿de dónde traían por la fuerza a personas esclavizadas a la Nueva Granada?",
+      "opciones": [
+        "De África",
+        "De Europa",
+        "De Asia",
+        "De Oceanía"
+      ],
+      "correcta": 0,
+      "explicacion": "Millones de africanos fueron esclavizados y traídos por el puerto de Cartagena; sus descendientes son parte esencial de Colombia.",
+      "curioso": "San Basilio de Palenque, fundado por personas que escaparon de la esclavitud, es considerado el primer pueblo libre de América."
+    },
+    {
+      "enunciado": "¿Qué pasó en Colombia en 1851?",
+      "opciones": [
+        "Se abolió la esclavitud",
+        "Se firmó la independencia",
+        "Se separó Panamá",
+        "Llegó Colón"
+      ],
+      "correcta": 0,
+      "explicacion": "La ley de 1851 abolió la esclavitud a partir del 1.º de enero de 1852."
+    },
+    {
+      "enunciado": "¿Qué territorio se separó de Colombia en 1903?",
+      "opciones": [
+        "Panamá",
+        "Venezuela",
+        "Ecuador",
+        "San Andrés"
+      ],
+      "correcta": 0,
+      "explicacion": "Panamá se separó en 1903, con apoyo de Estados Unidos, que quería construir el canal."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "titulo": "Ordena: la tabla periódica",
+  "icono": "⚛️",
+  "descripcion": "Ordena elementos por número atómico, partículas del átomo y la historia de los modelos atómicos.",
+  "tituloSeo": "Juego de ordenar la tabla periódica y los modelos atómicos",
+  "descripcionSeo": "Juego de ordenar para 7.º y 8.º: número atómico, modelos atómicos y organización de la tabla periódica, con pistas y explicaciones.",
+  "rondas": [
+    {
+      "instruccion": "Ordena estos elementos por su número atómico, de menor a mayor",
+      "elementos": [
+        "Hidrógeno (H)",
+        "Helio (He)",
+        "Carbono (C)",
+        "Oxígeno (O)",
+        "Hierro (Fe)",
+        "Oro (Au)"
+      ],
+      "pista": "El número atómico es la cantidad de protones: el hidrógeno tiene 1.",
+      "explicacion": "H = 1, He = 2, C = 6, O = 8, Fe = 26 y Au = 79. La tabla periódica se ordena por número atómico.",
+      "curioso": "El hidrógeno es el elemento más abundante del universo: forma casi el 75 % de la materia normal."
+    },
+    {
+      "instruccion": "Ordena los modelos atómicos del más antiguo al más reciente",
+      "elementos": [
+        "Dalton: esfera maciza",
+        "Thomson: «budín con pasas»",
+        "Rutherford: núcleo con electrones alrededor",
+        "Bohr: electrones en órbitas",
+        "Modelo cuántico: nubes de electrones"
+      ],
+      "pista": "Dalton propuso su modelo en 1803; el cuántico es del siglo XX.",
+      "explicacion": "Cada científico corrigió al anterior con nuevos experimentos: Dalton (1803), Thomson (1897), Rutherford (1911), Bohr (1913) y el modelo cuántico (1926)."
+    },
+    {
+      "instruccion": "Ordena de la partícula más liviana a la más pesada",
+      "elementos": [
+        "Electrón",
+        "Protón",
+        "Núcleo de helio"
+      ],
+      "explicacion": "El protón tiene unas 1.836 veces la masa del electrón, y el núcleo de helio tiene 2 protones y 2 neutrones."
+    },
+    {
+      "instruccion": "Ordena estos metales alcalinos como aparecen en su columna, de arriba abajo",
+      "elementos": [
+        "Litio (Li)",
+        "Sodio (Na)",
+        "Potasio (K)",
+        "Rubidio (Rb)"
+      ],
+      "pista": "En un grupo, el número atómico aumenta hacia abajo.",
+      "explicacion": "Todos están en el grupo 1: Li (3), Na (11), K (19), Rb (37). Bajando en el grupo, los átomos son más grandes y reaccionan más con el agua.",
+      "curioso": "El sodio reacciona tan fuerte con el agua que puede producir una pequeña explosión."
+    }
+  ]
+}
