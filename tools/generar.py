@@ -550,6 +550,7 @@ def asignar_curriculo(materias):
     mismos grados que el catálogo: así la página nunca muestra un DBA de otro grado."""
     datos = leer_json(CONTENIDO / 'curriculo.json')
     fuentes, alineacion = datos.get('fuentes', {}), datos.get('juegos', {})
+    pedagogia = leer_json(CONTENIDO / 'pedagogia.json')
     juegos = {}
     for m in materias:
         for j in m.juegos:
@@ -574,7 +575,18 @@ def asignar_curriculo(materias):
             if ref.get('grado') not in j.grados:
                 raise ErrorContenido('%s: cita un DBA de grado %s, fuera de sus grados %s.'
                                      % (donde, ref.get('grado'), j.grados))
-        j.curriculo = dict(c, fuentes_doc=fuentes)
+        p = pedagogia.get(clave)
+        donde_p = 'pedagogia.json, juego "%s"' % clave
+        if not isinstance(p, dict):
+            raise ErrorContenido('%s: faltan los indicadores y la situación problema.' % donde_p)
+        indicadores = lista_de_textos(p.get('indicadores'), donde_p, 'indicadores', 2)
+        sit = p.get('situacion')
+        if not isinstance(sit, dict):
+            raise ErrorContenido('%s: falta "situacion".' % donde_p)
+        situacion = {'ilustracion': texto_obligatorio(sit, 'ilustracion', donde_p),
+                     'texto': texto_obligatorio(sit, 'texto', donde_p),
+                     'preguntas': lista_de_textos(sit.get('preguntas'), donde_p, 'preguntas', 1)}
+        j.curriculo = dict(c, fuentes_doc=fuentes, indicadores=indicadores, situacion=situacion)
     sobran = set(alineacion) - set(juegos)
     if sobran:
         raise ErrorContenido('curriculo.json tiene juegos que no están en el catálogo: %s.' % ', '.join(sorted(sobran)))
@@ -729,6 +741,9 @@ def contenido_curriculo(juego):
         partes += ['  <li><span class="insignia">%s</span> «%s»</li>' % (esc(etiqueta_estandar(r, fuentes)), esc(r['texto']))
                    for r in c['estandares']]
         partes.append('</ul>')
+    partes.append('<h3>Indicadores de desempeño</h3>')
+    partes.append('<ul class="lista-curriculo">%s</ul>' % ''.join('<li>%s</li>' % esc(i) for i in c['indicadores']))
+    partes.append(situacion_problema(juego))
     usadas = []
     for r in c['dba'] + c['estandares']:
         if r['fuente'] not in usadas:
@@ -769,6 +784,33 @@ def bloque_curriculo(juego, posicion='inferior'):
         '  <summary>🍎 ¿Eres docente? Objetivo, DBA y fichas en PDF</summary>',
         cuerpo,
         '</details>'])
+
+
+def cabecera_academica(juego):
+    """Recuadro al inicio de cada ficha impresa: objetivo, competencia, DBA,
+    estándares e indicadores de desempeño."""
+    c = juego.curriculo
+    filas = ['<p><strong>Objetivo:</strong> %s</p>' % esc(c['objetivo']),
+             '<p><strong>Competencia:</strong> %s</p>' % esc(c['competencia'])]
+    if c['dba']:
+        filas.append('<p><strong>DBA:</strong> %s</p>' % ' '.join(
+            '<span class="aca-ref">%s «%s»</span>' % (esc(etiqueta_dba(r)), esc(r['texto'])) for r in c['dba']))
+    if c['estandares']:
+        filas.append('<p><strong>Estándar:</strong> %s</p>' % ' '.join(
+            '<span class="aca-ref">%s «%s»</span>' % (esc(etiqueta_estandar(r, c['fuentes_doc'])), esc(r['texto']))
+            for r in c['estandares'][:2]))
+    filas.append('<p><strong>Indicadores de desempeño:</strong></p><ul>%s</ul>'
+                 % ''.join('<li>%s</li>' % esc(i) for i in c['indicadores']))
+    return '<section class="ficha-academica" aria-label="Aspectos académicos">\n  %s\n</section>' % '\n  '.join(filas)
+
+
+def situacion_problema(juego):
+    """Situación problema ilustrada al inicio de la ficha, con renglones para responder."""
+    sit = juego.curriculo['situacion']
+    preguntas = ''.join('<li>%s<span class="renglon"></span></li>' % esc(q) for q in sit['preguntas'])
+    return ('<section class="situacion-problema">\n  <p class="situacion-arte" aria-hidden="true">%s</p>\n'
+            '  <h3>🧩 Situación problema</h3>\n  <p>%s</p>\n  <ol>%s</ol>\n</section>'
+            % (esc(sit['ilustracion']), esc(sit['texto']), preguntas))
 
 
 def resumen_curriculo(juego):
@@ -1173,6 +1215,53 @@ LETRAS = 'abcdefghijklmnopqrstuvwxyz'
 LARGO_OPCION_CORTA = 22
 
 
+# Palabra (o raíz) del enunciado → dibujo. Se usa cuando la pregunta no trae el suyo.
+ILUSTRACIONES = [
+    ('manzana', '🍎'), ('fresa', '🍓'), ('naranja', '🍊'), ('banano', '🍌'), ('uva', '🍇'), ('pera', '🍐'),
+    ('limón', '🍋'), ('sandía', '🍉'), ('pizza', '🍕'), ('torta', '🎂'), ('pastel', '🎂'), ('chocolat', '🍫'),
+    ('galleta', '🍪'), ('dulce', '🍬'), ('caramelo', '🍬'), ('helado', '🍦'), ('pan', '🍞'), ('empanada', '🥟'),
+    ('jugo', '🧃'), ('leche', '🥛'), ('huevo', '🥚'), ('arepa', '🫓'), ('receta', '🥣'),
+    ('globo', '🎈'), ('balón', '⚽'), ('pelota', '⚽'), ('gol', '⚽'), ('partido', '⚽'), ('lápi', '✏️'),
+    ('cuaderno', '📓'), ('libro', '📚'), ('cuento', '📖'), ('biblioteca', '📚'), ('colegio', '🏫'),
+    ('escuela', '🏫'), ('salón', '🏫'), ('profesor', '👩‍🏫'), ('estudiante', '🧒🏽'), ('niñ', '🧒🏽'),
+    ('bus', '🚌'), ('carro', '🚗'), ('bicicleta', '🚲'), ('avión', '✈️'), ('tren', '🚆'), ('barco', '⛵'),
+    ('dinero', '💵'), ('peso', '🪙'), ('moneda', '🪙'), ('billete', '💵'), ('tienda', '🏪'), ('compra', '🛒'),
+    ('precio', '🏷️'), ('perro', '🐕'), ('gato', '🐈'), ('gallina', '🐔'), ('pollito', '🐥'), ('vaca', '🐄'),
+    ('caballo', '🐴'), ('pez', '🐟'), ('peces', '🐟'), ('pájaro', '🐦'), ('ave', '🐦'), ('mariposa', '🦋'),
+    ('abeja', '🐝'), ('hormiga', '🐜'), ('rana', '🐸'), ('conejo', '🐰'), ('león', '🦁'), ('elefante', '🐘'),
+    ('tortuga', '🐢'), ('serpiente', '🐍'), ('mono', '🐒'), ('oso', '🐻'), ('animal', '🐾'),
+    ('flor', '🌸'), ('planta', '🌱'), ('semilla', '🌱'), ('árbol', '🌳'), ('hoja', '🍃'), ('raíz', '🌱'),
+    ('sol', '☀️'), ('luna', '🌙'), ('estrella', '⭐'), ('planeta', '🪐'), ('tierra', '🌍'), ('lluvia', '🌧️'),
+    ('agua', '💧'), ('hielo', '🧊'), ('fuego', '🔥'), ('temperatura', '🌡️'), ('grados', '🌡️'),
+    ('montaña', '⛰️'), ('río', '🏞️'), ('mar', '🌊'), ('océano', '🌊'), ('mapa', '🗺️'), ('norte', '🧭'),
+    ('país', '🌎'), ('capital', '🏙️'), ('ciudad', '🏙️'), ('historia', '📜'), ('rey', '👑'), ('guerra', '⚔️'),
+    ('corazón', '❤️'), ('cuerpo', '🧍'), ('hueso', '🦴'), ('diente', '🦷'), ('ojo', '👁️'), ('pulmón', '🫁'),
+    ('cerebro', '🧠'), ('alimento', '🥗'), ('salud', '🩺'),
+    ('computador', '💻'), ('internet', '🌐'), ('celular', '📱'), ('clave', '🔒'), ('contraseña', '🔒'),
+    ('robot', '🤖'), ('programa', '🧩'), ('energía', '⚡'), ('luz', '💡'), ('sonido', '🔊'), ('imán', '🧲'),
+    ('fuerza', '💪'), ('velocidad', '🏎️'), ('metro', '📏'), ('kilo', '⚖️'), ('masa', '⚖️'), ('tiempo', '⏱️'),
+    ('hora', '⏰'), ('reloj', '⏰'), ('calendario', '📅'), ('día', '📅'), ('mes', '📅'),
+    ('mezcla', '🧪'), ('átomo', '⚛️'), ('elemento', '⚗️'), ('ácido', '🍋'),
+    ('triángulo', '🔺'), ('cuadrado', '⬛'), ('círculo', '⚪'), ('rectángulo', '▭'), ('ángulo', '📐'),
+    ('área', '📐'), ('perímetro', '📏'), ('cubo', '🧊'), ('fracción', '🍕'), ('mitad', '🍕'),
+    ('color', '🎨'), ('pintura', '🎨'), ('música', '🎵'), ('nota', '🎵'), ('instrumento', '🎸'), ('canción', '🎶'),
+    ('feliz', '😀'), ('alegr', '😀'), ('triste', '😢'), ('rabia', '😠'), ('enojad', '😠'), ('miedo', '😨'),
+    ('amig', '🤝'), ('familia', '👨‍👩‍👧'), ('mamá', '👩'), ('papá', '👨'), ('abuel', '👵'),
+    ('carta', '✉️'), ('mensaje', '💬'), ('palabra', '🔤'), ('oración', '✍️'), ('letra', '🔤'),
+]
+
+
+def ilustrar(texto):
+    """Hasta dos dibujos según las palabras del enunciado (orden de aparición)."""
+    t = ' ' + texto.lower() + ' '
+    hallados = []
+    for palabra, dibujo in ILUSTRACIONES:
+        i = t.find(palabra if len(palabra) > 3 else ' ' + palabra)
+        if i >= 0 and dibujo not in [d for _, d in hallados]:
+            hallados.append((i, dibujo))
+    return ''.join(d for _, d in sorted(hallados)[:2])
+
+
 def separar_ilustracion(texto):
     """Separa los emojis del inicio de un enunciado («🍎🍎🍎 ¿Cuántas…?») para
     imprimirlos grandes como ilustración. Devuelve (emojis, resto del texto)."""
@@ -1187,6 +1276,7 @@ def separar_ilustracion(texto):
 
 def enunciado_ficha(n, texto):
     emojis, resto = separar_ilustracion(texto)
+    emojis = emojis or ilustrar(resto)
     ilustracion = ('<span class="ficha-ilustracion" aria-hidden="true">%s</span>' % esc(emojis)) if emojis else ''
     return '  %s<p class="ficha-enunciado"><span class="ficha-numero">%d.</span> %s</p>' % (ilustracion, n, esc(resto))
 
@@ -1288,9 +1378,11 @@ def pagina_ficha(juego, materias, v):
       %s
       <a class="btn btn-secundario" href="%s">🎮 %s</a>
     </div>
+%s
     <p class="ficha-datos"><span>Nombre:</span><span>Fecha:</span></p>
     <p class="ficha-instrucciones">%s</p>
     <div class="%s">
+%s
 %s
     </div>
     <section class="ficha-respuestas" aria-labelledby="respuestas-titulo">
@@ -1305,10 +1397,10 @@ def pagina_ficha(juego, materias, v):
 %s""" % (bloque_navegacion(materias, migas=migas), esc(juego.icono), esc(juego.titulo), esc(juego.descripcion),
          esc(etiqueta_grados(juego.grados)), esc(juego.materia.nombre), esc(juego.detalle),
          enlace_pdf(ruta_ficha(juego), '📄 Descargar PDF', 'btn btn-acento'), url_de(juego.ruta),
-         'Ver en pantalla' if juego.tipo == 'imprimible' else 'Jugar en pantalla', instrucciones, clase_cuerpo(juego),
-         indentar('\n'.join(bloques), '      '), titulo_respuestas(respuestas), esc(juego.titulo),
-         indentar('\n'.join(respuestas), '        '),
-         indentar(resumen_curriculo(juego), '      '), bloque_pie(materias, v))
+         'Ver en pantalla' if juego.tipo == 'imprimible' else 'Jugar en pantalla',
+         indentar(cabecera_academica(juego), '    '), instrucciones, clase_cuerpo(juego),
+         indentar(situacion_problema(juego), '      '), indentar('\n'.join(bloques), '      '), titulo_respuestas(respuestas), esc(juego.titulo),
+         indentar('\n'.join(respuestas), '        '), '', bloque_pie(materias, v))
 
     head = cabeza(v, 'Ficha: %s — %s' % (juego.titulo, NOMBRE_SITIO),
                   'Ficha para imprimir de %s, con sus respuestas.' % juego.titulo,
@@ -1634,7 +1726,7 @@ def pagina_pack(titulo, subtitulo, juegos, v, ruta):
     indice = '\n'.join('      <li><strong>%s %s</strong> <span class="detalle">%s · %s</span></li>'
                        % (esc(j.icono), esc(j.titulo), esc(j.materia.nombre), esc(etiqueta_grados(j.grados)))
                        for j in fichas)
-    articulos = []
+    articulos, solucionario = [], []
     for n, j in enumerate(fichas, 1):
         instrucciones, bloques, respuestas = FICHAS[j.tipo](j)
         articulos.append("""<article class="pack-ficha">
@@ -1643,29 +1735,26 @@ def pagina_pack(titulo, subtitulo, juegos, v, ruta):
     <h2>%s %s</h2>
     <p>%s</p>
   </header>
+%s
   <p class="ficha-datos"><span>Nombre:</span><span>Fecha:</span></p>
   <p class="ficha-instrucciones">%s</p>
   <div class="%s">
 %s
+%s
   </div>
-  <section class="ficha-respuestas">
-    <h3>%s: %s</h3>
-    <ol>
-%s
-    </ol>
-%s
-  </section>
 </article>""" % (n, esc(j.materia.nombre), esc(etiqueta_grados(j.grados)), esc(j.icono), esc(j.titulo),
-                 esc(j.descripcion), instrucciones, clase_cuerpo(j), indentar('\n'.join(bloques), '    '),
-                 titulo_respuestas(respuestas), esc(j.titulo),
-                 indentar('\n'.join(respuestas), '      '), indentar(resumen_curriculo(j), '    ')))
+                 esc(j.descripcion), indentar(cabecera_academica(j), '  '), instrucciones, clase_cuerpo(j),
+                 indentar(situacion_problema(j), '    '), indentar('\n'.join(bloques), '    ')))
+        if respuestas:
+            solucionario.append('<section class="sol-ficha"><h3>Ficha %d · %s %s</h3><ol>%s</ol></section>'
+                                % (n, esc(j.icono), esc(j.titulo), ''.join(respuestas)))
 
     cuerpo = """<main id="contenido" class="pack">
   <section class="pack-portada">
     <p class="pack-marca"><span class="marca-logo" aria-hidden="true">🎮</span> %s</p>
     <h1>%s</h1>
     <p class="pack-subtitulo">%s</p>
-    <p class="pack-cifras">%s con hoja de respuestas · Objetivo y DBA en cada una</p>
+    <p class="pack-cifras">%s con objetivo, DBA, indicadores y situación problema · Solucionario al final</p>
     <h2>Contenido</h2>
     <ol class="pack-indice">
 %s
@@ -1673,8 +1762,13 @@ def pagina_pack(titulo, subtitulo, juegos, v, ruta):
     <p class="nota">Juegos y fichas gratuitos en %s · Alineados con los DBA y los Estándares del MEN.</p>
   </section>
 %s
+  <section class="solucionario">
+    <h2>✅ Solucionario para el docente</h2>
+%s
+  </section>
 </main>""" % (esc(NOMBRE_SITIO), esc(titulo), esc(subtitulo), plural(len(fichas), 'ficha', 'fichas'), indice,
-              esc(URL_SITIO.replace('https://', '')), indentar('\n'.join(articulos), '  '))
+              esc(URL_SITIO.replace('https://', '')), indentar('\n'.join(articulos), '  '),
+              indentar('\n'.join(solucionario), '    '))
     head = cabeza(v, '%s — %s' % (titulo, NOMBRE_SITIO), subtitulo, ruta, robots='noindex')
     return documento(head, 'pagina-pack', cuerpo)
 

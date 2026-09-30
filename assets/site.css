@@ -2219,3 +2219,31 @@ details.curriculo[open] > summary::after {
   .act-preguntas { font-size: 10pt; }
   .act-svg { max-width: 165mm; max-height: 205mm; }
 }
+
+/* --- Aspectos académicos, situación problema y solucionario ------------------------------ */
+.ficha-academica { border: 1.5px solid #c9d3ea; border-left: 5px solid var(--marca, #3b5bdb); border-radius: 10px;
+  background: #f5f7ff; padding: .6rem .9rem; margin: 0 0 1rem; font-size: .9rem; line-height: 1.35; }
+.ficha-academica p { margin: .15rem 0; }
+.ficha-academica ul { margin: .1rem 0 0 1.2rem; padding: 0; }
+.aca-ref { display: block; }
+.situacion-problema { border: 2px solid #f59f00; border-radius: 12px; background: #fff9db; padding: .7rem .9rem;
+  margin: 0 0 1rem; overflow: hidden; column-span: all; break-inside: avoid; }
+.situacion-problema h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+.situacion-problema p { margin: 0 0 .3rem; }
+.situacion-problema ol { margin: 0 0 0 1.2rem; padding: 0; }
+.situacion-arte { float: right; font-size: 2.6rem; line-height: 1; margin: 0 0 .3rem .6rem !important; }
+.renglon { display: block; border-bottom: 1px solid #999; height: 1.4em; }
+.solucionario { break-before: page; }
+.solucionario h2 { margin: 0 0 .5rem; }
+.sol-ficha { break-inside: avoid; margin: 0 0 .5rem; }
+.sol-ficha h3 { font-size: 1rem; margin: 0 0 .2rem; }
+.sol-ficha ol { margin: 0 0 0 1.2rem; padding: 0; }
+
+@media print {
+  .ficha-academica { font-size: 8pt; padding: 2mm 3mm; margin-bottom: 3mm; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .situacion-problema { font-size: 9.5pt; padding: 2mm 3mm; margin-bottom: 3mm; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .situacion-arte { font-size: 26pt; }
+  .solucionario { columns: 2; column-gap: 8mm; font-size: 8pt; }
+  .solucionario h2 { column-span: all; font-size: 13pt; }
+  .sol-ficha h3 { font-size: 9pt; }
+}

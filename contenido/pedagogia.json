@@ -1,0 +1,1055 @@
+{
+  "matematicas/primero-primaria.json": {
+    "situacion": {
+      "ilustracion": "🍓🧺👧🏽",
+      "texto": "Sara recogió 6 fresas en la mañana y 3 en la tarde. Quiere repartirlas en platos de 3 fresas cada uno.",
+      "preguntas": [
+        "¿Cuántas fresas recogió en total?",
+        "¿Cuántos platos puede llenar?",
+        "Si se come 2, ¿cuántas le quedan?"
+      ]
+    },
+    "indicadores": [
+      "Cuenta colecciones de hasta 10 objetos y escribe el número.",
+      "Compara y ordena números de una cifra.",
+      "Resuelve problemas sencillos de juntar y quitar con dibujos o números."
+    ]
+  },
+  "matematicas/suma_practice.html": {
+    "situacion": {
+      "ilustracion": "🚌🧒🏽👧🏻",
+      "texto": "Al paseo del colegio van 128 estudiantes de primaria y 95 de bachillerato. Cada bus lleva 40 personas.",
+      "preguntas": [
+        "¿Cuántos estudiantes van al paseo?",
+        "¿Alcanzan 5 buses? Explica cómo lo sabes."
+      ]
+    },
+    "indicadores": [
+      "Suma números de varias cifras con y sin reagrupación.",
+      "Verifica sus resultados con la estimación.",
+      "Usa la suma para resolver situaciones de su entorno."
+    ]
+  },
+  "matematicas/resta_practice_html.html": {
+    "situacion": {
+      "ilustracion": "📚🏫",
+      "texto": "La biblioteca tenía 1.250 libros. Prestó 368 y recibió en donación 145.",
+      "preguntas": [
+        "¿Cuántos libros quedaron después del préstamo?",
+        "¿Cuántos hay después de la donación?"
+      ]
+    },
+    "indicadores": [
+      "Resta números de varias cifras desagrupando cuando es necesario.",
+      "Comprueba la resta con la suma.",
+      "Identifica cuándo un problema se resuelve restando."
+    ]
+  },
+  "matematicas/multiplication_practice.html": {
+    "situacion": {
+      "ilustracion": "🥚📦",
+      "texto": "Una granja empaca los huevos en cajas de 12. Hoy llenó 24 cajas y le sobraron 7 huevos.",
+      "preguntas": [
+        "¿Cuántos huevos empacó?",
+        "¿Cuántos huevos recogió en total?"
+      ]
+    },
+    "indicadores": [
+      "Multiplica números de varias cifras por una cifra.",
+      "Usa las tablas de multiplicar con fluidez.",
+      "Reconoce situaciones de grupos iguales y las resuelve multiplicando."
+    ]
+  },
+  "matematicas/division_practice.html": {
+    "situacion": {
+      "ilustracion": "🍬👫",
+      "texto": "La profesora tiene 96 dulces para repartir por igual entre 8 grupos de trabajo.",
+      "preguntas": [
+        "¿Cuántos dulces recibe cada grupo?",
+        "Si fueran 12 grupos, ¿cuántos recibiría cada uno?"
+      ]
+    },
+    "indicadores": [
+      "Resuelve divisiones exactas.",
+      "Comprueba la división con la multiplicación.",
+      "Interpreta el reparto equitativo como una división."
+    ]
+  },
+  "matematicas/problemas-suma-resta.json": {
+    "situacion": {
+      "ilustracion": "⚽🧒🏽🧒🏻",
+      "texto": "En el recreo, el equipo azul hizo 7 goles y el equipo rojo hizo 4. Al final, el equipo rojo marcó 2 goles más.",
+      "preguntas": [
+        "¿Cuántos goles hubo en total?",
+        "¿Qué equipo ganó y por cuántos goles?"
+      ]
+    },
+    "indicadores": [
+      "Identifica los datos y la pregunta de un problema.",
+      "Elige entre suma y resta según la situación.",
+      "Explica con dibujos o palabras cómo resolvió el problema."
+    ]
+  },
+  "matematicas/tienda-escolar.json": {
+    "situacion": {
+      "ilustracion": "🏪🪙💵",
+      "texto": "En la tienda escolar un jugo vale $1.500 y una empanada $2.000. Camila paga con un billete de $5.000.",
+      "preguntas": [
+        "¿Cuánto gasta Camila si compra un jugo y una empanada?",
+        "¿Cuánto le devuelven?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce monedas y billetes colombianos.",
+      "Calcula totales y cambios en compras.",
+      "Compara precios para decidir la mejor compra."
+    ]
+  },
+  "matematicas/problemas-multiplicacion-division.json": {
+    "situacion": {
+      "ilustracion": "🪑🏫",
+      "texto": "Para una izada de bandera hay que acomodar 84 sillas en filas de 7.",
+      "preguntas": [
+        "¿Cuántas filas se forman?",
+        "Si llegan 3 filas más, ¿cuántas sillas hay en total?"
+      ]
+    },
+    "indicadores": [
+      "Distingue problemas de grupos iguales, reparto y comparación.",
+      "Elige la operación adecuada y la justifica.",
+      "Resuelve problemas de dos pasos con multiplicación y división."
+    ]
+  },
+  "matematicas/problemas-fracciones.json": {
+    "situacion": {
+      "ilustracion": "🍕👨‍👩‍👧‍👦",
+      "texto": "Una familia compró 2 pizzas de 8 porciones. Comieron 3/8 de una y la mitad de la otra.",
+      "preguntas": [
+        "¿Cuántas porciones comieron?",
+        "¿Qué fracción del total sobró?"
+      ]
+    },
+    "indicadores": [
+      "Representa fracciones como parte de un todo.",
+      "Usa la fracción como operador en repartos y recetas.",
+      "Resuelve problemas con fracciones y explica su procedimiento."
+    ]
+  },
+  "matematicas/problemas-enteros.json": {
+    "situacion": {
+      "ilustracion": "🌡️🏔️",
+      "texto": "En la madrugada, en un páramo de Boyacá, la temperatura era de −3 °C. Al mediodía subió 15 grados.",
+      "preguntas": [
+        "¿Qué temperatura hubo al mediodía?",
+        "¿Cuántos grados de diferencia hay entre −3 °C y 12 °C?"
+      ]
+    },
+    "indicadores": [
+      "Ubica y compara números enteros en la recta numérica.",
+      "Suma y resta enteros en contextos reales.",
+      "Interpreta el signo en situaciones de temperatura, altitud y dinero."
+    ]
+  },
+  "matematicas/fracciones.json": {
+    "situacion": {
+      "ilustracion": "🍫✂️",
+      "texto": "Luis partió una chocolatina en 6 partes iguales. Le dio 2 a su hermana y se comió 1.",
+      "preguntas": [
+        "¿Qué fracción regaló?",
+        "¿Qué fracción le queda?",
+        "¿Es lo mismo 2/6 que 1/3? Dibújalo."
+      ]
+    },
+    "indicadores": [
+      "Representa fracciones en gráficos y en la recta.",
+      "Reconoce fracciones equivalentes.",
+      "Suma y resta fracciones de igual denominador."
+    ]
+  },
+  "matematicas/geometria.json": {
+    "situacion": {
+      "ilustracion": "🏡📐",
+      "texto": "Don Pedro quiere cercar su huerta rectangular de 8 m de largo y 5 m de ancho y sembrar pasto en ella.",
+      "preguntas": [
+        "¿Cuántos metros de cerca necesita?",
+        "¿Cuántos metros cuadrados de pasto debe comprar?"
+      ]
+    },
+    "indicadores": [
+      "Identifica polígonos, ángulos y cuerpos geométricos.",
+      "Calcula perímetros y áreas de figuras planas.",
+      "Diferencia cuándo usar perímetro y cuándo área."
+    ]
+  },
+  "matematicas/figuras-lados.json": {
+    "situacion": {
+      "ilustracion": "🛑🔺⬛",
+      "texto": "En el camino al colegio, Ana ve una señal de PARE, una señal triangular y una ventana cuadrada.",
+      "preguntas": [
+        "¿Cuántos lados tiene cada figura?",
+        "¿Cuál tiene más lados? ¿Cómo se llama?"
+      ]
+    },
+    "indicadores": [
+      "Cuenta los lados y vértices de un polígono.",
+      "Nombra polígonos según su número de lados.",
+      "Reconoce polígonos en objetos de su entorno."
+    ]
+  },
+  "matematicas/potencias.json": {
+    "situacion": {
+      "ilustracion": "🧊🟫",
+      "texto": "Un piso cuadrado mide 9 baldosas de lado. Una caja de cubos tiene 4 cubos de largo, de ancho y de alto.",
+      "preguntas": [
+        "¿Cuántas baldosas tiene el piso?",
+        "¿Cuántos cubos caben en la caja?"
+      ]
+    },
+    "indicadores": [
+      "Calcula potencias y raíces cuadradas exactas.",
+      "Relaciona potenciación y radicación como operaciones inversas.",
+      "Usa potencias para calcular áreas y volúmenes."
+    ]
+  },
+  "matematicas/ordenar-numeros.json": {
+    "situacion": {
+      "ilustracion": "🏃‍♀️⏱️",
+      "texto": "En una carrera, los tiempos fueron: 12,5 s; 12,05 s; 12 1/2 s y 11,9 s.",
+      "preguntas": [
+        "Ordena los tiempos del más rápido al más lento.",
+        "¿Hay dos tiempos iguales? ¿Cuáles?"
+      ]
+    },
+    "indicadores": [
+      "Compara y ordena enteros, fracciones y decimales.",
+      "Aplica la jerarquía de las operaciones.",
+      "Justifica el orden de números en distintas representaciones."
+    ]
+  },
+  "espanol/vocales.json": {
+    "situacion": {
+      "ilustracion": "🐝🌳🐘",
+      "texto": "En el cuento de hoy aparecen una abeja, un elefante y una oveja que buscan a sus amigos.",
+      "preguntas": [
+        "¿Con qué vocal empieza cada animal?",
+        "Dibuja otro animal que empiece con A."
+      ]
+    },
+    "indicadores": [
+      "Reconoce el sonido de las vocales en palabras.",
+      "Asocia cada vocal con imágenes.",
+      "Identifica vocales al inicio de palabras que escucha."
+    ]
+  },
+  "espanol/silabas.json": {
+    "situacion": {
+      "ilustracion": "🐱🍉👏",
+      "texto": "Juana y su gato juegan a aplaudir cada palabra: «ga-to», «san-dí-a», «ma-ri-po-sa».",
+      "preguntas": [
+        "¿Cuántos aplausos tiene cada palabra?",
+        "Di una palabra que rime con «gato»."
+      ]
+    },
+    "indicadores": [
+      "Divide palabras en sílabas.",
+      "Une sílabas para formar palabras.",
+      "Reconoce palabras que riman."
+    ]
+  },
+  "espanol/primeras-palabras.json": {
+    "situacion": {
+      "ilustracion": "🏠🐶📝",
+      "texto": "Tomás quiere dejarle una nota a su mamá: «Saqué al perro al parque».",
+      "preguntas": [
+        "¿Qué palabras de la nota conoces?",
+        "Escribe una nota corta para alguien de tu familia."
+      ]
+    },
+    "indicadores": [
+      "Lee palabras y frases cortas con apoyo de imágenes.",
+      "Escribe palabras con la ortografía adecuada.",
+      "Usa la escritura para comunicar mensajes sencillos."
+    ]
+  },
+  "espanol/juego-lectura.json": {
+    "situacion": {
+      "ilustracion": "📖👴🏽🍅",
+      "texto": "El abuelo de Mateo sembró una huerta. Un día las plantas amanecieron mordidas y no sabían quién había sido.",
+      "preguntas": [
+        "¿Qué pistas buscarías para descubrir al culpable?",
+        "Inventa un final para la historia."
+      ]
+    },
+    "indicadores": [
+      "Identifica personajes, lugares y acciones de un texto.",
+      "Hace inferencias a partir de pistas del texto.",
+      "Relaciona lo que lee con su propia experiencia."
+    ]
+  },
+  "espanol/ordenar-textos.json": {
+    "situacion": {
+      "ilustracion": "✉️📜",
+      "texto": "Laura escribió una carta a su prima, pero se le desordenaron las partes: despedida, saludo, fecha y mensaje.",
+      "preguntas": [
+        "¿En qué orden van las partes de la carta?",
+        "¿Qué partes tiene un cuento?"
+      ]
+    },
+    "indicadores": [
+      "Ordena palabras alfabéticamente.",
+      "Reconoce inicio, nudo y desenlace del cuento.",
+      "Identifica la estructura de la carta."
+    ]
+  },
+  "espanol/ortografia.json": {
+    "situacion": {
+      "ilustracion": "📰✏️",
+      "texto": "El periódico escolar publicó: «el martes bamos a visitar bogota». El director pidió corregirlo.",
+      "preguntas": [
+        "¿Qué errores encuentras?",
+        "Escribe la frase corregida."
+      ]
+    },
+    "indicadores": [
+      "Aplica las reglas de acentuación.",
+      "Usa mayúsculas y signos de puntuación.",
+      "Corrige palabras que se confunden al escribir."
+    ]
+  },
+  "espanol/gramatica.json": {
+    "situacion": {
+      "ilustracion": "🐕🏃‍♂️",
+      "texto": "En la oración «El perro juguetón corre en el parque» falta saber quién hace la acción y cómo es.",
+      "preguntas": [
+        "¿Cuál es el sujeto?",
+        "¿Cuál es el verbo?",
+        "¿Qué adjetivo describe al perro?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce sustantivos, verbos, adjetivos y artículos.",
+      "Identifica el sujeto y el predicado.",
+      "Usa la concordancia de género y número."
+    ]
+  },
+  "espanol/sinonimos.json": {
+    "situacion": {
+      "ilustracion": "😀📝",
+      "texto": "Pablo escribió: «Estoy feliz, feliz, feliz porque es un día feliz». Su profesora le pidió no repetir.",
+      "preguntas": [
+        "¿Qué palabras pueden reemplazar a «feliz»?",
+        "Reescribe la oración."
+      ]
+    },
+    "indicadores": [
+      "Relaciona palabras con significado parecido.",
+      "Amplía su vocabulario.",
+      "Evita repeticiones al escribir."
+    ]
+  },
+  "espanol/situaciones-comunicativas.json": {
+    "situacion": {
+      "ilustracion": "📞🗣️",
+      "texto": "Valentina debe pedirle permiso al rector para una feria y, además, invitar a sus amigos por mensaje.",
+      "preguntas": [
+        "¿En qué se diferencian los dos mensajes?",
+        "¿Qué palabras usarías con el rector?"
+      ]
+    },
+    "indicadores": [
+      "Identifica emisor, receptor y propósito.",
+      "Adecúa su lenguaje a la situación.",
+      "Elige el medio de comunicación adecuado."
+    ]
+  },
+  "sociales/quiz-historia.json": {
+    "situacion": {
+      "ilustracion": "🏛️🌽",
+      "texto": "Un museo quiere armar una sala sobre muiscas, mayas, incas y egipcios, y te pide organizarla.",
+      "preguntas": [
+        "¿Qué objeto pondrías de cada cultura?",
+        "¿Qué tenían en común estas culturas?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce civilizaciones antiguas y prehispánicas.",
+      "Ubica hechos en el tiempo.",
+      "Compara formas de vida de distintas culturas."
+    ]
+  },
+  "sociales/personajes.json": {
+    "situacion": {
+      "ilustracion": "🔬📜",
+      "texto": "Tu curso organiza un «museo viviente» y cada estudiante representará a un personaje histórico.",
+      "preguntas": [
+        "¿A quién escogerías y por qué?",
+        "¿Qué aporte hizo a la humanidad?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona personajes con sus aportes.",
+      "Ubica personajes en su época.",
+      "Valora aportes científicos y culturales."
+    ]
+  },
+  "sociales/linea-tiempo.json": {
+    "situacion": {
+      "ilustracion": "⏳📅",
+      "texto": "Para una exposición hay que ordenar: la imprenta, la llegada a la Luna, la rueda y la independencia de Colombia.",
+      "preguntas": [
+        "¿En qué orden van?",
+        "¿Cuál hecho cambió más la vida de las personas? ¿Por qué?"
+      ]
+    },
+    "indicadores": [
+      "Ordena hechos cronológicamente.",
+      "Usa líneas de tiempo.",
+      "Explica cambios y permanencias en la historia."
+    ]
+  },
+  "sociales/geografia.json": {
+    "situacion": {
+      "ilustracion": "🧭🗺️",
+      "texto": "Un grupo de exploradores sale de Bogotá hacia el mar Caribe y luego hacia el océano Pacífico.",
+      "preguntas": [
+        "¿Hacia qué punto cardinal viajan primero?",
+        "¿Qué relieve encuentran en el camino?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce continentes, océanos y relieve.",
+      "Usa los puntos cardinales para orientarse.",
+      "Lee mapas sencillos."
+    ]
+  },
+  "sociales/capitales.json": {
+    "situacion": {
+      "ilustracion": "✈️🌎",
+      "texto": "Una aerolínea vuela de Bogotá a Lima, Quito y Ciudad de México.",
+      "preguntas": [
+        "¿A qué país pertenece cada ciudad?",
+        "¿Cuál queda más al norte?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona países con sus capitales.",
+      "Ubica países en el mapa de América.",
+      "Reconoce la diversidad de países vecinos."
+    ]
+  },
+  "sociales/ordenar-geografia.json": {
+    "situacion": {
+      "ilustracion": "⛰️🌊",
+      "texto": "Tu curso compara el tamaño de los océanos y la altura de montañas como el Everest y el nevado del Huila.",
+      "preguntas": [
+        "¿Cuál océano es el más grande?",
+        "¿Qué montaña es la más alta?"
+      ]
+    },
+    "indicadores": [
+      "Compara y ordena accidentes geográficos por tamaño.",
+      "Reconoce escalas del territorio.",
+      "Usa datos para argumentar."
+    ]
+  },
+  "sociales/convivencia-ciudadania.json": {
+    "situacion": {
+      "ilustracion": "🗳️🤝",
+      "texto": "En tu salón hay peleas por el uso del balón en el recreo y se va a elegir un representante de curso.",
+      "preguntas": [
+        "¿Qué norma propondrías?",
+        "¿Cómo debería elegirse el representante?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce derechos y deberes.",
+      "Participa en la construcción de normas.",
+      "Propone soluciones pacíficas a conflictos."
+    ]
+  },
+  "naturales/juego-plantas.json": {
+    "situacion": {
+      "ilustracion": "🌱🪴☀️",
+      "texto": "Sofía sembró dos matas de frijol: una en la ventana y otra dentro de un armario oscuro.",
+      "preguntas": [
+        "¿Cuál crecerá mejor? ¿Por qué?",
+        "¿Qué necesita una planta para vivir?"
+      ]
+    },
+    "indicadores": [
+      "Identifica las partes de la planta y sus funciones.",
+      "Explica la fotosíntesis de forma sencilla.",
+      "Diseña observaciones sobre el crecimiento de plantas."
+    ]
+  },
+  "naturales/animales.json": {
+    "situacion": {
+      "ilustracion": "🐄🦅🐟",
+      "texto": "En una finca viven vacas, gallinas, peces en un estanque y águilas que vuelan cerca.",
+      "preguntas": [
+        "¿Qué come cada uno?",
+        "¿Cómo respira cada uno?"
+      ]
+    },
+    "indicadores": [
+      "Clasifica animales según su alimentación.",
+      "Clasifica animales según su respiración y cubierta.",
+      "Compara características de los animales."
+    ]
+  },
+  "naturales/crias.json": {
+    "situacion": {
+      "ilustracion": "🐔🐣",
+      "texto": "En la granja nacieron pollitos, un ternero y unos gatitos.",
+      "preguntas": [
+        "¿Quién es la mamá de cada cría?",
+        "¿En qué se parecen a su mamá?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona animales con sus crías.",
+      "Reconoce que los seres vivos nacen y crecen.",
+      "Describe cambios en los animales."
+    ]
+  },
+  "naturales/cuerpo-humano.json": {
+    "situacion": {
+      "ilustracion": "🫀🏃‍♀️",
+      "texto": "Después de correr en educación física, Juan siente el corazón acelerado y respira rápido.",
+      "preguntas": [
+        "¿Qué órganos trabajan más?",
+        "¿Qué hábitos cuidan el corazón?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce órganos y sistemas del cuerpo.",
+      "Explica sus funciones.",
+      "Propone hábitos saludables."
+    ]
+  },
+  "naturales/procesos.json": {
+    "situacion": {
+      "ilustracion": "💧☁️",
+      "texto": "Un charco del patio desapareció al mediodía y en la tarde llovió.",
+      "preguntas": [
+        "¿A dónde fue el agua del charco?",
+        "Dibuja el ciclo del agua."
+      ]
+    },
+    "indicadores": [
+      "Ordena las etapas de procesos naturales.",
+      "Aplica los pasos del método científico.",
+      "Explica procesos con diagramas."
+    ]
+  },
+  "naturales/pienso-cientifico.json": {
+    "situacion": {
+      "ilustracion": "🔬🧪",
+      "texto": "Quieres saber si las semillas germinan más rápido con agua tibia o fría.",
+      "preguntas": [
+        "¿Cuál es tu hipótesis?",
+        "¿Qué variable cambiarías y cuáles mantendrías igual?"
+      ]
+    },
+    "indicadores": [
+      "Formula preguntas y hipótesis.",
+      "Diseña experimentos controlando una variable.",
+      "Saca conclusiones a partir de datos."
+    ]
+  },
+  "emociones/reconocer.json": {
+    "situacion": {
+      "ilustracion": "😀😢😠",
+      "texto": "A Martín se le cayó el helado, Lucía ganó una carrera y Pedro no encuentra a su perro.",
+      "preguntas": [
+        "¿Cómo se siente cada uno?",
+        "¿Qué harías para ayudar a Pedro?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce emociones básicas en rostros.",
+      "Nombra sus propias emociones.",
+      "Muestra empatía con otros."
+    ]
+  },
+  "emociones/emociones-situaciones.json": {
+    "situacion": {
+      "ilustracion": "🎂😨",
+      "texto": "Hoy es el cumpleaños de Ana, pero también tiene una evaluación y le da miedo.",
+      "preguntas": [
+        "¿Qué emociones puede sentir Ana al mismo tiempo?",
+        "¿Te ha pasado algo parecido?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona situaciones con emociones.",
+      "Reconoce que se pueden sentir varias emociones.",
+      "Expresa lo que siente con palabras."
+    ]
+  },
+  "emociones/manejar.json": {
+    "situacion": {
+      "ilustracion": "😤🌬️",
+      "texto": "En el partido, un compañero empujó a Camilo y él siente mucha rabia.",
+      "preguntas": [
+        "¿Qué puede hacer Camilo para calmarse?",
+        "¿Cómo podría decir lo que siente sin herir?"
+      ]
+    },
+    "indicadores": [
+      "Identifica estrategias para manejar la rabia, la tristeza y el miedo.",
+      "Actúa con empatía.",
+      "Elige respuestas no violentas."
+    ]
+  },
+  "emociones/pasos-calma.json": {
+    "situacion": {
+      "ilustracion": "🚦🤝",
+      "texto": "Dos amigas quieren el mismo libro de la biblioteca y empiezan a discutir.",
+      "preguntas": [
+        "¿Qué pasos del semáforo pueden seguir?",
+        "Propón una solución justa para las dos."
+      ]
+    },
+    "indicadores": [
+      "Sigue pasos para calmarse.",
+      "Aplica pasos para resolver conflictos.",
+      "Propone acuerdos pacíficos."
+    ]
+  },
+  "quimica/estados-materia.json": {
+    "situacion": {
+      "ilustracion": "🧊💧♨️",
+      "texto": "Mamá dejó un cubo de hielo en un plato al sol y una olla con agua hirviendo en la estufa.",
+      "preguntas": [
+        "¿Qué le pasa al hielo?",
+        "¿Qué sale de la olla?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce los estados de la materia.",
+      "Explica los cambios de estado por temperatura.",
+      "Relaciona cambios de estado con la vida diaria."
+    ]
+  },
+  "quimica/mezclas.json": {
+    "situacion": {
+      "ilustracion": "🧂💧🫘",
+      "texto": "Se mezclaron por error sal, arena y fríjoles en un frasco con agua.",
+      "preguntas": [
+        "¿Qué método usarías para separar cada uno?",
+        "¿Es una mezcla homogénea o heterogénea?"
+      ]
+    },
+    "indicadores": [
+      "Diferencia mezclas homogéneas y heterogéneas.",
+      "Elige métodos de separación.",
+      "Distingue cambios físicos y químicos."
+    ]
+  },
+  "quimica/elementos.json": {
+    "situacion": {
+      "ilustracion": "⚛️🧪",
+      "texto": "Una etiqueta de agua mineral dice que contiene Na, Ca, Mg y K.",
+      "preguntas": [
+        "¿Qué elementos son?",
+        "¿En qué grupo de la tabla periódica están?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce elementos y sus símbolos.",
+      "Explica la organización de la tabla periódica.",
+      "Describe las partículas del átomo."
+    ]
+  },
+  "quimica/simbolos-quimicos.json": {
+    "situacion": {
+      "ilustracion": "🔤⚗️",
+      "texto": "En un laboratorio los frascos solo tienen símbolos: Fe, Au, O, H y Ag.",
+      "preguntas": [
+        "¿Qué elemento hay en cada frasco?",
+        "¿Cuál es un metal precioso?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona elementos con sus símbolos.",
+      "Reconoce metales y no metales.",
+      "Usa el lenguaje químico."
+    ]
+  },
+  "quimica/ordenar-materia.json": {
+    "situacion": {
+      "ilustracion": "🍋🧼",
+      "texto": "En casa hay limón, agua, leche y jabón. Quieres saber cuáles son ácidos y cuáles básicos.",
+      "preguntas": [
+        "Ordénalos según su pH.",
+        "¿Cómo lo comprobarías con un indicador de repollo morado?"
+      ]
+    },
+    "indicadores": [
+      "Ordena sustancias por su pH.",
+      "Compara escalas de tamaño y temperatura.",
+      "Diseña pruebas sencillas."
+    ]
+  },
+  "fisica/fuerzas.json": {
+    "situacion": {
+      "ilustracion": "🛒🏃",
+      "texto": "Empujas un carrito de mercado vacío y luego lleno con la misma fuerza.",
+      "preguntas": [
+        "¿Cuál acelera más? ¿Por qué?",
+        "Si recorre 20 m en 10 s, ¿cuál es su velocidad media?"
+      ]
+    },
+    "indicadores": [
+      "Explica el efecto de las fuerzas en el movimiento.",
+      "Aplica las leyes de Newton.",
+      "Calcula la velocidad media."
+    ]
+  },
+  "fisica/energia.json": {
+    "situacion": {
+      "ilustracion": "☀️🔋💡",
+      "texto": "El colegio quiere instalar paneles solares para encender las luces del salón.",
+      "preguntas": [
+        "¿Qué transformaciones de energía ocurren?",
+        "¿Qué ventajas tiene la energía solar?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce formas y fuentes de energía.",
+      "Describe transformaciones de energía.",
+      "Valora el uso responsable de la energía."
+    ]
+  },
+  "fisica/luz-sonido.json": {
+    "situacion": {
+      "ilustracion": "🔦🔊",
+      "texto": "En una cueva, Andrés grita y escucha su voz de nuevo. Con una linterna ve su sombra en la pared.",
+      "preguntas": [
+        "¿Por qué escucha su voz otra vez?",
+        "¿Cómo se forma la sombra?"
+      ]
+    },
+    "indicadores": [
+      "Explica cómo se propagan la luz y el sonido.",
+      "Reconoce reflexión, refracción y eco.",
+      "Explica la formación de sombras."
+    ]
+  },
+  "fisica/unidades.json": {
+    "situacion": {
+      "ilustracion": "📏⚖️",
+      "texto": "Para un experimento debes medir la masa de una piedra, el tiempo de caída y la distancia recorrida.",
+      "preguntas": [
+        "¿Qué unidad del SI usas para cada magnitud?",
+        "¿Qué instrumento usarías?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona magnitudes con sus unidades del SI.",
+      "Selecciona instrumentos de medida.",
+      "Convierte unidades sencillas."
+    ]
+  },
+  "fisica/escalas.json": {
+    "situacion": {
+      "ilustracion": "🐌🚀",
+      "texto": "Un caracol, un carro, un avión y la luz compiten en una carrera imaginaria.",
+      "preguntas": [
+        "Ordénalos del más lento al más rápido.",
+        "¿Cuánto tarda la luz del Sol en llegar a la Tierra?"
+      ]
+    },
+    "indicadores": [
+      "Compara tamaños y velocidades en distintas escalas.",
+      "Usa notación y órdenes de magnitud.",
+      "Interpreta datos del universo."
+    ]
+  },
+  "tecnologia/computadora.json": {
+    "situacion": {
+      "ilustracion": "💻🖱️",
+      "texto": "La sala de informática recibió equipos nuevos y hay que conectarlos.",
+      "preguntas": [
+        "¿Qué dispositivos son de entrada y cuáles de salida?",
+        "¿Qué programa usarías para escribir una carta?"
+      ]
+    },
+    "indicadores": [
+      "Identifica partes físicas de la computadora.",
+      "Diferencia hardware y software.",
+      "Clasifica dispositivos de entrada y salida."
+    ]
+  },
+  "tecnologia/ordenar-tecnologia.json": {
+    "situacion": {
+      "ilustracion": "🤖📋",
+      "texto": "Debes darle instrucciones a un robot para que prepare un vaso de jugo.",
+      "preguntas": [
+        "Escribe los pasos en orden.",
+        "¿Qué pasa si cambias el orden de dos pasos?"
+      ]
+    },
+    "indicadores": [
+      "Ordena los pasos de un algoritmo.",
+      "Reconoce la evolución de la computación.",
+      "Compara unidades de información."
+    ]
+  },
+  "tecnologia/internet-seguro.json": {
+    "situacion": {
+      "ilustracion": "🔒📱",
+      "texto": "A Daniel le llega un mensaje: «Ganaste un celular, envía tu dirección y la clave de tu mamá».",
+      "preguntas": [
+        "¿Qué debe hacer Daniel?",
+        "¿Qué datos nunca se comparten en internet?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce riesgos en internet.",
+      "Protege sus datos personales.",
+      "Actúa con responsabilidad ante el ciberacoso."
+    ]
+  },
+  "tecnologia/maquinas-simples.json": {
+    "situacion": {
+      "ilustracion": "🪜⚙️",
+      "texto": "Hay que subir un bulto de cemento pesado a un segundo piso.",
+      "preguntas": [
+        "¿Qué máquina simple usarías?",
+        "¿Cómo reduce el esfuerzo?"
+      ]
+    },
+    "indicadores": [
+      "Identifica máquinas simples en objetos cotidianos.",
+      "Explica cómo reducen el esfuerzo.",
+      "Propone usos de máquinas simples."
+    ]
+  },
+  "tecnologia/programacion.json": {
+    "situacion": {
+      "ilustracion": "🧩💻",
+      "texto": "Un juego debe mostrar «¡Ganaste!» cuando el puntaje llega a 10.",
+      "preguntas": [
+        "¿Qué variable necesitas?",
+        "¿Qué condicional escribirías?"
+      ]
+    },
+    "indicadores": [
+      "Comprende qué es un algoritmo, una variable y un bucle.",
+      "Usa condicionales.",
+      "Descompone problemas en funciones."
+    ]
+  },
+  "tecnologia/problemas-tecnologicos.json": {
+    "situacion": {
+      "ilustracion": "🔧💡",
+      "texto": "La lámpara del salón no enciende y el profesor necesita proyectar una película.",
+      "preguntas": [
+        "¿Qué revisarías primero?",
+        "Propón dos soluciones y elige la más segura."
+      ]
+    },
+    "indicadores": [
+      "Detecta fallas en artefactos.",
+      "Compara soluciones.",
+      "Elige la solución más segura y eficiente."
+    ]
+  },
+  "ingles/colores-numeros.json": {
+    "situacion": {
+      "ilustracion": "🎈🔢",
+      "texto": "At the party there are three red balloons, two blue balloons and five yellow balloons.",
+      "preguntas": [
+        "How many balloons are there?",
+        "What color are the balloons?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce colores y números en inglés.",
+      "Usa números en operaciones sencillas.",
+      "Describe objetos con color y cantidad."
+    ]
+  },
+  "ingles/saludos.json": {
+    "situacion": {
+      "ilustracion": "👋🙂",
+      "texto": "A new student arrives from Canada. Say hello and introduce yourself.",
+      "preguntas": [
+        "What do you say first?",
+        "How do you say goodbye?"
+      ]
+    },
+    "indicadores": [
+      "Saluda y se despide en inglés.",
+      "Se presenta con frases sencillas.",
+      "Usa fórmulas de cortesía."
+    ]
+  },
+  "ingles/ordenar-ingles.json": {
+    "situacion": {
+      "ilustracion": "📅🌙",
+      "texto": "Tom plays soccer on Monday, swims on Wednesday and rests on Sunday.",
+      "preguntas": [
+        "Order the days of the week.",
+        "What does Tom do on Wednesday?"
+      ]
+    },
+    "indicadores": [
+      "Ordena días, meses y partes del día.",
+      "Compara animales por tamaño en inglés.",
+      "Usa vocabulario de tiempo."
+    ]
+  },
+  "ingles/verbos-irregulares.json": {
+    "situacion": {
+      "ilustracion": "🏖️✍️",
+      "texto": "Write about your last vacation: where you went, what you ate and what you saw.",
+      "preguntas": [
+        "Use: went, ate, saw.",
+        "Write three sentences in the past."
+      ]
+    },
+    "indicadores": [
+      "Relaciona verbos irregulares con su pasado.",
+      "Narra hechos en pasado simple.",
+      "Escribe textos cortos en pasado."
+    ]
+  },
+  "artes/colores.json": {
+    "situacion": {
+      "ilustracion": "🎨🖌️",
+      "texto": "Solo tienes pintura roja, azul y amarilla, y necesitas pintar un árbol verde y un atardecer naranja.",
+      "preguntas": [
+        "¿Qué colores mezclas para el verde?",
+        "¿Y para el naranja?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce colores primarios y secundarios.",
+      "Diferencia colores cálidos y fríos.",
+      "Predice mezclas de colores."
+    ]
+  },
+  "artes/artistas-obras.json": {
+    "situacion": {
+      "ilustracion": "🖼️👩‍🎨",
+      "texto": "El museo del barrio expondrá obras de Botero, Frida Kahlo y Van Gogh.",
+      "preguntas": [
+        "¿Qué obra reconoces de cada artista?",
+        "¿Qué los hace diferentes?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona artistas con sus obras.",
+      "Ubica artistas en su época.",
+      "Aprecia obras de distintas culturas."
+    ]
+  },
+  "artes/musica.json": {
+    "situacion": {
+      "ilustracion": "🎵🥁",
+      "texto": "La banda del colegio necesita instrumentos de cuerda, viento y percusión.",
+      "preguntas": [
+        "Nombra uno de cada familia.",
+        "¿Cuál suena más agudo?"
+      ]
+    },
+    "indicadores": [
+      "Reconoce las notas musicales.",
+      "Clasifica instrumentos por familias.",
+      "Reconoce elementos del lenguaje musical."
+    ]
+  },
+  "artes/musica-color.json": {
+    "situacion": {
+      "ilustracion": "🌈🎼",
+      "texto": "Vas a pintar un arcoíris y a tocar las notas de la escala en orden.",
+      "preguntas": [
+        "¿Qué color va después del amarillo?",
+        "¿Qué nota va después de sol?"
+      ]
+    },
+    "indicadores": [
+      "Ordena notas y figuras musicales.",
+      "Ordena colores del arcoíris.",
+      "Reconoce tonos y matices."
+    ]
+  },
+  "espanol/trazos-vocales.json": {
+    "situacion": {
+      "ilustracion": "🐝🌸",
+      "texto": "La abeja quiere llegar a la flor, pero el camino tiene curvas y montañas.",
+      "preguntas": [
+        "Muestra con tu dedo el camino.",
+        "¿Con qué vocal empieza «abeja»?"
+      ]
+    },
+    "indicadores": [
+      "Sigue trazos con control del lápiz.",
+      "Reconoce la forma de las vocales.",
+      "Identifica el sonido inicial de palabras."
+    ]
+  },
+  "matematicas/cuento-y-coloreo.json": {
+    "situacion": {
+      "ilustracion": "🍎🧺",
+      "texto": "En la canasta hay 3 manzanas. La abuela pone 2 más.",
+      "preguntas": [
+        "¿Cuántas manzanas hay ahora? Cuenta con tus dedos.",
+        "Si te comes una, ¿cuántas quedan?"
+      ]
+    },
+    "indicadores": [
+      "Cuenta colecciones de hasta 5 objetos.",
+      "Relaciona cantidad con número.",
+      "Resuelve situaciones de juntar y quitar."
+    ]
+  },
+  "matematicas/formas-y-series.json": {
+    "situacion": {
+      "ilustracion": "🔴🔵",
+      "texto": "Para la fiesta, Lucas cuelga banderines: rojo, azul, rojo, azul...",
+      "preguntas": [
+        "¿Qué color sigue?",
+        "Busca en tu salón algo redondo y algo cuadrado."
+      ]
+    },
+    "indicadores": [
+      "Reconoce figuras básicas.",
+      "Completa patrones.",
+      "Compara tamaños y posiciones."
+    ]
+  },
+  "artes/colorea-mi-mundo.json": {
+    "situacion": {
+      "ilustracion": "🏠🌳☀️",
+      "texto": "Imagina tu casa en un día soleado, con un árbol grande al lado.",
+      "preguntas": [
+        "¿De qué colores la pintarías?",
+        "Dibuja a quién vive contigo."
+      ]
+    },
+    "indicadores": [
+      "Colorea dentro de los contornos.",
+      "Expresa ideas con el dibujo.",
+      "Usa el color con intención."
+    ]
+  },
+  "naturales/animales-y-alimentos.json": {
+    "situacion": {
+      "ilustracion": "🐰🥕",
+      "texto": "El conejo tiene hambre y en la huerta hay zanahorias, queso y bananos.",
+      "preguntas": [
+        "¿Qué come el conejo?",
+        "¿Qué animal comería el queso?"
+      ]
+    },
+    "indicadores": [
+      "Relaciona animales con su alimento.",
+      "Clasifica animales según dónde viven.",
+      "Describe características de los animales."
+    ]
+  }
+}
