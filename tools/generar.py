@@ -70,6 +70,7 @@ RUTA_CURRICULO = 'docentes/curriculo/index.html'
 # Los PDF los produce tools/pdf.py imprimiendo las fichas y los packs con Chrome.
 CARPETA_PDF = 'pdf'
 RUTA_SECUNDARIA = 'secundaria/index.html'
+RUTA_PROGRESO = 'familias/progreso/index.html'
 
 # Juegos cuyos datos viven en contenido/*.json: hoja de estilos, script y función
 # de arranque de cada motor.
@@ -899,9 +900,40 @@ def resumen_curriculo(juego):
             % (esc(c['objetivo']), ('  <p><strong>DBA:</strong> %s</p>\n' % esc(dba)) if dba else ''))
 
 
+ACOMPANAR = {
+    'quiz': 'Lean juntos cada pregunta. Antes de que elija, pregúntale «¿por qué crees que es esa?». '
+            'Si se equivoca, lean el «¿Por qué?» sin apuro: el error también enseña.',
+    'parejas': 'Túrnense para encontrar parejas y lean en voz alta el dato que aparece con cada acierto.',
+    'ordenar': 'Antes de pulsar «Comprobar», pídele que te explique el orden que eligió. '
+               'Usen la pista solo si lleva un rato atascado.',
+    'interactivo': 'Siéntate a su lado los primeros ejercicios y luego déjale avanzar solo. '
+                   'Pídele que te cuente cómo hizo uno de los cálculos.',
+    'imprimible': 'Lee cada consigna en voz alta y muéstrale el primer ejemplo. '
+                  'Déjale colorear y trazar a su ritmo: lo importante es el intento, no que quede perfecto.',
+}
+
+
+def bloque_familias(juego):
+    """Consejos para acompañar el juego en casa y preguntas para conversar después."""
+    sit = juego.curriculo['situacion']
+    preguntas = ['¿Qué fue lo más fácil y lo más difícil?', '¿Qué aprendiste que no sabías?',
+                 'Un reto de la vida real: «%s» %s' % (sit['texto'], sit['preguntas'][0])]
+    return '\n'.join([
+        '<details class="curriculo familias-consejos">',
+        '  <summary>👪 ¿Juegas en casa? Consejos para acompañar</summary>',
+        '  <p><strong>Antes:</strong> %d minutos aproximadamente; elijan un momento sin prisa.</p>' % duracion_minutos(juego),
+        '  <p><strong>Durante:</strong> %s</p>' % esc(ACOMPANAR.get(juego.tipo, ACOMPANAR['interactivo'])),
+        '  <p><strong>Después, conversen:</strong></p>',
+        '  <ul>%s</ul>' % ''.join('<li>%s</li>' % esc(q) for q in preguntas),
+        '  <p class="nota">Su progreso y sus estrellas se guardan solo en este dispositivo: '
+        '<a href="/familias/progreso/">ver mi progreso</a>.</p>',
+        '</details>'])
+
+
 def bloque_pie(materias, v, juego=None):
     partes = []
     if juego and juego.curriculo:
+        partes.append(bloque_familias(juego))
         partes.append(bloque_curriculo(juego))
     if juego:
         # Primero los del mismo tema; sort es estable, así se respeta el orden del catálogo.
@@ -1697,6 +1729,8 @@ def pagina_familias(materias, v):
     cuerpo = """%s
 %s
 <main id="contenido" class="pagina">
+%s
+
   <section class="tema" aria-labelledby="por-edad">
     <div class="tema-cabeza">
       <h2 id="por-edad">Actividades por edad</h2>
@@ -1723,6 +1757,7 @@ def pagina_familias(materias, v):
       <h2 id="sin-internet-familias">Para usar sin internet</h2>
     </div>
     <ul class="lista-fichas">
+      <li><a href="/familias/progreso/">⭐ Mi progreso: actividades jugadas y estrellas en este dispositivo</a></li>
       <li><a href="/descargar/">📥 Instala los juegos en tu teléfono o tableta y úsalos sin conexión</a></li>
       <li><a href="/emociones/">💛 Juegos de emociones para hablar en familia de lo que sentimos</a></li>
     </ul>
@@ -1731,10 +1766,64 @@ def pagina_familias(materias, v):
 %s""" % (bloque_navegacion(materias),
          cabecera_banda([('Inicio', '/'), ('Familias', None)], '🏠', 'Actividades para hacer en casa',
                         'Juegos educativos y fichas para tus hijos según su edad: gratis, sin registro y también sin internet.'),
-         indentar(tarjetas, '    '), bloque_pie(materias, v))
+         indentar(seccion_retos(materias), '  '), indentar(tarjetas, '    '), bloque_pie(materias, v))
     head = cabeza(v, 'Actividades educativas para niños en casa: juegos y fichas por edad — %s' % NOMBRE_SITIO,
                   'Actividades educativas para hacer en casa con tus hijos: juegos y fichas imprimibles gratis, '
                   'organizados por edad, de 5 a 16 años.', RUTA_FAMILIAS)
+    return documento(head, 'pagina-familias', cuerpo)
+
+
+def datos_juegos(juegos):
+    """Lista mínima de juegos para el JavaScript (retos y progreso)."""
+    return [{'r': url_de(j.ruta), 't': j.titulo, 'i': j.icono, 'm': j.materia.nombre} for j in juegos]
+
+
+def seccion_retos(materias):
+    """Un reto por franja de edad. Cuál toca lo decide el navegador según la semana del año,
+    así cambia cada lunes sin volver a publicar."""
+    franjas = [{'edad': '%d a %d años' % f, 'juegos': datos_juegos([j for j in js if j.tipo != 'imprimible'] or js)}
+               for f, js in edades_con_juegos(materias)]
+    return """<section class="tema" aria-labelledby="retos-titulo">
+  <div class="tema-cabeza">
+    <h2 id="retos-titulo">🏆 Retos de la semana</h2>
+    <p>Un juego destacado para cada edad. Cambian cada lunes: ¿lo consiguen con tres estrellas?</p>
+  </div>
+  <ul class="rejilla-secciones retos-semana" data-retos>
+    <li class="nota">Activa JavaScript para ver los retos de esta semana.</li>
+  </ul>
+  <script type="application/json" id="datos-retos">%s</script>
+</section>""" % json_para_script(franjas)
+
+
+def pagina_progreso(materias, v):
+    juegos = [j for m in materias for j in m.juegos]
+    cuerpo = """%s
+%s
+<main id="contenido" class="pagina">
+  <section class="tema" aria-labelledby="resumen-progreso">
+    <div class="tema-cabeza">
+      <h2 id="resumen-progreso">Resumen</h2>
+      <p>Se guarda solo en este navegador: sin cuentas, sin nombres, sin enviar nada a internet.</p>
+    </div>
+    <div class="progreso-resumen" data-progreso-resumen></div>
+  </section>
+  <section class="tema" aria-labelledby="juegos-hechos">
+    <div class="tema-cabeza">
+      <h2 id="juegos-hechos">Actividades jugadas</h2>
+    </div>
+    <ul class="lista-progreso" data-progreso-lista>
+      <li class="nota">Todavía no hay actividades jugadas en este dispositivo. ¡Empieza por un <a href="/familias/#retos-titulo">reto de la semana</a>!</li>
+    </ul>
+    <p><button type="button" class="btn btn-secundario" data-progreso-borrar>🗑️ Borrar el progreso de este dispositivo</button></p>
+  </section>
+  <script type="application/json" id="datos-juegos">%s</script>
+</main>
+%s""" % (bloque_navegacion(materias),
+         cabecera_banda([('Inicio', '/'), ('Familias', '/familias/'), ('Mi progreso', None)], '⭐', 'Mi progreso',
+                        'Las actividades jugadas en este dispositivo, con sus estrellas y su mejor resultado.'),
+         json_para_script(datos_juegos(juegos)), bloque_pie(materias, v))
+    head = cabeza(v, 'Mi progreso — %s' % NOMBRE_SITIO, 'Progreso de las actividades jugadas en este dispositivo.',
+                  RUTA_PROGRESO, robots='noindex')
     return documento(head, 'pagina-familias', cuerpo)
 
 
@@ -2215,7 +2304,7 @@ def generar(comprobar):
               'index.html': pagina_inicio(materias, v), '404.html': pagina_404(materias, v),
               'sitemap.xml': sitemap(materias), RUTA_SECUNDARIA: pagina_secundaria(materias, v),
               RUTA_DOCENTES: pagina_docentes(materias, v), RUTA_FAMILIAS: pagina_familias(materias, v),
-              RUTA_CURRICULO: pagina_matriz(materias, v)}
+              RUTA_CURRICULO: pagina_matriz(materias, v), RUTA_PROGRESO: pagina_progreso(materias, v)}
     salida.update(packs(materias, v))
     for grado, juegos_grado in grados_con_juegos(materias):
         salida[ruta_grado(grado)] = pagina_grado(grado, juegos_grado, materias, v)

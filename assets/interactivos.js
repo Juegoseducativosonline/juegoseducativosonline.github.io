@@ -108,6 +108,7 @@
 
   function mostrarFinal(e, fallos, tiempoMs, resumen, items, curiosos) {
     var nota = estrellas(fallos);
+    JEO.registrarResultado(nota.cuantas === 3 ? 100 : nota.cuantas === 2 ? 75 : 40);
     var viejo = e.final.querySelector('.repaso');
     if (viejo) {
       viejo.remove();

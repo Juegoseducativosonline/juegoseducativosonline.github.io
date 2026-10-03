@@ -2318,3 +2318,17 @@ details.curriculo[open] > summary::after {
 .modo-clase .quiz-enunciado { font-size: 2.3rem; line-height: 1.25; }
 .modo-clase .quiz-opcion, .modo-clase .ordenar-texto, .modo-clase .pareja { font-size: 1.6rem; }
 .modo-clase .quiz-figura, .modo-clase .figura-cantidades { font-size: 3rem; }
+
+/* --- Progreso, retos y consejos para familias ---------------------------------------------- */
+.tarjeta-juego a { position: relative; }
+.tarjeta-progreso { position: absolute; top: .55rem; right: .7rem; font-size: .8rem; font-weight: 800;
+  background: #fff9db; color: #5c3d00; border-radius: 999px; padding: .1rem .5rem; }
+.reto-estado { font-weight: 800; color: var(--marca, #3b5bdb); }
+.progreso-resumen { display: flex; flex-wrap: wrap; gap: .8rem; }
+.progreso-cifra { margin: 0; padding: .8rem 1.1rem; border-radius: 14px; background: #f1f4ff; font-weight: 800; font-size: 1.15rem; }
+.lista-progreso { list-style: none; padding: 0; margin: 0 0 1rem; }
+.lista-progreso li { padding: .55rem 0; border-bottom: 1px solid #e6e9f2; }
+.lista-progreso a { font-weight: 800; }
+.familias-consejos summary { color: #8a4b00; }
+.familias-consejos ul { margin: .2rem 0 .6rem 1.2rem; }
+@media print { .familias-consejos, .tarjeta-progreso { display: none !important; } }

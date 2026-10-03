@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var CACHE = 'jeo-bf1481fd9d2a';
+var CACHE = 'jeo-08340e993175';
 var RECURSOS = [
   "/",
   "/404.html",
@@ -26,12 +26,12 @@ var RECURSOS = [
   "/assets/icono-192.png",
   "/assets/icono-512.png",
   "/assets/interactivos.css?v=12bedd8ea5",
-  "/assets/interactivos.js?v=8fc4b31c4b",
+  "/assets/interactivos.js?v=2299557d46",
   "/assets/materias.css?v=9f1248c012",
   "/assets/quiz.css?v=ca763d9b25",
-  "/assets/quiz.js?v=97d8abad70",
-  "/assets/site.css?v=718dc10d29",
-  "/assets/site.js?v=ca357d087d",
+  "/assets/quiz.js?v=7ada12134a",
+  "/assets/site.css?v=f08e8b69e7",
+  "/assets/site.js?v=0bbfc96745",
   "/descargar/",
   "/docentes/",
   "/docentes/curriculo/",
@@ -76,6 +76,7 @@ var RECURSOS = [
   "/espanol/vocales-ficha.html",
   "/espanol/vocales.html",
   "/familias/",
+  "/familias/progreso/",
   "/fisica/",
   "/fisica/electricidad-ficha.html",
   "/fisica/electricidad.html",

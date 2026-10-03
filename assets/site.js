@@ -358,6 +358,7 @@ window.JEO = (function () {
       ? '🏆 ¡Meta cumplida! ' + aciertosMeta + ' aciertos'
       : 'Meta: ' + aciertosMeta + ' de ' + META_ACIERTOS + ' aciertos');
     if (aciertosMeta === META_ACIERTOS) {
+      registrarResultado(100);
       celebrarFinal();
     }
   }
@@ -514,7 +515,139 @@ window.JEO = (function () {
     return sec;
   }
 
+  /* --- Progreso en este dispositivo, retos de la semana ----------------------------------
+     Se guarda solo en localStorage: sin cuentas ni datos personales. Por cada página
+     de juego: veces jugadas, mejor resultado (%) y fecha de la última vez. */
+  var CLAVE_PROGRESO = 'jeo-progreso';
+
+  function leerProgreso() {
+    try { return JSON.parse(localStorage.getItem(CLAVE_PROGRESO)) || {}; } catch (e) { return {}; }
+  }
+
+  function estrellasDe(porcentaje) {
+    return porcentaje >= 90 ? 3 : porcentaje >= 60 ? 2 : 1;
+  }
+
+  function registrarResultado(porcentaje) {
+    var todo = leerProgreso();
+    var ruta = location.pathname;
+    var antes = todo[ruta] || { veces: 0, mejor: 0 };
+    todo[ruta] = {
+      veces: antes.veces + 1,
+      mejor: Math.max(antes.mejor, Math.round(porcentaje)),
+      fecha: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)
+    };
+    try { localStorage.setItem(CLAVE_PROGRESO, JSON.stringify(todo)); } catch (e) { /* sin almacenamiento */ }
+  }
+
+  function textoEstrellas(n) {
+    return '⭐⭐⭐'.slice(0, n * 1) + '☆☆☆'.slice(0, 3 - n);
+  }
+
+  /* Estrellas en las tarjetas de los juegos ya jugados. */
+  function marcarTarjetas() {
+    var todo = leerProgreso();
+    document.querySelectorAll('.tarjeta-juego a[href]').forEach(function (a) {
+      var dato = todo[a.getAttribute('href')];
+      if (!dato || a.querySelector('.tarjeta-progreso')) {
+        return;
+      }
+      var marca = document.createElement('span');
+      marca.className = 'tarjeta-progreso';
+      marca.textContent = textoEstrellas(estrellasDe(dato.mejor)) + ' ' + dato.mejor + '%';
+      marca.setAttribute('aria-label', 'Ya jugado: ' + estrellasDe(dato.mejor) + ' de 3 estrellas, mejor resultado ' + dato.mejor + '%');
+      a.appendChild(marca);
+    });
+  }
+
+  function datosDe(id) {
+    var el = document.getElementById(id);
+    try { return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; }
+  }
+
+  /* Número de semana del año (ISO): el mismo para todos durante la semana. */
+  function semanaDelAnio(fecha) {
+    var d = new Date(Date.UTC(fecha.getFullYear(), fecha.getMonth(), fecha.getDate()));
+    var dia = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dia);
+    var inicio = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil(((d - inicio) / 86400000 + 1) / 7) + d.getUTCFullYear() * 53;
+  }
+
+  function pintarRetos() {
+    var lista = document.querySelector('[data-retos]');
+    var franjas = datosDe('datos-retos');
+    if (!lista || !franjas) {
+      return;
+    }
+    var semana = semanaDelAnio(new Date());
+    var todo = leerProgreso();
+    lista.replaceChildren();
+    franjas.forEach(function (f, i) {
+      if (!f.juegos.length) {
+        return;
+      }
+      var j = f.juegos[(semana * 7 + i * 3) % f.juegos.length];
+      var hecho = todo[j.r];
+      var li = nodo('li', 'reto');
+      var a = nodo('a');
+      a.href = j.r;
+      a.appendChild(nodo('span', 'seccion-icono', j.i));
+      a.appendChild(nodo('strong', null, f.edad));
+      a.appendChild(nodo('span', null, j.t + ' · ' + j.m));
+      a.appendChild(nodo('span', 'seccion-recuento reto-estado', hecho
+        ? (hecho.mejor >= 90 ? '🏆 ¡Reto superado! ' : 'Llevas ') + textoEstrellas(estrellasDe(hecho.mejor))
+        : '¡Acepta el reto! →'));
+      li.appendChild(a);
+      lista.appendChild(li);
+    });
+  }
+
+  function pintarPaginaProgreso() {
+    var lista = document.querySelector('[data-progreso-lista]');
+    var juegos = datosDe('datos-juegos');
+    if (!lista || !juegos) {
+      return;
+    }
+    var todo = leerProgreso();
+    var jugados = juegos.filter(function (j) { return todo[j.r]; });
+    var estrellas = jugados.reduce(function (s, j) { return s + estrellasDe(todo[j.r].mejor); }, 0);
+    var resumen = document.querySelector('[data-progreso-resumen]');
+    resumen.replaceChildren(
+      nodo('p', 'progreso-cifra', '🎮 ' + jugados.length + ' de ' + juegos.length + ' actividades jugadas'),
+      nodo('p', 'progreso-cifra', '⭐ ' + estrellas + (estrellas === 1 ? ' estrella' : ' estrellas') + ' de ' + juegos.length * 3));
+    if (!jugados.length) {
+      return;
+    }
+    jugados.sort(function (a, b) { return (todo[b.r].fecha || '').localeCompare(todo[a.r].fecha || ''); });
+    lista.replaceChildren();
+    jugados.forEach(function (j) {
+      var d = todo[j.r];
+      var li = nodo('li');
+      var a = nodo('a', null, j.i + ' ' + j.t);
+      a.href = j.r;
+      li.appendChild(a);
+      li.appendChild(nodo('span', 'detalle', ' ' + j.m + ' · ' + textoEstrellas(estrellasDe(d.mejor)) + ' · mejor ' +
+        d.mejor + '% · ' + d.veces + (d.veces === 1 ? ' vez' : ' veces') + ' · ' + d.fecha));
+      lista.appendChild(li);
+    });
+  }
+
+  document.querySelectorAll('[data-progreso-borrar]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (window.confirm('¿Borrar el progreso guardado en este dispositivo?')) {
+        try { localStorage.removeItem(CLAVE_PROGRESO); } catch (e) { /* nada */ }
+        location.reload();
+      }
+    });
+  });
+
+  marcarTarjetas();
+  pintarRetos();
+  pintarPaginaProgreso();
+
   return {
+    registrarResultado: registrarResultado,
     explicar: explicar,
     repaso: repaso,
     EMOJIS: EMOJIS,

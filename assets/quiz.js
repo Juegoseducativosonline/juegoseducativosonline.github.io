@@ -343,6 +343,7 @@
 
       elResultadoCifra.textContent = aciertos + ' de ' + total + ' (' + porcentaje + '%)';
       elResultadoMensaje.textContent = mensajeFinal(porcentaje);
+      JEO.registrarResultado(porcentaje);
       if (elRepaso) {
         elRepaso.remove();
       }
