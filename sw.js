@@ -247,7 +247,13 @@ self.addEventListener('fetch', function (evento) {
   if (peticion.mode === 'navigate') {
     evento.respondWith(fetch(peticion.url, { cache: 'no-cache' }).catch(function () {
       return caches.match(peticion, { ignoreSearch: true }).then(function (guardada) {
-        return guardada || caches.match('/404.html');
+        /* Sin red y sin copia guardada: no es que la página no exista, es que no hay conexión. */
+        return guardada || new Response('<!DOCTYPE html><html lang="es"><meta charset="UTF-8">' +
+          '<meta name="viewport" content="width=device-width, initial-scale=1"><title>Sin conexión</title>' +
+          '<body style="font-family:sans-serif;text-align:center;padding:3rem 1rem"><h1>📡 Sin conexión</h1>' +
+          '<p>Esta página todavía no está guardada en el dispositivo. Conéctate a internet y vuelve a intentarlo.</p>' +
+          '<p><a href="/">Ir al inicio</a></p></body></html>',
+          { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
       });
     }));
     return;
