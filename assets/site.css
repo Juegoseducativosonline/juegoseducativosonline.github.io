@@ -2332,3 +2332,13 @@ details.curriculo[open] > summary::after {
 .familias-consejos summary { color: #8a4b00; }
 .familias-consejos ul { margin: .2rem 0 .6rem 1.2rem; }
 @media print { .familias-consejos, .tarjeta-progreso { display: none !important; } }
+
+/* --- Textos SEO, preguntas frecuentes y páginas legales ------------------------------------- */
+.bloque-seo p { max-width: 75ch; line-height: 1.6; }
+.faq { border: 1px solid #e1e5ee; border-radius: 12px; padding: .6rem .9rem; margin: 0 0 .5rem; background: #fff; }
+.faq summary { font-weight: 800; cursor: pointer; }
+.faq p { margin: .4rem 0 0; }
+.texto-legal { max-width: 80ch; }
+.texto-legal h2 { margin-top: 1.4rem; }
+.texto-legal p { line-height: 1.6; }
+.pie-legal { font-size: .85rem; opacity: .85; }

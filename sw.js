@@ -6,10 +6,11 @@
  */
 'use strict';
 
-var CACHE = 'jeo-08340e993175';
+var CACHE = 'jeo-a8dd61c38c05';
 var RECURSOS = [
   "/",
   "/404.html",
+  "/aprender-a-leer/",
   "/artes/",
   "/artes/artistas-obras-ficha.html",
   "/artes/artistas-obras.html",
@@ -30,8 +31,9 @@ var RECURSOS = [
   "/assets/materias.css?v=9f1248c012",
   "/assets/quiz.css?v=ca763d9b25",
   "/assets/quiz.js?v=7ada12134a",
-  "/assets/site.css?v=f08e8b69e7",
+  "/assets/site.css?v=48625d4ad5",
   "/assets/site.js?v=0bbfc96745",
+  "/aviso-legal/",
   "/descargar/",
   "/docentes/",
   "/docentes/curriculo/",
@@ -159,6 +161,7 @@ var RECURSOS = [
   "/naturales/pienso-cientifico.html",
   "/naturales/procesos-ficha.html",
   "/naturales/procesos.html",
+  "/privacidad/",
   "/quimica/",
   "/quimica/elementos-ficha.html",
   "/quimica/elementos.html",

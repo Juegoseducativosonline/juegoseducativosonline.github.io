@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import List, Optional
 
 import imprimibles  # tools/imprimibles.py: actividades de Transición
+import seo  # tools/seo.py: textos y preguntas frecuentes por palabra clave
 
 RAIZ = Path(__file__).resolve().parent.parent
 CONTENIDO = RAIZ / 'contenido'
@@ -62,7 +63,8 @@ MAX_RELACIONADOS = 3
 COLOR_MARCA = '#3b5bdb'
 RUTA_DESCARGAS = 'descargar/index.html'
 # Carpetas del sitio que no pueden usarse como id de materia.
-IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar', 'secundaria',
+IDS_RESERVADOS = {'assets', 'contenido', 'tools', 'descargar', 'secundaria', 'aprender-a-leer', 'privacidad',
+                  'aviso-legal', 'pdf', 'packs',
                   'docentes', 'familias', 'grados', 'edades'}
 RUTA_DOCENTES = 'docentes/index.html'
 RUTA_FAMILIAS = 'familias/index.html'
@@ -71,6 +73,12 @@ RUTA_CURRICULO = 'docentes/curriculo/index.html'
 CARPETA_PDF = 'pdf'
 RUTA_SECUNDARIA = 'secundaria/index.html'
 RUTA_PROGRESO = 'familias/progreso/index.html'
+RUTA_LEER = 'aprender-a-leer/index.html'
+RUTA_PRIVACIDAD = 'privacidad/index.html'
+RUTA_AVISO = 'aviso-legal/index.html'
+# Juegos de la página de lectoescritura, en el orden en que conviene jugarlos.
+JUEGOS_LEER = ['espanol/trazos-vocales.html', 'espanol/vocales.html', 'espanol/silabas.html',
+               'espanol/primeras-palabras.html', 'espanol/juego-lectura.html', 'espanol/ordenar-textos.html']
 
 # Juegos cuyos datos viven en contenido/*.json: hoja de estilos, script y función
 # de arranque de cada motor.
@@ -651,7 +659,11 @@ def migas_html(migas):
             items.append('    <li><a href="%s">%s</a></li>' % (esc(url), esc(texto)))
         else:
             items.append('    <li aria-current="page">%s</li>' % esc(texto))
-    return '<nav class="migas" aria-label="Ruta de navegación">\n  <ol>\n%s\n  </ol>\n</nav>' % '\n'.join(items)
+    datos = {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+        dict({'@type': 'ListItem', 'position': n, 'name': texto}, **({'item': URL_SITIO + url} if url else {}))
+        for n, (texto, url) in enumerate(migas, 1)]}
+    return ('<nav class="migas" aria-label="Ruta de navegación">\n  <ol>\n%s\n  </ol>\n</nav>\n%s'
+            % ('\n'.join(items), script_jsonld(datos)))
 
 
 def bloque_navegacion(materias, actual=None, migas=None, docente=None):
@@ -956,6 +968,8 @@ def bloque_pie(materias, v, juego=None):
       <p>Juegos gratuitos para aprender en casa o en clase, desde cualquier dispositivo y sin registrarse.</p>
       <p><a class="enlace-flecha" href="/secundaria/">🎓 Juegos para secundaria</a></p>
       <p><a class="enlace-flecha" href="/descargar/">📥 Usar sin internet y fichas para imprimir</a></p>
+      <p><a class="enlace-flecha" href="/aprender-a-leer/">📖 Juegos para aprender a leer y escribir</a></p>
+      <p class="pie-legal"><a href="/privacidad/">Privacidad</a> · <a href="/aviso-legal/">Aviso legal</a> · Sin registro, sin anuncios, sin cookies de seguimiento</p>
     </div>
     <nav aria-labelledby="pie-materias-titulo">
       <h2 class="pie-titulo" id="pie-materias-titulo">Materias</h2>
@@ -969,7 +983,7 @@ def bloque_pie(materias, v, juego=None):
     return '\n'.join(partes)
 
 
-def cabeza(v, titulo, descripcion, ruta, tipo_og='website', estilos=(), robots=None):
+def cabeza(v, titulo, descripcion, ruta, tipo_og='website', estilos=(), robots=None, jsonld=()):
     url = URL_SITIO + url_de(ruta)
     lineas = [
         '<meta charset="UTF-8" />',
@@ -987,11 +1001,67 @@ def cabeza(v, titulo, descripcion, ruta, tipo_og='website', estilos=(), robots=N
             '<meta property="og:title" content="%s" />' % esc(titulo),
             '<meta property="og:description" content="%s" />' % esc(descripcion),
             '<meta property="og:url" content="%s" />' % esc(url),
+            '<meta property="og:locale" content="es_CO" />',
+            '<meta property="og:image" content="%s/assets/icono-512.png" />' % URL_SITIO,
             '<meta name="twitter:card" content="summary" />',
         ]
+        lineas += [script_jsonld(d) for d in jsonld]
     lineas.append(bloque('comun', bloque_comun(v)))
     lineas += ['<link rel="stylesheet" href="%s" />' % v.url(e) for e in estilos]
     return '<head>\n%s\n</head>' % indentar('\n'.join(lineas), '  ')
+
+
+def script_jsonld(datos):
+    return '<script type="application/ld+json">%s</script>' % json_para_script(datos)
+
+
+def jsonld_juego(juego):
+    """Recurso educativo para Google: nivel, edad, gratuidad y DBA que trabaja."""
+    c = juego.curriculo
+    datos = {
+        '@context': 'https://schema.org', '@type': 'LearningResource',
+        'name': juego.titulo, 'description': juego.descripcion_seo or juego.descripcion,
+        'url': URL_SITIO + url_de(juego.ruta), 'inLanguage': 'es',
+        'isAccessibleForFree': True, 'learningResourceType': 'Juego educativo',
+        'educationalLevel': etiqueta_grados(juego.grados), 'about': juego.materia.nombre,
+        'timeRequired': 'PT%dM' % duracion_minutos(juego),
+        'audience': {'@type': 'EducationalAudience', 'educationalRole': 'student'},
+        'typicalAgeRange': '%d-%d' % (juego.grados[0] + EDAD_EN_TRANSICION, juego.grados[-1] + EDAD_EN_TRANSICION),
+        'provider': {'@type': 'Organization', 'name': NOMBRE_SITIO, 'url': URL_SITIO + '/'},
+    }
+    if c:
+        datos['teaches'] = c['objetivo']
+        datos['educationalAlignment'] = [
+            {'@type': 'AlignmentObject', 'alignmentType': 'teaches', 'educationalFramework':
+             'Derechos Básicos de Aprendizaje (MEN, Colombia)', 'targetName': etiqueta_dba(r),
+             'targetDescription': r['texto']} for r in c['dba']]
+    return datos
+
+
+def jsonld_sitio():
+    return [{'@context': 'https://schema.org', '@type': 'WebSite', 'name': NOMBRE_SITIO, 'url': URL_SITIO + '/',
+             'inLanguage': 'es'},
+            {'@context': 'https://schema.org', '@type': 'Organization', 'name': NOMBRE_SITIO, 'url': URL_SITIO + '/',
+             'logo': URL_SITIO + '/assets/icono-512.png'}]
+
+
+def bloque_seo(clave):
+    """Sección de texto y preguntas frecuentes para una página clave (tools/seo.py), con su FAQPage."""
+    d = seo.PAGINAS[clave]
+    faq = '\n'.join('  <details class="faq"><summary>%s</summary><p>%s</p></details>' % (esc(q), esc(r))
+                     for q, r in d['faq'])
+    datos = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
+        {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': r}} for q, r in d['faq']]}
+    return """<section class="tema bloque-seo" aria-labelledby="seo-%s">
+  <div class="tema-cabeza">
+    <h2 id="seo-%s">%s</h2>
+  </div>
+%s
+  <h3>Preguntas frecuentes</h3>
+%s
+  %s
+</section>""" % (clave, clave, esc(d['titulo']), '\n'.join('  <p>%s</p>' % esc(t) for t in d['parrafos']), faq,
+                 script_jsonld(datos))
 
 
 def documento(head, clase_body, cuerpo):
@@ -1029,7 +1099,7 @@ def pagina_inicio(materias, v):
     <div class="portada-interior">
       <div class="portada-texto">
         <p class="portada-etiqueta">Gratis · Sin registro · Para estudiantes, docentes y familias</p>
-        <h1>Aprende jugando</h1>
+        <h1>Juegos educativos online: aprende jugando</h1>
         <p class="portada-lema">Juegos para practicar matemáticas, lectura, ciencias, inglés y mucho más, desde cualquier dispositivo.</p>
         <ul class="portada-cifras">
           <li><strong>%d</strong> materias</li>
@@ -1119,11 +1189,25 @@ def pagina_inicio(materias, v):
       <li><span class="paso-icono" aria-hidden="true">🏆</span><h3>Supera tu marca</h3><p>Preguntas y ejercicios cambian en cada partida: vuelve a jugar para mejorar.</p></li>
     </ol>
   </section>
+  <section class="seccion" aria-labelledby="destacados-titulo">
+    <div class="seccion-cabeza">
+      <h2 id="destacados-titulo">Lo más buscado</h2>
+    </div>
+    <ul class="chips-materias">
+      <li><a href="/aprender-a-leer/">📖 Juegos para aprender a leer y escribir</a></li>
+      <li><a href="/espanol/vocales.html">🅰️ Juegos de vocales online</a></li>
+      <li><a href="/matematicas/primero-primaria.html">🔢 Matemáticas para 1.º de primaria</a></li>
+      <li><a href="/emociones/">💛 Juegos de emociones</a></li>
+      <li><a href="/secundaria/">🎓 Juegos interactivos para jóvenes</a></li>
+    </ul>
+  </section>
+%s
 </main>
 %s''' % (bloque_navegacion(materias), len(materias), len(juegos), preguntas, arte,
-         indentar('\n'.join(tarjetas), '      '), bloque_pie(materias, v))
+         indentar('\n'.join(tarjetas), '      '), indentar(bloque_seo('inicio'), '  '), bloque_pie(materias, v))
 
-    head = cabeza(v, 'Juegos educativos online gratis: aprende jugando — %s' % NOMBRE_SITIO, descripcion, 'index.html')
+    head = cabeza(v, 'Juegos educativos online gratis: aprende jugando — %s' % NOMBRE_SITIO, descripcion, 'index.html',
+                  jsonld=jsonld_sitio())
     return documento(head, 'pagina-inicio', cuerpo)
 
 
@@ -1163,6 +1247,7 @@ def pagina_materia(materia, materias, v):
 </div>
 <main id="contenido" class="pagina">
 %s
+%s
   <section class="otras-materias" aria-labelledby="otras-titulo">
     <h2 id="otras-titulo">Otras materias</h2>
     <ul class="chips-materias">
@@ -1172,9 +1257,10 @@ def pagina_materia(materia, materias, v):
 </main>
 %s''' % (bloque_navegacion(materias, actual=materia),
          indentar(migas_html([('Inicio', '/'), (materia.nombre, None)]), '    '),
-         esc(materia.icono), esc(materia.nombre), esc(materia.descripcion),
+         esc(materia.icono), esc('Juegos de %s' % materia.nombre), esc(materia.descripcion),
          plural(len(materia.temas), 'tema', 'temas'), plural(len(materia.juegos), 'juego', 'juegos'),
-         esc(materia.nombre), indice, indentar('\n'.join(secciones), '  '), otras, bloque_pie(materias, v))
+         esc(materia.nombre), indice, indentar('\n'.join(secciones), '  '),
+         indentar(bloque_seo(materia.id), '  ') if materia.id in seo.PAGINAS else '', otras, bloque_pie(materias, v))
 
     head = cabeza(v, '%s — %s' % (materia.titulo_seo or materia.nombre, NOMBRE_SITIO),
                   materia.descripcion_seo or '%s Juegos educativos gratuitos de %s por temas.'
@@ -1221,7 +1307,7 @@ def pagina_imprimible(juego, materias, v):
          enlace_pdf(ruta_ficha(juego), '📄 Descargar PDF', 'btn btn-acento'), url_de(ruta_ficha(juego)),
          instrucciones, indentar('\n'.join(bloques), '      '), bloque_pie(materias, v, juego))
     head = cabeza(v, '%s — %s' % (juego.titulo_seo or juego.titulo, NOMBRE_SITIO),
-                  juego.descripcion_seo or juego.descripcion, juego.ruta, tipo_og='article')
+                  juego.descripcion_seo or juego.descripcion, juego.ruta, tipo_og='article', jsonld=[jsonld_juego(juego)])
     return documento(head, 'materia-%s' % juego.materia.id, cuerpo)
 
 
@@ -1255,7 +1341,8 @@ def pagina_juego(juego, materias, v):
                 bloque_pie(materias, v, juego), v.url(script), json_para_script(juego.datos), arranque)
 
     head = cabeza(v, '%s — %s' % (juego.titulo_seo or juego.titulo, NOMBRE_SITIO),
-                  juego.descripcion_seo or juego.descripcion, juego.ruta, tipo_og='article', estilos=estilos)
+                  juego.descripcion_seo or juego.descripcion, juego.ruta, tipo_og='article', estilos=estilos,
+                  jsonld=[jsonld_juego(juego)])
     return documento(head, 'materia-%s' % juego.materia.id, cuerpo)
 
 
@@ -1795,6 +1882,112 @@ def seccion_retos(materias):
 </section>""" % json_para_script(franjas)
 
 
+def pagina_leer(materias, v):
+    por_ruta = {j.ruta: j for m in materias for j in m.juegos}
+    juegos = [por_ruta[r] for r in JUEGOS_LEER if r in por_ruta]
+    pasos = '\n'.join('    <li><strong>Paso %d.</strong> %s</li>' % (n, esc(j.titulo)) for n, j in enumerate(juegos, 1))
+    cuerpo = """%s
+%s
+<main id="contenido" class="pagina">
+  <section class="tema" aria-labelledby="ruta-lectura">
+    <div class="tema-cabeza">
+      <h2 id="ruta-lectura">La ruta para aprender a leer, paso a paso</h2>
+      <p>De los primeros trazos a leer cuentos: juega en este orden.</p>
+    </div>
+    <ol class="lista-fichas">
+%s
+    </ol>
+%s
+  </section>
+%s
+</main>
+%s""" % (bloque_navegacion(materias),
+         cabecera_banda([('Inicio', '/'), ('Español', '/espanol/'), ('Aprender a leer', None)], '📖',
+                        'Juegos para aprender a leer y escribir online',
+                        'Juegos de lectoescritura gratis para niños de 4 a 9 años: vocales, sílabas, primeras palabras y '
+                        'cuentos, con audio y fichas para imprimir.'),
+         pasos, indentar(lista_tarjetas(juegos), '    '), indentar(bloque_seo('aprender-a-leer'), '  '),
+         bloque_pie(materias, v))
+    head = cabeza(v, 'Juegos para aprender a leer y escribir online gratis (lectoescritura) — %s' % NOMBRE_SITIO,
+                  'Juegos online para aprender a leer y escribir: vocales, sílabas, primeras palabras y cuentos con '
+                  'audio, más fichas de lectoescritura para imprimir. Gratis y sin registro.', RUTA_LEER,
+                  jsonld=[{'@context': 'https://schema.org', '@type': 'ItemList', 'itemListElement': [
+                      {'@type': 'ListItem', 'position': n, 'url': URL_SITIO + url_de(j.ruta), 'name': j.titulo}
+                      for n, j in enumerate(juegos, 1)]}])
+    return documento(head, 'materia-espanol', cuerpo)
+
+
+def pagina_legal(materias, v, ruta, titulo, migas, resumen, secciones):
+    cuerpo = """%s
+%s
+<main id="contenido" class="pagina">
+  <article class="tema texto-legal">
+%s
+    <p class="nota">Última actualización: %s.</p>
+  </article>
+</main>
+%s""" % (bloque_navegacion(materias), cabecera_banda([('Inicio', '/'), (migas, None)], '📄', titulo, resumen),
+         '\n'.join('    <h2>%s</h2>\n%s' % (esc(h), '\n'.join('    <p>%s</p>' % p for p in ps)) for h, ps in secciones),
+         FECHA_LEGAL, bloque_pie(materias, v))
+    head = cabeza(v, '%s — %s' % (titulo, NOMBRE_SITIO), resumen, ruta)
+    return documento(head, 'pagina-legal', cuerpo)
+
+
+FECHA_LEGAL = '6 de octubre de 2026'
+
+
+def paginas_legales(materias, v):
+    privacidad = [
+        ('Resumen', ['Este sitio no pide registro, no recoge nombres, correos ni ningún dato personal, no usa '
+                     'cookies de seguimiento y no muestra publicidad. Está pensado para que niñas y niños lo usen con tranquilidad.']),
+        ('Qué se guarda en tu dispositivo', [
+            'Para que algunas funciones sirvan, el navegador guarda en tu propio dispositivo (almacenamiento local) '
+            'datos que nunca se envían a ningún servidor: el progreso y las estrellas de las actividades jugadas, '
+            'si el sonido está activado y la vista elegida (estudiante o docente).',
+            'Puedes borrarlos cuando quieras desde <a href="/familias/progreso/">Mi progreso</a> o borrando los datos '
+            'del sitio en tu navegador.']),
+        ('Funcionamiento sin internet', [
+            'Si instalas el sitio, el navegador guarda una copia de las páginas para usarlas sin conexión. '
+            'Esa copia está solo en tu dispositivo.']),
+        ('Servicios de terceros', [
+            'El sitio se aloja en GitHub Pages (GitHub, Inc.), que puede registrar datos técnicos como la dirección IP '
+            'para operar y proteger su servicio, según la '
+            '<a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement">declaración de privacidad de GitHub</a>.',
+            'La tipografía se carga desde Google Fonts, por lo que tu navegador se conecta a servidores de Google al '
+            'abrir las páginas; ver la <a href="https://policies.google.com/privacy?hl=es">política de privacidad de Google</a>.',
+            'Los enlaces a documentos del Ministerio de Educación y otros sitios llevan a páginas con sus propias políticas.']),
+        ('Niñas, niños y adolescentes', [
+            'No pedimos ni tratamos datos personales de menores. Recomendamos que los más pequeños usen el sitio '
+            'acompañados por un adulto. En Colombia, el tratamiento de datos personales se rige por la Ley 1581 de 2012; '
+            'como el sitio no recoge datos personales, no realiza ese tratamiento.']),
+        ('Cambios y contacto', [
+            'Si en el futuro se añade alguna función que use datos (por ejemplo, estadísticas de visitas o un correo '
+            'opcional), esta página se actualizará antes de activarla. Para consultas, escríbenos a través del '
+            '<a href="https://github.com/Juegoseducativosonline/juegoseducativosonline.github.io/issues">repositorio del proyecto</a>.']),
+    ]
+    aviso = [
+        ('Sobre el sitio', ['Juegos Educativos Online es un sitio gratuito de juegos y fichas educativas en español, '
+                            'para estudiantes, docentes y familias.']),
+        ('Uso del contenido', [
+            'Puedes usar los juegos y las fichas, imprimirlas y compartirlas con fines educativos y sin ánimo de lucro, '
+            'citando la fuente. No está permitido venderlos ni presentarlos como propios.',
+            'Los textos de los DBA y de los Estándares Básicos de Competencias son del Ministerio de Educación Nacional '
+            'de Colombia y se citan literalmente, con enlace a la fuente oficial.']),
+        ('Exactitud de la información', [
+            'Revisamos el contenido con cuidado, pero puede contener errores. Si encuentras uno, avísanos en el '
+            '<a href="https://github.com/Juegoseducativosonline/juegoseducativosonline.github.io/issues">repositorio del proyecto</a> '
+            'y lo corregiremos. Las fichas y guías son una ayuda: la planeación de clase corresponde a cada docente.']),
+        ('Enlaces externos', ['Los enlaces a otros sitios se ofrecen como referencia; no somos responsables de su contenido.']),
+    ]
+    return {
+        RUTA_PRIVACIDAD: pagina_legal(materias, v, RUTA_PRIVACIDAD, 'Política de privacidad', 'Privacidad',
+                                      'Qué datos usa este sitio (ninguno personal), qué se guarda en tu dispositivo y '
+                                      'qué servicios externos intervienen.', privacidad),
+        RUTA_AVISO: pagina_legal(materias, v, RUTA_AVISO, 'Aviso legal y condiciones de uso', 'Aviso legal',
+                                 'Condiciones para usar los juegos y las fichas de Juegos Educativos Online.', aviso),
+    }
+
+
 def pagina_progreso(materias, v):
     juegos = [j for m in materias for j in m.juegos]
     cuerpo = """%s
@@ -2054,7 +2247,7 @@ def pagina_secundaria(materias, v):
     <div class="cabecera-materia-titulo">
       <span class="cabecera-materia-icono" aria-hidden="true">🎓</span>
       <div>
-        <h1>Juegos para secundaria</h1>
+        <h1>Juegos interactivos para jóvenes de secundaria</h1>
         <p>Juegos interactivos para jóvenes: relaciona parejas contra el reloj, ordena líneas del tiempo y pon a prueba lo que sabes de química, física, historia, inglés o programación.</p>
       </div>
     </div>
@@ -2063,9 +2256,11 @@ def pagina_secundaria(materias, v):
 </div>
 <main id="contenido" class="pagina">
 %s
+%s
 </main>
 %s""" % (bloque_navegacion(materias), indentar(migas_html([('Inicio', '/'), ('Secundaria', None)]), '    '),
-         plural(total, 'juego', 'juegos'), indentar('\n'.join(grupos), '  '), bloque_pie(materias, v))
+         plural(total, 'juego', 'juegos'), indentar('\n'.join(grupos), '  '), indentar(bloque_seo('secundaria'), '  '),
+         bloque_pie(materias, v))
 
     head = cabeza(v, 'Juegos interactivos para jóvenes de secundaria online — %s' % NOMBRE_SITIO,
                   'Juegos interactivos online gratis para jóvenes de secundaria: parejas, líneas del tiempo y retos '
@@ -2230,7 +2425,8 @@ def service_worker(version, recursos):
 
 
 def sitemap(materias):
-    rutas = (['index.html', RUTA_DOCENTES, RUTA_CURRICULO, RUTA_FAMILIAS, RUTA_SECUNDARIA, RUTA_DESCARGAS]
+    rutas = (['index.html', RUTA_LEER, RUTA_DOCENTES, RUTA_CURRICULO, RUTA_FAMILIAS, RUTA_SECUNDARIA, RUTA_DESCARGAS,
+              RUTA_PRIVACIDAD, RUTA_AVISO]
              + [ruta_grado(g) for g, _ in grados_con_juegos(materias)]
              + [ruta_edad(f) for f, _ in edades_con_juegos(materias)]
              + ['%s/index.html' % m.id for m in materias]
@@ -2304,7 +2500,9 @@ def generar(comprobar):
               'index.html': pagina_inicio(materias, v), '404.html': pagina_404(materias, v),
               'sitemap.xml': sitemap(materias), RUTA_SECUNDARIA: pagina_secundaria(materias, v),
               RUTA_DOCENTES: pagina_docentes(materias, v), RUTA_FAMILIAS: pagina_familias(materias, v),
-              RUTA_CURRICULO: pagina_matriz(materias, v), RUTA_PROGRESO: pagina_progreso(materias, v)}
+              RUTA_CURRICULO: pagina_matriz(materias, v), RUTA_PROGRESO: pagina_progreso(materias, v),
+              RUTA_LEER: pagina_leer(materias, v)}
+    salida.update(paginas_legales(materias, v))
     salida.update(packs(materias, v))
     for grado, juegos_grado in grados_con_juegos(materias):
         salida[ruta_grado(grado)] = pagina_grado(grado, juegos_grado, materias, v)
